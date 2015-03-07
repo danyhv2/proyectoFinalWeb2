@@ -1,0 +1,127 @@
+<div class="contUsuarios" ng-controller="userCtrl">
+        <!--FORMULARIO PARA INGRESAR USUARIOS-->
+          <div class="row">
+            <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" novalidate>
+              <fieldset class="col-md-12">
+                <legend>Datos Personales</legend>
+                <p id="msgSuccess" class="alert alert-success">Usuario ingresado correctamente</p>
+                <div class="col-md-6">
+                  <md-input-container>
+                    <label>Nombre</label>
+                    <input id="inpUser" md-maxlength="30" required name="name" ng-model="userName">
+                      <div ng-show="userForm.$submitted || userForm.name.$touched">
+                        <div class="msgError" ng-show="userForm.name.$error.required">El nombre es un campo requerido.</div>
+                      </div>
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Primer Apellido</label>
+                    <input required name="primerApellido" ng-model="firstLastName">
+                    <div ng-show="userForm.$submitted || userForm.primerApellido.$touched">
+                      <div class="msgError" ng-show="userForm.primerApellido.$error.required">Primer apellido es un campo requerido.</div>
+                    </div>
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Segundo Apellido</label>
+                    <input required name="segundoApellido" ng-model="secondLastName">
+                    <div ng-show="userForm.$submitted || userForm.segundoApellido.$touched">
+                      <div class="msgError" ng-show="userForm.segundoApellido.$error.required">Segundo apellido es un campo requerido.</div>
+                    </div>
+                  </md-input-container>
+                  <md-input-container ng-controller="DatepickerDemoCtrl">
+                    <p class="input-group">
+                      <label>Fecha de Nacimiento</label>
+                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="birthDate" />
+                      <span class="input-group-btn">
+                        <button class="btnDatePicker" type="button" ng-click="open($event)">
+                          <img src="img/datepicker.png">
+                        </button>
+                      </span>
+                    </p>
+                  </md-input-container>
+                </div>
+                <div class="col-md-6">
+                <md-input-container>
+                  <label>Dirección</label>
+                  <input required name="direccion" ng-model="address">
+                  <div ng-show="userForm.$submitted || userForm.direccion.$touched">
+                    <div class="msgError" ng-show="userForm.direccion.$error.required">Dirección es un campo requerido.</div>
+                  </div>
+                </md-input-container>
+                <md-input-container>
+                  <label>Cédula</label>
+                  <input required name="cedula" ng-model="idUser">
+                  <div ng-show="userForm.$submitted || userForm.cedula.$touched">
+                    <div class="msgError" ng-show="userForm.cedula.$error.required">Cédula es un campo requerido.</div>
+                  </div>
+                </md-input-container>
+                 <!--AGREGAR FOTO-->
+                <md-input-container class="upload-div" ng-controller="MyCtrl">    
+                <div class="upload-buttons">
+                <div id="editArea">
+                  <div class="up-buttons">
+                    <div ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.pdf,*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</div>
+                  </div>  
+                </div>
+                </div>
+                <ul ng-show="rejFiles.length > 0" class="response">
+                  <li class="sel-file" ng-repeat="f in rejFiles">
+                    El archivo que esta tratando de subir no es permitido.
+                  </li>
+                </ul>
+                <ul ng-show="files.length > 0" class="response">
+                  <li class="sel-file" ng-repeat="f in files">
+                    <img ng-show="f.dataUrl" ng-src="{{f.dataUrl}}" ng-model="photo" class="thumb">
+                    <span class="progress" ng-show="f.progress >= 0">           
+                      <div style="width:{{f.progress}}%">{{f.progress}}%</div>
+                    </span>       
+                    <button class="button" ng-click="f.upload.abort();f.upload.aborted=true" ng-show="f.upload != null && f.progress < 100 && !f.upload.aborted">Abort</button>
+                    {{f.name}} - size: {{f.size}}B - type: {{f.type}}
+                    <a ng-show="f.result" href="javascript:void(0)" ng-click="f.showDetail = !f.showDetail">details</a>
+                    <div ng-show="f.showDetail">
+                      <div data-ng-show="f.result.result == null">{{f.result}}</div>
+                      <ul>
+                        <li ng-repeat="item in f.result.result">
+                          <div data-ng-show="item.name">file name: {{item.name}}</div>
+                          <div data-ng-show="item.fieldName">name: {{item.fieldName}}</div>
+                          <div data-ng-show="item.size">size on the serve: {{item.size}}</div>
+                          <div data-ng-show="item.value">value: {{item.value}}</div>
+                        </li>
+                      </ul>
+                      <div data-ng-show="f.result.requestHeaders" class="reqh">request headers: {{f.result.requestHeaders}}</div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
+              </md-input-container>
+  <!--FIN AGREGAR FOTO-->
+              </div>
+              </fieldset>
+              <fieldset class="col-md-12">
+                <legend>Datos de Acceso</legend>
+                <div class="col-md-6">
+                  <md-input-container>
+                    <label>Correo</label>
+                    <input type="email" required name="email" ng-model="email">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Contraseña</label>
+                    <input type="password" required name="password" ng-model="password">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                  </md-input-container>
+                </div>
+                <div class="col-md-6"> 
+                </div>
+              </fieldset>
+            
+              <button class="btn btnAddUser" type="submit">Ingresar</button>
+              <div>review form is {{userForm.$valid}}</div>
+             
+         </form> 
+       </div>
+     <!--FIN FORMULARIO-->
+  </div>

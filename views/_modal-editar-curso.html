@@ -1,0 +1,68 @@
+<div class="modal fade" id="modalEditarCurso" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" ng-hide="formVisibility">
+    <div class="modal-dialog">
+        <div class="modal-content" ng-hide="formVisibility">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h1>Información del Curso</h1>
+            </div>
+            <div class="modal-body">
+                <form clas="form-horizontal" ng-submit="logeoA()">
+                    <md-input-container>
+                        <label>
+                            <img src="img/searchIcon.png">
+                            Buscar curso
+                        </label>
+                        <input required name="buscarCurso" ng-model="project.clientName">
+                    </md-input-container>
+                    <md-input-container>
+                    <label>Nombre</label>
+                    <input md-maxlength="30" required name="nombre" ng-model="project.description">
+                    <div ng-messages="projectForm.description.$error">
+                      <div ng-message="required">This is required.</div>
+                      <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                    </div>
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Cuatrimestre</label>
+                    <input required name="cuatrimestre" ng-model="project.clientName">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Año Lectivo</label>
+                    <input required name="anoLectivo" ng-model="project.clientName">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Horario</label>
+                    <input required name="horarioCurso" ng-model="project.clientName">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Créditos</label>
+                    <input required name="creditosCurso" ng-model="project.clientName">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Código</label>
+                    <input required name="codCurso" ng-model="project.clientName">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
+                  </md-input-container>
+                  <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
+                    Inactivar
+                  </md-checkbox>
+                <button class="btn btnAdd" type="submit">Guardar</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

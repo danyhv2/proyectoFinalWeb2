@@ -1,0 +1,89 @@
+<html ng-app="simpleTest">
+
+  <head>
+    <link data-require="bootstrap-css@3.1.1" data-semver="3.2.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+
+    <script data-require="bootstrap@*" data-semver="3.1.1" src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="js/script.js"></script> </head>
+<div id="testCont"></div>
+  <body ng-controller="MyCtrl as myCtrl">
+ <div class='container' id="container2">
+    <div class="row">
+        <md-input-container class="col-md-6 inpSearchUser">
+                  <label>
+                      <img src="img/searchIcon.png">
+                      Buscar usuario por correo
+                  </label>
+
+                  <input class="searchCurso" name="buscarCurso" ng-model="searchUser">
+              </md-input-container>
+        <form name="myCtrl.simpleForm" class="form-horizontal" role="form" novalidate>
+            <div class="form-group">
+                <div ng-class="{'has-warning': myCtrl.simpleForm.city.$dirty}">
+                    <label for="city" class="col-lg-2 control-label">
+                        City
+                        <span ng-show="myCtrl.simpleForm.city.$dirty">*</span>
+                    </label>
+
+                    <div class="col-lg-2">
+                        <input type="text" class="form-control" id="city" name="city"
+                               ng-model="myCtrl.datos[1].Nombre">
+                    </div>
+                </div>
+            </div>
+            <div class='form-group'>
+                <div ng-class="{'has-warning': myCtrl.simpleForm.state.$dirty}">
+                    <label for="state" class="col-lg-2 control-label">
+                        State
+                        <span ng-show="myCtrl.simpleForm.state.$dirty">*</span>
+                    </label>
+                    <div class="col-lg-2">
+                        <input type="text" class="form-control" id="state" name="state"
+                               ng-model="myCtrl.location.state">
+                    </div>
+                </div>
+              
+            </div>
+            <div class='form-group'>
+                <div ng-class="{'has-warning': myCtrl.simpleForm.zip.$dirty}">
+                    <label for="zip" class="col-lg-2 control-label">
+                        Zip
+                        <span ng-show="myCtrl.simpleForm.zip.$dirty">*</span>
+                    </label>
+                    <div class="col-lg-2">
+                        <input type="text" class="form-control" id="zip" name="zip" ng-model="myCtrl.location.zip">
+                    </div>
+                </div>
+              
+            </div>
+            <div class='row'>
+              <button id="btn" type="button" class="btn btn-primary" ng-click='myCtrl.updateModel()'>Update Model</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.7.1/angular-material.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-messages.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>
+<script type="text/javascript" srce="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/3.0.7/FileAPI.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/3.0.7/angular-file-upload-shim.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/danialfarid-angular-file-upload/3.0.7/angular-file-upload-all.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/4.8.0/mode/xml/xml.min.js"></script>
+
+
+<script type="text/javascript" src="js/router.js"></script>
+<script type="text/javascript" src="js/fileUpload.js"></script>
+<script type="text/javascript" src="js/datepicker.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+  </body>
+
+</html>

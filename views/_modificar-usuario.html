@@ -1,0 +1,103 @@
+<div class="contUsuarios" ng-controller="getUserCtrl as user">
+        <!--FORMULARIO PARA INGRESAR USUARIOS-->
+          <div class="row">
+            <form class="formUser formEditUser" ng-mode-="userForm" name="user.userFormEdit" ng-submit="validate() && userForm.$valid" novalidate>
+              <button type="submit" ng-click="user.updateModel()">test</button>
+              <md-input-container class="col-md-6 inpSearchUser">
+                  <label>
+                      <img src="img/searchIcon.png">
+                      Buscar usuario por correo
+                  </label>
+
+                  <input class="searchCurso" name="buscarCurso" ng-model="searchUser">
+              </md-input-container>
+              <fieldset class="col-md-12">
+                <legend>Datos Personales
+                  <label class="lblEdit lblEditUser">
+                    <a class="editUser" href="#">Editar</a>
+                    <img src="img/edit.png" alt="Icono de Editar" ng-click="editarUsuario()" data-toggle="modal" data-target="#modalEditarUsuario">
+                    <!--<div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"></div>-->
+                  </label>
+                </legend>
+                <div class="col-md-6">
+                  <md-input-container>
+                    <label>Nombre</label>
+                    <input name="userName" id="inpNameUser" data-ng-model="user.datos[1].Nombre" ng-disabled="disable">
+                  </md-input-container>
+                  <!--<div class="col-lg-2">
+                        <input type="text" class="form-control" id="city" name="city"
+                               ng-model="user.datos[1].Nombre">
+                    </div>-->
+                  <md-input-container>
+                    <label>Primer Apellido</label>
+                    <input id="inpPrimerApellido" ng-model="getUserCtrl.datos[0].PrimerApellido" ng-disabled="disable">
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Segundo Apellido</label>
+                    <input ng-model="user.datos[0].SegundoApellido" ng-disabled="disable">
+                  </md-input-container>
+                  <md-input-container ng-controller="DatepickerDemoCtrl">
+                    <p class="input-group">
+                      <label>Fecha de Nacimiento</label>
+                      <input id="inpFecha" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="birthDate" />
+                      <span class="input-group-btn">
+                        <button class="btnDatePicker" type="button" ng-click="open($event)">
+                          <img src="img/datepicker.png">
+                        </button>
+                      </span>
+                    </p>
+                  </md-input-container>
+                  <button class="btn btnAddUser saveUser" type="submit">Guardar</button>
+                  <button class="btn btnAdd cancelUser" type="submit" ng-click="cancelEditarUsuario()">Cancelar</button>
+                </div>
+                <div class="col-md-6">
+                <md-input-container>
+                  <label>Dirección</label>
+                  <input ng-model="datos[0].Direccion" ng-disabled="disable">
+                </md-input-container>
+                <md-input-container>
+                  <label>Cédula</label>
+                  <input ng-model="datos[0].Cedula" ng-disabled="disable">
+                </md-input-container>
+              </div>
+              </fieldset>
+              <fieldset class="col-md-12">
+                <legend>Datos de Acceso
+                  <label class="lblEdit lblEditUser">
+                    <a class="editUser" href="#">Editar</a>
+                    <img src="img/edit.png" alt="Icono de Editar" ng-click="editarUsuarioAcceso()" data-toggle="modal" data-target="#modalEditarUsuario">
+                  </label>
+                </legend>
+                <div class="col-md-6">
+                  <md-input-container>
+                    <label>Correo</label>
+                    <input ng-model="datos[0].Correo" ng-disabled="disable2">
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Contraseña</label>
+                    <input type="password" ng-model="datos[0].Contrasena" ng-disabled="disable2">
+                  </md-input-container>
+                  <md-input-container class="inpNewPass">
+                    <label>Contraseña nueva</label>
+                    <input class="inpNew" type="password" ng-disabled="disable2">
+                  </md-input-container>
+                  <md-input-container class="inpNewPassConfirm">
+                    <label>Confirmar contraseña</label>
+                    <input class="inpConfirm" type="password" ng-disabled="disable2">
+                    <div class="msgError errPass">Contraseña nueva y Confirmar contraseña deben ser iguales.</div>
+                  </md-input-container>
+                  <button class="btn btnAddUser saveUserAccess" type="submit" ng-click="validarContrasena()">Guardar</button>
+                  <button class="btn btnAdd cancelUserAccess" type="submit" ng-click="cancelUsuarioAcceso()">Cancelar</button
+                </div>
+                <div class="col-md-6"> 
+                </div>
+              </fieldset>
+            
+              <button class="btn btnAddUser" type="submit">Ingresar</button>
+              <div>review form is {{userForm.$valid}}</div>
+             
+         </form>
+
+       </div>
+     <!--FIN FORMULARIO-->
+  </div>

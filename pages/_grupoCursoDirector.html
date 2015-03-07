@@ -1,0 +1,70 @@
+<div class ="contenedorRubricasUi" ng-controller='directorController as este'>
+    <div>
+        <h3>Grupos creados</h3>
+        <button type="button" class="simpleColor btn"  data-toggle="modal" data-target="#modelCrearGrupoCurso">Crear nuevo</button>
+
+            <!-- Modal -->
+    <div class="modal fade" id="modelCrearGrupoCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Crear</h4>
+                </div>
+                <div class="rayaCentralMorada"></div>
+                <div class="modal-body cajaDelmodal">
+                    <div class="group">
+                        <input ng-model="infoIngresada1" class="botonMaterial" id="a"type="text" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Nombre del curso</label>
+                    </div>
+                    <div class="group">
+                        <input ng-model="infoIngresada2" class="botonMaterial" id="a"type="text" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Nombre del grupo</label>
+                    </div>
+                    <div class="group">
+                        <input ng-model="infoIngresada3" class="botonMaterial" id="a"type="text" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Horario</label>
+                    </div>
+                    <div class="group">
+                        <input ng-model="infoIngresada4" class="botonMaterial" id="a"type="text" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Estudiantes</label>
+                    </div>
+                    <div class="group">
+                        <input ng-model="infoIngresada5" class="botonMaterial" id="a"type="text" required>
+                        <span class="highlight"></span>
+                        <span class="bar"></span>
+                        <label>Profesor</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="simpleColor btn" data-dismiss="modal" ng-click="editCreat()">
+                    Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Modal end-->
+        <div class="contenedorDeCajas">
+        <table class="table table-hover">
+            <thead>Nombre del curso</thead>
+            <thead>Nombre del grupo</thead>
+            <tbody>
+                 <tr ng-repeat="grupos in este.datos.GruposDeCurso">
+                     <td>{{grupos.NombreDelCurso}}</td> <td>{{grupos.NombreDelGrupo}}</td>
+                     <td><img src="img/edit.png" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
+                 </tr>
+            </tbody>
+        </table>
+         </div>
+    </div>
+</div>
