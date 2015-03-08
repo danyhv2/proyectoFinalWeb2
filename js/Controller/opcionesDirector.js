@@ -3,14 +3,98 @@
 
     module.controller('directorController', function($scope) {
         this.datos = archivos;
-        this.valorActual = [];
+        var valorActualE = [];
+        var valorActualP = [];
         $('.errormsj').hide();
         $('.errormsj2').hide();
-        $scope.edit = function(valores) {
 
+        $scope.del = function(grupos){
+            var z = $scope.este.datos.GruposDeCurso.indexOf(grupos);
+            $scope.este.datos.GruposDeCurso.splice(z, 1);
+        }
+
+        $scope.horChan = function(){
+          $scope.par3 = $scope.nuevH
+        }
+
+        $scope.editCrus = function(inf) {
+
+           var valorActual = inf;
+           $scope.estT = [];
+           $scope.proT = [];
+
+           for(var j=0; j< valorActual.Estudiantes.length;j++){
+                $scope.estT.push(valorActual.Estudiantes[j].NombreEstudiante);
+            }
+
+            for(var k=0; k< valorActual.Profesores.length;k++){
+                $scope.proT.push(valorActual.Profesores[k].NombreProfesor);
+            }
+
+            $scope.par1 = valorActual.NombreDelCurso;
+            $scope.par2 = valorActual.NombreDelGrupo;
+            $scope.par3 = valorActual.Horario;
+            $scope.par4 = $scope.proT;
+            $scope.par5 = $scope.estT;
+
+        }
+
+        $scope.estudAdd = function(){
+            var tempEs = $scope.infoIngresada4;
+            var eAdd = '';
+
+            $('.EstudTempor').append('<tr><td class="nombreETemp">'+tempEs.Estudiante+'</td></tr>')
+
+            eAdd = tempEs.Estudiante;
+
+            valorActualE.push({
+            "NombreEstudiante" : eAdd,
+             })
+        }
+
+        $scope.profAdd = function(){
+            var tempPr = $scope.infoIngresada5;
+            var pAdd = '';
+            $('.ProfeTempor').append('<tr><td class="nombrePTemp">'+tempPr.Profesor+'</td></tr>')
+             
+              pAdd = tempPr.Profesor;
+        
+                  valorActualP.push({
+                  "NombreProfesor" : pAdd,
+                 })
+
+              }
+
+        $scope.guarNuevGr = function(){
+            var grupoTemp = {
+                "NombreDelCurso": $scope.infoIngresada1,
+                "NombreDelGrupo": $scope.infoIngresada2,
+                "Horario": $scope.infoIngresada3,
+                "Estudiantes": valorActualE,
+                "Profesores": valorActualP,
+            }
+
+            archivos.GruposDeCurso.push(grupoTemp);
+            document.getElementById("modalNuevoGru").reset();
+
+            $(".ProfeTempor").empty();
+            $(".EstudTempor").empty();
+            $('#selHorario').prop('selectedIndex',0);
+        }
+
+        $scope.resetForm = function(){
+            
+            document.getElementById("modalNuevoGru").reset();
+            $(".ProfeTempor").empty();
+            $(".EstudTempor").empty();
+            $('#selHorario').prop('selectedIndex',0);
+        }
+
+
+        $scope.edit = function(valores) {
             var t = $scope.este.datos.RubricasCreadas.indexOf(valores);
 
-            valorActual = valores;
+            var valorActual = valores;
             $scope.entrada1 = valorActual.NombreDeRubrica;
             $scope.entrada2 = valorActual.Asistencia;
             $scope.entrada3 = valorActual.Concepto;
@@ -130,59 +214,53 @@ var archivos = {
         "Horario": "Noche",
         "Estudiantes": [{
             "NombreEstudiante" : "Frodo",
-            "ApellidoEstudiante" : "Bolson"
         },{
             "NombreEstudiante" : "Harry",
-            "ApellidoEstudiante" : "Potter"
         }],
 
         "Profesores": [{
             "NombreProfesor" : "Israel",
-            "ApellidoProfesor" : "Ortega"
         },{
             "NombreProfesor" : "Carlos",
-            "ApellidoProfesor" : "Torres"
         }],
-    },
-    {
-        "NombreDelCurso": "Proyecto Web 2",
-        "NombreDelGrupo": "Grupo 2",
-        "Horario": "Noche",
-        "Estudiantes": [{
-            "NombreEstudiante" : "Frodo",
-            "ApellidoEstudiante" : "Bolson"
-        },{
-            "NombreEstudiante" : "Harry",
-            "ApellidoEstudiante" : "Potter"
-        }],
-
-        "Profesores": [{
-            "NombreProfesor" : "Israel",
-            "ApellidoProfesor" : "Ortega"
-        },{
-            "NombreProfesor" : "Carlos",
-            "ApellidoProfesor" : "Torres"
-        }],
-    },
-    {
+    },{
         "NombreDelCurso": "Proyecto Web 3",
         "NombreDelGrupo": "Grupo 3",
         "Horario": "Noche",
         "Estudiantes": [{
             "NombreEstudiante" : "Frodo",
-            "ApellidoEstudiante" : "Bolson"
+    
         },{
             "NombreEstudiante" : "Harry",
-            "ApellidoEstudiante" : "Potter"
+     
         }],
 
         "Profesores": [{
             "NombreProfesor" : "Israel",
-            "ApellidoProfesor" : "Ortega"
+ 
         },{
             "NombreProfesor" : "Carlos",
-            "ApellidoProfesor" : "Torres"
+  
         }],
-    }
-    ]
+    }],
+
+    "EstudiantesNormales": [{
+        "Estudiante": "Mario Cascante",
+        },{
+        "Estudiante": "Mariana Cascante",
+        },{
+        "Estudiante": "Helen Post ",
+        },{
+        "Estudiante": "Josiah Brandt"
+    }],
+
+    "ProfesoresNormales": [{
+        "Profesor": "Jennifer Moralez",
+        },{
+        "Profesor": "Henrietta Mundo",
+        },{
+        "Profesor": "Alfonso Collins ",
+        },{
+        "Profesor": "Robert Smith"
+    }]
 }

@@ -463,44 +463,69 @@ form button {
 }*/
 /*Estilos Guillermo*/
 /* line 3, ../sass/_rubricaEstilo.scss */
+.jusH {
+  display: inline;
+}
+
+/* line 7, ../sass/_rubricaEstilo.scss */
+.medida {
+  height: 31.5em !important;
+}
+
+/* line 11, ../sass/_rubricaEstilo.scss */
+.medida2 {
+  height: 38em !important;
+}
+
+/* line 15, ../sass/_rubricaEstilo.scss */
+.nays {
+  margin-top: 2em;
+}
+
+/* line 19, ../sass/_rubricaEstilo.scss */
+.comie {
+  margin-top: 2em;
+}
+
+/* line 23, ../sass/_rubricaEstilo.scss */
 #ContenedorRubricas {
   max-width: 60em;
   height: 50em;
 }
 
-/* line 8, ../sass/_rubricaEstilo.scss */
+/* line 28, ../sass/_rubricaEstilo.scss */
 .errormsj {
   width: 83%;
 }
 
-/* line 12, ../sass/_rubricaEstilo.scss */
+/* line 32, ../sass/_rubricaEstilo.scss */
 .errormsj2 {
   width: 78%;
   margin-left: 20%;
 }
 
-/* line 17, ../sass/_rubricaEstilo.scss */
+/* line 37, ../sass/_rubricaEstilo.scss */
 .izquierdaCaja {
   width: 40%;
   margin-left: 1%;
   margin-right: 1%;
 }
 
-/* line 23, ../sass/_rubricaEstilo.scss */
+/* line 43, ../sass/_rubricaEstilo.scss */
 .derechaCaja {
   width: 55%;
   position: relative;
 }
-/* line 26, ../sass/_rubricaEstilo.scss */
+/* line 46, ../sass/_rubricaEstilo.scss */
 .derechaCaja h3 {
   margin-left: 10%;
 }
-/* line 29, ../sass/_rubricaEstilo.scss */
+/* line 49, ../sass/_rubricaEstilo.scss */
 .derechaCaja .estiloCaja {
   padding-left: 10%;
 }
 
-/* line 34, ../sass/_rubricaEstilo.scss */
+/* line 54, ../sass/_rubricaEstilo.scss */
 .rayaCentral {
   height: 30em;
   width: 1%;
@@ -508,7 +533,7 @@ form button {
   position: absolute;
 }
 
-/* line 41, ../sass/_rubricaEstilo.scss */
+/* line 61, ../sass/_rubricaEstilo.scss */
 .rayaCentralMorada {
   height: 33em;
   width: 10%;
@@ -517,19 +542,19 @@ form button {
   position: absolute;
 }
 
-/* line 49, ../sass/_rubricaEstilo.scss */
+/* line 69, ../sass/_rubricaEstilo.scss */
 .simpleColor {
   background-color: #722d7b !important;
   color: #fff !important;
 }
 
-/* line 54, ../sass/_rubricaEstilo.scss */
+/* line 74, ../sass/_rubricaEstilo.scss */
 .cajaDelmodal div {
   margin-left: 20%;
   margin-top: 1%;
 }
 
-/* line 59, ../sass/_rubricaEstilo.scss */
+/* line 79, ../sass/_rubricaEstilo.scss */
 .contenedorDeCajas {
   height: 30em;
   overflow-y: scroll;
