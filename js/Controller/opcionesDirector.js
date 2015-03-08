@@ -5,12 +5,11 @@
         this.datos = archivos;
         this.valorActual = [];
         $('.errormsj').hide();
-        $('.errormsj').css({"width": "77%"});
+        $('.errormsj2').hide();
         $scope.edit = function(valores) {
 
             var t = $scope.este.datos.RubricasCreadas.indexOf(valores);
 
-            valorActual = valores;
             valorActual = valores;
             $scope.entrada1 = valorActual.NombreDeRubrica;
             $scope.entrada2 = valorActual.Asistencia;
@@ -21,6 +20,9 @@
 
             $scope.editCreat = function() {
 
+                totalE = Number($scope.entrada2) + Number($scope.entrada3) + Number($scope.entrada4) + Number($scope.entrada5) + Number($scope.entrada6);
+
+                if (totalE === 100) {
                 var nuevaRubricaEditada = {
                     "NombreDeRubrica": $scope.entrada1,
                     "Asistencia": $scope.entrada2,
@@ -31,7 +33,16 @@
                 };
                 archivos.RubricasCreadas.push(nuevaRubricaEditada);
                 $scope.este.datos.RubricasCreadas.splice(t, 1);
+                $('.errormsj2').hide();
+            }else{
+                $('.errormsj2').show();
             }
+            }
+        }
+
+        $scope.delR = function(valores) {
+            var f = $scope.este.datos.RubricasCreadas.indexOf(valores);
+            $scope.este.datos.RubricasCreadas.splice(f, 1);
         }
 
         $scope.add = function() {
@@ -47,6 +58,7 @@
                     "Tareas": $scope.int5
                 }
                 archivos.RubricasCreadas.push(nuevaRubricaCreada);
+                document.getElementById("formAddR").reset();
                 $('.errormsj').hide();
             }else{
                     $('.errormsj').show();

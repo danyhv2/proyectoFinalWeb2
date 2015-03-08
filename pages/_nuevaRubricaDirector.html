@@ -7,6 +7,7 @@
                  <tr ng-repeat="valores in este.datos.RubricasCreadas">
                      <td>{{valores.NombreDeRubrica}}</td>
                      <td><img src="img/edit.png"  ng-click="edit(valores)" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
+                     <td><img src="img/del.png"  ng-click="delR(valores)" style="cursor: pointer"></td>
                  </tr>
             </tbody>
         </table>
@@ -16,44 +17,39 @@
     <div class="pull-right derechaCaja">
         <div class="rayaCentral"></div>
         <h3>Nueva Rubrica</h3>
-        <form name="RubForm" ng-submit="RubForm.$valid && add()" class="estiloCaja" novalidate>
+        <form id="formAddR" name="RubForm" ng-submit="RubForm.$valid && add()" class="estiloCaja" novalidate>
             <ng-form name="rubricaFormDirector">
-                <div class="group">      
-                    <input class="botonMaterial"type="text" ng-model="newNombreRubrica" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
+
+                  <md-input-container>
                     <label>Nombre de la rubrica</label>
-                </div>
-                <div class="group">      
-                    <input class="botonMaterial "type="text" ng-model="int1" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
+                    <input md-maxlength="10" required name="nombreRubrica" ng-model="newNombreRubrica">
+                  </md-input-container>
+
+                  <md-input-container>
                     <label>{{este.datos.ParamatrosRubrica[0].parametro1}}</label>
-                </div>
-                <div class="group">      
-                    <input class="botonMaterial "type="text" ng-model="int2" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
+                    <input md-maxlength="2" required name="nombreRubrica" ng-model="int1">
+                  </md-input-container>
+
+                  <md-input-container>
                     <label>{{este.datos.ParamatrosRubrica[1].parametro2}}</label>
-                </div>
-                <div class="group">      
-                    <input class="botonMaterial "type="text" ng-model="int3" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
+                    <input md-maxlength="2" required name="nombreRubrica" ng-model="int2">
+                  </md-input-container>
+
+                  <md-input-container>
                     <label>{{este.datos.ParamatrosRubrica[2].parametro3}}</label>
-                </div>
-                <div class="group">      
-                    <input class="botonMaterial "type="text" ng-model="int4" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
+                    <input md-maxlength="2" required name="nombreRubrica" ng-model="int3">
+                  </md-input-container>
+
+                  <md-input-container>
                     <label>{{este.datos.ParamatrosRubrica[3].parametro4}}</label>
-                </div>
-                <div class="group">      
-                    <input class="botonMaterial "type="text" ng-model="int5" required>
-                    <span class="highlight"></span>
-                    <span class="bar"></span>
+                    <input md-maxlength="2" required name="nombreRubrica" ng-model="int4">
+                  </md-input-container>
+
+                  <md-input-container>
                     <label>{{este.datos.ParamatrosRubrica[4].parametro5}}</label>
-                </div>
+                    <input md-maxlength="2" required name="nombreRubrica" ng-model="int5">
+                  </md-input-container>
+
             </ng-form>
             <div class="alert alert-danger errormsj">La suma de los porcentajes no es igual a 100.</div>
             <input type="submit" class="btn agregarBtn simpleColor" value="Agregar" id="agregarubrica">
@@ -71,46 +67,53 @@
                 </div>
                 <div class="rayaCentralMorada"></div>
                 <div class="modal-body cajaDelmodal">
+
                     <div class="group">
-                        <input ng-model="entrada1" class="botonMaterial" id="a"type="text" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Nombre De Rubrica</label>
+                        <md-input-container>
+                            <label>Nombre De Rubrica</label>
+                            <input md-maxlength="10" required name="nombreEditRubrica" ng-model="entrada1">
+                        </md-input-container>
                     </div>
+
                     <div class="group">
-                        <input ng-model="entrada2" class="botonMaterial" id="a"type="text" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Asistencia</label>
+                        <md-input-container>
+                            <label>Asistencia</label>
+                            <input md-maxlength="2" required name="nombreEditRubrica" ng-model="entrada2">
+                        </md-input-container>
                     </div>
+
                     <div class="group">
-                        <input ng-model="entrada3" class="botonMaterial" id="a"type="text" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Concepto</label>
+                        <md-input-container>
+                            <label>Concepto</label>
+                            <input md-maxlength="2" required name="nombreEditRubrica" ng-model="entrada3">
+                        </md-input-container>
                     </div>
+
                     <div class="group">
-                        <input ng-model="entrada4" class="botonMaterial" id="a"type="text" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Examen 1</label>
+                        <md-input-container>
+                            <label>Examen 1</label>
+                            <input md-maxlength="2" required name="nombreEditRubrica" ng-model="entrada4">
+                        </md-input-container>
                     </div>
+
                     <div class="group">
-                        <input ng-model="entrada5" class="botonMaterial" id="a"type="text" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Examen 2</label>
+                        <md-input-container>
+                            <label>Examen 2</label>
+                            <input md-maxlength="2" required name="nombreEditRubrica" ng-model="entrada5">
+                        </md-input-container>
                     </div>
+
                     <div class="group">
-                        <input ng-model="entrada6" class="botonMaterial" id="a"type="text" required>
-                        <span class="highlight"></span>
-                        <span class="bar"></span>
-                        <label>Tareas</label>
+                        <md-input-container>
+                            <label>Tareas</label>
+                            <input md-maxlength="2" required name="nombreEditRubrica" ng-model="entrada6">
+                        </md-input-container>
                     </div>
                 </div>
+                <div class="alert alert-danger errormsj2">La suma de los porcentajes no es igual a 100.</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="simpleColor btn" data-dismiss="modal" ng-click="editCreat()">
+                    <button type="button" class="simpleColor btn" ng-click="editCreat()">
                     Guardar</button>
                 </div>
             </div>
