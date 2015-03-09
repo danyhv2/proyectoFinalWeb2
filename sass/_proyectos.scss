@@ -1,0 +1,24 @@
+.cabecera-votacion h2, .cabecera-votacion a{
+	display: inline-block;
+}
+.wrap{
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #f4f3f3;
+}
+.proyecto-top{
+	width: 270px;
+	border: 1px solid gray;
+}
+.proyecto-info{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-wrap:wrap;
+	justify-content:space-around;
+}
+.proyecto-slider{
+	margin: 8px 9px;
+}

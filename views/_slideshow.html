@@ -1,0 +1,12 @@
+<div class="slideshow-container">
+    <ul class="slideshow">
+        <li>
+            <img ng-src="{{activeImg.src}}" alt="{{activeImg.alt}}" width="840">
+        </li>
+    </ul>
+    <ul class="slideshow-thumbs">
+        <li ng-repeat="img in images">
+            <a ng-click="ponerImagen(img.indice)"></a>
+        </li>
+    </ul>
+</div>
