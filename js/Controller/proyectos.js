@@ -20,7 +20,7 @@ moduleProyectos.directive('sliderProyectos', [
 }]);
 moduleProyectos.controller('ProyectoCtrl', ['$scope', 'ControlProyecto',
 	function ($scope, ControlProyecto) {
-		$scope.proyectos = ControlProyectos.obtenerTodos();
+		$scope.proyectos = ControlProyecto.obtenerTodos();
 		$scope.enVotacion = true;
 }]);
 

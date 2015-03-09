@@ -2,7 +2,7 @@ var route = angular.module('rutas', ['ui.router', 'module', 'routerApp', 'module
 
 route.config(function($stateProvider, $urlRouterProvider) {
     
-    $urlRouterProvider.otherwise('/usuario');
+    $urlRouterProvider.otherwise('/');
     
     $stateProvider
         
@@ -10,12 +10,12 @@ route.config(function($stateProvider, $urlRouterProvider) {
 	  .state('home', {
 		url: '/',
 		templateUrl: 'pages/_home.html'
-		})
-		.state('perfil', {
-			url: '/perfil',
-			templateUrl: 'pages/_perfil.html',
-			controller: 'PerfilCtrl'
-		})
+	})
+	.state('perfil', {
+		url: '/perfil',
+		templateUrl: 'pages/_perfil.html',
+		controller: 'PerfilCtrl'
+	})
           .state('grupo', {
             url: '/grupo',
             templateUrl: 'pages/_opcionesDirector.html'
