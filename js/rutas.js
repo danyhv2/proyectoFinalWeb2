@@ -22,7 +22,7 @@ route.config(function($stateProvider, $urlRouterProvider) {
         })
             .state('grupo2', {
             url: '/grupo2',
-            templateUrl: 'views/_ingresarGrupo.html',
+            templateUrl: 'pages/_navProfesor.html',
             controller: 'gruposController'
         })
         
