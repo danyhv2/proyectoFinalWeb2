@@ -38,11 +38,20 @@ route.config(function ($stateProvider, $urlRouterProvider) {
 			templateUrl: 'pages/_navProfesor.html',
 			controller: 'gruposController'
 		})
+		    .state('grupo2', {
+            url: '/grupo2',
+            templateUrl: 'views/_ingresarGrupo.html',
+            controller: 'gruposController'
+        })
+            .state('reportes', {
+            url: '/reportes',
+            templateUrl: 'pages/_reportes.html'
+        })
 
 
 	// ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
 
-           .state('configuracion', {
+    /*       .state('configuracion', {
             url: '/configuracion',
             templateUrl: 'pages/_opcionesConfig.html'
         })
@@ -58,7 +67,7 @@ route.config(function ($stateProvider, $urlRouterProvider) {
             .state('reportes', {
             url: '/reportes',
             templateUrl: 'pages/_reportes.html'
-        })
+        })*/
         
     // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
                 
