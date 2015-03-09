@@ -28,7 +28,7 @@ h1, legend{
 						font-size:13px;
 						color:rgb(244,67,54);
 					}
-					#msgSuccess{
+					#msgSuccess, .msgErrorUser{
 						width: 272px;
 						margin-left: 18px;
 						margin-top: 12px;
@@ -62,6 +62,10 @@ h1, legend{
 				.saveUser, .cancelUser, .saveUserAccess, .cancelUserAccess, .inpNewPass, .inpNewPassConfirm{
 					display:none;
 					}
+				.imgProfile{
+					width:70px;
+					height:70px;
+				}
 			}	
 			.btnDatePicker{
 				border: none;
@@ -81,7 +85,7 @@ h1, legend{
 md-checkbox.md-default-theme.md-checked .md-icon {
 		background-color:rgba(104, 57, 119, 0.87);
 	}
-/*BUTTON UPLOAD
+/*BUTTON UPLOAD*/
 
 .upload-buttons input[type="file"] {	
 	width: 6.3em \0/IE9;
@@ -265,4 +269,4 @@ form button {
 
 :not(output):-moz-ui-invalid {
     box-shadow: none;
-}*/
+}

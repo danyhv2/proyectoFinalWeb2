@@ -7,10 +7,24 @@ route.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
         
         // HOME STATES AND NESTED VIEWS ========================================
+	  .state('home', {
+		url: '/',
+		templateUrl: 'pages/_home.html'
+		})
+		.state('perfil', {
+			url: '/perfil',
+			templateUrl: 'pages/_perfil.html',
+			controller: 'PerfilCtrl'
+		})
           .state('grupo', {
             url: '/grupo',
             templateUrl: 'pages/_opcionesDirector.html'
         })
+	  .state('portafolio', {
+	    url: '/portafolio',
+	    templateUrl: 'pages/_portafolio.html',
+			controller: 'PortafolioCtrl'
+	})
 
            .state('configuracion', {
             url: '/configuracion',
@@ -22,7 +36,7 @@ route.config(function($stateProvider, $urlRouterProvider) {
         })
             .state('grupo2', {
             url: '/grupo2',
-            templateUrl: 'views/_ingresarGrupo.html',
+            templateUrl: 'pages/_navProfesor.html',
             controller: 'gruposController'
         })
         

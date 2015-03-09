@@ -1,34 +1,34 @@
-<div class="contCarreras" ng-controller="AppCtrl">
+<div class="contCarreras" ng-controller="addCarreraCtrl">
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
-            <form class="formUser">
+            <form class="formUser" ng-model="userForm" name="userForm" ng-submit="validateCarrera() && userForm.$valid" novalidate>
               <fieldset class="col-md-6">
                 <legend>Información de la Carrera</legend>
                 <div class="col-md-12">
+                <p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>
+                <p class="msgErrorUser alert alert-danger">El usuario que quiere ingresar ya fue agregado anteriormente.</p>
                   <md-input-container>
                     <label>Nombre</label>
-                    <input md-maxlength="30" required name="nombre" ng-model="project.description">
-                    <div ng-messages="projectForm.description.$error">
-                      <div ng-message="required">This is required.</div>
-                      <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
-                    </div>
+                    <input id="inpUser" md-maxlength="30" required name="name" ng-model="nombreCarrera">
+                      <div ng-show="userForm.$submitted || userForm.name.$touched">
+                        <div class="msgError" ng-show="userForm.name.$error.required">El nombre es un campo requerido.</div>
+                      </div>
                   </md-input-container>
                   <md-input-container>
                     <label>Código</label>
-                    <input required name="codCarrera" ng-model="project.clientName">
-                    <div ng-messages="projectForm.clientName.$error">
-                      <div ng-message="required">This is required.</div>
+                    <input required name="primerApellido" ng-model="codigoCarrera">
+                    <div ng-show="userForm.$submitted || userForm.primerApellido.$touched">
+                      <div class="msgError" ng-show="userForm.primerApellido.$error.required">Debe ingresar un código para la carrera.</div>
                     </div>
                   </md-input-container>
                   <md-input-container>
                     <label>Director de Carrera</label>
-                    <input required name="dirCarrera" ng-model="project.clientName">
-                    <div ng-messages="projectForm.clientName.$error">
-                      <div ng-message="required">This is required.</div>
+                    <input required name="segundoApellido" ng-model="dirCarrera">
+                    <div ng-show="userForm.$submitted || userForm.segundoApellido.$touched">
+                      <div class="msgError" ng-show="userForm.segundoApellido.$error.required">Debe ingresar un nombre para el Director de Carrera.</div>
                     </div>
                   </md-input-container>
                 </div>
-                
               </fieldset>
               <div class="hidden-xs col-md-4 col-md-offset-2">
                 <label class="lblEdit">
@@ -39,6 +39,7 @@
               <div class="col-xs-12">   
               <button class="btn btnAddUser" type="submit">Ingresar</button>
               </div>
+              <div>review form is {{formCarrera.$valid}}</div>
              
          </form> 
 
