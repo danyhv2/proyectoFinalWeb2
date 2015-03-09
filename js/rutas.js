@@ -47,11 +47,11 @@ route.config(function ($stateProvider, $urlRouterProvider) {
             url: '/reportes',
             templateUrl: 'pages/_reportes.html'
         })
-
+});
 
 	// ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
 
-           .state('configuracion', {
+/*           .state('configuracion', {
             url: '/configuracion',
             templateUrl: 'pages/_opcionesConfig.html'
         })
@@ -67,7 +67,7 @@ route.config(function ($stateProvider, $urlRouterProvider) {
             .state('reportes', {
             url: '/reportes',
             templateUrl: 'pages/_reportes.html'
-        })
+        })*/
         
     // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
                 
