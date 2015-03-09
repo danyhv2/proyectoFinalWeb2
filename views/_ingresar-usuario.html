@@ -4,8 +4,7 @@
             <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" novalidate>
               <fieldset class="col-md-12">
                 <legend>Datos Personales</legend>
-                <p id="msgSuccess" class="alert alert-success">Usuario ingresado correctamente.</p>
-                <p class="msgErrorUser alert alert-danger">El usuario que quiere ingresar ya fue agregado anteriormente.</p>
+                <p id="msgSuccess" class="alert alert-success">Usuario ingresado correctamente</p>
                 <div class="col-md-6">
                   <md-input-container>
                     <label>Nombre</label>
@@ -31,7 +30,7 @@
                   <md-input-container ng-controller="DatepickerDemoCtrl">
                     <p class="input-group">
                       <label>Fecha de Nacimiento</label>
-                      <input id="inpFechaNacimiento"  type="text" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="birthDate" />
+                      <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="birthDate" />
                       <span class="input-group-btn">
                         <button class="btnDatePicker" type="button" ng-click="open($event)">
                           <img src="img/datepicker.png">
@@ -43,7 +42,7 @@
                 <div class="col-md-6">
                 <md-input-container>
                   <label>Dirección</label>
-                  <input id="dirUser" required name="direccion" ng-model="address">
+                  <input required name="direccion" ng-model="address">
                   <div ng-show="userForm.$submitted || userForm.direccion.$touched">
                     <div class="msgError" ng-show="userForm.direccion.$error.required">Dirección es un campo requerido.</div>
                   </div>
@@ -60,7 +59,7 @@
                 <div class="upload-buttons">
                 <div id="editArea">
                   <div class="up-buttons">
-                    <button class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.pdf,*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</button>
+                    <div ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.pdf,*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</div>
                   </div>  
                 </div>
                 </div>
@@ -102,10 +101,10 @@
                 <div class="col-md-6">
                   <md-input-container>
                     <label>Correo</label>
-                    <input id="inpEmail" type="email" required name="email" ng-model="email">
-                    <div ng-show="userForm.$submitted || userForm.cedula.$touched">
-                      <div class="msgError" ng-show="userForm.email.$error.required">Correo es un campo requerido.</div>
-                  </div>
+                    <input type="email" required name="email" ng-model="email">
+                    <div ng-messages="projectForm.clientName.$error">
+                      <div ng-message="required">This is required.</div>
+                    </div>
                   </md-input-container>
                   <md-input-container>
                     <label>Contraseña</label>
