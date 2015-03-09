@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.bootstrap.demo','ui.router', 'fileUpload', 'updateUser', 'module', 'rutas', 'moduleDocs', 'crearGrupo']);
+var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.bootstrap.demo','ui.router', 'fileUpload', 'updateUser', 'module', 'rutas', 'moduleDocs','moduleReport', 'crearGrupo']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     

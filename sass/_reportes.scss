@@ -24,12 +24,6 @@
 	h4{
 		display:inline-block;
 	}
-	.link{
-		a{
-			color: #752977;
-			cursor:pointer;
-		}
-	}
 	h3{
 		font-size:0.93223em!important;
 		font-weight: bold!important;
@@ -54,5 +48,12 @@ md-item-content.div{
 		display: inline-block;
 		font-size: 13px;
 		margin-left: 1em;
+	}
+}
+
+.link{
+	a{
+		color: #752977;
+		cursor:pointer;
 	}
 }

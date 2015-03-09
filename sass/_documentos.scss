@@ -56,10 +56,15 @@
 		color: #722d7d;
 		font-weight: normal;
 		display: inline-block;
+		margin: 0;
 	}
 	
 	.date-and-group{
 		display: inline-block;
+		
+		span{
+			margin-left: 1em;
+		}
 	}
 	.ordenar-links{
 		text-align: right;

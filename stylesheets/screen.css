@@ -623,71 +623,76 @@ form button {
   color: #722d7d;
   font-weight: normal;
   display: inline-block;
+  margin: 0;
 }
-/* line 61, ../sass/_documentos.scss */
+/* line 62, ../sass/_documentos.scss */
 .documentos .date-and-group {
   display: inline-block;
 }
-/* line 64, ../sass/_documentos.scss */
+/* line 65, ../sass/_documentos.scss */
+.documentos .date-and-group span {
+  margin-left: 1em;
+}
+/* line 69, ../sass/_documentos.scss */
 .documentos .ordenar-links {
   text-align: right;
 }
-/* line 66, ../sass/_documentos.scss */
+/* line 71, ../sass/_documentos.scss */
 .documentos .ordenar-links a {
   color: #5F3870;
 }
-/* line 70, ../sass/_documentos.scss */
+/* line 75, ../sass/_documentos.scss */
 .documentos p {
   margin: 0.5em 0 0.3em 0;
 }
 
-/* line 76, ../sass/_documentos.scss */
+/* line 81, ../sass/_documentos.scss */
 .mejores-proyectos .logo {
   background-color: #722d7d;
   padding: 0.5em;
   margin: 0;
 }
-/* line 81, ../sass/_documentos.scss */
+/* line 86, ../sass/_documentos.scss */
 .mejores-proyectos .logo h1 {
   font-size: 20px;
   color: #ffffff;
   margin-left: 0.5em;
 }
-/* line 87, ../sass/_documentos.scss */
+/* line 92, ../sass/_documentos.scss */
 .mejores-proyectos .information {
   border: 1px solid #e3e1e1;
   margin-top: 1em;
   padding: 1em;
 }
 
-/* line 96, ../sass/_documentos.scss */
+/* line 101, ../sass/_documentos.scss */
 .modal-documentos .modal-body input {
   margin-bottom: 1em;
 }
-/* line 99, ../sass/_documentos.scss */
+/* line 104, ../sass/_documentos.scss */
 .modal-documentos .modal-body div {
   margin-left: 0 !important;
 }
 
-/* line 104, ../sass/_documentos.scss */
+/* line 109, ../sass/_documentos.scss */
 .link {
   text-align: right;
 }
 
-/* line 108, ../sass/_documentos.scss */
+/* line 113, ../sass/_documentos.scss */
 .information h1 {
   display: inline-block;
   font-size: 18px;
   margin-bottom: 0.7em;
 }
 
-/* line 115, ../sass/_documentos.scss */
+/* line 120, ../sass/_documentos.scss */
 .AddDocument {
   background-color: #722d7d;
   color: #ddd6d6;
   border: 1px solid #722D7D;
 }
-/* line 119, ../sass/_documentos.scss */
+/* line 124, ../sass/_documentos.scss */
 .AddDocument:hover {
   background-color: #722d7d;
   color: #ddd6d6;
@@ -724,37 +729,38 @@ form button {
 .information-reports h4 {
   display: inline-block;
 }
-/* line 28, ../sass/_reportes.scss */
-.information-reports .link a {
-  color: #752977;
-  cursor: pointer;
-}
-/* line 33, ../sass/_reportes.scss */
+/* line 27, ../sass/_reportes.scss */
 .information-reports h3 {
   font-size: 0.93223em !important;
   font-weight: bold !important;
 }
 
-/* line 39, ../sass/_reportes.scss */
+/* line 33, ../sass/_reportes.scss */
 md-item-content.div {
   border: 1px solid #e3e1e1 !important;
   min-height: 9em;
   margin-bottom: 1em;
 }
 
-/* line 44, ../sass/_reportes.scss */
+/* line 38, ../sass/_reportes.scss */
 .min-heigth {
   min-height: 15.7em;
 }
 
-/* line 49, ../sass/_reportes.scss */
+/* line 43, ../sass/_reportes.scss */
 .result img {
   width: 48px;
   height: 48px;
 }
-/* line 53, ../sass/_reportes.scss */
+/* line 47, ../sass/_reportes.scss */
 .result .header-info {
   display: inline-block;
   font-size: 13px;
   margin-left: 1em;
+}
+
+/* line 55, ../sass/_reportes.scss */
+.link a {
+  color: #752977;
+  cursor: pointer;
 }
