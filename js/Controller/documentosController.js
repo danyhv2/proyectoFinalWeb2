@@ -1,22 +1,16 @@
 var app = angular.module("moduleDocs", ['ngResource','ngRoute']);
  
 app.controller("documentosController", function ($scope, $http, dataResource,$rootScope) {
-    $scope.currentPage = 0;
-    $scope.pageSize = 2;
-    $scope.documentosNuevos = [];
-
-    $scope.numberOfPages=function(){
-        return Math.ceil($scope.documentosTotales.length/$scope.pageSize);
-    }
 
 
     $http.get('data/documento.json').success(function (data) {
         $scope.documentosTotales = data;
     });
+    
     $scope.datosResource = dataResource.get();
 
      $scope.visualizarDoc = function(index,event){
-        $http.get('data/documento.json').success(function(data) {
+        $http.get('data/documento.json').success(function (data) {
         $scope.documentosmostrar = data;
 
             window.open($scope.documentosmostrar[index].documento)
