@@ -1,0 +1,206 @@
+<div >
+	<h2>Buscar grupo</h2>
+	<md-input-container>
+	  <label>Buscar grupo por nombre</label>
+	  <input id="buscar" name="buscar" ng-model="buscar">
+	  <div ng-show="userForm.$submitted || userForm.name.$touched">
+	  </div>
+	</md-input-container>
+	<br>
+	<button  data-toggle="modal" data-target="#modalNuevoGrupo" class="btn simpleColor">Nuevo grupo</button>
+	<table class="table table-striped table-condensed table-hover">
+	  <thead>
+	    <tr>
+	      <th>
+	        <a href="" ng-click="ordenar('nombreGrupo')">Nombre</a>
+	        <span class="caret" style="cursor: pointer" ng-click="ordenar('-nombreGrupo')" ></span>
+	      </th>
+	      <th></th>
+	    </tr>
+	  </thead>
+	  <tbody>
+	    <tr ng-repeat="grupo in grupos | filter:buscar | orderBy:ordenSeleccionado">
+	      <td><a href="" ng-click="mostrarGrupo(grupo)" data-toggle="modal" data-target="#mostrarGrupos">{{grupo.nombreGrupo}}</a></td>
+	      <td>
+	        <button  ng-click="mostrarGrupo(grupo)"class="btn simpleColor" data-toggle="modal" data-target="#modificarGrupos">Modificar</button>
+		        <button ng-click="removeGrupo(grupo)" class="btn simpleColor">Eliminar</button>
+		      </td>
+		</tr>
+	   </tbody>
+		</table>
+	</div>
+		<!--MODAL-->
+		<div class="modal fade" id="modalNuevoGrupo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		    <div>
+		    </div>
+		   
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="botonCancelar()">&times;</button>
+		        <h2>Crear nuevo grupo</h2>
+		      </div>
+		      <div class="modal-body">
+		      <div class="rayita"></div>
+		        <form class="form-horizontal">
+				  <md-input-container id="crearGrupo">
+                            <label class=".label" for="nombre">Nombre:</label> 
+                            <input type="text" name="nombre" id="name" ng-model="nuevoName" class="form-control"> 
+                  </md-input-container>
+                  <div id="name2"></div>
+		          <div class="form-group">
+		            <label class=".label" for="estudiantes">Estudiantes:</label>
+		            <select name="estudiantes" id="estudiantes" ng-model="nuevoEstudiante" class="form-control" ng-options="estudiante as estudiante.miName for estudiante in estudiantes" ng-change="addEstudiante()">
+		            	
+		            </select>
+		          </div>
+		          <div class="form-group">
+		            <label class=".label" for="roles">Role:</label>
+		            <select name="roles" id="roles" ng-model="nuevoRole" class="form-control" ng-change="addEstudiante()">
+		              <option value="desarrollo">Desarrollo</option>
+		              <option value="coordinador">Coordinador</option>
+		              <option value="soporte">Soporte</option>
+		              <option value="calidad">Calidad</option>
+		            </select>
+		          </div>
+		        </form>
+		        <table class="table table-striped table-condensed table-hover">
+		          <thead>
+		            <tr>
+		              <th>
+		                <a href="" ng-click="ordenar('nombre')">Nombre</a>
+		                <span id="ordenar1" class="caret" style="cursor: pointer" ng-click="ordenar('-nombre')" ></span>
+		              </th>
+		              <th></th>
+		            </tr>
+		          </thead>
+		          <tbody>
+		            <tr ng-repeat="mucho in muchos | filter:buscar | orderBy:ordenSeleccionado">
+		              <td>
+		                <ul>
+		                  <li>{{mucho.nombre}}</li>
+		                </ul>
+		              </td>
+		              <td><button ng-click="removeGrupo2(grupo)" class="btn simpleColor">Eliminar</button></td>
+		            </tr>
+		          </tbody>
+		        </table>
+		      </div>
+		      <div class="modal-footer">
+		         <button class="btn simpleColor" ng-click="addGrupo()">Crear grupo</button>	
+                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="botonCancelar()">Cancelar</button>
+              </div>
+		    </div>
+		  </div>
+		</div>
+		<!--FIN DE MODAL-->
+		<!--MODAL-->
+		<div class="modal fade" id="mostrarGrupos" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="rayita"></div>
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h2>Integrantes</h2>
+		      </div>
+		      <div class="modal-body">
+		        <div ng-repeat="todo in todos">
+		          <ul id="verGrupos">
+		            <li>{{todo}}</li>
+		          </ul>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!--FIN DE MODAL-->
+		<!--MODAL-->
+		<div class="modal fade" id="modificarGrupos" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content" ng-hide="formVisibility">
+		      <div class="rayita"></div>
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="botonCancelar()">&times;</button>
+		        <h2 ng-repeat="grupo in grupos">{{grupo.nombreGrupo}}</h2>
+		      </div>
+		      <div class="modal-body">
+		            <div class="form-group">
+		            <label for="estudiantes2">Estudiantes:</label>
+		            <select name="estudiantes" id="estudiantes2" ng-model="nuevoEstudiante2"  class="form-control" ng-options="estudiante2 as estudiante2.miName for estudiante2 in estudiantes">
+		            <option value="est">Seleccione un estudiante</option>
+		            </select>
+		      	<table class="table table-striped table-condensed table-hover">
+		          <thead>
+		            <tr>
+		              <th>
+		                <h4>Nombre</h4>
+		              </th>
+		              <th></th>
+		            </tr>
+		          </thead>
+		          <tbody>
+		          </div>
+		            <tr ng-repeat="todo in todos">
+		              <td>
+		                <p>
+		      			{{todo}}
+		      			</p>
+		              </td>
+		               <div class="miMargen">
+		               <button id="agregarNuevos" class="btn simpleColor" ng-click="addEstudiante2()">Agregar estudiante</button>
+		      	   	   <h2>Estudiantes Actuales</h2>
+		               </div>
+		               <td>
+		               	<select required class="form-control">
+			              <option value="desarrollo">Desarrollo</option>
+			              <option value="coordinador">Coordinador</option>
+			              <option value="soporte">Soporte</option>
+			              <option value="calidad">Calidad</option>
+		             	 </select>
+		              </td>
+		              <td><button ng-click="removeGrupo3(todo)" class="btn simpleColor">Eliminar</button></td>
+		            </tr>
+		          </tbody>
+		        </table>
+		        <table class="table table-striped table-condensed table-hover">
+		          <thead>
+		            <tr>
+		              <th>
+		                <h4>Nombre</h4>
+		              </th>
+		              <th></th>
+		            </tr>
+		          </thead>
+		          <tbody>
+		          </div>
+		            <tr ng-repeat="temp in temps">
+		              <td>
+		                <p>
+		      			{{temp}}
+		      			</p>
+		              </td>
+		               <div class="miMargen">
+		      	   	   <h2>Estudiantes Pendientes de Agregar</h2>
+		               </div>
+		               <td>
+		               	<select required class="form-control">
+			              <option value="desarrollo">Desarrollo</option>
+			              <option value="coordinador">Coordinador</option>
+			              <option value="soporte">Soporte</option>
+			              <option value="calidad">Calidad</option>
+		             	 </select>
+		              </td>
+		              <td><button ng-click="removeGrupo4(temp)" class="btn simpleColor">Eliminar</button></td>
+		            </tr>
+		          </tbody>
+		        </table>
+		      </div>
+		       <div class="modal-footer">
+		         <button data-dismiss="modal" class="btn simpleColor" ng-click="guardar()">Guardar</button>
+                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="botonCancelar()">Cancelar</button>
+              </div>
+		    </div>
+		  </div>
+		</div>
+		<!--FIN DE MODAL-->
+		<div ui-view ></div>
