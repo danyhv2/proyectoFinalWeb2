@@ -1,4 +1,4 @@
-var route = angular.module('rutas', ['ui.router', 'module', 'routerApp', 'moduleDocs']);
+var route = angular.module('rutas', ['ui.router', 'module', 'routerApp', 'moduleDocs','moduleReport']);
 
 route.config(function($stateProvider, $urlRouterProvider) {
     
@@ -24,6 +24,10 @@ route.config(function($stateProvider, $urlRouterProvider) {
             url: '/grupo2',
             templateUrl: 'views/_ingresarGrupo.html',
             controller: 'gruposController'
+        })
+            .state('reportes', {
+            url: '/reportes',
+            templateUrl: 'pages/_reportes.html'
         })
         
         

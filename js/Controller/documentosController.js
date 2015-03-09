@@ -5,6 +5,8 @@ app.controller("documentosController", function ($scope, $http, dataResource,$ro
     $scope.pageSize = 2;
     $scope.documentosNuevos = [];
 
+
+
     $scope.numberOfPages=function(){
         return Math.ceil($scope.documentosTotales.length/$scope.pageSize);
     }
@@ -24,6 +26,7 @@ app.controller("documentosController", function ($scope, $http, dataResource,$ro
         });
 
     };
+    
     var timeoutHandle = window.setTimeout(function(){
         $("#message1").addClass('hide');
 
@@ -32,8 +35,8 @@ app.controller("documentosController", function ($scope, $http, dataResource,$ro
     $(".errorArchivo").addClass('hide');
 
    
-    
     $scope.guardarDocumento = function(){
+        
         var descripcion = $scope.documento.descripcion,
         titulo = $scope.documento.titulo,
         grupo = $scope.documento.grupo,

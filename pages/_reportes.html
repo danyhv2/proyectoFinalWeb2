@@ -1,0 +1,56 @@
+<div ng-controller="ReportesController">
+  <md-content  id="reportes">
+  <div class="col-md-6 col-centered">
+      <div class="logo">
+        <img src="img/imagen-report.png" alt="">
+        <h1 class="title-page">
+          Reportes
+        </h1>
+      </div>
+      <form class="search" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control search-report" placeholder="Buscar correo electronico" ng-model="filter"required>
+            <span type="button" id="searchGlyph" class="glyphicon glyphicon-search visible">
+            </span>
+        </div>
+      </form>
+    </div>
+    <md-list class="col-xs-12 col-sm-12 min-heigth">
+      <md-item ng-repeat="usuario in usuarios | filter:filter" class="col-xs-12 col-sm-4">
+        <md-item-content class ="div">
+          <div class="md-tile-content information-reports" >
+           <img ng-src="{{usuario.img}}" class="face">
+            <h3>{{usuario.Nombre}}</h3>
+            <h4>{{usuario.Correo}}</h4>
+            <p class ="link"><a data-toggle="modal" data-target="#myModal">Ver reporte</a></p>
+          </div>
+        </md-item-content>
+      </md-item>
+    </md-list>
+  </md-content>
+  <!-- modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="large-4 columns result" ng-repeat="usuario in usuarios | filter:filter" id="resultado">
+           <img ng-src="{{usuario.img}}" class="face"> 
+          <div class="header-info">
+            <h3>{{usuario.Nombre}}</h3>
+            <h4>{{usuario.Correo}}</h4>
+          </div>
+            
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" onclick ="myFunction()"class="btn btn-primary  AddDocument">Imprimir</button>
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- modal -->
+</div>

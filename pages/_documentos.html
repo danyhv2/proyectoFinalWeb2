@@ -1,5 +1,5 @@
-<div class="container" ng-controller ="documentosController">
-	<div class="row row-centered">
+<div ng-controller ="documentosController">
+	<div class="row ">
 		<div class="col-md-6 col-centered">
 			<div class="logo">
 				<img src="img/documentos1.png" alt="">
@@ -12,11 +12,11 @@
         				<input type="text" class="form-control" placeholder="Buscar titulo" ng-model="filter">
         				<span type="button" id="searchGlyph" class="glyphicon glyphicon-search visible">
       					</span>
-      					<button type="button" class="btn btn-default boton"  data-toggle="modal" data-target="#myModal">Agregar</button>
+      					<button type="button" class="btn btn-default AddDocument"  data-toggle="modal" data-target="#myModal">Agregar</button>
       				</div>
 			</form>
 		</div>
-	</div>
+
       <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -26,26 +26,73 @@
         <h4 class="modal-title" id="myModalLabel">Agregar documento</h4>
       </div>
       <div class="modal-body">
-        <input type="text" class="form-control distancia_input_modal" placeholder="Titulo" id="tituloNuevoDoc" ng-model="documento.titulo" name="titulo" required>
-        <input type="text" class="form-control distancia_input_modal" placeholder="Equipo" id="temaNuevoDoc" ng-model="documento.grupo" name="tema"required>  
-        <input type="text" class="form-control distancia_input_modal" placeholder="Descripción del documento" id="descripcionNuevoDoc" ng-model="documento.descripcion" name="descripcion">
-        <input type="file" id="files"/>
-        <output id="list"></output>
+       <form class="formUser" ng-mode-="documentForm" name="documentForm" novalidate>
+        <md-input-container>
+          <label>Titulo del Documento</label>
+            <input required name="primerApellido" ng-model="documento.titulo">
+            <div ng-show="documentForm.$submitted || documentForm.primerApellido.$touched">
+            </div>
+        </md-input-container>
+        <md-input-container>
+          <label>Nombre del Grupo</label>
+            <input required name="primerApellido" ng-model="documento.grupo">
+            <div ng-show="documentForm.$submitted || documentForm.primerApellido.$touched">
+            </div>
+        </md-input-container>
+        <md-input-container>
+          <label>Deccripcion</label>
+            <input required name="primerApellido" ng-model="documento.descripcion">
+            <div ng-show="documentForm.$submitted || documentForm.primerApellido.$touched">
+            </div>
+        </md-input-container>
+         <md-input-container class="upload-div" ng-controller="MyCtrl">    
+                <div class="upload-buttons">
+                <div id="editArea">
+                  <div class="up-buttons">
+                    <div ng-file-select ng-model="files" class="upload-button" ng-multiple="false"  ng-model-rejected="rejFiles" tabindex="0">Seleccionar Archivo</div>
+                  </div>  
+                </div>
+                </div>
+                <ul ng-show="files.length > 0" class="response">
+                  <li class="sel-file" ng-repeat="f in files">
+                    <img ng-show="f.dataUrl" ng-src="{{f.dataUrl}}" ng-model="photo" class="thumb">
+                    <span class="progress" ng-show="f.progress >= 0">           
+                      <div style="width:{{f.progress}}%">{{f.progress}}%</div>
+                    </span>       
+                    <button class="button" ng-click="f.upload.abort();f.upload.aborted=true" ng-show="f.upload != null && f.progress < 100 && !f.upload.aborted">Abort</button>
+                    {{f.name}} - size: {{f.size}}B - type: {{f.type}}
+                    <a ng-show="f.result" href="javascript:void(0)" ng-click="f.showDetail = !f.showDetail">details</a>
+                    <div ng-show="f.showDetail">
+                      <div data-ng-show="f.result.result == null">{{f.result}}</div>
+                      <ul>
+                        <li ng-repeat="item in f.result.result">
+                          <div data-ng-show="item.name">file name: {{item.name}}</div>
+                          <div data-ng-show="item.fieldName">name: {{item.fieldName}}</div>
+                          <div data-ng-show="item.size">size on the serve: {{item.size}}</div>
+                          <div data-ng-show="item.value">value: {{item.value}}</div>
+                        </li>
+                      </ul>
+                      <div data-ng-show="f.result.requestHeaders" class="reqh">request headers: {{f.result.requestHeaders}}</div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
+              </md-input-container>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-        <button type="button" class="btn btn-default" ng-click="guardarDocumento()">Guardar documento</button>
+        <button type="submit" class="btn btn-default AddDocument" ng-click="guardarDocumento()">Guardar documento</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
 
 	<div class="col-xs-12 col-sm-12 documentos-disponibles">
-				<div class="row">
           <div class="col-xs-12 col-sm-8">
 					<div class="col-xs-12 col-sm-12 documentos" ng-repeat="data in documentosTotales | filter:filter ">
             <h2 class ="titulo">{{ data.titulo }}{{data.extension}}</h2>
-            <div class="date-and-group pull-right"><span>{{data.fecha }}</span><br><span>{{data.grupo}}</span>
+            <div class="date-and-group pull-right">{{date | date:'yyyy-MM-dd'}}<span>{{data.grupo}}</span>
             </div>
             <p>{{data.descripcion }}</p>
             <div class="col-md-12">
@@ -82,6 +129,7 @@
             <p class ="link"><a href="">Leer más</a></p>
           </div>
           </div>
-				</div>
+
 	</div>
+</div>
 </div>

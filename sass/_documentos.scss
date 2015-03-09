@@ -20,21 +20,18 @@
 
 .search{
 	margin-top: 1em;
-	
-	.form-group{
-		padding-left: 8em;
 		
 		input{
-			width: 50%;
+			width: 70%;
 			float: left;
 		}
-
-	}
-	input::-webkit-input-placeholder {
+		input::-webkit-input-placeholder {
  		color: $color-placeholder;
 	}
 
-}
+	}
+	
+
 
 #searchGlyph{
 	top:5px;
@@ -57,6 +54,7 @@
 		color: #722d7d;
 		font-weight: normal;
 		display: inline-block;
+		margin: 0;
 	}
 	
 	.date-and-group{
@@ -89,6 +87,7 @@
 		border: 1px solid #e3e1e1;
 		margin-top: 1em;
 		padding: 1em;
+		font-size: 14px;
 	}
 }
 
@@ -110,5 +109,17 @@
 		display: inline-block;
 		font-size: 18px;
 		margin-bottom: 0.7em;
+	}
+}
+
+.AddDocument{
+	background-color: #722d7d;
+	color: #ddd6d6;
+	border:1px solid #722d7d;
+	
+	&:hover{
+		opacity: 0.7!important;
+		background-color: #722d7d!important;
+		color: #ddd6d6!important;
 	}
 }
