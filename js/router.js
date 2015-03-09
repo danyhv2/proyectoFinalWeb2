@@ -28,6 +28,11 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/_modal-editar-curso.html'
             
         })
+          .state('configuracion.ingresarCarrera.editarCarrera', {
+            url: '/editar',
+            templateUrl: 'views/_modal-editar-carrera.html'
+            
+        })
         
         
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
