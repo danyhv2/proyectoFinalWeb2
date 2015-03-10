@@ -214,12 +214,12 @@ h1, legend {
   font-size: 1.625em;
 }
 /* line 27, ../sass/_configuracion.scss */
-.mainConfig .wrapperConfig .formUser .msgError {
+.mainConfig .wrapperConfig .formUser .msgError, .mainConfig .wrapperConfig .formUser .msgErrorEmail {
   font-size: 13px;
   color: #f44336;
 }
 /* line 31, ../sass/_configuracion.scss */
-.mainConfig .wrapperConfig .formUser #msgSuccess, .mainConfig .wrapperConfig .formUser .msgErrorUser {
+.mainConfig .wrapperConfig .formUser #msgSuccess, .mainConfig .wrapperConfig .formUser .msgErrorUser, .mainConfig .wrapperConfig .formUser .msgErrorEmail {
   width: 272px;
   margin-left: 18px;
   margin-top: 12px;

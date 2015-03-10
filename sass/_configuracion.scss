@@ -24,11 +24,11 @@ h1, legend{
 						padding-left:18px;
 						font-size:1.625em;
 					}
-					.msgError{
+					.msgError, .msgErrorEmail{
 						font-size:13px;
 						color:rgb(244,67,54);
 					}
-					#msgSuccess, .msgErrorUser{
+					#msgSuccess, .msgErrorUser, .msgErrorEmail{
 						width: 272px;
 						margin-left: 18px;
 						margin-top: 12px;

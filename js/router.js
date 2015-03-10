@@ -40,67 +40,60 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 });
 
 routerApp.controller('AppCtrl', function($scope) {
-  $scope.project = [
-  {
-    description: '',
-    rate: 500
-  },
-  {
-    role:'estudiante',
-    descripcion:''
-  },
-  {
-    role:'administrador',
-    descripcion:''
-  }
-  ]
-  $scope.toppings = [
-    { category: 'meat', name: 'Pepperoni' },
-    { category: 'meat', name: 'Sausage' },
-    { category: 'meat', name: 'Ground Beef' },
-    { category: 'meat', name: 'Bacon' },
-    { category: 'veg', name: 'Mushrooms' },
-    { category: 'veg', name: 'Onion' },
-    { category: 'veg', name: 'Green Pepper' },
-    { category: 'veg', name: 'Green Olives' },
-  ];
+  
 });
 var users = [];
 
 routerApp.controller('userCtrl', function($scope){
-  $scope.errors = [
-    {
-      errNombre: 'El nombre es un campo requerido.'
-    },
-    {
-      errPrimerApellido: 'El primer apellido es un campo requerido.'
-    },
-    {
-      errSegundoApellido: 'El segundo apellido es un campo requerido.'
-    }
-  ];
-  
+
   $scope.validate = function() {
     //var imgProfile= $('.thumb');
     //imgProfile.css({'width':'70px','height':'70px'});
     //console.log(imgProfile);
-       if($scope.userForm.$valid ==true){
-          $scope.newUser = {
-            'Nombre': $scope.userName,
-            'PrimerApellido': $scope.firstLastName,
-            'SegundoApellido': $scope.secondLastName,
-            'Direccion': $scope.address,
-            'Cedula': $scope.idUser,
-            'Foto': ($('.thumb').attr('ng-src')),
-            'FechaNacimiento': $scope.birthDate,
-            'Correo': $scope.email,
-            'Contrasena': $scope.password
-        };
+      var userExist = false;
+      var newUsers = jQuery.parseJSON(localStorage.getItem('users'));
+            console.log(newUsers);
+            if(newUsers !== null){
+                for(var i = 0; i < newUsers.length; i++) {
+                if(($('#inpEmail').val()) == newUsers[i].Correo){
+                  $('.msgErrorUser').css('display','block');
+                   userExist = true;
+                }
+              }
+            } var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[ucenfotec]+\.[ac]+\.[cr]{2,4}$/);
+            function isValidEmailAddress(emailAddress) {
+           
+            // alert( pattern.test(emailAddress) );
+            return pattern.test(emailAddress);
+
+            };
+            if($('#inpEmail').val() != '' &&! (pattern.test($('#inpEmail').val()))){
+              console.log('invalid');
+              $('.msgErrorEmail').css('display','block');
+            }
+              
+              if($scope.userForm.$valid && userExist != true){
+                $scope.newUser = {
+                'Nombre': $scope.userName,
+                'PrimerApellido': $scope.firstLastName,
+                'SegundoApellido': $scope.secondLastName,
+                'Direccion': $scope.address,
+                'Cedula': $scope.idUser,
+                'Foto': ($('.thumb').attr('ng-src')),
+                'FechaNacimiento': ($('#inpFechaNacimiento').val()),
+                'Correo': $scope.email,
+                'Contrasena': $scope.password
+                };
+                console.log($scope.newUser);
         $('#msgSuccess').css('display','block');
         users.push($scope.newUser);
         localStorage.setItem('users', JSON.stringify(users));
         };
-      }
+            }
+
+        //obtener usuarios agregados
+       
+
    
 
 });
@@ -121,60 +114,7 @@ routerApp.controller('userCtrl', function($scope){
              }
           }
         }*/
-        function renderElement(elementIds) {
-            angular.forEach(elementIds, function(input) {
-              angular.element(input).controller('ngModel').$render();
-            });
-          }
-
-          self.updateModel = function updateModel() {
-          for(var i = 0; i < $scope.datos.length; i++) {
-              if($('#searchCurso').val() == ($scope.datos[i].Correo)){
-                //$('#inpUser').data('ng-model',$scope.datos[i].Nombre);
-                 // update the form values
-                self.datos[0].PrimerApellido.$setViewValue($scope.datos[i].Nombre);
-                // now call $render() to update the model associated to each input
-                renderElement(['#inpPrimerApellido']);
-               console.log($scope.datos[i].Nombre);
-             }
-          }
-    };
-
-
-          $scope.disable=true;
-          $scope.disable2=true;
-          $scope.editarUsuario = function(){
-                $scope.disable=false;
-                $('.saveUser').css('display','block');
-                $('.cancelUser').css('display','block');
-          }
-          $scope.editarUsuarioAcceso = function(){
-                $scope.disable2=false;
-                $('.saveUserAccess').css('display','block');
-                $('.cancelUserAccess').css('display','block');
-                $('.inpNewPass').css('display','block');
-                $('.inpNewPassConfirm').css('display','block');
-          }
-          $scope.cancelEditarUsuario = function(){
-                 $scope.disable=true;
-                 $('.saveUser').css('display','none');
-                 $('.cancelUser').css('display','none');
-          }
-          $scope.cancelUsuarioAcceso = function(){
-                $scope.disable2=true;
-                $('.saveUserAccess').css('display','none');
-                $('.cancelUserAccess').css('display','none');
-                $('.inpNewPass').css('display','none');
-                $('.inpNewPassConfirm').css('display','none');
-          }
-          $scope.validarContrasena = function(){
-                if(($('.inpNew').val()) !== ($('.inpConfirm').val())){
-                    $('.msgError').css('display', 'block');
-                }
-          }
-          $scope.saveNewInfo = function (){
-
-          }
+    
 
   });
  
