@@ -45,7 +45,26 @@ routerApp.controller('AppCtrl', function($scope) {
 var users = [];
 
 routerApp.controller('userCtrl', function($scope){
-
+  $scope.roles = [
+    {
+      nombre: 'Estudiante'
+    },
+    { 
+      nombre: 'Administrador'
+    },
+    { 
+      nombre: 'Profesor'
+    },
+    { 
+      nombre: 'Director de Carrera'
+    },
+    { 
+      nombre: 'Decano'
+    }
+  ];
+  $scope.selectAction = function() {
+console.log($scope.roleUser);
+};
   $scope.validate = function() {
     //var imgProfile= $('.thumb');
     //imgProfile.css({'width':'70px','height':'70px'});
@@ -82,7 +101,8 @@ routerApp.controller('userCtrl', function($scope){
                 'Foto': ($('.thumb').attr('ng-src')),
                 'FechaNacimiento': ($('#inpFechaNacimiento').val()),
                 'Correo': $scope.email,
-                'Contrasena': $scope.password
+                'Contrasena': $scope.password,
+                'Role': $('.optionsRole').find('span').text()
                 };
                 console.log($scope.newUser);
         $('#msgSuccess').css('display','block');

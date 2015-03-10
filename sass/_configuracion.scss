@@ -1,3 +1,15 @@
+body{
+	overflow:visible!important;
+}
+md-backdrop.md-select-backdrop{
+	display:none!important;
+}
+.md-backdrop{
+	position:relative!important;
+}
+md-input-container{
+	overflow-x:visible!important;
+}
 h1, legend{
 	color:#757475;
 	font-weight:500;
