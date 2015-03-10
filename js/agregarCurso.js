@@ -9,8 +9,8 @@ angular.module('agregarCurso', [])
     if ($scope.userForm.$valid == true) {
       $scope.newCurso = {
         'Curso': $scope.nombreCurso,
-        'Cuatrimestre': $scope.cuatrimestre,
-        'AnoLectivo': $scope.anoLectivo,
+        'Cuatrimestre': $('.optCuatri').find('span').text(),
+        'AnoLectivo': $('.optAno').find('span').text(),
         'Horario': $scope.horarioCurso,
         'Creditos': $scope.creditosCurso,
         'Codigo': $scope.codCurso,

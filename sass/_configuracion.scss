@@ -10,6 +10,9 @@ md-backdrop.md-select-backdrop{
 md-input-container{
 	overflow-x:visible!important;
 }
+md-input-container.md-default-theme.md-input-invalid .md-input, md-input-container.md-default-theme .md-input{
+	border-color:#967ba5!important;
+}
 h1, legend{
 	color:#757475;
 	font-weight:500;
@@ -57,6 +60,12 @@ h1, legend{
 						color:#786c84;
 						font-weight:bold;
 					}
+					.optCuatri{
+						float:left;
+					}
+					.optAno{
+						float:right;
+					}
 			}
 			.formEditUser{
 				.inpSearchUser{
@@ -97,6 +106,26 @@ h1, legend{
 md-checkbox.md-default-theme.md-checked .md-icon {
 		background-color:rgba(104, 57, 119, 0.87);
 	}
+/*MODAL EDITAR CARRERA*/
+
+#modalEditarCarrera	{
+	.contBuscarCarrera{
+		width:50%;
+		p{
+		   width:100%;
+			input{
+				float:left;
+				width:88%;
+			}
+			a{
+			  float: right;
+			  margin-top: 10px;
+			  padding-left: 5px;
+			  width:12%;
+			}
+		}
+	}
+}
 /*BUTTON UPLOAD*/
 
 .upload-buttons input[type="file"] {	

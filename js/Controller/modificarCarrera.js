@@ -1,6 +1,6 @@
 // Code goes here
-angular.module('modifyUser', [])
-  .controller('updateUserCtrl', function($scope) {
+angular.module('modifyCarrera', [])
+  .controller('updateCarreraCtrl', function($scope) {
    var self=this;
 
     /*
@@ -13,72 +13,26 @@ angular.module('modifyUser', [])
       });
     }
 
-    this.datos = jQuery.parseJSON(localStorage.getItem('users'));
+    this.datos = jQuery.parseJSON(localStorage.getItem('carreras'));
     //onsole.log(self.datos);
 
     self.updateModel = function updateModel() {
       for(var i = 0; i < this.datos.length; i++){
         //console.log(this.datos.length);
-        if($('.searchCurso').val()== this.datos[i].Correo){
+        if($('.searchCarrera').val()== this.datos[i].Carrera){
 
       // update the form values
-      self.userFormEdit.userName.$setViewValue(this.datos[i].Nombre);
-      self.userFormEdit.primerApellido.$setViewValue(this.datos[i].PrimerApellido);
-      self.userFormEdit.segundoApellido.$setViewValue(this.datos[i].SegundoApellido);
-      self.userFormEdit.userDireccion.$setViewValue(this.datos[i].Direccion);
-      self.userFormEdit.userCed.$setViewValue(this.datos[i].Cedula);
-      self.userFormEdit.userFecha.$setViewValue(this.datos[i].FechaNacimiento);
-      self.userFormEdit.correo.$setViewValue(this.datos[i].Correo);
-      self.userFormEdit.contrasena.$setViewValue(this.datos[i].Contrasena);
-
+      self.formEditCarrera.nombre.$setViewValue(this.datos[i].Carrera);
+      self.formEditCarrera.codCarrera.$setViewValue(this.datos[i].Codigo);
+      self.formEditCarrera.dirCarrera.$setViewValue(this.datos[i].Director);
+      
       //self.simpleForm.state.$setViewValue('Georgia');
       //self.simpleForm.zip.$setViewValue('37013');
       // now call $render() to update the model associated to each input
-      renderElement(['#inpNameUser', '#inpPrimerApellido', '#inpSegApellido', '#inpDireccion', '#inpFecha', '#inpCedula', '#inpCorreo', '#inpPassword']);
+      renderElement(['#inpNombreCarrera', '#inpCodCarrera', '#inpDirCarrera']);
     }
     }
     };
-
-    $scope.roles = [
-    {
-      nombre: 'Estudiante'
-    },
-    { 
-      nombre: 'Administrador'
-    },
-    { 
-      nombre: 'Profesor'
-    },
-    { 
-      nombre: 'Director de Carrera'
-    },
-    { 
-      nombre: 'Decano'
-    }
-  ];
-
-  $scope.widget = [];
-  $scope.widget.push(    
-  {
-   chartTypes:[
-  {"id": "line", "title": "Line"},
-  {"id": "spline", "title": "Smooth line"},
-  {"id": "area", "title": "Area"},
-  {"id": "areaspline", "title": "Smooth area"},
-  {"id": "column", "title": "Column"},
-  {"id": "bar", "title": "Bar"},
-  {"id": "pie", "title": "Pie"},
-  {"id": "scatter", "title": "Scatter"}
-  ],
-   chartConfig : {
-    options: {
-      chart: {         
-        type:  "bar"
-      }
-  }
-  }
-  }
-  );
 
 
       $scope.disable=true;

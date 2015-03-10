@@ -14,20 +14,24 @@
                         <div class="msgError" ng-show="userForm.name.$error.required">El nombre es un campo requerido.</div>
                       </div>
                   </md-input-container>
-                  <md-input-container>
-                    <label>Cuatrimestre</label>
-                    <input required name="primerApellido" ng-model="cuatrimestre">
-                    <div ng-show="userForm.$submitted || userForm.primerApellido.$touched">
-                      <div class="msgError" ng-show="userForm.primerApellido.$error.required">Debe ingresar el cuatrimestre del curso.</div>
-                    </div>
-                  </md-input-container>
-                  <md-input-container>
-                    <label>Año Lectivo</label>
-                    <input required name="segundoApellido" ng-model="anoLectivo">
-                    <div ng-show="userForm.$submitted || userForm.segundoApellido.$touched">
-                      <div class="msgError" ng-show="userForm.segundoApellido.$error.required">Debe ingresar el año lectivo del curso.</div>
-                    </div>
-                  </md-input-container>
+                  <div class="col-xs-12">
+                    <div >
+                    <md-select class="optCuatri" required ng-model="cuatriCurso" name="cuatrimestre" placeholder="Cuatrimestre">
+                      <md-option value="1">I Cuatrimestre</md-option>
+                      <md-option value="2" >II Cuatrimestre</md-option>
+                      <md-option value="3" >III Cuatrimestre</md-option>
+                    </md-select>
+                  </div>
+                    <md-select class="optAno" required ng-model="anoCurso" name="ano" placeholder="Año Lectivo">
+                      <md-option value="1">2015</md-option>
+                      <md-option value="2" >2016</md-option>
+                      <md-option value="3" >2017</md-option>
+                      <md-option value="4" >2018</md-option>
+                      <md-option value="5" >2019</md-option>
+                      <md-option value="6" >2020</md-option>
+                      <md-option value="7" >2021</md-option>
+                    </md-select>
+                  </div>
                   <md-input-container>
                     <label>Horario</label>
                     <input required name="segundoApellido" ng-model="horarioCurso">

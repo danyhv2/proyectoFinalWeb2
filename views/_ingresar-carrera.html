@@ -16,16 +16,16 @@
                   </md-input-container>
                   <md-input-container>
                     <label>Código</label>
-                    <input required name="primerApellido" ng-model="codigoCarrera">
-                    <div ng-show="userForm.$submitted || userForm.primerApellido.$touched">
-                      <div class="msgError" ng-show="userForm.primerApellido.$error.required">Debe ingresar un código para la carrera.</div>
+                    <input required name="codCarrera" ng-model="codigoCarrera">
+                    <div ng-show="userForm.$submitted || userForm.codCarrera.$touched">
+                      <div class="msgError" ng-show="userForm.codCarrera.$error.required">Debe ingresar un código para la carrera.</div>
                     </div>
                   </md-input-container>
                   <md-input-container>
                     <label>Director de Carrera</label>
-                    <input required name="segundoApellido" ng-model="dirCarrera">
-                    <div ng-show="userForm.$submitted || userForm.segundoApellido.$touched">
-                      <div class="msgError" ng-show="userForm.segundoApellido.$error.required">Debe ingresar un nombre para el Director de Carrera.</div>
+                    <input required name="director" ng-model="dirCarrera">
+                    <div ng-show="userForm.$submitted || userForm.director.$touched">
+                      <div class="msgError" ng-show="userForm.director.$error.required">Debe ingresar un nombre para el Director de Carrera.</div>
                     </div>
                   </md-input-container>
                 </div>
