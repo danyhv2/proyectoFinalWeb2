@@ -50,7 +50,11 @@
 			$scope.opciones = [
 			{
 				opcion : 'si'
+			},
+			{
+				opcion : 'no'
 			}
+
 			];
 			console.log($scope.proyectos);
 
@@ -164,9 +168,11 @@
 			};
 				<!-- //fin funciones de remover-->
 			$scope.mostrarGrupo=function(grupo){
+				$scope.todosName =[];
 				var i = $scope.grupos.indexOf(grupo);
+				$scope.todosName.push($scope.grupos[i].nombreGrupo);
 				$scope.todos = $scope.grupos[i].misEstudiantes;
-				console.log($scope.todos);
+				console.log($scope.todosName);
 				
 			};
 			$scope.mostrarIntegrantes=function(proyecto){
@@ -179,6 +185,7 @@
 				
 			};
 			$scope.mostrarProyectosVotacion=function(proyecto){
+				console.log(proyecto.nuevoEnviado.opcion);
 				var i = $scope.proyectos.indexOf(proyecto);
 					for(var m=0; m< $scope.enviarProyectos.length;m++){
 							console.log($scope.enviarProyectos[m]);
