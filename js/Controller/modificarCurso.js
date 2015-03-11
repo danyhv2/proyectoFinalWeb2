@@ -14,7 +14,6 @@ angular.module('modifyCurso', [])
     self.updateModel = function updateModel() {
       for(var i = 0; i < this.datos.length; i++){
         if($('.searchCurso').val()== this.datos[i].Carrera){
-
       // update the form values
       self.formEditCarrera.nombre.$setViewValue(this.datos[i].Carrera);
       self.formEditCarrera.codCarrera.$setViewValue(this.datos[i].Codigo);

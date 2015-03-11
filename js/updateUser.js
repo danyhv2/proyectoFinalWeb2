@@ -3,10 +3,6 @@ angular.module('modifyUser', [])
   .controller('updateUserCtrl', function($scope) {
    var self=this;
 
-    /*
-     * Loop through a list of element ids, calling the $render() function for the ngModel controller associated with
-     * each element.
-     */
     function renderElement(elementIds) {
       angular.forEach(elementIds, function(id) {
         angular.element(id).controller('ngModel').$render();
@@ -14,28 +10,24 @@ angular.module('modifyUser', [])
     }
 
     this.datos = jQuery.parseJSON(localStorage.getItem('users'));
-    //onsole.log(self.datos);
 
     self.updateModel = function updateModel() {
       for(var i = 0; i < this.datos.length; i++){
-        //console.log(this.datos.length);
-        if($('.searchCurso').val()== this.datos[i].Correo){
+        if($('.searchCurso').val() != this.datos[i].Correo){
+           $('.errorSearch').css('display','block');
+        }
+        else{
+          self.userFormEdit.userName.$setViewValue(this.datos[i].Nombre);
+          self.userFormEdit.primerApellido.$setViewValue(this.datos[i].PrimerApellido);
+          self.userFormEdit.segundoApellido.$setViewValue(this.datos[i].SegundoApellido);
+          self.userFormEdit.userDireccion.$setViewValue(this.datos[i].Direccion);
+          self.userFormEdit.userCed.$setViewValue(this.datos[i].Cedula);
+          self.userFormEdit.userFecha.$setViewValue(this.datos[i].FechaNacimiento);
+          self.userFormEdit.correo.$setViewValue(this.datos[i].Correo);
+          self.userFormEdit.contrasena.$setViewValue(this.datos[i].Contrasena);
 
-      // update the form values
-      self.userFormEdit.userName.$setViewValue(this.datos[i].Nombre);
-      self.userFormEdit.primerApellido.$setViewValue(this.datos[i].PrimerApellido);
-      self.userFormEdit.segundoApellido.$setViewValue(this.datos[i].SegundoApellido);
-      self.userFormEdit.userDireccion.$setViewValue(this.datos[i].Direccion);
-      self.userFormEdit.userCed.$setViewValue(this.datos[i].Cedula);
-      self.userFormEdit.userFecha.$setViewValue(this.datos[i].FechaNacimiento);
-      self.userFormEdit.correo.$setViewValue(this.datos[i].Correo);
-      self.userFormEdit.contrasena.$setViewValue(this.datos[i].Contrasena);
-
-      //self.simpleForm.state.$setViewValue('Georgia');
-      //self.simpleForm.zip.$setViewValue('37013');
-      // now call $render() to update the model associated to each input
-      renderElement(['#inpNameUser', '#inpPrimerApellido', '#inpSegApellido', '#inpDireccion', '#inpFecha', '#inpCedula', '#inpCorreo', '#inpPassword']);
-    }
+          renderElement(['#inpNameUser', '#inpPrimerApellido', '#inpSegApellido', '#inpDireccion', '#inpFecha', '#inpCedula', '#inpCorreo', '#inpPassword']);
+        }
     }
     };
 
@@ -79,7 +71,6 @@ angular.module('modifyUser', [])
   }
   }
   );
-
 
       $scope.disable=true;
       $scope.disable2=true;

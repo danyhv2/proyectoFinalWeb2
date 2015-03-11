@@ -76,13 +76,12 @@ console.log($scope.roleUser);
                 for(var i = 0; i < newUsers.length; i++) {
                 if(($('#inpEmail').val()) == newUsers[i].Correo){
                   $('.msgErrorUser').css('display','block');
+                  $('.msgErrorUser').fadeOut(3000);
                    userExist = true;
                 }
               }
             } var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[ucenfotec]+\.[ac]+\.[cr]{2,4}$/);
             function isValidEmailAddress(emailAddress) {
-           
-            // alert( pattern.test(emailAddress) );
             return pattern.test(emailAddress);
 
             };
@@ -105,16 +104,13 @@ console.log($scope.roleUser);
                 'Role': $('.optionsRole').find('span').text()
                 };
                 console.log($scope.newUser);
-        $('#msgSuccess').css('display','block');
-        users.push($scope.newUser);
-        localStorage.setItem('users', JSON.stringify(users));
-        };
+                $('#msgSuccess').css('display','block');
+                $('#msgSuccess').fadeOut(3000);
+                users.push($scope.newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                };
             }
 
-        //obtener usuarios agregados
-       
-
-   
 
 });
   routerApp.controller('getUserCtrl', function($scope){
@@ -123,23 +119,9 @@ console.log($scope.roleUser);
         $scope.queryBy = '$';
    //obtener usuarios agregados
         $scope.datos = [];
-          $scope.datos = jQuery.parseJSON(localStorage.getItem('users'));
-          console.log($scope.datos.length);
-
-         /* $scope.cargarUsuario = function(){
-            for(var i = 0; i < $scope.datos.length; i++) {
-              if($('#searchCurso').val() == ($scope.datos[i].Correo)){
-                $('#inpUser').data('ng-model',$scope.datos[i].Nombre);
-               console.log($scope.datos[i].Nombre);
-             }
-          }
-        }*/
+        $scope.datos = jQuery.parseJSON(localStorage.getItem('users'));
+          //console.log($scope.datos.length);
     
 
   });
  
-
-  routerApp.controller('editUserCtrl', function($scope){
-    //$scope.editarUsuario=true;
-
-  });

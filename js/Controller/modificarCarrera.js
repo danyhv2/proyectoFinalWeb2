@@ -13,14 +13,16 @@ angular.module('modifyCarrera', [])
 
     self.updateModel = function updateModel() {
       for(var i = 0; i < this.datos.length; i++){
-        if($('.searchCarrera').val()== this.datos[i].Carrera){
-
-      // update the form values
-      self.formEditCarrera.nombre.$setViewValue(this.datos[i].Carrera);
-      self.formEditCarrera.codCarrera.$setViewValue(this.datos[i].Codigo);
-      self.formEditCarrera.dirCarrera.$setViewValue(this.datos[i].Director);
-    
-      renderElement(['#inpNombreCarrera', '#inpCodCarrera', '#inpDirCarrera']);
+        if($('.searchCarrera').val() != this.datos[i].Carrera){
+            $('.errorSearch').css('display','block');
+        }
+        else{
+          // update the form values
+          self.formEditCarrera.nombre.$setViewValue(this.datos[i].Carrera);
+          self.formEditCarrera.codCarrera.$setViewValue(this.datos[i].Codigo);
+          self.formEditCarrera.dirCarrera.$setViewValue(this.datos[i].Director);
+        
+          renderElement(['#inpNombreCarrera', '#inpCodCarrera', '#inpDirCarrera']);
     }
     }
     };

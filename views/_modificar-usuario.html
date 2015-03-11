@@ -2,23 +2,25 @@
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
             <form class="formUser formEditUser" ng-mode-="userForm" name="updateUser.userFormEdit" ng-submit="validate() && userForm.$valid" novalidate>
-              <button type="submit" ng-click="updateUser.updateModel()">test</button>
+              
               <md-input-container class="col-md-6 inpSearchUser">
-                  <label>
-                      <img src="img/searchIcon.png">
-                      Buscar usuario por correo
-                  </label>
-
-                  <input class="searchCurso" name="buscarCurso" ng-model="searchUser">
+                  <p class="input-group">
+                    <label>Buscar usuario por correo</label>
+                    <input class="searchCurso" name="buscarCurso" ng-model="searchUser">
+                    <a href="#" ng-click="updateUser.updateModel()">
+                        <img src="img/searchIcon.png">
+                    </a>
+                  </p>
+                  <p class="errorSearch">El usuario que esta tratando de buscar no existe.</p>
               </md-input-container>
-              <fieldset class="col-md-12">
+              <fieldset class="col-md-12 col-sm-10">
                 <legend>Datos Personales
                   <label class="lblEdit lblEditUser">
                     <a class="editUser" href="#">Editar</a>
                     <img src="img/edit.png" alt="Icono de Editar" ng-click="editarUsuario()" data-toggle="modal" data-target="#modalEditarUsuario">
                   </label>
                 </legend>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-5">
                   <md-input-container>
                     <label>Nombre</label>
                     <input id="inpNameUser" name="userName" ng-model="updateUser.datos[1].Nombre" ng-disabled="disable">
@@ -45,7 +47,7 @@
                   <button class="btn btnAddUser saveUser" type="submit" ng-click="guardarUsuario()">Guardar</button>
                   <button class="btn btnAdd cancelUser" type="submit" ng-click="cancelEditarUsuario()">Cancelar</button>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-5">
                 <md-input-container>
                   <label>Dirección</label>
                   <input id="inpDireccion" name="userDireccion" ng-model="updateUser.datos[1].Direccion" ng-disabled="disable">
@@ -56,14 +58,14 @@
                 </md-input-container>
               </div>
               </fieldset>
-              <fieldset class="col-md-12">
+              <fieldset class="col-md-12 col-sm-10">
                 <legend>Datos de Acceso
                   <label class="lblEdit lblEditUser">
                     <a class="editUser" href="#">Editar</a>
                     <img src="img/edit.png" alt="Icono de Editar" ng-click="editarUsuarioAcceso()" data-toggle="modal" data-target="#modalEditarUsuario">
                   </label>
                 </legend>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-5">
                   <md-input-container>
                     <label>Correo</label>
                     <input id="inpCorreo" name="correo" ng-model="updateUser.datos[1].Correo" ng-disabled="disable2">
@@ -84,7 +86,7 @@
                   <button class="btn btnAddUser saveUserAccess" type="submit" ng-click="validarContrasena()">Guardar</button>
                   <button class="btn btnAdd cancelUserAccess" type="submit" ng-click="cancelUsuarioAcceso()">Cancelar</button>
                 </div>
-                <div class="col-md-6"> 
+                <div class="col-md-6 col-sm-5"> 
                   <md-select ng-model="updateUser.datos[1].Role" class="optionsRoleUser" ng-disabled="disable2">
                     <md-option class="optRole" ng-value="role.nombre" ng-repeat="role in roles">{{role.nombre}}</md-option>
                   </md-select>
