@@ -91,11 +91,11 @@ app.controller("ReportesController", function ($scope, $http, dataResource,$root
 });
 
 function myFunction() {
-  var hidenn = document.getElementById('reportes').style.visibility = "hidden";
+  var hidenn = document.getElementById("reportes").style.visibility = "hidden";
   var resultado = document.getElementById("resultado")
     window.print(resultado);
 };
 
 function show(){
-  var hidenn = document.getElementById('reportes').style.visibility = "visible";
+  var hidenn = document.getElementById("reportes").style.visibility = "visible";
 }

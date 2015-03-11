@@ -6,6 +6,10 @@ app.controller("documentosController", function ($scope, $http, dataResource,$ro
     $http.get('data/documento.json').success(function (data) {
         $scope.documentosTotales = data;
     });
+
+    $http.get('data/proyectos.json').success(function (data) {
+        $scope.Mejoresproyectos = data;
+    });
     
     $scope.datosResource = dataResource.get();
 
@@ -91,4 +95,5 @@ app.factory("dataResource", function ($resource) {
         { get: { method: "GET", isArray: true }
     })
 });
+
 

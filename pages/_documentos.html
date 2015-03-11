@@ -83,24 +83,24 @@
               Mejores Proyectos
             </h1>
           </div>
-          <div class="information">
+          <div class="information" ng-repeat="data in Mejoresproyectos">
             <img src="img/numero1.png">
-            <h1>Nombre Proyecto</h1>
-            <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500....</p>
-            <p class ="link"><a href="">Leer más</a></p>
+            <h1>{{data.titulo}}</h1>
+            <p>{{data.descripcion}}</p>
+            <p class ="link"><a href="{{data.leerMas}}" target = "_blank">Leer más</a></p>
           </div>
-          <div class="information">
+         <!--  <div class="information">
             <img src="img/numero2.png">
             <h1>Nombre Proyecto</h1>
             <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500....</p>
             <p class ="link"><a href="">Leer más</a></p>
-          </div>
-          <div class="information">
+          </div> -->
+        <!--   <div class="information">
             <img src="img/numero3.png">
             <h1>Nombre Proyecto</h1>
             <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500....</p>
             <p class ="link"><a href="">Leer más</a></p>
-          </div>
+          </div> -->
           </div>
 
   </div>
