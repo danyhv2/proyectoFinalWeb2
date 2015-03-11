@@ -36,7 +36,7 @@ md-item-content.div{
 	margin-bottom: 1em;
 }
 .min-heigth{
-	min-height: 15.7em;
+	min-height: 40em;
 }
 
 .result{
@@ -48,6 +48,12 @@ md-item-content.div{
 		display: inline-block;
 		font-size: 13px;
 		margin-left: 1em;
+		width: 100%;
+		
+		strong{
+			font-weight: bold;
+			font-size: 15px;
+		}
 	}
 }
 
@@ -56,4 +62,42 @@ md-item-content.div{
 		color: #752977;
 		cursor:pointer;
 	}
+}
+
+.primary{
+	border-bottom: 3px solid  #752977;
+	padding-bottom: 0.6em;
+	
+	div{
+		display: inline-block;
+		font-size: 15px;
+		font-weight: bold;
+		width: 24%;
+	}
+	.credits{
+		text-align: center;
+	}
+
+}
+.secundary{
+	padding-top: 0.7em;
+	border-bottom: 2px solid #D4B6D8;
+	padding-bottom: 0.6em;
+	div{
+		display: inline-block;
+		width: 24%;
+	}
+	.curso{
+		width: 26%;
+	}
+	.credito,
+	.cuatrimestre{
+		width: 18%;
+		text-align: center;
+	}
+}
+
+.float{
+	width: 40%;
+	float: left;
 }
