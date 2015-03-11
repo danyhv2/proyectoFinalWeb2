@@ -9,14 +9,14 @@
       </div>
       <form class="search" role="search">
         <div class="form-group">
-          <input type="text" class="form-control search-report" placeholder="Buscar correo electronico" ng-model="filter"required>
+          <input type="text" class="form-control search-report" placeholder="Buscar correo electronico" ng-model="filter.Correo"required>
             <span type="button" id="searchGlyph" class="glyphicon glyphicon-search visible">
             </span>
         </div>
       </form>
     </div>
     <md-list class="col-xs-12 col-sm-12 min-heigth">
-      <md-item ng-repeat="usuario in usuarios | filter:filter" class="col-xs-12 col-sm-4">
+      <md-item ng-repeat="usuario in usuarios | filter:filter:strict" class="col-xs-12 col-sm-4">
         <md-item-content class ="div">
           <div class="md-tile-content information-reports" >
            <img ng-src="{{usuario.img}}" class="face">
@@ -30,23 +30,85 @@
   </md-content>
   <!-- modal -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" onclick ="show()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
         <div class="large-4 columns result" ng-repeat="usuario in usuarios | filter:filter" id="resultado">
-           <img ng-src="{{usuario.img}}" class="face"> 
+          <div><img ng-src="{{usuario.img}}" class="face"></div>
           <div class="header-info">
-            <h3>{{usuario.Nombre}}</h3>
-            <h4>{{usuario.Correo}}</h4>
+            <h3><strong>Nombre:</strong> {{usuario.Nombre}}</h3>
+            <h4><strong>Correo:</strong> {{usuario.Correo}}</h4>
+            <strong>Carreras:</strong> {{usuario.Carreras}}
+            <h3>Cursos</h3>
+            <div class="info">
+              <div class ="primary">
+                <div>Código</div>
+                <div>Curso</div>
+                <div class="credits">Créditos</div>
+                <div>Cuatrimestre</div>
+              </div>
+              <div class="secundary">
+                <div>{{usuario.Codigo1}}</div>
+                <div class="curso">{{usuario.Curso1}}</div>
+                <div class="credito">{{usuario.Credito1}}</div>
+                <div class ="cuatrimestre" >{{usuario.Cuatrimestre1}}</div>
+              </div>
+              <div class="secundary">
+                <div>{{usuario.Codigo2}}</div>
+                <div class="curso">{{usuario.Curso2}}</div>
+                <div class="credito">{{usuario.Credito2}}</div>
+                <div class ="cuatrimestre">{{usuario.Cuatrimestre2}}</div>
+              </div>
+            </div>
+            <h3>Grupos</h3>
+             <div class="info">
+              <div class ="primary">
+                <div>Nombre del equipo</div>
+                <div>Rol</div>
+                <div class="credits">Proyecto</div>
+                <div>Calificación</div>
+              </div>
+              <div class="secundary">
+                <div>{{usuario.Equipo1}}</div>
+                <div class="curso">{{usuario.Rol1}}</div>
+                <div class="credito">{{usuario.Proyecto1}}</div>
+                <div class ="cuatrimestre" >{{usuario.Calificacion1}}</div>
+              </div>
+              <div class="secundary">
+                <div>{{usuario.Equipo2}}</div>
+                <div class="curso">{{usuario.Rol2}}</div>
+                <div class="credito">{{usuario.Proyecto2}}</div>
+                <div class ="cuatrimestre" >{{usuario.Calificacion2}}</div>
+              </div>
+            </div>
+            <div class="float">
+              <h4>Compañeros{{usuario.Equipo1}}</h4>
+              <div>{{usuario.Integrantes1}}</div>
+              <br>
+              <div>{{usuario.Integrantes2}}</div>
+              <br>
+              <div>{{usuario.Integrantes3}}</div>
+              <br>
+              <div>{{usuario.Integrantes4}}</div>
+            </div>
+            <div>
+              <h4>Compañeros{{usuario.Equipo2}}</h4>
+              <div>{{usuario.Integrantes5}}</div>
+              <br>
+              <div>{{usuario.Integrantes6}}</div>
+              <br>
+              <div>{{usuario.Integrantes7}}</div>
+              <br>
+              <div>{{usuario.Integrantes8}}</div>
+            </div>
           </div>
-            
-      </div>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-default" onclick ="show()"data-dismiss="modal">Cerrar</button>
         <button type="button" onclick ="myFunction()"class="btn btn-primary  AddDocument">Imprimir</button>
       </div>
     </div>

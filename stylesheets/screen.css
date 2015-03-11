@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +24,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -848,7 +848,7 @@ md-item-content.div {
 
 /* line 38, ../sass/_reportes.scss */
 .min-heigth {
-  min-height: 15.7em;
+  min-height: 40em;
 }
 
 /* line 43, ../sass/_reportes.scss */
@@ -861,12 +861,63 @@ md-item-content.div {
   display: inline-block;
   font-size: 13px;
   margin-left: 1em;
+  width: 100%;
+}
+/* line 53, ../sass/_reportes.scss */
+.result .header-info strong {
+  font-weight: bold;
+  font-size: 15px;
 }
 
-/* line 55, ../sass/_reportes.scss */
+/* line 61, ../sass/_reportes.scss */
 .link a {
   color: #752977;
   cursor: pointer;
+}
+
+/* line 67, ../sass/_reportes.scss */
+.primary {
+  border-bottom: 3px solid  #752977;
+  padding-bottom: 0.6em;
+}
+/* line 71, ../sass/_reportes.scss */
+.primary div {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  width: 24%;
+}
+/* line 77, ../sass/_reportes.scss */
+.primary .credits {
+  text-align: center;
+}
+
+/* line 82, ../sass/_reportes.scss */
+.secundary {
+  padding-top: 0.7em;
+  border-bottom: 2px solid #D4B6D8;
+  padding-bottom: 0.6em;
+}
+/* line 86, ../sass/_reportes.scss */
+.secundary div {
+  display: inline-block;
+  width: 24%;
+}
+/* line 90, ../sass/_reportes.scss */
+.secundary .curso {
+  width: 26%;
+}
+/* line 93, ../sass/_reportes.scss */
+.secundary .credito,
+.secundary .cuatrimestre {
+  width: 18%;
+  text-align: center;
+}
+
+/* line 100, ../sass/_reportes.scss */
+.float {
+  width: 40%;
+  float: left;
 }
 
 /* line 1, ../sass/_grupo.scss */
