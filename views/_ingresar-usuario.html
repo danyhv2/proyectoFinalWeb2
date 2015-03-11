@@ -111,8 +111,8 @@
                   <md-input-container>
                     <label>Contraseña</label>
                     <input type="password" required name="password" ng-model="password">
-                    <div ng-messages="projectForm.clientName.$error">
-                      <div ng-message="required">This is required.</div>
+                    <div ng-show="userForm.$submitted || userForm.password.$touched">
+                      <div class="msgError" ng-show="userForm.password.$error.required">Debe ingresar una contraseña.</div>
                     </div>
                   </md-input-container>
                 </div>

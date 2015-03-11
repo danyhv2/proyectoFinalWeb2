@@ -13,51 +13,55 @@
                   </p>
                   <p class="errorSearch">El usuario que esta tratando de buscar no existe.</p>
               </md-input-container>
-              <fieldset class="col-md-12 col-sm-10">
-                <legend>Datos Personales
-                  <label class="lblEdit lblEditUser">
-                    <a class="editUser" href="#">Editar</a>
-                    <img src="img/edit.png" alt="Icono de Editar" ng-click="editarUsuario()" data-toggle="modal" data-target="#modalEditarUsuario">
-                  </label>
-                </legend>
-                <div class="col-md-6 col-sm-5">
+              
+                <fieldset class="col-md-12 col-sm-10">
+                  <legend>Datos Personales
+                    <label class="lblEdit lblEditUser">
+                      <a class="editUser" href="#">Editar</a>
+                      <img src="img/edit.png" alt="Icono de Editar" ng-click="editarUsuario()" data-toggle="modal" data-target="#modalEditarUsuario">
+                    </label>
+                  </legend>
+                  <div class="col-md-6 col-sm-5">
+                    <md-input-container>
+                      <label>Nombre</label>
+                      <input id="inpNameUser" name="userName" ng-model="updateUser.datos[1].Nombre" ng-disabled="disable">
+                    </md-input-container>
+                    <md-input-container>
+                      <label>Primer Apellido</label>
+                      <input id="inpPrimerApellido" name="primerApellido" ng-model="updateUser.datos[1].PrimerApellido" ng-disabled="disable">
+                    </md-input-container>
+                    <md-input-container>
+                      <label>Segundo Apellido</label>
+                      <input id="inpSegApellido" name="segundoApellido" ng-model="updateUser.datos[1].SegundoApellido" ng-disabled="disable">
+                    </md-input-container>
+                    <md-input-container ng-controller="DatepickerDemoCtrl">
+                      <p class="input-group">
+                        <label>Fecha de Nacimiento</label>
+                        <input id="inpFecha" name="userFecha" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="updateUser.datos[1].FechaNacimiento" is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="birthDate" ng-disabled="disable"/>
+                        <span class="input-group-btn">
+                          <button class="btnDatePicker" type="button" ng-click="open($event)" ng-disabled="disable">
+                            <img src="img/datepicker.png">
+                          </button>
+                        </span>
+                      </p>
+                    </md-input-container>
+                    <button class="btn btnAddUser saveUser" type="submit" ng-click="guardarUsuario()">Guardar</button>
+                    <button class="btn btnAdd cancelUser" type="submit" ng-click="cancelEditarUsuario()">Cancelar</button>
+                  </div>
+                  <div class="col-md-6 col-sm-5">
                   <md-input-container>
-                    <label>Nombre</label>
-                    <input id="inpNameUser" name="userName" ng-model="updateUser.datos[1].Nombre" ng-disabled="disable">
+                    <label>Dirección</label>
+                    <input id="inpDireccion" name="userDireccion" ng-model="updateUser.datos[1].Direccion" ng-disabled="disable">
                   </md-input-container>
                   <md-input-container>
-                    <label>Primer Apellido</label>
-                    <input id="inpPrimerApellido" name="primerApellido" ng-model="updateUser.datos[1].PrimerApellido" ng-disabled="disable">
+                    <label>Cédula</label>
+                    <input id="inpCedula" name="userCed" ng-model="updateUser.datos[1].Cedula" ng-disabled="disable">
                   </md-input-container>
-                  <md-input-container>
-                    <label>Segundo Apellido</label>
-                    <input id="inpSegApellido" name="segundoApellido" ng-model="updateUser.datos[1].SegundoApellido" ng-disabled="disable">
-                  </md-input-container>
-                  <md-input-container ng-controller="DatepickerDemoCtrl">
-                    <p class="input-group">
-                      <label>Fecha de Nacimiento</label>
-                      <input id="inpFecha" name="userFecha" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="updateUser.datos[1].FechaNacimiento" is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="birthDate" ng-disabled="disable"/>
-                      <span class="input-group-btn">
-                        <button class="btnDatePicker" type="button" ng-click="open($event)" ng-disabled="disable">
-                          <img src="img/datepicker.png">
-                        </button>
-                      </span>
-                    </p>
-                  </md-input-container>
-                  <button class="btn btnAddUser saveUser" type="submit" ng-click="guardarUsuario()">Guardar</button>
-                  <button class="btn btnAdd cancelUser" type="submit" ng-click="cancelEditarUsuario()">Cancelar</button>
                 </div>
-                <div class="col-md-6 col-sm-5">
-                <md-input-container>
-                  <label>Dirección</label>
-                  <input id="inpDireccion" name="userDireccion" ng-model="updateUser.datos[1].Direccion" ng-disabled="disable">
-                </md-input-container>
-                <md-input-container>
-                  <label>Cédula</label>
-                  <input id="inpCedula" name="userCed" ng-model="updateUser.datos[1].Cedula" ng-disabled="disable">
-                </md-input-container>
-              </div>
-              </fieldset>
+                </fieldset>
+                form is {{userFormMain.$valid}}
+
+            
               <fieldset class="col-md-12 col-sm-10">
                 <legend>Datos de Acceso
                   <label class="lblEdit lblEditUser">

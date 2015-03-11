@@ -50,7 +50,11 @@ h1, legend{
 						padding-left:18px;
 						font-size:1.625em;
 					}
-					.msgError, .msgErrorEmail, .errorSearch{
+					.msgError{
+						font-size:13px;
+						color:rgb(244,67,54);
+					}
+					.msgErrorEmail, .errorSearch{
 						font-size:13px;
 						color:rgb(244,67,54);
 						@include msg;

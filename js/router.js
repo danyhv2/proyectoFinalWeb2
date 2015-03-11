@@ -80,7 +80,8 @@ console.log($scope.roleUser);
                    userExist = true;
                 }
               }
-            } var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[ucenfotec]+\.[ac]+\.[cr]{2,4}$/);
+            } 
+            var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[ucenfotec]+\.[ac]+\.[cr]{2,4}$/);
             function isValidEmailAddress(emailAddress) {
             return pattern.test(emailAddress);
 

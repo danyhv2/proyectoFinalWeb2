@@ -28,6 +28,7 @@ angular.module('modifyUser', [])
 
           renderElement(['#inpNameUser', '#inpPrimerApellido', '#inpSegApellido', '#inpDireccion', '#inpFecha', '#inpCedula', '#inpCorreo', '#inpPassword']);
         }
+
     }
     };
 
@@ -49,28 +50,6 @@ angular.module('modifyUser', [])
     }
   ];
 
-  $scope.widget = [];
-  $scope.widget.push(    
-  {
-   chartTypes:[
-  {"id": "line", "title": "Line"},
-  {"id": "spline", "title": "Smooth line"},
-  {"id": "area", "title": "Area"},
-  {"id": "areaspline", "title": "Smooth area"},
-  {"id": "column", "title": "Column"},
-  {"id": "bar", "title": "Bar"},
-  {"id": "pie", "title": "Pie"},
-  {"id": "scatter", "title": "Scatter"}
-  ],
-   chartConfig : {
-    options: {
-      chart: {         
-        type:  "bar"
-      }
-  }
-  }
-  }
-  );
 
       $scope.disable=true;
       $scope.disable2=true;
@@ -80,22 +59,28 @@ angular.module('modifyUser', [])
             $('.cancelUser').css('display','block');
       }
       $scope.guardarUsuario = function(){
+        $scope.datos = jQuery.parseJSON(localStorage.getItem('users'));
         console.log($scope.datos[0].Nombre);
-        $scope.datos[0].Nombre = $('#inpNameUser').val();
-        $scope.changedUser = [{
-                          'Nombre':  $scope.datos[0].Nombre,
-                          'PrimerApellido':  $scope.datos[0].PrimerApellido,
-                          'SegundoApellido':  $scope.datos[0].SegundoApellido,
-                          'Direccion':  $scope.datos[0].Direccion,
-                          'Cedula':  $scope.datos[0].Cedula,
-                          'Foto':  $scope.datos[0].Foto,
-                          'FechaNacimiento':  $scope.datos[0].FechaNacimiento,
-                          'Correo':  $scope.datos[0].Correo,
-                          'Contrasena': $scope.datos[0].Contrasena
-                            }];
-                         
-        localStorage.setItem('users',JSON.stringify($scope.changedUser));
-        console.log(jQuery.parseJSON(localStorage.getItem('users')));
+        if($scope.userFormMain.$valid){
+          $scope.datos[0].Nombre = $('#inpNameUser').val();
+          $scope.changedUser = [{
+                            'Nombre':  $scope.datos[0].Nombre,
+                            'PrimerApellido':  $scope.datos[0].PrimerApellido,
+                            'SegundoApellido':  $scope.datos[0].SegundoApellido,
+                            'Direccion':  $scope.datos[0].Direccion,
+                            'Cedula':  $scope.datos[0].Cedula,
+                            'Foto':  $scope.datos[0].Foto,
+                            'FechaNacimiento':  $scope.datos[0].FechaNacimiento,
+                            'Correo':  $scope.datos[0].Correo,
+                            'Contrasena': $scope.datos[0].Contrasena
+                              }];
+                           
+          localStorage.setItem('users',JSON.stringify($scope.changedUser));
+          console.log(jQuery.parseJSON(localStorage.getItem('users')));
+          $scope.disable=true;
+          $('.saveUser').css('display','none');
+          $('.cancelUser').css('display','none');
+      }
 
       }
       $scope.editarUsuarioAcceso = function(){
