@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalEditarCurso" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" ng-hide="formVisibility">
+<div class="modal fade" id="modalEditarCurso" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" ng-controller="updateCursoCtrl as updCurso">
     <div class="modal-dialog">
         <div class="modal-content" ng-hide="formVisibility">
             <div class="modal-header">
@@ -6,17 +6,19 @@
                 <h1>Información del Curso</h1>
             </div>
             <div class="modal-body">
-                <form clas="form-horizontal" ng-submit="logeoA()">
-                    <md-input-container>
-                        <label>
-                            <img src="img/searchIcon.png">
-                            Buscar curso
-                        </label>
-                        <input required name="buscarCurso" ng-model="project.clientName">
+                <form clas="form-horizontal" name="updCurso.userFormEditCurso">
+                    <md-input-container class="contBuscarCurso">
+                        <p class="input-group">
+                          <label>Buscar carrera</label>
+                          <input required name="buscarCarrera" class="searchCurso">
+                          <a href="#" ng-click="updCarrera.updateModel()">
+                              <img src="img/searchIcon.png">
+                          </a>
+                        </p>
                     </md-input-container>
                     <md-input-container>
                     <label>Nombre</label>
-                    <input md-maxlength="30" required name="nombre" ng-model="project.description">
+                    <input id="inpNombreCurso" md-maxlength="30" required name="nombreCurso" ng-model="updCurso.datos[0].Curso">
                     <div ng-messages="projectForm.description.$error">
                       <div ng-message="required">This is required.</div>
                       <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
@@ -38,21 +40,21 @@
                   </md-input-container>
                   <md-input-container>
                     <label>Horario</label>
-                    <input required name="horarioCurso" ng-model="project.clientName">
+                    <input id="inpHorarioCurso" required name="horarioCurso" ng-model="updCurso.datos[0].Horario">
                     <div ng-messages="projectForm.clientName.$error">
                       <div ng-message="required">This is required.</div>
                     </div>
                   </md-input-container>
                   <md-input-container>
                     <label>Créditos</label>
-                    <input required name="creditosCurso" ng-model="project.clientName">
+                    <input id="inpCreditoCurso" type="number" min="1" required name="creditosCurso" ng-model="updCurso.datos[0].Creditos">
                     <div ng-messages="projectForm.clientName.$error">
                       <div ng-message="required">This is required.</div>
                     </div>
                   </md-input-container>
                   <md-input-container>
                     <label>Código</label>
-                    <input required name="codCurso" ng-model="project.clientName">
+                    <input id="inpCodCurso" required name="codCurso" ng-model="updCurso.datos[0].Codigo">
                     <div ng-messages="projectForm.clientName.$error">
                       <div ng-message="required">This is required.</div>
                     </div>

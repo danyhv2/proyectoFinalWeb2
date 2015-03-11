@@ -17,40 +17,40 @@
                   <div class="col-xs-12">
                     <div >
                     <md-select class="optCuatri" required ng-model="cuatriCurso" name="cuatrimestre" placeholder="Cuatrimestre">
-                      <md-option value="1">I Cuatrimestre</md-option>
-                      <md-option value="2" >II Cuatrimestre</md-option>
-                      <md-option value="3" >III Cuatrimestre</md-option>
+                      <md-option value="I Cuatrimestre">I Cuatrimestre</md-option>
+                      <md-option value="II Cuatrimestre" >II Cuatrimestre</md-option>
+                      <md-option value="III Cuatrimestre" >III Cuatrimestre</md-option>
                     </md-select>
                   </div>
                     <md-select class="optAno" required ng-model="anoCurso" name="ano" placeholder="Año Lectivo">
-                      <md-option value="1">2015</md-option>
-                      <md-option value="2" >2016</md-option>
-                      <md-option value="3" >2017</md-option>
-                      <md-option value="4" >2018</md-option>
-                      <md-option value="5" >2019</md-option>
-                      <md-option value="6" >2020</md-option>
-                      <md-option value="7" >2021</md-option>
+                      <md-option value="2015">2015</md-option>
+                      <md-option value="2016" >2016</md-option>
+                      <md-option value="2017" >2017</md-option>
+                      <md-option value="2018" >2018</md-option>
+                      <md-option value="2019" >2019</md-option>
+                      <md-option value="2020" >2020</md-option>
+                      <md-option value="2021" >2021</md-option>
                     </md-select>
                   </div>
                   <md-input-container>
                     <label>Horario</label>
-                    <input required name="segundoApellido" ng-model="horarioCurso">
-                    <div ng-show="userForm.$submitted || userForm.segundoApellido.$touched">
-                      <div class="msgError" ng-show="userForm.segundoApellido.$error.required">Debe ingresar un horario para el curso.</div>
+                    <input required name="horario" ng-model="horarioCurso">
+                    <div ng-show="userForm.$submitted || userForm.horario.$touched">
+                      <div class="msgError" ng-show="userForm.horario.$error.required">Debe ingresar un horario para el curso.</div>
                     </div>
                   </md-input-container>
                   <md-input-container>
                     <label>Créditos</label>
-                    <input required name="segundoApellido" ng-model="creditosCurso">
-                    <div ng-show="userForm.$submitted || userForm.segundoApellido.$touched">
-                      <div class="msgError" ng-show="userForm.segundoApellido.$error.required">Debe ingresar los créditos para el curso.</div>
+                    <input type="number" min="1" required name="creditos" ng-model="creditosCurso">
+                    <div ng-show="userForm.$submitted || userForm.creditos.$touched">
+                      <div class="msgError" ng-show="userForm.creditos.$error.required">Debe ingresar los créditos para el curso.</div>
                     </div>
                   </md-input-container>
                   <md-input-container>
                     <label>Código</label>
-                    <input required name="segundoApellido" ng-model="codCurso">
-                    <div ng-show="userForm.$submitted || userForm.segundoApellido.$touched">
-                      <div class="msgError" ng-show="userForm.segundoApellido.$error.required">Debe ingresar un código para el curso.</div>
+                    <input required name="codigo" ng-model="codCurso">
+                    <div ng-show="userForm.$submitted || userForm.codigo.$touched">
+                      <div class="msgError" ng-show="userForm.codigo.$error.required">Debe ingresar un código para el curso.</div>
                     </div>
                   </md-input-container>
                 </div>
@@ -68,7 +68,7 @@
               <div class="col-xs-12">   
               <button class="btn btnAddUser" type="submit">Ingresar</button>
               </div>
-              <div>review form is {{formCarrera.$valid}}</div>
+              <div>review form is {{userForm.$valid}}</div>
              
          </form> 
 

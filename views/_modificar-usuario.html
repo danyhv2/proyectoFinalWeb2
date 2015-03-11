@@ -16,7 +16,6 @@
                   <label class="lblEdit lblEditUser">
                     <a class="editUser" href="#">Editar</a>
                     <img src="img/edit.png" alt="Icono de Editar" ng-click="editarUsuario()" data-toggle="modal" data-target="#modalEditarUsuario">
-                    <!--<div class="modal fade" id="modalEditarUsuario" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"></div>-->
                   </label>
                 </legend>
                 <div class="col-md-6">
@@ -24,11 +23,6 @@
                     <label>Nombre</label>
                     <input id="inpNameUser" name="userName" ng-model="updateUser.datos[1].Nombre" ng-disabled="disable">
                   </md-input-container>
-                  <!--<div class="col-lg-2">
-                        <input type="text" class="form-control" id="city" name="city"
-                               ng-model="user.datos[1].Nombre">
-                    </div>-->
-                    
                   <md-input-container>
                     <label>Primer Apellido</label>
                     <input id="inpPrimerApellido" name="primerApellido" ng-model="updateUser.datos[1].PrimerApellido" ng-disabled="disable">
@@ -94,8 +88,6 @@
                   <md-select ng-model="updateUser.datos[1].Role" class="optionsRoleUser" ng-disabled="disable2">
                     <md-option class="optRole" ng-value="role.nombre" ng-repeat="role in roles">{{role.nombre}}</md-option>
                   </md-select>
-
-
                 </div>
               </fieldset>
               
@@ -103,7 +95,6 @@
               <div>review form is {{userForm.$valid}}</div>
              
          </form>
-
        </div>
      <!--FIN FORMULARIO-->
   </div>

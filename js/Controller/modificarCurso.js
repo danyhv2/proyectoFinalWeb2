@@ -1,6 +1,6 @@
 // Code goes here
-angular.module('modifyCarrera', [])
-  .controller('updateCarreraCtrl', function($scope) {
+angular.module('modifyCurso', [])
+  .controller('updateCursoCtrl', function($scope) {
    var self=this;
 
     function renderElement(elementIds) {
@@ -9,11 +9,11 @@ angular.module('modifyCarrera', [])
       });
     }
 
-    this.datos = jQuery.parseJSON(localStorage.getItem('carreras'));
+    this.datos = jQuery.parseJSON(localStorage.getItem('cursos'));
 
     self.updateModel = function updateModel() {
       for(var i = 0; i < this.datos.length; i++){
-        if($('.searchCarrera').val()== this.datos[i].Carrera){
+        if($('.searchCurso').val()== this.datos[i].Carrera){
 
       // update the form values
       self.formEditCarrera.nombre.$setViewValue(this.datos[i].Carrera);
