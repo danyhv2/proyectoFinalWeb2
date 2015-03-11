@@ -41,6 +41,34 @@ FileAPI = {
             </div>
          </nav>
 	</header>
+  <!-- modal -->
+  <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <img src="img/image-app.png">
+      </div>
+      <div class="modal-body">
+        <div layout="column">
+          <md-input-container>
+            <label>Correo</label>
+            <input type="email" ng-model="user.correo" placeholder ="mrosales@ucenfotec.ac.cr">
+          </md-input-container>
+          <md-input-container>
+            <label>Contraseña</label>
+            <input type="password" ng-model="user.pasword" placeholder="xxxxxxxxx">
+          </md-input-container>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-primary AddDocument">Ingresar</button>
+      </div>
+    </div>
+  </div>
+</div>
+ <!--  modal -->
   <div class="mainConfig" onclick ="show()">
     <div class="wrapperConfig">
       
