@@ -1,7 +1,7 @@
 (function() {
     var module = angular.module('module', ['ui.router']);
 
-    module.controller('directorController', function($scope) {
+    module.controller('directorController', function($scope) { 
         this.datos = archivos;
         var valorActualE = [],
             valorActualC = [],
@@ -164,76 +164,131 @@
             $scope.infoIngresada5 = "";
         }
 
+        $scope.borrarRubTemp = function(){
+            $('#rubricasModal').empty();
+        }
 
         $scope.edit = function(valores) {
-            var t = $scope.este.datos.RubricasCreadas.indexOf(valores);
+            $scope.cantidadParametros = valores
 
-            var valorActual = valores;
-            $scope.entrada0 = valorActual.NombreDeRubrica;
-            $scope.entrada1 = valorActual.NombreDeGrupo;
-            $scope.entrada2 = valorActual.Asistencia;
-            $scope.entrada3 = valorActual.Concepto;
-            $scope.entrada4 = valorActual.Examen1;
-            $scope.entrada5 = valorActual.Examen2;
-            $scope.entrada6 = valorActual.Tareas;
+             $.each($scope.cantidadParametros.rubricaLista, function(key, value){
+                $.each(value, function(key, value){
+                $('#rubricasModal').append('\
+                <div class="group form-group">\
+                        <label class="rubricasTemp">'+key+'</label>\
+                        <input required class="valoresTemp form-control" name="nombreEditRubrica" value="'+value+'">\
+                </div>')
+
+                });
+            });
+             console.log(archivos.RubricasCreadas.rubricaLista)
+            var t = $scope.este.datos.RubricasCreadas.indexOf(valores);
 
             $scope.editCreat = function() {
 
-                totalE = Number($scope.entrada2) + Number($scope.entrada3) + Number($scope.entrada4) + Number($scope.entrada5) + Number($scope.entrada6);
+           var rubricasPorReemplazar = [],
+                rubrosPorReemplazar = [],
+                y = 0,
+                s = 0,
+                total = 0;
 
-                if (totalE === 100) {
-                var nuevaRubricaEditada = {
-                    "NombreDeRubrica": $scope.entrada0,
-                    "NombreDeGrupo" : $scope.entrada1,
-                    "Asistencia": $scope.entrada2,
-                    "Concepto": $scope.entrada3,
-                    "Examen1": $scope.entrada4,
-                    "Examen2": $scope.entrada5,
-                    "Tareas": $scope.entrada6
+            $('.valoresTemp').each(function(){
+                rubricasPorReemplazar.push($(this).val());
+                y ++
+                s ++
+            });
+
+            $('.rubricasTemp').each(function(){
+                rubrosPorReemplazar.push($(this).text());
+            });
+
+
+                var cosa = [],
+                    RubricaLista = [];
+
+                function pushToAry(name, val) {
+                var vas = {};
+                   vas[name] = val
+                   cosa.push(vas);
+                }
+
+               for (var w = 0;w < s; w++) {
+                var rubr = rubrosPorReemplazar[w],
+                    num = rubricasPorReemplazar[w];
+
+                pushToAry(rubr, num);
+
                 };
-                archivos.RubricasCreadas.push(nuevaRubricaEditada);
+
+                console.log(cosa)
+                console.log(archivos.RubricasCreadas)
+
+                archivos.RubricasCreadas.push({"rubricaLista":cosa});
+
                 $scope.este.datos.RubricasCreadas.splice(t, 1);
                 $('.errormsj2').hide();
-            }else{
-                $('.errormsj2').show();
-            }
-            }
+                $('#rubricasModal').empty();
+
         }
+    }
 
         $scope.delR = function(valores) {
             var f = $scope.este.datos.RubricasCreadas.indexOf(valores);
             $scope.este.datos.RubricasCreadas.splice(f, 1);
         }
 
+        $scope.nuevoRubroAdd = function(){
+            archivos.ParamatrosRubrica.push({parametro : $scope.nuevoRubro})
+            $scope.nuevoRubro = "";
+        }
+
         $scope.add = function() {
             var rubricasPorEnviar = [],
+                rubrosPorEnviar = [],
                 y = 0,
+                s = 0,
                 total = 0;
 
             $('.valNot').each(function(){
                 rubricasPorEnviar.push($(this).val());
                 y ++
+                s ++
+            });
+
+            $('.rubroP').each(function(){
+                rubrosPorEnviar.push($(this).text());
             });
 
             for (y --;y >= 0; y--) {
                 total = total + Number(rubricasPorEnviar[y])
-                console.log(y)
             };
-      
+
             if (total === 100) {
-                var nuevaRubricaCreada = {
-                    "NombreDeRubrica": $scope.newNombreRubrica,
-                    "NombreDeGrupo" : $scope.newNombreGrupo,
-                    "Asistencia": rubricasPorEnviar[0],
-                    "Concepto": rubricasPorEnviar[1],
-                    "Examen1": rubricasPorEnviar[2],
-                    "Examen2": rubricasPorEnviar[3],
-                    "Tareas": rubricasPorEnviar[4]
+
+                var cosa = [],
+                    RubricaLista = [];
+
+                function pushToAry(name, val) {
+                var vas = {};
+                   vas[name] = val
+                   cosa.push(vas);
                 }
-                archivos.RubricasCreadas.push(nuevaRubricaCreada);
+
+               pushToAry('NombreDeRubrica', $scope.newNombreRubrica);
+               pushToAry('NombreDeGrupo', $scope.newNombreGrupo);
+
+               for (s --;s >= 0; s--) {
+                var rubr = rubrosPorEnviar[s],
+                    num = rubricasPorEnviar[s];
+
+                pushToAry(rubr, num);
+
+                };
+
+                archivos.RubricasCreadas.push({"rubricaLista":cosa});
+
                 document.getElementById("formAddR").reset();
                 $('.errormsj').hide();
-                console.log('aqui');
             }else{
                     $('.errormsj').show();
                 }
@@ -266,29 +321,11 @@
 
 var archivos = {
     "RubricasCreadas": [{
-        "NombreDeRubrica": "Rubrica 1",
-        "NombreDeGrupo" : "Grupo 1",
-        "Asistencia": "15",
-        "Concepto": "15",
-        "Examen1": "30",
-        "Examen2": "30",
-        "Tareas": "10"
-    }, {
-        "NombreDeRubrica": "Rubrica 2",
-        "NombreDeGrupo" : "Grupo 2",
-        "Asistencia": "10",
-        "Concepto": "10",
-        "Examen1": "15",
-        "Examen2": "25",
-        "Tareas": "10"
-    }, {
-        "NombreDeRubrica": "Rubrica 3",
-        "NombreDeGrupo" : "Grupo 3",
-        "Asistencia": "10",
-        "Concepto": "10",
-        "Examen1": "15",
-        "Examen2": "25",
-        "Tareas": "10"
+        rubricaLista : [{
+        NombreDeRubrica: "Rubrica 1"    
+        },
+        {Examen: 10},
+        {Concepto: 20}]
     }],
 
     "ParamatrosRubrica": [{
@@ -296,11 +333,7 @@ var archivos = {
     }, {
         "parametro": "Concepto"
     }, {
-        "parametro": "Examen1"
-    }, {
-        "parametro": "Examen2"
-    }, {
-        "parametro": "Tareas"
+        "parametro": "Examen"
     }],
 
     "GruposDeCurso": [{

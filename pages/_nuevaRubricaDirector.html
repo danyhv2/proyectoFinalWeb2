@@ -5,7 +5,7 @@
         <table class="table table-hover">
             <tbody>
                  <tr ng-repeat="valores in este.datos.RubricasCreadas">
-                     <td>{{valores.NombreDeRubrica}}</td>
+                     <td>{{valores.rubricaLista[0].NombreDeRubrica}}</td>
                      <td><img src="img/edit.png"  ng-click="edit(valores)" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
                      <td><img src="img/del.png"  ng-click="delR(valores)" style="cursor: pointer"></td>
                  </tr>
@@ -17,7 +17,7 @@
     <div class="pull-right derechaCaja">
         <div class="rayaCentral"></div>
         <h3>Nueva Rubrica</h3>
-        <form id="formAddR" name="RubForm" ng-submit="RubForm.$valid && add()" class="estiloCaja" novalidate>
+        <form id="formAddR" name="RubForm" ng-submit="RubForm.$valid && add()" class="estiloCaja contenedorDeCajas" novalidate>
             <ng-form name="rubricaFormDirector">
 
                   <md-input-container>
@@ -32,15 +32,23 @@
                     </select>
 
                   <md-input-container ng-repeat='par in este.datos.ParamatrosRubrica'>
-                    <label>{{par.parametro}}</label>
+                    <label class="rubroP">{{par.parametro}}</label>
                     <input md-maxlength="2" class="valNot" required name="numeroRubrica" ng-model="inte">
                   </md-input-container>
+
 
             </ng-form>
             <div class="alert alert-danger errormsj">La suma de los porcentajes no es igual a 100.</div>
             <input type="submit" class="btn agregarBtn simpleColor" value="Agregar" id="agregarubrica">
         </form>
-
+        <div class="estiloCaja">
+                  <md-input-container>
+                    <label>Nuevo rubro</label>
+                    <input class="nuevoRubro" ng-model="nuevoRubro">
+                  </md-input-container>
+                  <button type="button" class="simpleColor btn" ng-click="nuevoRubroAdd()">
+                    Añadir rubro</button>
+        </div>
     </div>
 
     <!-- Modal -->
@@ -49,64 +57,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h1 class="modal-title" id="myModalLabel">Detalles</h1>
+                    <h4 class="modal-title" id="myModalLabel">Detalles</h4>
                 </div>
-                <div class="rayaCentralMorada"></div>
-                <div class="modal-body cajaDelmodal">
+                <div class="modal-body cajaDelmodal" id="rubricasModal">
 
-                    <div class="group">
-                        <md-input-container>
-                            <label>Nombre De Rubrica</label>
-                            <input md-maxlength="20" required name="nombreEditRubrica" ng-model="entrada0">
-                        </md-input-container>
-                    </div>
-
-                    <div class="group">
-                        <md-input-container>
-                            <label>Nombre Del grupo</label>
-                            <input required name="nombreEditRubrica" ng-model="entrada1" disabled>
-                        </md-input-container>
-                    </div>
-
-                    <div class="group">
-                        <md-input-container>
-                            <label>Asistencia</label>
-                            <input md-maxlength="2" required name="nombreEditRubrica" ng-model="entrada2">
-                        </md-input-container>
-                    </div>
-
-                    <div class="group">
-                        <md-input-container>
-                            <label>Concepto</label>
-                            <input md-maxlength="2" required name="nombreEditRubrica" ng-model="entrada3">
-                        </md-input-container>
-                    </div>
-
-                    <div class="group">
-                        <md-input-container>
-                            <label>Examen 1</label>
-                            <input md-maxlength="2" required name="nombreEditRubrica" ng-model="entrada4">
-                        </md-input-container>
-                    </div>
-
-                    <div class="group">
-                        <md-input-container>
-                            <label>Examen 2</label>
-                            <input md-maxlength="2" required name="nombreEditRubrica" ng-model="entrada5">
-                        </md-input-container>
-                    </div>
-
-                    <div class="group">
-                        <md-input-container>
-                            <label>Tareas</label>
-                            <input md-maxlength="2" required name="nombreEditRubrica" ng-model="entrada6">
-                        </md-input-container>
-                    </div>
                 </div>
                 <div class="alert alert-danger errormsj2">La suma de los porcentajes no es igual a 100.</div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="simpleColor btn" ng-click="editCreat()">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="borrarRubTemp()">Cerrar</button>
+                    <button type="button" class="simpleColor btn" data-dismiss="modal" ng-click="editCreat()">
                     Guardar</button>
                 </div>
             </div>

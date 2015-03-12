@@ -4,14 +4,6 @@
   display: inline;
 }
 
-.medida{
-  height: 31.5em !important;
-}
-
-.medida2{
-  height: 38em !important;
-}
-
 .nays{
   margin-top: 2em;
 }
@@ -67,25 +59,23 @@
   position: absolute;
 }
 
-.rayaCentralMorada{
-  height: 33em;
-  width: 10%;
-  margin-left: 10%;
-  background-color: #722d7b;
-  position: absolute;
-}
-
 .simpleColor {
     background-color: #722d7b !important;
     color: #fff !important;
 }
 
-.cajaDelmodal div{
-  margin-left: 20%;
-  margin-top: 1%;
-}
+
 
 .contenedorDeCajas{
   height: 30em; 
   overflow-y: scroll
+}
+
+.contenedorRubricasUi{
+  h3{
+    font-size: 1.87em;
+    font-weight: bold;
+    color: #757475;
+    text-align: center;
+  }
 }
