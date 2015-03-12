@@ -1,0 +1,80 @@
+<div class ="contenedorRubricasUi" ng-controller='directorController as este'>
+    <div class="pull-left izquierdaCaja">
+        <h3>Carreras</h3>
+        <div class="contenedorDeCajas">
+        <table class="table table-hover">
+            <tbody>
+                 <tr ng-repeat="valores in este.datos.Carreras">
+                     <td>{{valores.carrera}}</td>
+                     <td><img src="img/edit.png"  ng-click="editCrusgru(valores)" data-toggle="modal" data-target="#modalDetallesCur" style="cursor: pointer"></td>
+                     <td><img src="img/del.png"  ng-click="delc(valores)" style="cursor: pointer"></td>
+                 </tr>
+            </tbody>
+        </table>
+         </div>
+    </div>
+
+    <div class="pull-right derechaCaja">
+        <div class="rayaCentral"></div>
+        <h3>Asignar curso a carrera</h3>
+        <form id="formAddR" name="RubForm" ng-submit="RubForm.$valid && addCurso()" class="estiloCaja" novalidate>
+            <ng-form name="carreFormDirector">
+
+                    <label>Carrera</label>
+                    <select ng-model="mCarrera" required name="nombreGrupo" class="form-control">
+                        <option ng-repeat="car in este.datos.Carreras">{{car.carrera}}</option>
+                    </select>
+
+                    <label>Curso</label>
+                    <select ng-model="mCurso" required   ng-change="CursAdd();" name="nombreGrupo" class="form-control">
+                        <option ng-repeat="grupos in este.datos.GruposDeCurso">{{grupos.NombreDelCurso}}</option>
+                    </select>
+
+                    <table class="table table-hover">
+                        <th>Cursos por asignar</th>
+                        <tbody  class="CurTempor"  id="tablaCursos">
+                             
+                        </tbody>
+                    </table>
+
+            </ng-form>
+            <input type="submit" class="btn agregarBtn simpleColor" value="Agregar" id="agregaCear">
+        </form>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalDetallesCur" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="rayita"></div>
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Detalles</h4>
+                </div>
+                <div class="modal-body cajaDelmodal">
+
+                    <div class="group">
+                        <md-input-container>
+                            <label>Nombre de la carrera</label>
+                            <input required name="nombreEditRubrica" ng-model="valor0" disabled>
+                        </md-input-container>
+                    </div>
+
+                    <div class="group">
+                        <label>Cursos asignados</label>
+                        <ul class="list-group">
+                            <li ng-repeat="aq in estCr" class="list-group-item">
+                                {{aq.apj}}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

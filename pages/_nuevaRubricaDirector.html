@@ -22,32 +22,18 @@
 
                   <md-input-container>
                     <label>Nombre de la rubrica</label>
-                    <input md-maxlength="10" required name="nombreRubrica" ng-model="newNombreRubrica">
+                    <input md-maxlength="20" required name="nombreRubrica" ng-model="newNombreRubrica">
                   </md-input-container>
 
-                  <md-input-container>
-                    <label>{{este.datos.ParamatrosRubrica[0].parametro1}}</label>
-                    <input md-maxlength="2" required name="nombreRubrica" ng-model="int1">
-                  </md-input-container>
+                  
+                    <label>Nombre del grupo</label>
+                    <select ng-model="newNombreGrupo" required name="nombreGrupo" class="form-control">
+                        <option ng-repeat="grupos in este.datos.GruposDeCurso">{{grupos.NombreDelGrupo}}</option>
+                    </select>
 
-                  <md-input-container>
-                    <label>{{este.datos.ParamatrosRubrica[1].parametro2}}</label>
-                    <input md-maxlength="2" required name="nombreRubrica" ng-model="int2">
-                  </md-input-container>
-
-                  <md-input-container>
-                    <label>{{este.datos.ParamatrosRubrica[2].parametro3}}</label>
-                    <input md-maxlength="2" required name="nombreRubrica" ng-model="int3">
-                  </md-input-container>
-
-                  <md-input-container>
-                    <label>{{este.datos.ParamatrosRubrica[3].parametro4}}</label>
-                    <input md-maxlength="2" required name="nombreRubrica" ng-model="int4">
-                  </md-input-container>
-
-                  <md-input-container>
-                    <label>{{este.datos.ParamatrosRubrica[4].parametro5}}</label>
-                    <input md-maxlength="2" required name="nombreRubrica" ng-model="int5">
+                  <md-input-container ng-repeat='par in este.datos.ParamatrosRubrica'>
+                    <label>{{par.parametro}}</label>
+                    <input md-maxlength="2" class="valNot" required name="numeroRubrica" ng-model="inte">
                   </md-input-container>
 
             </ng-form>
@@ -71,7 +57,14 @@
                     <div class="group">
                         <md-input-container>
                             <label>Nombre De Rubrica</label>
-                            <input md-maxlength="10" required name="nombreEditRubrica" ng-model="entrada1">
+                            <input md-maxlength="20" required name="nombreEditRubrica" ng-model="entrada0">
+                        </md-input-container>
+                    </div>
+
+                    <div class="group">
+                        <md-input-container>
+                            <label>Nombre Del grupo</label>
+                            <input required name="nombreEditRubrica" ng-model="entrada1" disabled>
                         </md-input-container>
                     </div>
 

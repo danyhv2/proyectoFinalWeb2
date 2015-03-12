@@ -3,10 +3,79 @@
 
     module.controller('directorController', function($scope) {
         this.datos = archivos;
-        var valorActualE = [];
-        var valorActualP = [];
+        var valorActualE = [],
+            valorActualC = [],
+            valorActualP = [];
         $('.errormsj').hide();
         $('.errormsj2').hide();
+
+        //Parte de roy
+
+        $scope.editNotas = function(valores){
+            var t = $scope.este.datos.GruposDeCurso.indexOf(valores);
+            $scope.estNotas = [];
+            var valorActual = valores;
+            for(var j=0; j< archivos.RubricasCreadas.length;j++){
+                 if (archivos.RubricasCreadas[j].NombreDeGrupo === valorActual.NombreDelGrupo) {
+                    $scope.RubActual = archivos.RubricasCreadas[j];
+                 };
+            }
+            $scope.nota1 = $scope.RubActual.Asistencia;
+            $scope.nota2 = $scope.RubActual.Concepto;
+            $scope.nota3 = $scope.RubActual.Examen1;
+            $scope.nota4 = $scope.RubActual.Examen2;
+            $scope.nota5 = $scope.RubActual.Tareas;
+        }
+
+
+
+        //Parte de roy
+
+        $scope.delc = function(cs){
+            var z = $scope.este.datos.Carreras.indexOf(cs);
+            $scope.este.datos.Carreras.splice(z, 1);
+        }
+
+        $scope.editCrusgru = function(valores){
+            var t = $scope.este.datos.Carreras.indexOf(valores);
+            $scope.estCr = [];
+            var valorActual = valores;
+
+            $scope.valor0 = valorActual.carrera;
+
+            for(var j=0; j< valorActual.CursosAsignados.length;j++){
+                $scope.estCr.push({apj:valorActual.CursosAsignados[j].curso});
+            }
+        }
+
+        $scope.CursAdd = function(){
+            var tempcr = $scope.mCurso;
+            var cAdd = '';
+
+            $('.CurTempor').append('<tr><td class="CurTemp">'+tempcr+'</td></tr>')
+
+            cAdd = tempcr;
+
+            valorActualC.push({
+            "curso" : cAdd,
+             })
+        }
+
+        $scope.addCurso = function(){
+            
+            for (var i = archivos.Carreras.length - 1; i >= 0; i--) {
+                   
+                   if (archivos.Carreras[i].carrera === $scope.mCarrera) {
+                    for (var m = valorActualC.length - 1; m >= 0; m--) {
+                        archivos.Carreras[i].CursosAsignados.push(valorActualC[m])
+                    };
+                   };
+               };   
+               $scope.mCarrera = '';
+               $scope.mCurso = '';
+               $('#tablaCursos').empty();
+
+        }
 
         $scope.del = function(grupos){
             var z = $scope.este.datos.GruposDeCurso.indexOf(grupos);
@@ -31,6 +100,7 @@
                 $scope.proT.push(valorActual.Profesores[k].NombreProfesor);
             }
 
+            console.log($scope.proT)
             $scope.par1 = valorActual.NombreDelCurso;
             $scope.par2 = valorActual.NombreDelGrupo;
             $scope.par3 = valorActual.Horario;
@@ -79,7 +149,9 @@
 
             $(".ProfeTempor").empty();
             $(".EstudTempor").empty();
-            $('#selHorario').prop('selectedIndex',0);
+            $scope.infoIngresada3 = "";
+            $scope.infoIngresada4 = "";
+            $scope.infoIngresada5 = "";
         }
 
         $scope.resetForm = function(){
@@ -87,7 +159,9 @@
             document.getElementById("modalNuevoGru").reset();
             $(".ProfeTempor").empty();
             $(".EstudTempor").empty();
-            $('#selHorario').prop('selectedIndex',0);
+            $scope.infoIngresada3 = "";
+            $scope.infoIngresada4 = "";
+            $scope.infoIngresada5 = "";
         }
 
 
@@ -95,7 +169,8 @@
             var t = $scope.este.datos.RubricasCreadas.indexOf(valores);
 
             var valorActual = valores;
-            $scope.entrada1 = valorActual.NombreDeRubrica;
+            $scope.entrada0 = valorActual.NombreDeRubrica;
+            $scope.entrada1 = valorActual.NombreDeGrupo;
             $scope.entrada2 = valorActual.Asistencia;
             $scope.entrada3 = valorActual.Concepto;
             $scope.entrada4 = valorActual.Examen1;
@@ -108,7 +183,8 @@
 
                 if (totalE === 100) {
                 var nuevaRubricaEditada = {
-                    "NombreDeRubrica": $scope.entrada1,
+                    "NombreDeRubrica": $scope.entrada0,
+                    "NombreDeGrupo" : $scope.entrada1,
                     "Asistencia": $scope.entrada2,
                     "Concepto": $scope.entrada3,
                     "Examen1": $scope.entrada4,
@@ -130,20 +206,34 @@
         }
 
         $scope.add = function() {
+            var rubricasPorEnviar = [],
+                y = 0,
+                total = 0;
 
-            total = Number($scope.int1) + Number($scope.int2) + Number($scope.int3) + Number($scope.int4) + Number($scope.int5);
+            $('.valNot').each(function(){
+                rubricasPorEnviar.push($(this).val());
+                y ++
+            });
+
+            for (y --;y >= 0; y--) {
+                total = total + Number(rubricasPorEnviar[y])
+                console.log(y)
+            };
+      
             if (total === 100) {
                 var nuevaRubricaCreada = {
                     "NombreDeRubrica": $scope.newNombreRubrica,
-                    "Asistencia": $scope.int1,
-                    "Concepto": $scope.int2,
-                    "Examen1": $scope.int3,
-                    "Examen2": $scope.int4,
-                    "Tareas": $scope.int5
+                    "NombreDeGrupo" : $scope.newNombreGrupo,
+                    "Asistencia": rubricasPorEnviar[0],
+                    "Concepto": rubricasPorEnviar[1],
+                    "Examen1": rubricasPorEnviar[2],
+                    "Examen2": rubricasPorEnviar[3],
+                    "Tareas": rubricasPorEnviar[4]
                 }
                 archivos.RubricasCreadas.push(nuevaRubricaCreada);
                 document.getElementById("formAddR").reset();
                 $('.errormsj').hide();
+                console.log('aqui');
             }else{
                     $('.errormsj').show();
                 }
@@ -167,7 +257,9 @@
 
         .state('grupo.cursosCarreras', {
             url: '/carreras',
-            template: '<p>Pendiente</p>'
+           templateUrl: 'pages/_cursosCarrerasDirector.html',
+           //templateUrl: 'pages/_rubricaEstudiante.html',
+            controller: 'directorController'
         })
     });
 })();
@@ -175,13 +267,15 @@
 var archivos = {
     "RubricasCreadas": [{
         "NombreDeRubrica": "Rubrica 1",
-        "Asistencia": "10",
-        "Concepto": "10",
-        "Examen1": "15",
-        "Examen2": "25",
+        "NombreDeGrupo" : "Grupo 1",
+        "Asistencia": "15",
+        "Concepto": "15",
+        "Examen1": "30",
+        "Examen2": "30",
         "Tareas": "10"
     }, {
         "NombreDeRubrica": "Rubrica 2",
+        "NombreDeGrupo" : "Grupo 2",
         "Asistencia": "10",
         "Concepto": "10",
         "Examen1": "15",
@@ -189,6 +283,7 @@ var archivos = {
         "Tareas": "10"
     }, {
         "NombreDeRubrica": "Rubrica 3",
+        "NombreDeGrupo" : "Grupo 3",
         "Asistencia": "10",
         "Concepto": "10",
         "Examen1": "15",
@@ -197,15 +292,15 @@ var archivos = {
     }],
 
     "ParamatrosRubrica": [{
-        "parametro1": "Asistencia"
+        "parametro": "Asistencia"
     }, {
-        "parametro2": "Concepto"
+        "parametro": "Concepto"
     }, {
-        "parametro3": "Examen1"
+        "parametro": "Examen1"
     }, {
-        "parametro4": "Examen2"
+        "parametro": "Examen2"
     }, {
-        "parametro5": "Tareas"
+        "parametro": "Tareas"
     }],
 
     "GruposDeCurso": [{
@@ -220,6 +315,7 @@ var archivos = {
 
         "Profesores": [{
             "NombreProfesor" : "Israel",
+            "Rol asignado" : "Proceso"
         },{
             "NombreProfesor" : "Carlos",
         }],
@@ -237,10 +333,11 @@ var archivos = {
 
         "Profesores": [{
             "NombreProfesor" : "Israel",
- 
+            "Rol asignado" : "Proceso"
+
         },{
             "NombreProfesor" : "Carlos",
-  
+            "Rol asignado" : "Factor Humano"
         }],
     }],
 
@@ -254,6 +351,34 @@ var archivos = {
         "Estudiante": "Josiah Brandt"
     }],
 
+    "Carreras": [{
+        "carrera": "Desarrollo de web",
+        "CursosAsignados" : [{
+        "curso" : "Curso de nuevo",
+        },{
+        "curso" : "Curso de x"
+        }],
+
+        },{
+        "carrera": "Desarrollo de Software",
+        "CursosAsignados" : [{
+        "curso" : "Curso de progra",
+        },{
+        "curso" : "Curso de y2k38"
+        }],
+
+        },{
+        "carrera": "Telematica",
+        "CursosAsignados" : [{
+        "curso" : "Estos",
+        }],
+        },{
+        "carrera": "TIC",
+        "CursosAsignados" : [{
+        "curso" : "Curso de estudaintes",
+        }],
+    }],
+
     "ProfesoresNormales": [{
         "Profesor": "Jennifer Moralez",
         },{
@@ -264,3 +389,8 @@ var archivos = {
         "Profesor": "Robert Smith"
     }]
 }
+
+//poner el rango del Profesor
+//Mensajes de confirmacion y error
+//borrar profes o estudiantes
+//proceso teoria factor humano
