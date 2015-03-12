@@ -1173,7 +1173,7 @@ md-item-content.div {
 /* line 6, ../sass/_slideshow.scss */
 .slideshow-container #slideshow {
   padding: 0px;
-  width: 840px;
+  width: 100%;
   height: 472px;
   overflow: hidden;
 }
