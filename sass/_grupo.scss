@@ -73,6 +73,10 @@
   {
     margin-left: 36%;
   }
+  div .modal-footer
+  {
+  	margin-left: 14%;
+  }
 }
 
 #todoGrupos
@@ -134,5 +138,43 @@
 	h2
 	{
 		margin-left: 10% !important;
+	}
+}
+#mostrarArchivos
+{
+	.contenedorDeCajas
+	{
+		margin-left: 11%;
+	}
+	h2
+	{
+		text-align: center;
+	}
+}
+
+#subirArchivos  
+{
+	input
+	{
+		margin-left: 13%;
+		width: 84%;
+	}
+	select
+	{
+		width: 83%;
+		margin-left: 13%;
+	}
+	label
+	{
+		margin-left: 13% !important;
+		margin-top: 3%;
+	}
+	h2
+	{
+		text-align : center;
+	}
+	span
+	{
+		margin-left: 13% !important;
 	}
 }

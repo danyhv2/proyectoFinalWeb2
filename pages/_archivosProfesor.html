@@ -1,0 +1,105 @@
+<div class="contenedorRubricasUi">
+		<h2>Buscar grupo</h2>
+		<md-input-container>
+		  <label>Buscar grupo</label>
+		  <input id="buscar" name="buscar" ng-model="buscar">
+		  <div ng-show="userForm.$submitted || userForm.name.$touched">
+		  </div>
+		</md-input-container>
+		<br>
+		<button type="button" class="btn simpleColor" data-toggle="modal" data-target="#subirArchivos">Subir archivo</button>
+		<div class="contenedorDeCajas">
+			<table class="table table-striped table-condensed table-hover">
+			  <thead>
+			    <tr>
+			      <th>
+			        <a href="" ng-click="ordenar('gPName')">Nombre</a>
+			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-gPName')" ></span>
+			      </th>
+			      <th>Fechas de entrega</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr ng-repeat="GruposArchivo in GruposArchivos | filter:buscar | orderBy:ordenSeleccionado">
+			      <td><a href="" ng-click="mostrarArchivos(GruposArchivo)" data-toggle="modal" data-target="#mostrarArchivos">{{GruposArchivo.gPName}}</a></td>
+			      <td>
+				        
+				    </td>
+				</tr>
+			   </tbody>
+				</table>
+		</div>
+		<div class="modal fade" id="mostrarArchivos" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="rayita"></div>
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h1>Archivos</h1>
+		      </div>
+		      <div class="modal-body">
+		        		<div class="contenedorDeCajas">
+			<table class="table table-striped table-condensed table-hover">
+			  <thead>
+			    <tr>
+			      <th>
+			        <a href="" ng-click="ordenar('todosArchivo')">Nombre</a>
+			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-todosArchivo')" ></span>
+			      </th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr ng-repeat="todosArchivo in todosArchivos">
+			      <td><a href="pdf/archivosProfesor/{{todosArchivo}}.txt" download="{{todosArchivo}}">{{todosArchivo}}</a></td>
+			      <td>
+					<td><img ng-src="img/del.png" ng-click="removeGrupo5(todosArchivo)" style="cursor: pointer">
+				  </td>
+				</tr>
+			   </tbody>
+				</table>
+			</div>
+		      </div>
+		      <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal"  ng-confirm-click="Would you like to say hi?">Cerrar</button>
+              </div>
+		    </div>
+		  </div>
+		</div>
+		<!--FIN DE MODAL-->
+		<!--MODAL-->
+		<div class="modal fade" id="subirArchivos" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="rayita"></div>
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		        <h2>Subir archivos</h2>
+		      </div>
+		      <div class="modal-body">
+		        <form class="form-horizontal">
+				  <md-input-container id="crearGrupo">
+                            <label class=".label" for="nombre">Nombre del archivo:</label> 
+                            <input type="text" name="archivo" id="nameArchivo" ng-model="nuevoNameArhivo" class="form-control"> 
+                  </md-input-container>
+                  <div id="nameArchivo2"></div>
+                    <div class="form-group">
+                    	<label class=".label" for="nombre">Archivo:</label> 
+                    	<input type="file" name="file" id="namefile" class="form-control" ng-model="archivoParaSubir" style="width: 0px; height: 0px; position: absolute; padding: 0px; margin: 0px; overflow: hidden; opacity: 0;">
+                    	<button class="btn simpleColor" ng-file-select ng-multiple="false">Seleccionar archivo</button>
+                    </div>
+                    <div class="form-group">
+			            <label for="estudiantes2">Grupos:</label>
+			            <select name="grupos" id="gruposArchivos" ng-model="enviarArchivo"  class="form-control" ng-options="GruposArchivo as GruposArchivo.gPName for GruposArchivo in GruposArchivos">
+			            </select>
+		            </div> 
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		         <button  class="btn simpleColor" ng-click="subirArchivos(enviarArchivo)">Guardar</button>
+                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cerrarArchivos()">Cerrar</button>
+              </div>
+		    </div>
+		  </div>
+		</div>
+		<!--FIN DE MODAL-->
+</div>

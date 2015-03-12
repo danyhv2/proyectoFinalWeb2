@@ -23,9 +23,9 @@
 		    <tr ng-repeat="grupo in grupos | filter:buscar | orderBy:ordenSeleccionado">
 		      <td><a href="" ng-click="mostrarGrupo(grupo)" data-toggle="modal" data-target="#mostrarGrupos">{{grupo.nombreGrupo}}</a></td>
 		      <td>
-		        <button  ng-click="mostrarGrupo(grupo)"class="btn simpleColor" data-toggle="modal" data-target="#modificarGrupos">Modificar</button>
-			        <button ng-click="removeGrupo(grupo)" class="btn simpleColor">Eliminar</button>
-			      </td>
+		        <img ng-src="img/edit.png" ng-click="mostrarGrupo(grupo)" data-toggle="modal" data-target="#modificarGrupos" style="cursor: pointer">
+			    <img ng-src="img/del.png" ng-click="removeGrupo(grupo)" style="cursor: pointer">
+			  </td>
 			</tr>
 		   </tbody>
 			</table>
@@ -40,14 +40,14 @@
 		   
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="botonCancelar()">&times;</button>
-		        <h2>Crear nuevo grupo</h2>
+		        <h1>Crear nuevo grupo</h1>
 		      </div>
 		      <div class="modal-body">
 		      <div class="rayita"></div>
 		        <form class="form-horizontal">
 				  <md-input-container id="crearGrupo">
-                            <label class=".label" for="nombre">Nombre:</label> 
-                            <input type="text" name="nombre" id="name" ng-model="nuevoName" class="form-control"> 
+                            <label class=".label" for="nombre">Nombre de grupo:</label> 
+                            <input type="text" name="Nombre del grupo" id="name" ng-model="nuevoName" class="form-control"> 
                   </md-input-container>
                   <div id="name2"></div>
 		          <div class="form-group">
@@ -103,7 +103,7 @@
 		      <div class="rayita"></div>
 		      <div class="modal-header">
 		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-		        <h2>Integrantes</h2>
+		        <h1>Integrantes</h1>
 		      </div>
 		      <div class="modal-body">
 		        <div ng-repeat="todo in todos">

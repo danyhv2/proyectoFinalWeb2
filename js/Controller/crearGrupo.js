@@ -56,6 +56,28 @@
 			}
 
 			];
+				$scope.GruposArchivos = [
+			{
+				gPName : 'Grupo#1',
+				archivos :['Tarea#1', 'Tarea#2', 'Tarea#3']
+			},
+			{
+				gPName : 'Grupo#2',
+				archivos :['Tarea#4', 'Tarea#5']
+			},
+			{
+				gPName : 'Grupo#3',
+				archivos :['Tarea#6', 'Tarea#7']
+			},
+			{
+				gPName : 'Grupo#4',
+				archivos :['Tarea#8', 'Tarea#9']
+			},
+			{
+				gPName : 'Grupo#5',
+				archivos :['Tarea#10', 'Tarea#11']
+			}
+			];
 			console.log($scope.proyectos);
 
 						<!--//fin arreglo estudiantes-->
@@ -66,7 +88,7 @@
 			$scope.muchos = [];
 			$scope.muchos2 = [];
 			$scope.temps =[];
-			$scope.enviarProyectos =["...."];
+			$scope.enviarProyectos =[];
 						<!-- //arreglo vacios-->
 
 						<!-- //funcion ordenar tabla de grupos-->
@@ -140,19 +162,39 @@
 						<!-- //funciones de remover-->
 			$scope.removeGrupo=function(grupo){
 				var i = $scope.grupos.indexOf(grupo);
+				var r = confirm("Desea eliminar esto");
+				if (r == true) {
 				$scope.grupos.splice(i,1);
+				}
 			};
 			$scope.removeGrupo2=function(grupo){
 				var i = $scope.muchos.indexOf(grupo);
+				var r = confirm("Desea eliminar esto");
+				if (r == true) {
 				$scope.muchos.splice(i,1);
+				}
 			};
 			$scope.removeGrupo3=function(grupo){
 				var i = $scope.todos.indexOf(grupo);
+				var r = confirm("Desea eliminar esto");
+				if (r == true) {
 				$scope.todos.splice(i,1);
+				}
 			};
 			$scope.removeGrupo4=function(grupo){
 				var i = $scope.temps.indexOf(grupo);
+				var r = confirm("Desea eliminar esto");
+				if (r == true) {
 				$scope.temps.splice(i,1);
+				}
+			};
+			$scope.removeGrupo5=function(todosArchivo){
+				var i = $scope.todosArchivos.indexOf(todosArchivo);
+				console.log(todosArchivo);
+				var r = confirm("Desea borra este archivo");
+				if (r == true) {
+				$scope.todosArchivos.splice(i,1);
+				}
 			};
 			$scope.botonCancelar=function(grupo){
 				$('#errorNombreGrupo').detach();
@@ -167,6 +209,68 @@
 				$scope.temps2 =[];
 			};
 				<!-- //fin funciones de remover-->
+				$scope.cerrarArchivos=function(){
+				$scope.archivoParaSubir ='';
+				$scope.nuevoNameArhivo = '';
+				$scope.enviarArchivo = '';
+				$('#errorArchivoName').detach();
+				$('#errorArchivoUp').detach();
+				$('#errorArchivoGrupo').detach();
+			};
+			$scope.subirArchivos=function(enviarArchivo){
+				var i = $scope.GruposArchivos.indexOf(enviarArchivo);
+					if ($scope.nuevoNameArhivo == undefined) {
+					$('#errorArchivoName').detach();
+					$('#errorArchivoUp').detach();
+					$('#errorArchivoGrupo').detach();
+					$('div#nameArchivo2').after('<span id="errorArchivoName" class="bg-danger text-danger">Debe escribir un nombre para el archivo</span>');
+				}else if ($scope.archivoParaSubir == 2) {
+					$('#errorArchivoName').detach();
+					$('#errorArchivoUp').detach();
+					$('#errorArchivoGrupo').detach();
+					$('input#nameArchivo').after('<span id="errorArchivoUp" class="bg-danger text-danger">Debe selecionar un archivo</span>');
+				}else if ($scope.nuevoNameArhivo == '') {
+					$('#errorArchivoName').detach();
+					$('#errorArchivoUp').detach();
+					$('#errorArchivoGrupo').detach();
+					$('div#nameArchivo2').after('<span id="errorArchivoName" class="bg-danger text-danger">Debe escribir un nombre para el archivo</span>');
+				}else if ($scope.archivoParaSubir == 2) {
+					$('#errorArchivoName').detach();
+					$('#errorArchivoUp').detach();
+					$('#errorArchivoGrupo').detach();
+					$('input#nameArchivo').after('<span id="errorArchivoUp" class="bg-danger text-danger">Debe selecionar un archivo</span>');
+				}else if ($scope.enviarArchivo == undefined) {
+					$('#errorArchivoName').detach();
+					$('#errorArchivoUp').detach();
+					$('#errorArchivoGrupo').detach();
+					$('select#gruposArchivos').after('<span id="errorArchivoGrupo" class="bg-danger text-danger">Debe seleccionar un grupo</span>');
+				}else if ($scope.enviarArchivo == '') {
+					$('#errorArchivoName').detach();
+					$('#errorArchivoUp').detach();
+					$('#errorArchivoGrupo').detach();
+					$('select#gruposArchivos').after('<span id="errorArchivoGrupo" class="bg-danger text-danger">Debe seleccionar un grupo</span>');
+				}else{
+					$('#errorArchivoName').detach();
+					$('#errorArchivoUp').detach();
+					$('#errorArchivoGrupo').detach();
+					$scope.GruposArchivos[i].archivos.push($scope.nuevoNameArhivo);
+					console.log($scope.GruposArchivos[i]);
+					console.log($scope.archivoParaSubir);
+					$scope.archivoParaSubir ='';
+					$scope.nuevoNameArhivo = '';
+					$scope.enviarArchivo = '';
+					var inputDeArchivo = $("#nameFile");
+					//inputDeArchivo.replaceWith(inputDeArchivo.val('').clone(true));
+					inputDeArchivo.replaceWith( inputDeArchivo = inputDeArchivo.val('').clone( true ) );
+				}
+			};
+
+			$scope.mostrarArchivos=function(GruposArchivo){
+				var i = $scope.GruposArchivos.indexOf(GruposArchivo);
+				$scope.todosArchivos = $scope.GruposArchivos[i].archivos;
+				console.log($scope.todosArchivos);
+				
+			};
 			$scope.mostrarGrupo=function(grupo){
 				$scope.todosName =[];
 				var i = $scope.grupos.indexOf(grupo);
@@ -186,18 +290,26 @@
 			};
 			$scope.mostrarProyectosVotacion=function(proyecto){
 				console.log(proyecto.nuevoEnviado.opcion);
+				console.log($scope.enviarProyectos);
 				var i = $scope.proyectos.indexOf(proyecto);
+				console.log($scope.temProyectos);
+				if (proyecto.nuevoEnviado.opcion == 'si') {
+					$scope.temProyectos =[];
+					$scope.enviarProyectos.push($scope.proyectos[i].proyectoName);
+					console.log($scope.enviarProyectos[0]);
+				}else if ($scope.enviarProyectos.length <= 0) {
+				}else{
 					for(var m=0; m< $scope.enviarProyectos.length;m++){
-							console.log($scope.enviarProyectos[m]);
 							if ($scope.enviarProyectos[m] != $scope.proyectos[i].proyectoName) {
-								//$scope.enviarProyectos.push($scope.proyectos[i].proyectoName);
-								console.log($scope.enviarProyectos+'hola');
+							console.log($scope.enviarProyectos[m]);
+								$scope.temProyectos.push($scope.enviarProyectos[m]);
 							}else{
-								$scope.enviarProyectos.splice($scope.enviarProyectos[m]);
-								//console.log($scope.enviarProyectos[m]);
-							};
-						};
-						$scope.enviarProyectos.push($scope.proyectos[i].proyectoName);
+								console.log('hola');
+								console.log($scope.temProyectos);
+							}
+						}
+								$scope.enviarProyectos = $scope.temProyectos;
+				}
 			};
 
 			$scope.addEstudiante2=function(grupo){
@@ -243,6 +355,12 @@
 	            templateUrl: 'pages/_elegirProyectos.html',
 	            controller : 'gruposController'
 	        })
+	        .state('grupo2.archivosProfesor', {
+	            url: '/archivos-proyectos',
+	            templateUrl: 'pages/_archivosProfesor.html',
+	            controller : 'gruposController'
+	        })
+	        
 	        
 	        
         
