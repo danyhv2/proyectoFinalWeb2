@@ -67,6 +67,36 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
+/* line 1, ../sass/_base.scss */
+body {
+  background-color: #E3E1E1;
+}
+
+/* line 5, ../sass/_base.scss */
+.container {
+  background-color: #f4f3f3;
+}
+
+/* line 9, ../sass/_base.scss */
+.btn-default {
+  background-color: #722d7d;
+  color: #ddd6d6;
+  border-color: #722d7d;
+}
+/* line 14, ../sass/_base.scss */
+.btn-default:hover {
+  background-color: #722d7d;
+  color: #ddd6d6;
+  border-color: #722d7d;
+  opacity: 0.7;
+}
+/* line 20, ../sass/_base.scss */
+.btn-default:focus {
+  background-color: #722d7d;
+  color: #ddd6d6;
+  border-color: #722d7d;
+}
+
 /* line 1, ../sass/_header.scss */
 header {
   background: linear-gradient(to right, #a22068, #2e368f);
@@ -1047,4 +1077,129 @@ md-item-content.div {
 /* line 134, ../sass/_grupo.scss */
 #mostrarEnviados h2 {
   margin-left: 10% !important;
+}
+
+/* line 1, ../sass/_perfil.scss */
+.cabecera-perfil {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  padding: 10px 15px;
+}
+/* line 8, ../sass/_perfil.scss */
+.cabecera-perfil:last-child {
+  margin-left: 15px;
+}
+
+/* line 12, ../sass/_perfil.scss */
+.cuerpo-perfil {
+  padding-left: 15px;
+}
+
+/* line 15, ../sass/_perfil.scss */
+.perfil-layout {
+  padding: 10px 15px;
+}
+/* line 17, ../sass/_perfil.scss */
+.perfil-layout h1 {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/* line 23, ../sass/_perfil.scss */
+.controls-right {
+  display: -wekbit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-direction: row-reverse;
+}
+/* line 30, ../sass/_perfil.scss */
+.controls-right .btn {
+  margin-left: 20px;
+}
+
+/* line 1, ../sass/_proyectos.scss */
+.cabecera-votacion h2, .cabecera-votacion a {
+  display: inline-block;
+}
+
+/* line 4, ../sass/_proyectos.scss */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f4f3f3;
+}
+
+/* line 9, ../sass/_proyectos.scss */
+.proyecto-top {
+  width: 270px;
+  border: 1px solid gray;
+  padding: 15px 16px;
+}
+
+/* line 14, ../sass/_proyectos.scss */
+.proyecto-info {
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flex;
+  display: -o-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* line 23, ../sass/_proyectos.scss */
+.proyecto-slider {
+  margin: 8px 9px;
+}
+
+/* line 26, ../sass/_proyectos.scss */
+.btn-right {
+  float: right;
+}
+
+/* line 1, ../sass/_slideshow.scss */
+.slideshow-container {
+  position: relative;
+}
+/* line 3, ../sass/_slideshow.scss */
+.slideshow-container ul {
+  list-style: none inside;
+}
+/* line 6, ../sass/_slideshow.scss */
+.slideshow-container #slideshow {
+  padding: 0px;
+  width: 840px;
+  height: 472px;
+  overflow: hidden;
+}
+/* line 12, ../sass/_slideshow.scss */
+.slideshow-container .slideshow-thumbs {
+  position: absolute;
+  top: 460px;
+  left: 360px;
+}
+/* line 16, ../sass/_slideshow.scss */
+.slideshow-container .slideshow-thumbs li {
+  margin-left: 5px;
+  float: left;
+  background-color: #f3f4f4;
+  border: 1px solid gray;
+  border-radius: 50%;
+}
+/* line 22, ../sass/_slideshow.scss */
+.slideshow-container .slideshow-thumbs li:first-child {
+  margin-left: 0px;
+}
+/* line 26, ../sass/_slideshow.scss */
+.slideshow-container .slideshow-thumbs a {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
 }

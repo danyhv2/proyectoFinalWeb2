@@ -36,16 +36,21 @@ moduleProyectos.factory('ControlProyecto', ['$http',
 }]);
 var proyectosData = [{
 		nombre: 'Dmg Coders',
+		usuario: 'Daniel',
 		descripcion: 'WebApp para control de historial de proyecto ',
-		leerMas: 'http: //google.com',
+		imgPreview:'img/portafolio_preview/juego-pacman.png',
+		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGCoders',
 
 			}, {
 		nombre: 'Dmg Sliders',
+		usuario:'Daniel',
 		descripcion: 'WebApp para control de historial de proyecto',
-		leerMas: 'http://yahoo.com'
+		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGSliders',
+		imgPreview:'img/portafolio_preview/juego-pacman.png'
 			},
 	{
-		nombre: 'Dmg Sliders',
+		nombre: 'Dmg Systems',
 		descripcion: 'WebApp para control de historial de proyecto',
-		leerMas: 'http://yahoo.com'
+		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGSystems',
+		imgPreview:'img/portafolio_preview/juego-pacman.png',
 			}];

@@ -9,6 +9,7 @@
 .proyecto-top{
 	width: 270px;
 	border: 1px solid gray;
+	padding: 15px 16px;
 }
 .proyecto-info{
 	display: -webkit-flex;
@@ -21,4 +22,7 @@
 }
 .proyecto-slider{
 	margin: 8px 9px;
+}
+.btn-right{
+	float: right;
 }

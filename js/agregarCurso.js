@@ -15,7 +15,7 @@ angular.module('agregarCurso', [])
         'Creditos': $scope.creditosCurso,
         'Codigo': $scope.codCurso,
       };
-      $scope.nombreCurso='';
+      $('#formCurso').trigger("reset");
       $('#msgSuccess').css('display', 'block');
       $('#msgSuccess').fadeOut(3000);
       cursos.push($scope.newCurso);

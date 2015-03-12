@@ -5,11 +5,9 @@ perfilModule.controller('PerfilCtrl', ['$scope', 'ControlUsuario',
 		$scope.usuario = ControlUsuario.obtenerUsuario(0);
 		console.log($scope.usuario);
 		$scope.actualizarDatos = function (usuario) {
-			ControlUsuario.modificarUsuario(0, $scope.foto, $scope.carrera, $scope.nombre, $scope.primerApellido, $scope.segundoApellido, $scope.correoElectronico, $scope.telefono, $scope.celular, $scope.descripcion, $scope.direccionExacta);
-			console.log($scope.foto);
-			jQuery('#modificarPerfil')
-				.modal('hide');
-		}
+			ControlUsuario.modificarUsuario(0, $scope.usuario.foto, $scope.usuario.correoElectronico, $scope.usuario.telefono, $scope.usuario.celular, $scope.usuario.descripcion, $scope.usuario.direccionExacta);
+			console.log($scope.usuario.foto);
+		};
 
 }]);
 perfilModule.factory('ControlUsuario', ['$http', '$log',
@@ -18,22 +16,25 @@ perfilModule.factory('ControlUsuario', ['$http', '$log',
 			obtenerUsuario: function (indice) {
 				return usuarioData[indice];
 			},
-			modificarUsuario: function (indice, foto, carrera, nombre, primerApellido, segundoApellido, correoElectronico, telefono, celular, descripcion, direccionExacta) {
-				usuarioData[indice].foto = foto;
-				usuarioData[indice].carrera = carrera;
-				usuarioData[indice].nombre = nombre;
-				usuarioData[indice].primerApellido = primerApellido;
-				usuarioData[indice].segundoApellido = segundoApellido;
-				usuarioData[indice].correoElectronico = correoElectronico;
-				usuarioData[indice].telefono = telefono;
-				usuarioData[indice].celular = celular;
-				usuarioData[indice].descripcion = descripcion;
-				usuarioData[indice].direccionExacta = direccionExacta;
-				$log.info(usuarioData[indice]);
+			modificarUsuario: function (indice, foto, correoElectronico, telefono, celular, descripcion, direccionExacta) {
+
+				if (foto == '' || correoElectronico == '' || telefono == '' || celular == '' || descripcion == '' || direccionExacta == '') {
+					console.log('Esta vacio, revisa');
+				} else {
+					usuarioData[indice].foto = foto;
+					usuarioData[indice].correoElectronico = correoElectronico;
+					usuarioData[indice].telefono = telefono;
+					usuarioData[indice].celular = celular;
+					usuarioData[indice].descripcion = descripcion;
+					usuarioData[indice].direccionExacta = direccionExacta;
+					$log.info(usuarioData[indice]);
+					jQuery('#modificarPerfil')
+						.modal('hide');
+				}
 			}
 
 		};
-}])
+}]);
 
 //datos Quemados
 
@@ -49,7 +50,25 @@ var usuarioData = [
 		celular: 89770980,
 		descripcion: 'Amante logo de la programación',
 		direccionExacta: 'San isidro de heredia',
-		tipo: 'Profesor'
+		tipo: 'Profesor',
+		cursos: [{
+			nombre: 'Programación Web Dinamica',
+			nota: 92,
+			periodo: 'Cuatrimestre 1 2014'
+		}, {
+			nombre: 'Tecnologias avanzadas de programación',
+			nota: 100,
+			periodo: 'Cuatrimestre 2 2014'
+		}],
+		proyectos: [{
+			nombre: 'Dmg Coders',
+			grupo: 'Dmg Coders',
+			periodo: 'Cuatrimestre 1 2014'
+		}, {
+			nombre: 'MovilApp',
+			grupo: 'Dmg Systems',
+			periodo: 'Cuatrimestre 2 2014'
+		}]
 },
 	{
 		foto: 'img/user-32.png',
@@ -60,6 +79,15 @@ var usuarioData = [
 		celular: 89770980,
 		descripcion: 'Amante logo de la programación',
 		direccionExacta: 'San isidro de heredia',
-		tipo: 'usuario'
+		tipo: 'usuario',
+		cursos: [{
+			nombre: 'Diseño Digital 2',
+			nota: 92,
+			periodo: 'Cuatrimestre 2 2014'
+		}, {
+			nombre: 'Tecnologias avanzadas de programación',
+			nota: 100,
+			periodo: 'Cuatrimestre 2 2014'
+		}]
 }
 ];

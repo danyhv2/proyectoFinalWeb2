@@ -3,19 +3,22 @@
 	ul{
 		list-style: none inside;
 	}
-	.slideshow{
-		padding-left: 0px;
+	#slideshow{
+		padding: 0px;
 		width: 840px;
 		height: 472px;
 		overflow:hidden;
 	}
 	.slideshow-thumbs{
 		position: absolute;
-		top: 435px;
+		top: 460px;
 		left: 360px;
 		li{
 			margin-left: 5px;
 			float: left;
+			background-color: #f3f4f4;
+			border:1px solid gray;
+			border-radius:50%;
 			&:first-child{
 				margin-left: 0px;
 			}
