@@ -16,6 +16,7 @@ angular.module('agregarCarrera', [])
       $('#msgSuccess').fadeOut(3000);
       carreras.push($scope.newCarrera);
       localStorage.setItem('carreras', JSON.stringify(carreras));
+      $('.formUser').trigger('reset');
     };
   }
 

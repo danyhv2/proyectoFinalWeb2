@@ -9,12 +9,13 @@
                 <form clas="form-horizontal" name="updCurso.userFormEditCurso">
                     <md-input-container class="contBuscarCurso">
                         <p class="input-group">
-                          <label>Buscar carrera</label>
-                          <input required name="buscarCarrera" class="searchCurso">
-                          <a href="#" ng-click="updCarrera.updateModel()">
+                          <label>Buscar curso por nombre</label>
+                          <input required name="buscarCurso" class="searchCurso">
+                          <a href="#" ng-click="updCurso.updateModel()">
                               <img src="img/searchIcon.png">
                           </a>
                         </p>
+                        <p class="errorSearch">El curso que está buscando no existe.</p>
                     </md-input-container>
                     <md-input-container>
                     <label>Nombre</label>
@@ -26,14 +27,14 @@
                   </md-input-container>
                   <md-input-container>
                     <label>Cuatrimestre</label>
-                    <input required name="cuatrimestre" ng-model="project.clientName">
+                    <input id="inpCuatrimestre" required name="cuatrimestre" ng-model="updCurso.datos[0].Cuatrimestre">
                     <div ng-messages="projectForm.clientName.$error">
                       <div ng-message="required">This is required.</div>
                     </div>
                   </md-input-container>
                   <md-input-container>
                     <label>Año Lectivo</label>
-                    <input required name="anoLectivo" ng-model="project.clientName">
+                    <input id="inpAno" required name="anoLectivo" ng-model="updCurso.datos[0].AnoLectivo">
                     <div ng-messages="projectForm.clientName.$error">
                       <div ng-message="required">This is required.</div>
                     </div>

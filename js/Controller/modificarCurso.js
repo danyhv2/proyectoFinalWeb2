@@ -13,14 +13,19 @@ angular.module('modifyCurso', [])
 
     self.updateModel = function updateModel() {
       for(var i = 0; i < this.datos.length; i++){
-        if($('.searchCurso').val()== this.datos[i].Carrera){
-      // update the form values
-      self.formEditCarrera.nombre.$setViewValue(this.datos[i].Carrera);
-      self.formEditCarrera.codCarrera.$setViewValue(this.datos[i].Codigo);
-      self.formEditCarrera.dirCarrera.$setViewValue(this.datos[i].Director);
-    
-      renderElement(['#inpNombreCarrera', '#inpCodCarrera', '#inpDirCarrera']);
-    }
+        if($('.searchCurso').val() != this.datos[i].Curso){
+          $('.errorSearch').css('display','block');
+        }else{
+          // update the form values
+          self.userFormEditCurso.nombreCurso.$setViewValue(this.datos[i].Curso);
+          self.userFormEditCurso.cuatrimestre.$setViewValue(this.datos[i].Cuatrimestre);
+          self.userFormEditCurso.anoLectivo.$setViewValue(this.datos[i].AnoLectivo);
+          self.userFormEditCurso.horarioCurso.$setViewValue(this.datos[i].Horario);
+          self.userFormEditCurso.creditosCurso.$setViewValue(this.datos[i].Creditos);
+          self.userFormEditCurso.codCurso.$setViewValue(this.datos[i].Codigo);
+        
+          renderElement(['#inpNombreCurso', '#inpCuatrimestre', '#inpAno', '#inpHorarioCurso', '#inpCreditoCurso', '#inpCodCurso']);
+        }
     }
     };
 

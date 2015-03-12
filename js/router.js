@@ -104,11 +104,12 @@ console.log($scope.roleUser);
                 'Contrasena': $scope.password,
                 'Role': $('.optionsRole').find('span').text()
                 };
-                console.log($scope.newUser);
+                //console.log($scope.newUser);
                 $('#msgSuccess').css('display','block');
                 $('#msgSuccess').fadeOut(3000);
                 users.push($scope.newUser);
                 localStorage.setItem('users', JSON.stringify(users));
+                $('.formUser').trigger('reset');
                 };
             }
 
