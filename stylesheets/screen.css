@@ -1122,6 +1122,12 @@ md-item-content.div {
   margin-left: 20px;
 }
 
+@media print {
+  /* line 35, ../sass/_perfil.scss */
+  .btnPrint {
+    display: none;
+  }
+}
 /* line 1, ../sass/_proyectos.scss */
 .cabecera-votacion h2, .cabecera-votacion a {
   display: inline-block;
@@ -1177,13 +1183,17 @@ md-item-content.div {
   height: 472px;
   overflow: hidden;
 }
-/* line 12, ../sass/_slideshow.scss */
+/* line 11, ../sass/_slideshow.scss */
+.slideshow-container #slideshow img {
+  width: 100%;
+}
+/* line 15, ../sass/_slideshow.scss */
 .slideshow-container .slideshow-thumbs {
   position: absolute;
   top: 460px;
   left: 360px;
 }
-/* line 16, ../sass/_slideshow.scss */
+/* line 19, ../sass/_slideshow.scss */
 .slideshow-container .slideshow-thumbs li {
   margin-left: 5px;
   float: left;
@@ -1191,11 +1201,11 @@ md-item-content.div {
   border: 1px solid gray;
   border-radius: 50%;
 }
-/* line 22, ../sass/_slideshow.scss */
+/* line 25, ../sass/_slideshow.scss */
 .slideshow-container .slideshow-thumbs li:first-child {
   margin-left: 0px;
 }
-/* line 26, ../sass/_slideshow.scss */
+/* line 29, ../sass/_slideshow.scss */
 .slideshow-container .slideshow-thumbs a {
   display: block;
   width: 10px;

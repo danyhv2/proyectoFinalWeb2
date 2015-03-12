@@ -31,3 +31,8 @@
 		margin-left:20px;
 	}
 }
+@media print {
+	.btnPrint {
+		display:none;
+	}
+}

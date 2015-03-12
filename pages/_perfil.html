@@ -11,8 +11,8 @@
 	</div>
 	<div class="cuerpo-perfil">
 		<p>Acerca de: {{usuario.descripcion}}</p>
-		<p>Correo electr&oacute;nico: {{usuario.correoElectronico}}</p>
-		<p>Tel&eacute;fono: {{usuario.telefono}}</p>
+		<p>Correo electrónico: {{usuario.correoElectronico}}</p>
+		<p>Teléfono: {{usuario.telefono}}</p>
 		<p>Celular: {{usuario.celular}}</p>
 		<p>Residencia: {{usuario.direccionExacta}}</p>
 	</div>
@@ -29,48 +29,37 @@
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 				<h4 class="modal-title" id="modalPerfil">Modificar perfil</h4>
 			</div>
+			<form name="editPerfil">
 			<div class="modal-body">
 				<md-input-container>
-				<label>Foto</label>
-				<input required name="nombre" ng-model="foto">
+					<label>Cambiar foto </label>
+					<input required name="foto" ng-model="usuario.foto">
+					<div ng-show="userForm.$submitted || userForm.direccion.$touched">
+                    <div class="msgError" ng-show="userForm.direccion.$error.required">Dirección es un campo requerido.</div>
+                  </div>
 				</md-input-container>
 				<md-input-container>
-				<label>Nombre</label>
-				<input required name="nombre" ng-model="nombre">
+					<label>Descripción</label>
+					<input required name="descripcion" ng-model="usuario.descripcion">
 				</md-input-container>
 				<md-input-container>
-				<label>Primer apellido</label>
-				<input required name="primerApellido" ng-model="primerApellido">
+					<label>Tel&eacute;fono</label>
+					<input required name="telefono" ng-model="usuario.telefono">
 				</md-input-container>
 				<md-input-container>
-				<label>Segundo apellido</label>
-				<input required name="segundoApellido" ng-model="segundoApellido">
+					<label>Celular</label>
+					<input required name="celular" ng-model="usuario.celular">
 				</md-input-container>
 				<md-input-container>
-				<label>Correo electrónico </label>
-				<input required name="correoElectronico" ng-model="correoElectronico">
-				</md-input-container>
-				<md-input-container>
-				<label>Descripción</label>
-				<input required name="descripcion" ng-model="descripcion">
-				</md-input-container>
-				<md-input-container>
-				<label>Tel&eacute;fono</label>
-				<input required name="telefono" ng-model="telefono">
-				</md-input-container>
-				<md-input-container>
-				<label>Celular</label>
-				<input required name="celular" ng-model="project.description">
-				</md-input-container>
-				<md-input-container>
-				<label>Dirección exacta</label>
-				<input required name="direccionExacta" ng-model="direccionExacta">
+					<label>Dirección exacta</label>
+					<input required name="direccionExacta" ng-model="usuario.direccionExacta">
 				</md-input-container>
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 				<button type="button" class="btn btn-default" ng-click="actualizarDatos()">Actualizar perfil</button>
 			</div>
+			</form>
 		</div>
 	</div>
 </div>
