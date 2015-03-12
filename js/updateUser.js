@@ -61,7 +61,8 @@ angular.module('modifyUser', [])
       $scope.guardarUsuario = function(){
         $scope.datos = jQuery.parseJSON(localStorage.getItem('users'));
         console.log($scope.datos[0].Nombre);
-        if($scope.userFormMain.$valid){
+        //validar q el form no este vacion
+       // if($scope.userFormMain.$valid){
           $scope.datos[0].Nombre = $('#inpNameUser').val();
           $scope.changedUser = [{
                             'Nombre':  $scope.datos[0].Nombre,
@@ -80,7 +81,7 @@ angular.module('modifyUser', [])
           $scope.disable=true;
           $('.saveUser').css('display','none');
           $('.cancelUser').css('display','none');
-      }
+      //}
 
       }
       $scope.editarUsuarioAcceso = function(){
