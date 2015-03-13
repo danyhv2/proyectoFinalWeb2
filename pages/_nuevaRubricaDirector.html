@@ -30,10 +30,18 @@
                         <option ng-repeat="grupos in este.datos.GruposDeCurso">{{grupos.NombreDelGrupo}}</option>
                     </select>
 
-                  <md-input-container ng-repeat='par in este.datos.ParamatrosRubrica'>
-                    <label class="rubroP">{{par.parametro}}</label>
-                    <input md-maxlength="2" class="valNot" required name="numeroRubrica" ng-model="inte">
-                  </md-input-container>
+
+                    <div class="cajaRubrica" ng-repeat='par in este.datos.ParamatrosRubrica'>
+                      <div class="pull-left cont">
+                        <md-input-container>
+                          <label class="rubroP">{{par.parametro}}</label>
+                          <input md-maxlength="2" class="valNot" required name="numeroRubrica" ng-model="inte">
+                        </md-input-container>
+                      </div>
+                      <div class="pull-right imagN">
+                        <img class="borrarRub" src="img/del.png"  ng-click="delP(valores)" style="cursor: pointer">
+                      </div>
+                    </div>
 
 
             </ng-form>

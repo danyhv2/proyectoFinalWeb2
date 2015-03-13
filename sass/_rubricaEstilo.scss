@@ -1,4 +1,20 @@
 /*Estilos Guillermo*/
+
+.cajaRubrica{
+  width: 100%;
+  display: inline-block;
+  .cont{
+    width: 80%;
+  }
+  .imagN{
+    margin-top: 8%;
+  }
+}
+
+.borrarRub{
+  display: inline;
+}
+
 .errorMsj{
   background-color: transparent;
   font-size: 13px; 
@@ -7,6 +23,7 @@
 .jusH{
   display: inline;
 }
+
 
 .nays{
   margin-top: 2em;
