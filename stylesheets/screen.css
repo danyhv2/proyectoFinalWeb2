@@ -662,96 +662,103 @@ form button {
 }
 
 /*Estilos Guillermo*/
-/* line 3, ../sass/_rubricaEstilo.scss */
+/* line 5, ../sass/_rubricaEstilo.scss */
+#navegacionDirector .nav > li > a:focus {
+  color: white !important;
+  text-decoration: none;
+  background-color: #722d7b;
+}
+
+/* line 12, ../sass/_rubricaEstilo.scss */
 .cajaRubrica {
   width: 100%;
   display: inline-block;
 }
-/* line 6, ../sass/_rubricaEstilo.scss */
+/* line 15, ../sass/_rubricaEstilo.scss */
 .cajaRubrica .cont {
   width: 80%;
 }
-/* line 9, ../sass/_rubricaEstilo.scss */
+/* line 18, ../sass/_rubricaEstilo.scss */
 .cajaRubrica .imagN {
   margin-top: 8%;
 }
 
-/* line 14, ../sass/_rubricaEstilo.scss */
+/* line 23, ../sass/_rubricaEstilo.scss */
 .borrarRub {
   display: inline;
 }
 
-/* line 18, ../sass/_rubricaEstilo.scss */
+/* line 27, ../sass/_rubricaEstilo.scss */
 .errorMsj {
   background-color: transparent;
   font-size: 13px;
 }
 
-/* line 23, ../sass/_rubricaEstilo.scss */
+/* line 32, ../sass/_rubricaEstilo.scss */
 .jusH {
   display: inline;
 }
 
-/* line 28, ../sass/_rubricaEstilo.scss */
+/* line 37, ../sass/_rubricaEstilo.scss */
 .nays {
   margin-top: 2em;
 }
 
-/* line 32, ../sass/_rubricaEstilo.scss */
+/* line 41, ../sass/_rubricaEstilo.scss */
 .comie {
   margin-top: 2em;
 }
 
-/* line 36, ../sass/_rubricaEstilo.scss */
+/* line 45, ../sass/_rubricaEstilo.scss */
 .oneinrow {
   width: 30%;
   margin-left: 3%;
 }
 
-/* line 41, ../sass/_rubricaEstilo.scss */
+/* line 50, ../sass/_rubricaEstilo.scss */
 .twoinrow {
   width: 65%;
 }
 
-/* line 45, ../sass/_rubricaEstilo.scss */
+/* line 54, ../sass/_rubricaEstilo.scss */
 #ContenedorRubricas {
   max-width: 60em;
   height: 50em;
 }
 
-/* line 50, ../sass/_rubricaEstilo.scss */
+/* line 59, ../sass/_rubricaEstilo.scss */
 .errormsj {
   width: 83%;
 }
 
-/* line 54, ../sass/_rubricaEstilo.scss */
+/* line 63, ../sass/_rubricaEstilo.scss */
 .errormsj2 {
   width: 78%;
   margin-left: 20%;
 }
 
-/* line 59, ../sass/_rubricaEstilo.scss */
+/* line 68, ../sass/_rubricaEstilo.scss */
 .izquierdaCaja {
   width: 40%;
   margin-left: 1%;
   margin-right: 1%;
 }
 
-/* line 65, ../sass/_rubricaEstilo.scss */
+/* line 74, ../sass/_rubricaEstilo.scss */
 .derechaCaja {
   width: 55%;
   position: relative;
 }
-/* line 68, ../sass/_rubricaEstilo.scss */
+/* line 77, ../sass/_rubricaEstilo.scss */
 .derechaCaja h3 {
   margin-left: 10%;
 }
-/* line 71, ../sass/_rubricaEstilo.scss */
+/* line 80, ../sass/_rubricaEstilo.scss */
 .derechaCaja .estiloCaja {
   padding-left: 10%;
 }
 
-/* line 76, ../sass/_rubricaEstilo.scss */
+/* line 85, ../sass/_rubricaEstilo.scss */
 .rayaCentral {
   height: 30em;
   width: 1%;
@@ -759,19 +766,19 @@ form button {
   position: absolute;
 }
 
-/* line 83, ../sass/_rubricaEstilo.scss */
+/* line 92, ../sass/_rubricaEstilo.scss */
 .simpleColor {
   background-color: #722d7b !important;
   color: #fff !important;
 }
 
-/* line 90, ../sass/_rubricaEstilo.scss */
+/* line 99, ../sass/_rubricaEstilo.scss */
 .contenedorDeCajas {
   height: 30em;
   overflow-y: scroll;
 }
 
-/* line 96, ../sass/_rubricaEstilo.scss */
+/* line 105, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi h3 {
   font-size: 1.87em;
   font-weight: bold;
@@ -1196,55 +1203,58 @@ md-item-content.div {
   margin-left: 13% !important;
 }
 
-/* line 1, ../sass/_perfil.scss */
-.cabecera-perfil {
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
-  display: flex;
-  padding: 10px 15px;
+@media print {
+  /* line 2, ../sass/_perfil.scss */
+  .btnPrint {
+    display: none;
+  }
 }
-/* line 8, ../sass/_perfil.scss */
-.cabecera-perfil:last-child {
-  margin-left: 15px;
-}
-
-/* line 12, ../sass/_perfil.scss */
-.cuerpo-perfil {
-  padding-left: 15px;
-}
-
-/* line 15, ../sass/_perfil.scss */
+/* line 6, ../sass/_perfil.scss */
 .perfil-layout {
-  padding: 10px 15px;
+  width: 100%;
+  padding: 0 1.041666666666667% 0.7142857142857143em;
 }
-/* line 17, ../sass/_perfil.scss */
+/* line 7, ../sass/_perfil.scss */
+.perfil-layout img {
+  max-width: 100%;
+  height: auto;
+}
+/* line 13, ../sass/_perfil.scss */
 .perfil-layout h1 {
   text-align: center;
   vertical-align: middle;
 }
 
-/* line 23, ../sass/_perfil.scss */
-.controls-right {
-  display: -wekbit-flex;
-  display: -moz-flex;
-  display: -ms-flex;
-  display: -o-flex;
+/* line 18, ../sass/_perfil.scss */
+.cabecera-container {
+  width: 62.5%;
+  margin: 0 auto;
+  margin-bottom: 20px;
   display: flex;
-  flex-direction: row-reverse;
-}
-/* line 30, ../sass/_perfil.scss */
-.controls-right .btn {
-  margin-left: 20px;
+  justify-content: space-between;
 }
 
-@media print {
-  /* line 35, ../sass/_perfil.scss */
-  .btnPrint {
-    display: none;
-  }
+/* line 25, ../sass/_perfil.scss */
+.centrado-perfil {
+  width: 25.6%;
 }
+
+/* line 28, ../sass/_perfil.scss */
+.cabecera-slogan {
+  width: 72%;
+}
+
+/* line 31, ../sass/_perfil.scss */
+.cuerpo-perfil {
+  width: 62.5%;
+  margin: 0 auto;
+}
+
+/* line 35, ../sass/_perfil.scss */
+.cabcera-portafolio {
+  width: 25.6%;
+}
+
 /* line 1, ../sass/_proyectos.scss */
 .cabecera-votacion h2, .cabecera-votacion a {
   display: inline-block;
@@ -1285,6 +1295,25 @@ md-item-content.div {
   float: right;
 }
 
+/* line 29, ../sass/_proyectos.scss */
+#proyecto-portafolio {
+  list-style: none inside;
+  padding: 0;
+  margin: 1em 1.5625%;
+  display: flex;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+}
+/* line 36, ../sass/_proyectos.scss */
+#proyecto-portafolio li {
+  width: 20.83333333333333%;
+}
+/* line 39, ../sass/_proyectos.scss */
+#proyecto-portafolio img {
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
 /* line 1, ../sass/_slideshow.scss */
 .slideshow-container {
   position: relative;
@@ -1308,7 +1337,7 @@ md-item-content.div {
 .slideshow-container .slideshow-thumbs {
   position: absolute;
   top: 460px;
-  left: 360px;
+  left: 475px;
 }
 /* line 19, ../sass/_slideshow.scss */
 .slideshow-container .slideshow-thumbs li {
@@ -1329,4 +1358,9 @@ md-item-content.div {
   height: 10px;
   background-color: white;
   border-radius: 50%;
+}
+
+/* line 2, ../sass/_votacion.scss */
+.votacionControl h1 {
+  text-indent: 1.428571428571429em;
 }
