@@ -1,25 +1,22 @@
 <div id="portafolio" class="perfil-layout clearfix">
 	<h1>Portafolio</h1>
-	<div class="cabecera-container">
-		<div class="center-block cabcera-portafolio">
-			<img ng-src="{{usuario.foto}}" alt="{{usuario.nombre}}">
+	<div class="cabecera-perfil">
+		<div>
+			<img width="64" height="64" ng-src="{{usuario.foto}}" alt="{{usuario.nombre}}">
 		</div>
-		<div class="cabecera-slogan">
+		<div>
 			<h1>Nombre: {{usuario.nombre  +' ' +usuario.primerApellido +' ' +usuario.segundoApellido}}</h1>
 			<h2>Carrera: {{usuario.carrera}}</h2>
 		</div>
 	</div>
-	<div class="">
-		<h3>Introducción</h3>
+	<div class="cuerpo-perfil">
 		<p>Acerca de: {{usuario.descripcion}}</p>
-		<h3>Datos personales</h3>
-		<p>Fecha de nacimiento: {{usuario.fechaNacimiento}}</p>
 		<p>Correo electr&oacute;nico: {{usuario.correoElectronico}}</p>
 		<p>Tel&eacute;fono: {{usuario.telefono}}</p>
 		<p>Celular: {{usuario.celular}}</p>
 		<p>Residencia: {{usuario.direccionExacta}}</p>
 		<div>
-			<h2>Cursos Realizados:</h2>
+			<h2>Cursos Realizados</h2>
 			<table class="table table-striped table-hover">
 				<thead>
 					<th>
@@ -27,9 +24,8 @@
 							<td>
 								Nombre
 							</td>
-							<td>
-								Periodo
-							</td>
+							<td>Nota</td>
+							<td>Periodo</td>
 						</tr>
 					</th>
 				</thead>
@@ -39,26 +35,25 @@
 							{{curso.nombre}}
 						</td>
 						<td>
+							{{curso.nota}}
+						</td>
+						<td>
 							{{curso.periodo}}
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<!-- Proyectos-->
-			<h3>Proyectos:</h3>
 		<ul id="proyecto-portafolio">
-			<li ng-repeat="proj in proyectos">
-				<h3>{{proj.nombreDeProyecto}}</h3>
-				<img  width="200" ng-src="{{proj.imgPreview}}">
-				<p>{{proj.descripcion}}</p>
-				<a href="{{projec.leerMas}}"></a>
-			</li>
+			<li ng-repeat="proj in usuario.proyectos">
+				<img ng-src="{{proj.imgPreview}}">
+				{{}}</li>
 		</ul>
 		</div>
 	</div>
 	<div class="controls-right clearfix">
-		<button type="button" class="btn btn-default simpleColor btnPrint"  data-toggle="modal" data-target="#modificarPerfil">Cambiar el portafolio</button>
-		<a ng-click="imprimirPortafolio()" class="btnPrint btn btn-default simpleColor">Imprimir</a>
+		<button type="button" class="btn btn-default btnPrint"  data-toggle="modal" data-target="#modificarPerfil">Cambiar el portafolio</button>
+		<a ng-click="imprimirPortafolio()" class="btnPrint btn btn-default">Imprimir</a>
 	</div>
 </div>
 <!-- Modal -->
@@ -77,8 +72,8 @@
 					</md-input-container>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-right btn-default" data-dismiss="modal">Cerrar</button>
-					<button type="button" class="btn  btn-right btn-default simpelColor" ng-click="actualizarDatos()">Actualizar Portafolio</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-default" ng-click="actualizarDatos()">Actualizar Portafolio</button>
 					{{portafoliOEditForm.$valid}}
 				</div>
 			</form>

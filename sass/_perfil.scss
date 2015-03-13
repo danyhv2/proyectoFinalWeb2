@@ -1,37 +1,38 @@
+.cabecera-perfil{
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	padding: 10px 15px; 
+	&:last-child{
+		margin-left: 15px;
+	}
+}
+.cuerpo-perfil{
+	padding-left: 15px;
+}
+.perfil-layout{
+		padding: 10px 15px;
+		h1{
+			text-align: center;
+			vertical-align: middle;
+		} 
+}
+
+.controls-right{
+	display: -wekbit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	flex-direction:row-reverse;
+	.btn{
+		margin-left:20px;
+	}
+}
 @media print {
 	.btnPrint {
 		display:none;
 	}
-}
-.perfil-layout{
-	img{
-		max-width: 100%;
-		height: auto;
-	}
-	width: 100%;
-	padding:0 1.041666666666667% 0.7142857142857143em;
-	h1{
-		text-align: center;
-		vertical-align: middle;
-	}
-}
-.cabecera-container{
-	width: 62.5%;
-	margin: 0 auto;
-	margin-bottom: 20px;
-	display: flex;
-	justify-content:space-between;
-}
-.centrado-perfil{
-	width: 25.6%;
-}
-.cabecera-slogan{
-	width:72%;
-}
-.cuerpo-perfil{
-	width: 62.5%;
-	margin: 0 auto;
-}
-.cabcera-portafolio{
-	width: 25.6%;
 }
