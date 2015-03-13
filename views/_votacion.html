@@ -1,0 +1,60 @@
+<div class="votacionControl">
+  <h1>Configuración de votación</h1>
+  <div class="row">
+    <form class="formUser" ng-model="voteForm" name="voteForm" ng-submit="validar() && voteForm.$valid" novalidate>
+      <fieldset class="col-md-12">
+        <p id="msgSuccess" class="alert alert-success">Configuración de votación establecida correctamente.</p>
+        <p class="msgErrorUser alert alert-danger">Haz dejado un cambio vacio.</p>
+        <div class="col-md-6">
+          <md-input-container ng-controller="DatepickerDemoCtrl">
+          <p class="input-group">
+            <label>Fecha de inicio</label>
+            <input name="inpFechaInicio" id="inpFechaInicio"  type="datetime" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="openTime" />
+            <span class="input-group-btn">
+              <button class="btnDatePicker" type="button" ng-click="open($event)">
+              <img src="img/datepicker.png">
+              </button>
+            </span>
+          </p>
+          </md-input-container>
+          <md-input-container ng-controller="DatepickerDemoCtrl">
+          <p class="input-group">
+            <label>Fecha de cierre</label>
+            <input name="inpFechaCierre" id="inpFechaCierre"  type="datetime" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="closeTime" />
+            <span class="input-group-btn">
+              <button class="btnDatePicker" type="button" ng-click="open($event)">
+              <img src="img/datepicker.png">
+              </button>
+            </span>
+          </p>
+          </md-input-container>
+          <md-input-container>
+          <label>Cantidad de proyectos</label>
+          <input id="dirUser" required name="direccion" ng-model="amountProjects">
+          <div ng-show="voteForm.$submitted || voteForm.direccion.$touched">
+            <div class="msgError" ng-show="voteForm.direccion.$error.required">Por favor digite la cantidad de proyectos para esta votación.</div>
+          </div>
+          </md-input-container>
+          <!--Termina la primer columna-->
+        </div>
+        <div class="col-md-6">
+          <md-input-container>
+          <label>Valor por estrella</label>
+          <input id="dirUser" required name="stars" ng-model="starts">
+          <div ng-show="voteForm.$submitted || voteForm.direccion.$touched">
+            <div class="msgError" ng-show="voteForm.direccion.$error.required">El valor por estrellas es requerido.</div>
+          </div>
+          </md-input-container>
+          <p>{{method}}</p>
+          <md-radio-group ng-model="method">
+          <md-radio-button value="link">Enlace</md-radio-button>
+          <md-radio-button value="email">Correo electrónico</md-radio-button>
+          </md-radio-group>
+        </div>
+      </fieldset>
+      <button class="btn btnAddUser" type="submit">Guardar configuración</button>
+      
+    </form>
+  </div>
+  <!--FIN FORMULARIO-->
+</div>

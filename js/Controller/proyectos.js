@@ -35,22 +35,28 @@ moduleProyectos.factory('ControlProyecto', ['$http',
 		};
 }]);
 var proyectosData = [{
-		nombre: 'Dmg Coders',
+		nombre: 'DMG Coders',
 		usuario: 'Daniel',
-		descripcion: 'WebApp para control de historial de proyecto ',
-		imgPreview:'img/portafolio_preview/juego-pacman.png',
-		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGCoders',
+		curso: 'Programación Web Dinamica',
+		nombreDeProyecto: 'PacMan',
+		descripcion: 'Juego interactivo basado en html5',
+		imgPreview: 'img/portafolio/juego-pacman.png',
+		leerMas: 'http://localhost/ProyectoFinalWeb2/#/Proyecto',
 
 			}, {
 		nombre: 'Dmg Sliders',
-		usuario:'Daniel',
-		descripcion: 'WebApp para control de historial de proyecto',
-		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGSliders',
-		imgPreview:'img/portafolio_preview/juego-pacman.png'
+		usuario: 'Daniel',
+		curso: '',
+		nombreDeProyecto: 'Sodoku',
+		descripcion: 'Juego de razonamiento en la web',
+		leerMas: 'http://localhost/ProyectoFinalWeb2/#/Proyecto',
+		imgPreview: 'img/portafolio/Sodoku.gif'
 			},
 	{
 		nombre: 'Dmg Systems',
-		descripcion: 'WebApp para control de historial de proyecto',
-		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGSystems',
-		imgPreview:'img/portafolio_preview/juego-pacman.png',
+		usuario: 'Melisa',
+		nombreDeProyecto: 'La calculadora',
+		descripcion: 'Juego de calculos para agilizar la mente',
+		leerMas: 'http://localhost/ProyectoFinalWeb2/#/Proyecto',
+		imgPreview: 'img/portafolio/elsiguiente.jpg',
 			}];

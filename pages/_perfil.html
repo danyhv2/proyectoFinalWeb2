@@ -1,12 +1,12 @@
 <div class="perfil-layout clearfix">
 	<h1>Perfil</h1>
-	<div class="cabecera-perfil">
-		<div>
-			<img width="64" height="64" ng-src="{{usuario.foto}}" alt="{{usuario.nombre}}">
+	<div class="cabecera-container">
+		<div class="centrado-perfil">
+			<img ng-src="{{usuario.foto}}" alt="{{usuario.nombre}}">
 		</div>
-		<div>
-			<h1>Nombre: {{usuario.nombre  +' ' +usuario.primerApellido +' ' +usuario.segundoApellido}}</h1>
-			<h2>Carrera: {{usuario.carrera}}</h2>
+		<div class="cabecera-slogan">
+			<h2>{{usuario.nombre  +' ' +usuario.primerApellido +' ' +usuario.segundoApellido}}</h2>
+			<h3>{{usuario.carrera}}</h3>
 		</div>
 	</div>
 	<div class="cuerpo-perfil">
@@ -17,10 +17,11 @@
 		<p>Residencia: {{usuario.direccionExacta}}</p>
 	</div>
 	<div class="controls-right clearfix">
-		<button type="button" class="btn btn-default"  data-toggle="modal" data-target="#modificarPerfil">Modificar Perfil</button>
-		<a ui-sref="portafolio" class="btn btn-default">Ver Portafolio</a>
+		<button type="button" class="btn btn-right btn-default simpleColor"  data-toggle="modal" data-target="#modificarPerfil">Modificar Perfil</button>
+		<a ui-sref="portafolio" class="btn btn-right btn-default simpleColor" >Ver Portafolio</a>
 	</div>
 </div>
+<social></social>
 <!-- Modal -->
 <div class="modal fade" id="modificarPerfil" tabindex="-1" role="dialog" aria-labelledby="modificarPerfil" aria-hidden="true">
 	<div class="modal-dialog">
@@ -29,36 +30,59 @@
 				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
 				<h4 class="modal-title" id="modalPerfil">Modificar perfil</h4>
 			</div>
-			<form name="editPerfil">
-			<div class="modal-body">
-				<md-input-container>
+			<form name="editPerfil" ng-mode="editPerfil"  ng-submit="actualizarDatos() && editPerfil.$valid" novalidate>
+				<div class="modal-body">
+					<md-input-container>
 					<label>Cambiar foto </label>
 					<input required name="foto" ng-model="usuario.foto">
-					<div ng-show="userForm.$submitted || userForm.direccion.$touched">
-                    <div class="msgError" ng-show="userForm.direccion.$error.required">Dirección es un campo requerido.</div>
-                  </div>
-				</md-input-container>
-				<md-input-container>
+					<div ng-show="editPerfil.$submitted || editPerfil.foto.$touched">
+						<div class="msgError" ng-show="editPerfil.foto.$error.required">
+							La foto no esta ingresada.
+						</div>
+					</div>
+					</md-input-container>
+					<md-input-container>
 					<label>Descripción</label>
 					<input required name="descripcion" ng-model="usuario.descripcion">
-				</md-input-container>
-				<md-input-container>
+					<div ng-show="editPerfil.$submitted || editPerfil.foto.$touched">
+						<div class="msgError" ng-show="editPerfil.descripcion.$error.required">
+							La descripción esta vacia.
+						</div>
+					</div>
+					</md-input-container>
+					<md-input-container>
 					<label>Tel&eacute;fono</label>
 					<input required name="telefono" ng-model="usuario.telefono">
-				</md-input-container>
-				<md-input-container>
+					<div ng-show="editPerfil.$submitted || editPerfil.foto.$touched">
+						<div class="msgError" ng-show="editPerfil.descripcion.$error.required">
+							El telefono  esta vacio.
+						</div>
+					</div>
+					</md-input-container>
+					<md-input-container>
 					<label>Celular</label>
 					<input required name="celular" ng-model="usuario.celular">
-				</md-input-container>
-				<md-input-container>
+					<div ng-show="editPerfil.$submitted || editPerfil.foto.$touched">
+						<div class="msgError" ng-show="editPerfil.descripcion.$error.required">
+							El celular esta vacio.
+						</div>
+					</div>
+					</md-input-container>
+					<md-input-container>
 					<label>Dirección exacta</label>
 					<input required name="direccionExacta" ng-model="usuario.direccionExacta">
-				</md-input-container>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-				<button type="button" class="btn btn-default" ng-click="actualizarDatos()">Actualizar perfil</button>
-			</div>
+					<div ng-show="editPerfil.$submitted || editPerfil.foto.$touched">
+						<div class="msgError" ng-show="editPerfil.descripcion.$error.required">
+							La dirección exacta esta vacia.
+						</div>
+					</div>
+					</md-input-container>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn simpleColor" data-dismiss="modal">Cerrar</button>
+					<button type="submit" class="btn simpleColor">Actualizar perfil</button>
+					{{editPerfil.$valid}}
+				</div>
 			</form>
 		</div>
 	</div>
