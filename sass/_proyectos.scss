@@ -26,3 +26,18 @@
 .btn-right{
 	float: right;
 }
+#proyecto-portafolio{
+	list-style: none inside;
+	padding: 0;
+	margin: 1em 1.5625%;
+	display: flex;
+	-webkit-justify-content: space-between;
+	        justify-content: space-between;
+	li{
+		width: 20.83333333333333%;
+	}
+	img{
+				-webkit-border-radius: 50%;
+		        border-radius: 50%;
+	}
+}

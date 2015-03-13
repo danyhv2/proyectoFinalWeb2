@@ -1,81 +1,85 @@
 <div class ="contenedorRubricasUi" ng-controller='directorController as este'>
-    <div class="pull-left izquierdaCaja">
-        <h3>Rubricas</h3>
-        <div class="contenedorDeCajas">
-        <table class="table table-hover">
+   <!--Modal Confirm-->
+   <div class="modal-content in" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+         <h4 class="modal-title">Confirmar borrado rubrica</h4>
+      </div>
+      <div class="modal-body">
+         <p>Está seguro que desea borrar la rubrica?</p>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btnConfirmModal" ng-click="delR(valores)"
+            data-dismiss="modal">Proceder</button>
+         <button type="button" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
+      </div>
+   </div>
+   <!--End Modal Confirm-->
+   <div class="pull-left izquierdaCaja">
+      <h3>Rubricas</h3>
+      <div class="contenedorDeCajas">
+         <table class="table table-hover">
             <tbody>
-                 <tr ng-repeat="valores in este.datos.RubricasCreadas">
-                     <td>{{valores.rubricaLista[0].NombreDeRubrica}}</td>
-                     <td><img src="img/edit.png"  ng-click="edit(valores)" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
-                     <td><img src="img/del.png"  ng-click="delR(valores)" style="cursor: pointer"></td>
-                 </tr>
+               <tr ng-repeat="valores in este.datos.RubricasCreadas">
+                  <td>{{valores.rubricaLista[0].NombreDeRubrica}}</td>
+                  <td><img src="img/edit.png"  ng-click="edit(valores)" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
+                  <td><img src="img/del.png" data-toggle="modal" data-target="#modalConfirm"  style="cursor: pointer"></td>
+               </tr>
             </tbody>
-        </table>
-         </div>
-    </div>
-
-    <div class="pull-right derechaCaja">
-        <h3>Nueva Rubrica</h3>
-        <form id="formAddR" name="RubForm" ng-submit="RubForm.$valid && add()" class="estiloCaja contenedorDeCajas">
-            <ng-form id="formRub" name="rubricaFormDirector">
-
+         </table>
+      </div>
+   </div>
+   <div class="pull-right derechaCaja">
+      <h3>Nueva Rubrica</h3>
+      <form id="formAddR" name="RubForm" ng-submit="RubForm.$valid && add()" class="estiloCaja contenedorDeCajas">
+         <ng-form id="formRub" name="rubricaFormDirector">
+            <md-input-container>
+               <label>Nombre de la rubrica</label>
+               <input md-maxlength="20" required name="nombreRubrica" ng-model="newNombreRubrica">
+            </md-input-container>
+            <label>Nombre del grupo</label>
+            <select ng-model="newNombreGrupo" required name="nombreGrupo" class="form-control">
+               <option ng-repeat="grupos in este.datos.GruposDeCurso">{{grupos.NombreDelGrupo}}</option>
+            </select>
+            <div class="cajaRubrica" ng-repeat='par in este.datos.ParamatrosRubrica'>
+               <div class="pull-left cont">
                   <md-input-container>
-                    <label>Nombre de la rubrica</label>
-                    <input md-maxlength="20" required name="nombreRubrica" ng-model="newNombreRubrica">
+                     <label class="rubroP">{{par.parametro}}</label>
+                     <input md-maxlength="2" class="valNot" required name="numeroRubrica" ng-model="inte">
                   </md-input-container>
-
-                  
-                    <label>Nombre del grupo</label>
-                    <select ng-model="newNombreGrupo" required name="nombreGrupo" class="form-control">
-                        <option ng-repeat="grupos in este.datos.GruposDeCurso">{{grupos.NombreDelGrupo}}</option>
-                    </select>
-
-
-                    <div class="cajaRubrica" ng-repeat='par in este.datos.ParamatrosRubrica'>
-                      <div class="pull-left cont">
-                        <md-input-container>
-                          <label class="rubroP">{{par.parametro}}</label>
-                          <input md-maxlength="2" class="valNot" required name="numeroRubrica" ng-model="inte">
-                        </md-input-container>
-                      </div>
-                      <div class="pull-right imagN">
-                        <img class="borrarRub" src="img/del.png"  ng-click="delP(valores)" style="cursor: pointer">
-                      </div>
-                    </div>
-
-
-            </ng-form>
-            <input type="submit" class="btn agregarBtn simpleColor" value="Agregar" id="agregarubrica">
-        </form>
-        <div class="estiloCaja" id="nuevRub">
-                  <md-input-container>
-                    <label>Nuevo rubro</label>
-                    <input class="nuevoRubro" ng-model="nuevoRubro">
-                  </md-input-container>
-                  <button type="button" class="simpleColor btn" ng-click="nuevoRubroAdd()">
-                    Añadir rubro</button>
-                  
-        </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="modelDetallesRubrica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Detalles</h4>
-                </div>
-                <div class="modal-body cajaDelmodal" id="rubricasModal">
-
-                </div>
-                <div class="alert alert-danger errormsj2">La suma de los porcentajes no es igual a 100.</div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="borrarRubTemp()">Cerrar</button>
-                    <button type="button" class="simpleColor btn" data-dismiss="modal" ng-click="editCreat()">
-                    Guardar</button>
-                </div>
+               </div>
+               <div class="pull-right imagN">
+                  <img class="borrarRub" src="img/del.png"  ng-click="delP(valores)" style="cursor: pointer">
+               </div>
             </div>
-        </div>
-    </div>
+         </ng-form>
+         <input type="submit" class="btn agregarBtn simpleColor" value="Agregar" id="agregarubrica">
+      </form>
+      <div class="estiloCaja" id="nuevRub">
+         <md-input-container>
+            <label>Nuevo rubro</label>
+            <input class="nuevoRubro" ng-model="nuevoRubro">
+         </md-input-container>
+         <button type="button" class="simpleColor btn" ng-click="nuevoRubroAdd()">
+         Añadir rubro</button>
+      </div>
+   </div>
+   <!-- Modal -->
+   <div class="modal fade" ng-click="borrarRubTemp()" id="modelDetallesRubrica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+               <h4 class="modal-title" id="myModalLabel">Detalles</h4>
+            </div>
+            <div class="modal-body cajaDelmodal" id="rubricasModal">
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="borrarRubTemp()">Cerrar</button>
+               <button type="button" class="simpleColor btn" data-dismiss="modal" ng-click="editCreat()">
+               Guardar</button>
+            </div>
+         </div>
+      </div>
+   </div>
 </div>

@@ -38,19 +38,19 @@ var proyectosData = [{
 		nombre: 'Dmg Coders',
 		usuario: 'Daniel',
 		descripcion: 'WebApp para control de historial de proyecto ',
-		imgPreview:'img/portafolio_preview/juego-pacman.png',
+		imgPreview: 'img/portafolio/juego-pacman.png',
 		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGCoders',
 
 			}, {
 		nombre: 'Dmg Sliders',
-		usuario:'Daniel',
+		usuario: 'Daniel',
 		descripcion: 'WebApp para control de historial de proyecto',
 		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGSliders',
-		imgPreview:'img/portafolio_preview/juego-pacman.png'
+		imgPreview: 'img/portafolio/Sodoku.gif'
 			},
 	{
 		nombre: 'Dmg Systems',
 		descripcion: 'WebApp para control de historial de proyecto',
 		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGSystems',
-		imgPreview:'img/portafolio_preview/juego-pacman.png',
+		imgPreview: 'img/portafolio/elsiguiente.jpg',
 			}];
