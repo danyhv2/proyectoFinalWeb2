@@ -1,4 +1,13 @@
 /*Estilos Guillermo*/
+#navegacionDirector
+{
+  .nav > li > a:focus 
+  {
+    color: white !important;
+    text-decoration: none;
+    background-color: #722d7b;
+  }
+}
 
 .cajaRubrica{
   width: 100%;

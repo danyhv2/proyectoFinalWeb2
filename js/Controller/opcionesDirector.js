@@ -256,6 +256,7 @@
             $scope.infoIngresada3 = "";
             $scope.infoIngresada4 = "";
             $scope.infoIngresada5 = "";
+            $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#cajaCursos').delay(1000).fadeOut();
         }
 
         $scope.resetForm = function() {
@@ -404,7 +405,8 @@
                 archivos.RubricasCreadas.push({
                     "rubricaLista": cosa
                 });
-                $('<span class="bg-success text-success errorMsj">Se agrego con exito</span>').insertBefore('#formRub').delay(1000).fadeOut();
+
+                $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#formRub').delay(1000).fadeOut();
                 document.getElementById("formAddR").reset();
             } else {
                 $('<div class="msgError" aria-hidden="false">El total debe ser 100</div>').insertBefore('#formRub').delay(1000).fadeOut();
@@ -443,9 +445,9 @@ var archivos = {
         }, {
             "NombreDeGrupo": "Grupo 3"
         }, {
-            "Examen": 10
+            "Examen": 60
         }, {
-            "Puntualidad": 10
+            "Puntualidad": 20
         }, {
             "Concepto": 20
         }]

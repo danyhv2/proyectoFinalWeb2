@@ -1,0 +1,40 @@
+<div class ="contenedorRubricasUi" ng-controller='directorController as este'>
+   <div class="pull-left izquierdaCaja">
+      <h3>Grupos</h3>
+      <div class="contenedorDeCajas">
+         <table class="table table-hover">
+            <tbody>
+               <th>Curso</th>
+               <th>Grupo</th>
+               <tr ng-repeat="valores in este.datos.GruposDeCurso">
+                  <td>{{valores.NombreDelCurso}}</td>
+                  <td>{{valores.NombreDelGrupo}}</td>
+                  <td><img src="img/edit.png"  ng-click="editNotas(valores)" style="cursor: pointer"></td>
+               </tr>
+            </tbody>
+         </table>
+      </div>
+   </div>
+   <div class="pull-right derechaCaja">
+      <div class="rayaCentral"></div>
+      <div class="oneinrow pull-left">
+         <h3>Rubrica</h3>
+         <div id="notasVista">
+         </div>
+      </div>
+      <div class="twoinrow pull-right">
+         <h3>Asignar nota</h3>
+         <form id="formAddN" name="notasForm" ng-submit="notasForm.$valid && addNota()" class="estiloCaja" novalidate>
+         <ng-form name="notasProfesor">
+            <div id="notasCrea"></div>
+            <div class="opcionesNota">
+               <label>Estudiante</label>
+               <select class="form-control">
+                  <option ng-repeat="persona in grupoTemporalSelecte.Estudiantes">{{persona.NombreEstudiante}}</option>
+               </select>
+               <input type="submit" class="btn btn-default simpleColor" value="Asignar">
+            </div>
+         </ng-form>
+      </div>
+   </div>
+</div>
