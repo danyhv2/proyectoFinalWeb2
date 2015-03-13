@@ -15,10 +15,9 @@
     </div>
 
     <div class="pull-right derechaCaja">
-        <div class="rayaCentral"></div>
         <h3>Nueva Rubrica</h3>
-        <form id="formAddR" name="RubForm" ng-submit="RubForm.$valid && add()" class="estiloCaja contenedorDeCajas" novalidate>
-            <ng-form name="rubricaFormDirector">
+        <form id="formAddR" name="RubForm" ng-submit="RubForm.$valid && add()" class="estiloCaja contenedorDeCajas">
+            <ng-form id="formRub" name="rubricaFormDirector">
 
                   <md-input-container>
                     <label>Nombre de la rubrica</label>
@@ -38,16 +37,16 @@
 
 
             </ng-form>
-            <div class="alert alert-danger errormsj">La suma de los porcentajes no es igual a 100.</div>
             <input type="submit" class="btn agregarBtn simpleColor" value="Agregar" id="agregarubrica">
         </form>
-        <div class="estiloCaja">
+        <div class="estiloCaja" id="nuevRub">
                   <md-input-container>
                     <label>Nuevo rubro</label>
                     <input class="nuevoRubro" ng-model="nuevoRubro">
                   </md-input-container>
                   <button type="button" class="simpleColor btn" ng-click="nuevoRubroAdd()">
                     Añadir rubro</button>
+                  
         </div>
     </div>
 

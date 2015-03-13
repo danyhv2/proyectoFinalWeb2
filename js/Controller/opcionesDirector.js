@@ -8,27 +8,107 @@
             valorActualP = [];
         $('.errormsj').hide();
         $('.errormsj2').hide();
+        $('.opcionesNota').hide();
 
         //Parte de roy
 
-        $scope.editNotas = function(valores){
-            var t = $scope.este.datos.GruposDeCurso.indexOf(valores);
-            $scope.estNotas = [];
+            $scope.editNotas = function(valores) {
+
+            //var t = $scope.este.datos.GruposDeCurso.indexOf(valores);
+            //$scope.estNotas = [];
+            $('.opcionesNota').hide();
+            $('#notasVista').empty();
+            $('#notasCrea').empty();
+            $scope.grupoTemporalSelecte = valores;
             var valorActual = valores;
             for(var j=0; j< archivos.RubricasCreadas.length;j++){
-                 if (archivos.RubricasCreadas[j].NombreDeGrupo === valorActual.NombreDelGrupo) {
-                    $scope.RubActual = archivos.RubricasCreadas[j];
-                 };
+                 if (archivos.RubricasCreadas[j].rubricaLista[1].NombreDeGrupo === valorActual.NombreDelGrupo) {
+
+                            var RubActual = archivos.RubricasCreadas[j];
+
+                             $.each(RubActual.rubricaLista, function(key, value){
+                                
+                                $.each(value, function(key, value){
+
+                                $('#notasVista').append('\
+                                <div class="group valorMs form-group">\
+                                        <label class="rubricasTemp">'+key+'</label>\
+                                        <input disabled class="valoresTemp form-control" name="nombreEditRubrica" value="'+value+'">\
+                                </div>')
+            
+            
+                                });
+                            });
+                        var counter = 0;
+                        $('.valorEd').each(function(){
+                            counter ++
+                        })
+                            $.each(RubActual.rubricaLista, function(key, value){
+                                
+                                $.each(value, function(key, value){
+
+                                $('#notasCrea').append('\
+                                <div class="group valorEd form-group">\
+                                        <label class="rubricasTemp">'+key+'</label>\
+                                        <input required class="valoresTemp form-control" name="nombreEditRubrica" value="'+value+'">\
+                                </div>')
+            
+            
+                                });
+                            });
+
+                       $("#notasCrea div:first-child input").attr('disabled', 'disabled');
+                       $("#notasCrea div:eq(1) input").attr('disabled', 'disabled');
+
+                       $scope.valuesPred = $('.valorEd input').map(function () {
+                          return this.value;
+                    }).get();
+                      
+                       $('.opcionesNota').show();
+                    };
+                }
+                $scope.addNota = function(){
+
+                    var notasPuestas = [],
+                        notasPredef = [],
+                        concordancia = 0;
+
+                 $scope.values = $('.valorEd input').map(function () {
+                      return this.value;
+                }).get();
+
+                    var sx = 0;
+
+                 $.each(RubActual.rubricaLista, function(){
+                  sx ++
+                 });
+                 for (var i = 0 ; i <= sx; i++) {
+                     var j = i + 2;
+
+                     notasPuestas.push($scope.values[j])
+                     notasPredef.push($scope.valuesPred[j])
+                };
+
+                notasPuestas = $.grep(notasPuestas,function(n){ return(n) });
+                notasPredef = $.grep(notasPredef,function(n){ return(n) });
+
+                for (var c = 0; c <= notasPuestas.length - 1; c++) {
+
+                      if (notasPuestas[c] <= notasPredef[c]) {
+                        concordancia ++;
+                      }else{
+                            concordancia --;
+                      }
+                };
+
+                if (concordancia === notasPuestas.length) {
+                    alert("Exito")
+                }else{
+                    alert("error")
+                };
+
             }
-            $scope.nota1 = $scope.RubActual.Asistencia;
-            $scope.nota2 = $scope.RubActual.Concepto;
-            $scope.nota3 = $scope.RubActual.Examen1;
-            $scope.nota4 = $scope.RubActual.Examen2;
-            $scope.nota5 = $scope.RubActual.Tareas;
-        }
-
-
-
+            }
         //Parte de roy
 
         $scope.delc = function(cs){
@@ -45,6 +125,7 @@
 
             for(var j=0; j< valorActual.CursosAsignados.length;j++){
                 $scope.estCr.push({apj:valorActual.CursosAsignados[j].curso});
+
             }
         }
 
@@ -100,7 +181,6 @@
                 $scope.proT.push(valorActual.Profesores[k].NombreProfesor);
             }
 
-            console.log($scope.proT)
             $scope.par1 = valorActual.NombreDelCurso;
             $scope.par2 = valorActual.NombreDelGrupo;
             $scope.par3 = valorActual.Horario;
@@ -179,9 +259,10 @@
                         <input required class="valoresTemp form-control" name="nombreEditRubrica" value="'+value+'">\
                 </div>')
 
+
                 });
             });
-             console.log(archivos.RubricasCreadas.rubricaLista)
+
             var t = $scope.este.datos.RubricasCreadas.indexOf(valores);
 
             $scope.editCreat = function() {
@@ -220,8 +301,6 @@
 
                 };
 
-                console.log(cosa)
-                console.log(archivos.RubricasCreadas)
 
                 archivos.RubricasCreadas.push({"rubricaLista":cosa});
 
@@ -238,8 +317,13 @@
         }
 
         $scope.nuevoRubroAdd = function(){
+            if ($scope.nuevoRubro === "" || $scope.nuevoRubro === undefined){
+                $('<div class="msgError" aria-hidden="false">Debe llenar el campo</div>').insertBefore('#nuevRub').delay(1000).fadeOut();
+            }else{
             archivos.ParamatrosRubrica.push({parametro : $scope.nuevoRubro})
             $scope.nuevoRubro = "";
+            $('<span class="bg-success text-success errorMsj">Se agrego con exito</span>').insertBefore('#nuevRub').delay(1000).fadeOut();
+            };
         }
 
         $scope.add = function() {
@@ -286,11 +370,10 @@
                 };
 
                 archivos.RubricasCreadas.push({"rubricaLista":cosa});
-
+                $('<span class="bg-success text-success errorMsj">Se agrego con exito</span>').insertBefore('#formRub').delay(1000).fadeOut();
                 document.getElementById("formAddR").reset();
-                $('.errormsj').hide();
             }else{
-                    $('.errormsj').show();
+                $('<div class="msgError" aria-hidden="false">El total debe ser 100</div>').insertBefore('#formRub').delay(1000).fadeOut();
                 }
         }
     });
@@ -312,8 +395,8 @@
 
         .state('grupo.cursosCarreras', {
             url: '/carreras',
-           templateUrl: 'pages/_cursosCarrerasDirector.html',
-           //templateUrl: 'pages/_rubricaEstudiante.html',
+           //templateUrl: 'pages/_cursosCarrerasDirector.html',
+           templateUrl: 'pages/_rubricaEstudiante.html',
             controller: 'directorController'
         })
     });
@@ -321,11 +404,17 @@
 
 var archivos = {
     "RubricasCreadas": [{
-        rubricaLista : [{
-        NombreDeRubrica: "Rubrica 1"    
-        },
-        {Examen: 10},
-        {Concepto: 20}]
+        "rubricaLista" : [{
+        "NombreDeRubrica": "Rubrica 3"    
+        },{
+        "NombreDeGrupo": "Grupo 3"    
+        },{
+        "Examen": 10
+        },{
+        "Puntualidad": 10
+        },{
+       "Concepto": 20}]
+
     }],
 
     "ParamatrosRubrica": [{
@@ -351,16 +440,17 @@ var archivos = {
             "Rol asignado" : "Proceso"
         },{
             "NombreProfesor" : "Carlos",
+            "Rol asignado" : "Practica"
         }],
     },{
         "NombreDelCurso": "Proyecto Web 3",
         "NombreDelGrupo": "Grupo 3",
         "Horario": "Noche",
         "Estudiantes": [{
-            "NombreEstudiante" : "Frodo",
+            "NombreEstudiante" : "Frodo Ramirez",
     
         },{
-            "NombreEstudiante" : "Harry",
+            "NombreEstudiante" : "Harry Ortiz",
      
         }],
 
@@ -389,7 +479,7 @@ var archivos = {
         "CursosAsignados" : [{
         "curso" : "Curso de nuevo",
         },{
-        "curso" : "Curso de x"
+        "curso" : "Curso de numeros"
         }],
 
         },{
@@ -403,12 +493,12 @@ var archivos = {
         },{
         "carrera": "Telematica",
         "CursosAsignados" : [{
-        "curso" : "Estos",
+        "curso" : "Curso temporal",
         }],
         },{
         "carrera": "TIC",
         "CursosAsignados" : [{
-        "curso" : "Curso de estudaintes",
+        "curso" : "Curso de estudiantes",
         }],
     }],
 

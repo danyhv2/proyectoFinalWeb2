@@ -49,6 +49,11 @@ route.config(function($stateProvider, $urlRouterProvider) {
             url: '/reportes',
             templateUrl: 'pages/_reportes.html'
         })
+
+         .state('estudiante', {
+            url: '/estudiante',
+            template: '<p>Pendiente</p>'
+        })
          
         
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
