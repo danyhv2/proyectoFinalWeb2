@@ -45,6 +45,10 @@ var usuarioData = [
 		nombre: 'Daniel',
 		primerApellido: 'Campos',
 		segundoApellido: 'Arce',
+		fechaNacimiento: {
+			full: '13 de marzo del 1994',
+			small: '13-03-1994'
+		},
 		correoElectronico: 'dcamposa@ucenfotec.ac.cr',
 		telefono: 22563450,
 		celular: 89770980,
@@ -74,6 +78,10 @@ var usuarioData = [
 		foto: 'img/user-32.png',
 		carrera: 'Diseño y Desarrollo Web',
 		nombre: 'Melisa Rsoales Quiros',
+		fechaNacimiento: {
+			full: '20 de agosto del 1993',
+			small: '20-09-1993'
+		},
 		correoElectronico: 'mrosalesv@ucenfotec.ac.cr',
 		telefono: 22563450,
 		celular: 89770980,

@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.bootstrap.demo','ui.router', 'fileUpload', 'module', 'rutas', 'moduleDocs','moduleReport', 'crearGrupo','moduleHome', 'moduleProyectos', 'modulePerfil', 'modulePortafolio', 'modifyUser', 'agregarCarrera', 'agregarCurso', 'modifyCarrera', 'modifyCurso', 'verUsuarios']);
+var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.bootstrap.demo','ui.router', 'fileUpload', 'module', 'rutas', 'moduleDocs','moduleReport', 'crearGrupo','moduleHome', 'moduleProyectos', 'modulePerfil', 'modulePortafolio', 'modifyUser', 'agregarCarrera', 'agregarCurso', 'modifyCarrera', 'modifyCurso', 'verUsuarios','moduleSocial', 'moduleVotacion']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
@@ -35,7 +35,11 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'views/_modal-editar-carrera.html'
             
         })
-        
+        .state('configuracion.votacion',{
+			  url:'/votacion',
+			  templateUrl:'views/_votacion.html',
+			  controller:'VotacionCtrl'
+		  })
         
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
                 
