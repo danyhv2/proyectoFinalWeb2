@@ -20,6 +20,7 @@ angular.module('agregarCurso', [])
       $('#msgSuccess').fadeOut(3000);
       cursos.push($scope.newCurso);
       localStorage.setItem('cursos', JSON.stringify(cursos));
+
     };
   }
 

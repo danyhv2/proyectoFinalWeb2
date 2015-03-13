@@ -2,8 +2,6 @@ var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.boo
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
-    $urlRouterProvider.otherwise('/');
-    
     $stateProvider
         
         // HOME STATES AND NESTED VIEWS ========================================

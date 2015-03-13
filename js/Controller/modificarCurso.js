@@ -12,11 +12,13 @@ angular.module('modifyCurso', [])
     this.datos = jQuery.parseJSON(localStorage.getItem('cursos'));
 
     self.updateModel = function updateModel() {
+      console.log(this.datos);
       for(var i = 0; i < this.datos.length; i++){
-        if($('.searchCurso').val() != this.datos[i].Curso){
+        if($('.searchCurso').val() != (this.datos[i].Curso)){
           $('.errorSearch').css('display','block');
         }else{
           // update the form values
+          $('.errorSearch').css('display','none');
           self.userFormEditCurso.nombreCurso.$setViewValue(this.datos[i].Curso);
           self.userFormEditCurso.cuatrimestre.$setViewValue(this.datos[i].Cuatrimestre);
           self.userFormEditCurso.anoLectivo.$setViewValue(this.datos[i].AnoLectivo);
@@ -25,63 +27,47 @@ angular.module('modifyCurso', [])
           self.userFormEditCurso.codCurso.$setViewValue(this.datos[i].Codigo);
         
           renderElement(['#inpNombreCurso', '#inpCuatrimestre', '#inpAno', '#inpHorarioCurso', '#inpCreditoCurso', '#inpCodCurso']);
+
         }
     }
     };
 
-
-      $scope.disable=true;
-      $scope.disable2=true;
-      $scope.editarUsuario = function(){
-            $scope.disable=false;
-            $('.saveUser').css('display','block');
-            $('.cancelUser').css('display','block');
-      }
-      $scope.guardarUsuario = function(){
-        console.log($scope.datos[0].Nombre);
-        $scope.datos[0].Nombre = $('#inpNameUser').val();
-        $scope.changedUser = [{
-                          'Nombre':  $scope.datos[0].Nombre,
-                          'PrimerApellido':  $scope.datos[0].PrimerApellido,
-                          'SegundoApellido':  $scope.datos[0].SegundoApellido,
-                          'Direccion':  $scope.datos[0].Direccion,
-                          'Cedula':  $scope.datos[0].Cedula,
-                          'Foto':  $scope.datos[0].Foto,
-                          'FechaNacimiento':  $scope.datos[0].FechaNacimiento,
-                          'Correo':  $scope.datos[0].Correo,
-                          'Contrasena': $scope.datos[0].Contrasena
+      $scope.guardarCurso = function(){
+        $scope.datosCurso = jQuery.parseJSON(localStorage.getItem('cursos'));
+          if($scope.updCurso.userFormEditCurso.$valid){
+        
+            $scope.changedCurso = [{
+                          'Curso': $('#inpNombreCurso').val(),
+                          'Cuatrimestre': $('#inpCuatrimestre').val(),
+                          'AnoLectivo': $('#inpAno').val(),
+                          'Horario': $('#inpHorarioCurso').val(),
+                          'Creditos': $('#inpCreditoCurso').val(),
+                          'Codigo':  $('#inpCodCurso').val()
                             }];
                          
-        localStorage.setItem('users',JSON.stringify($scope.changedUser));
-        console.log(jQuery.parseJSON(localStorage.getItem('users')));
+            localStorage.setItem('cursos',JSON.stringify($scope.changedCurso));
+            $('#modalEditarCurso').modal('hide');
+            $('.modal-backdrop').modal('hide');
+            $('#modalExito').fadeIn(1000);
+            $('#modalExito').fadeOut(3000);
+        } 
+        if($scope.updCurso.userFormEditCurso.$valid && $('#chkCurso').hasClass('md-checked')){
+          $('#modalEditarCurso').modal('hide');
+          $('#modalExito').modal('hide');
+          $('#modalConfirm').modal('show');
+        }
+      }
+      //cancelar modal confirm, me devuelve al modal principal
+      $('.cancelConfirm').click(function() {
+         $('#modalEditarCurso').modal('show');
+         $('#modalConfirm').modal('hide');
+      });
 
-      }
-      $scope.editarUsuarioAcceso = function(){
-            $scope.disable2=false;
-            $('.saveUserAccess').css('display','block');
-            $('.cancelUserAccess').css('display','block');
-            $('.inpNewPass').css('display','block');
-            $('.inpNewPassConfirm').css('display','block');
-      }
-      $scope.cancelEditarUsuario = function(){
-             $scope.disable=true;
-             $('.saveUser').css('display','none');
-             $('.cancelUser').css('display','none');
-      }
-      $scope.cancelUsuarioAcceso = function(){
-            $scope.disable2=true;
-            $('.saveUserAccess').css('display','none');
-            $('.cancelUserAccess').css('display','none');
-            $('.inpNewPass').css('display','none');
-            $('.inpNewPassConfirm').css('display','none');
-      }
-      $scope.validarContrasena = function(){
-            if(($('.inpNew').val()) !== ($('.inpConfirm').val())){
-                $('.msgError').css('display', 'block');
-            }
-      }
-      $scope.saveNewInfo = function (){
-
-      }
+      $('.btnConfirmModal').click(function() {
+         $('#modalConfirm').modal('hide');
+         $('#modalExito').fadeIn(1000);
+         $('#modalExito').fadeOut(3000);
+      });
+    
 
   });

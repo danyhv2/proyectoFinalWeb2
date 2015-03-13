@@ -340,8 +340,6 @@
 				<!--//rutas-->
 
 		modulo.config(function($stateProvider, $urlRouterProvider) {
-    
-	    $urlRouterProvider.otherwise('/usuario');
 	    
 	    $stateProvider
 	        

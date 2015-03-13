@@ -5,6 +5,10 @@
 	margin-top: 12px;
 	display:none;
 }
+@mixin btnPurple{
+	background-color:#722d7d;
+	color:#ddd6d6;
+}
 
 body{
 	overflow:visible!important;
@@ -53,18 +57,41 @@ h1, legend{
 					font-weight: bold;	
 				}
 				
-			}	
+			}
+			.errorSearch{
+					font-size:13px;
+					color:rgb(244,67,54);
+					@include msg;
+					}	
+			.msgError{
+				font-size:13px;
+				color:rgb(244,67,54);
+					}
+			#modalExito{
+				display:none;
+			}
+			#modalContent{
+				position:absolute;
+				background-color:#dff0d8;
+			}
+			#modalConfirm{
+				position:absolute;
+				display:none;
+				z-index:10001;
+			}
+			.btnConfirmModal{
+				@include btnPurple;
+			}
+			.btnAdd{
+				color:#ffffff;
+			}
 			.formUser{
 				padding-top:30px;
 					legend{
 						padding-left:18px;
 						font-size:1.625em;
 					}
-					.msgError{
-						font-size:13px;
-						color:rgb(244,67,54);
-					}
-					.msgErrorEmail, .errorSearch{
+					.msgErrorEmail{
 						font-size:13px;
 						color:rgb(244,67,54);
 						@include msg;
@@ -74,9 +101,8 @@ h1, legend{
 						@include msg;
 					}
 					.btnAddUser{
-						background-color:#722d7d;
+						@include btnPurple;
 						float:right;
-						color:#ddd6d6;
 						margin-right: 75px;
 						margin-bottom: 40px;
 					}
