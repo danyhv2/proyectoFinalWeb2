@@ -638,71 +638,77 @@ form button {
 }
 
 /*Estilos Guillermo*/
-/* line 3, ../sass/_rubricaEstilo.scss */
+/* line 2, ../sass/_rubricaEstilo.scss */
+.errorMsj {
+  background-color: transparent;
+  font-size: 13px;
+}
+
+/* line 7, ../sass/_rubricaEstilo.scss */
 .jusH {
   display: inline;
 }
 
-/* line 7, ../sass/_rubricaEstilo.scss */
+/* line 11, ../sass/_rubricaEstilo.scss */
 .nays {
   margin-top: 2em;
 }
 
-/* line 11, ../sass/_rubricaEstilo.scss */
+/* line 15, ../sass/_rubricaEstilo.scss */
 .comie {
   margin-top: 2em;
 }
 
-/* line 15, ../sass/_rubricaEstilo.scss */
+/* line 19, ../sass/_rubricaEstilo.scss */
 .oneinrow {
   width: 30%;
   margin-left: 3%;
 }
 
-/* line 20, ../sass/_rubricaEstilo.scss */
+/* line 24, ../sass/_rubricaEstilo.scss */
 .twoinrow {
   width: 65%;
 }
 
-/* line 24, ../sass/_rubricaEstilo.scss */
+/* line 28, ../sass/_rubricaEstilo.scss */
 #ContenedorRubricas {
   max-width: 60em;
   height: 50em;
 }
 
-/* line 29, ../sass/_rubricaEstilo.scss */
+/* line 33, ../sass/_rubricaEstilo.scss */
 .errormsj {
   width: 83%;
 }
 
-/* line 33, ../sass/_rubricaEstilo.scss */
+/* line 37, ../sass/_rubricaEstilo.scss */
 .errormsj2 {
   width: 78%;
   margin-left: 20%;
 }
 
-/* line 38, ../sass/_rubricaEstilo.scss */
+/* line 42, ../sass/_rubricaEstilo.scss */
 .izquierdaCaja {
   width: 40%;
   margin-left: 1%;
   margin-right: 1%;
 }
 
-/* line 44, ../sass/_rubricaEstilo.scss */
+/* line 48, ../sass/_rubricaEstilo.scss */
 .derechaCaja {
   width: 55%;
   position: relative;
 }
-/* line 47, ../sass/_rubricaEstilo.scss */
+/* line 51, ../sass/_rubricaEstilo.scss */
 .derechaCaja h3 {
   margin-left: 10%;
 }
-/* line 50, ../sass/_rubricaEstilo.scss */
+/* line 54, ../sass/_rubricaEstilo.scss */
 .derechaCaja .estiloCaja {
   padding-left: 10%;
 }
 
-/* line 55, ../sass/_rubricaEstilo.scss */
+/* line 59, ../sass/_rubricaEstilo.scss */
 .rayaCentral {
   height: 30em;
   width: 1%;
@@ -710,19 +716,19 @@ form button {
   position: absolute;
 }
 
-/* line 62, ../sass/_rubricaEstilo.scss */
+/* line 66, ../sass/_rubricaEstilo.scss */
 .simpleColor {
   background-color: #722d7b !important;
   color: #fff !important;
 }
 
-/* line 69, ../sass/_rubricaEstilo.scss */
+/* line 73, ../sass/_rubricaEstilo.scss */
 .contenedorDeCajas {
   height: 30em;
   overflow-y: scroll;
 }
 
-/* line 75, ../sass/_rubricaEstilo.scss */
+/* line 79, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi h3 {
   font-size: 1.87em;
   font-weight: bold;

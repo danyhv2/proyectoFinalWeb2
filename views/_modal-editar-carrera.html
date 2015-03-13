@@ -6,11 +6,11 @@
                 <h1>Información de la Carrera</h1>
             </div>
             <div class="modal-body">
-                <form clas="form-horizontal" name="updCarrera.formEditCarrera">
+                <form clas="form-horizontal" name="updCarrera.formEditCarrera" ng-submit="guardarCarrera() && updCarrera.formEditCarrera.$valid" novalidate>
                     <md-input-container class="contBuscarCarrera">
                         <p class="input-group">
                           <label>Buscar carrera</label>
-                          <input required name="buscarCarrera" class="searchCarrera">
+                          <input name="buscarCarrera" class="searchCarrera">
                           <a href="#" ng-click="updCarrera.updateModel()">
                               <img src="img/searchIcon.png">
                           </a>
@@ -19,33 +19,60 @@
                     </md-input-container>
                       <md-input-container>
                       <label>Nombre</label>
-                      <input id="inpNombreCarrera" md-maxlength="60" required name="nombre" ng-model="updCarrera.datos[0].Carrera">
-                      <div ng-messages="projectForm.description.$error">
-                        <div ng-message="required">This is required.</div>
-                        <div ng-message="md-maxlength">The name has to be less than 30 characters long.</div>
+                      <input id="inpNombreCarrera" md-maxlength="60" required name="nombre" ng-model="updCarrera.datos[2].Carrera">
+                      <div ng-show="updCarrera.formEditCarrera.$submitted || updCarrera.formEditCarrera.nombre.$touched">
+                        <div class="msgError" ng-show="updCarrera.formEditCarrera.nombre.$error.required">El nombre es un campo requerido.</div>
                       </div>
                     </md-input-container>
                     <md-input-container>
                       <label>Código</label>
-                      <input id="inpCodCarrera" required name="codCarrera" ng-model="updCarrera.datos[0].Codigo">
-                      <div ng-messages="projectForm.clientName.$error">
-                        <div ng-message="required">This is required.</div>
+                      <input id="inpCodCarrera" required name="codCarrera" ng-model="updCarrera.datos[2].Codigo">
+                      <div ng-show="updCarrera.formEditCarrera.$submitted || updCarrera.formEditCarrera.codCarrera.$touched">
+                        <div class="msgError" ng-show="updCarrera.formEditCarrera.codCarrera.$error.required">Debe ingresar un código para la carrera.</div>
                       </div>
                     </md-input-container>
                     <md-input-container>
                       <label>Director de Carrera</label>
-                      <input id="inpDirCarrera" required name="dirCarrera" ng-model="updCarrera.datos[0].Director">
-                      <div ng-messages="projectForm.clientName.$error">
-                        <div ng-message="required">This is required.</div>
+                      <input id="inpDirCarrera" required name="dirCarrera" ng-model="updCarrera.datos[2].Director">
+                      <div ng-show="updCarrera.formEditCarrera.$submitted || updCarrera.formEditCarrera.dirCarrera.$touched">
+                        <div class="msgError" ng-show="updCarrera.formEditCarrera.dirCarrera.$error.required">Debe ingresar un nombre para el Director de Carrera.</div>
                       </div>
                     </md-input-container>
                     
-                    <md-checkbox ng-model="data.cb1" aria-label="Checkbox 1">
+                    <md-checkbox ng-model="data.cb1" id="chkCurso" aria-label="Checkbox 1">
                       Inactivar
                     </md-checkbox>
-                <button class="btn btnAdd" type="submit">Guardar</button> 
+                <button class="btn btnAdd btnConfirmModal" type="submit">Guardar</button> 
+                <div>review form is {{updCarrera.formEditCarrera.$valid}}</div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+
+<!--modal exito-->
+<div id="modalExito" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div id="modalContent" class="modal-content alert alert-success">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <span>La carrera ha sido modificada exitosamente!</span>
+      
+    </div>
+  </div>
+</div>
+ <!--modal confirm-->
+<div class="modal-dialog">
+  <div id="modalConfirm" class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title">Confirmar inactivar carrera</h4>
+    </div>
+    <div class="modal-body">
+      <p>Está seguro que desea proceder con la inactivacción de la carrera?</p>
+    </div> 
+    <div class="modal-footer">
+      <button type="button" class="btn btnConfirmModal" data-dismiss="modal">Proceder</button>
+      <button type="button" class="btn btnAdd cancelConfirm">Cancelar</button>
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
