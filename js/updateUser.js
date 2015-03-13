@@ -17,6 +17,7 @@ angular.module('modifyUser', [])
            $('.errorSearch').css('display','block');
         }
         else{
+          $('.errorSearch').css('display','none');
           self.userFormEdit.userName.$setViewValue(this.datos[i].Nombre);
           self.userFormEdit.primerApellido.$setViewValue(this.datos[i].PrimerApellido);
           self.userFormEdit.segundoApellido.$setViewValue(this.datos[i].SegundoApellido);
@@ -25,8 +26,9 @@ angular.module('modifyUser', [])
           self.userFormEdit.userFecha.$setViewValue(this.datos[i].FechaNacimiento);
           self.userFormEdit.correo.$setViewValue(this.datos[i].Correo);
           self.userFormEdit.contrasena.$setViewValue(this.datos[i].Contrasena);
+          self.userFormEdit.profilePhoto.$setViewValue(this.datos[i].Foto);
 
-          renderElement(['#inpNameUser', '#inpPrimerApellido', '#inpSegApellido', '#inpDireccion', '#inpFecha', '#inpCedula', '#inpCorreo', '#inpPassword']);
+          renderElement(['#inpNameUser', '#inpPrimerApellido', '#inpSegApellido', '#inpDireccion', '#inpFecha', '#inpCedula', '#inpCorreo', '#inpPassword', '#imgPhoto']);
         }
 
     }

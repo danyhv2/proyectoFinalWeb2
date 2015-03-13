@@ -2,7 +2,7 @@
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
             <form class="formUser formEditUser" ng-mode-="userForm" name="updateUser.userFormEdit" ng-submit="validate() && userForm.$valid" novalidate>
-              <md-input-container class="col-md-6 inpSearchUser">
+              <md-input-container class="col-xs-6 inpSearchUser">
                   <p class="input-group">
                     <label>Buscar usuario por correo</label>
                     <input class="searchCurso" name="buscarCurso" ng-model="searchUser">
@@ -12,7 +12,11 @@
                   </p>
                   <p class="errorSearch">El usuario que esta tratando de buscar no existe.</p>
               </md-input-container>
-                <fieldset class="col-md-12 col-sm-10">
+              <div class="col-xs-3 col-xs-offset-3">
+
+              <img id="imgPhoto" class="imgProfile img-circle" name="profilePhoto" ng-model="updateUser.datos[1].Foto" ng-src="{{updateUser.datos[1].Foto}}">
+              </div>
+                <fieldset class="col-md-12 col-xs-10">
                   <legend>Datos Personales
                     <label class="lblEdit lblEditUser">
                       <a class="editUser" href="#">Editar</a>
@@ -57,7 +61,7 @@
                   </md-input-container>
                 </div>
                 </fieldset>
-              <fieldset class="col-md-12 col-sm-10">
+              <fieldset class="col-md-12 col-sm-10 col-xs-10">
                 <legend>Datos de Acceso
                   <label class="lblEdit lblEditUser">
                     <a class="editUser" href="#">Editar</a>
@@ -91,9 +95,6 @@
                   </md-select>
                 </div>
               </fieldset>
-              
-              <img class="imgProfile" ng-src="{{datos[0].Foto}}">
-              <div>review form is {{userForm.$valid}}</div>
              
          </form>
        </div>

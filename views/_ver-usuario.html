@@ -1,0 +1,9 @@
+<table class="table table-hover">
+	<tbody>
+	     <tr ng-repeat="valores in este.datos.RubricasCreadas">
+	         <td>{{valores.rubricaLista[0].NombreDeRubrica}}</td>
+	         <td><img src="img/edit.png"  ng-click="edit(valores)" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
+	         <td><img src="img/del.png"  ng-click="delR(valores)" style="cursor: pointer"></td>
+	     </tr>
+	</tbody>
+</table>

@@ -9,6 +9,10 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             url: '/ingresar-usuario',
             templateUrl: 'views/_ingresar-usuario.html'
         })
+        .state('configuracion.verUsuario', {
+            url: '/usuarios',
+            templateUrl: 'views/_ver-usuario.html'
+        })
         .state('configuracion.modificarUsuario', {
             url: '/modificar-usuario',
             templateUrl: 'views/_modificar-usuario.html'
