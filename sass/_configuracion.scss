@@ -138,6 +138,24 @@ h1, legend{
 					height:70px;
 					margin-top:62px;
 				}
+			}
+			.contVerUsuarios{
+				padding-bottom:1px;
+				padding-left: 20px;
+  				padding-right: 20px;
+				thead{
+					color:#545355;
+					border-bottom: 3px solid #722d7b;
+					th{
+						font-weight:bold;
+					}
+				}
+				tbody{
+					font-size:14px;
+					tr{
+					    border-bottom: 2px solid #b68cbb;
+					}
+				}
 			}	
 			.btnDatePicker{
 				border: none;

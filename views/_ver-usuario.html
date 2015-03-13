@@ -1,9 +1,24 @@
-<table class="table table-hover">
-	<tbody>
-	     <tr ng-repeat="valores in este.datos.RubricasCreadas">
-	         <td>{{valores.rubricaLista[0].NombreDeRubrica}}</td>
-	         <td><img src="img/edit.png"  ng-click="edit(valores)" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
-	         <td><img src="img/del.png"  ng-click="delR(valores)" style="cursor: pointer"></td>
-	     </tr>
-	</tbody>
-</table>
+<div class="contVerUsuarios" ng-controller="verUserCtrl">
+	<h1>Usuarios</h1>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Correo</th>
+				<th>Nombre</th>
+				<th>Primer Apellido</th>
+				<th>Segundo Apellido</th>
+				<th>Role</th>
+			</tr>
+		</thead>
+		<tbody>
+		     <tr ng-repeat="users in usuarios">
+		     	<td>{{users.correo}}</td>
+		     	<td>{{users.nombre}}</td>
+		     	<td>{{users.primerApellido}}</td>
+		     	<td>{{users.segundoApellido}}</td>
+		     	<td>{{users.role}}</td>
+		     	<td><a href="#"><img src="img/see_03.png"></a></td>
+		     </tr>
+		</tbody>
+	</table>
+</div>
