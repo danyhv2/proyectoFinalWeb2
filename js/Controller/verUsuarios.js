@@ -41,6 +41,18 @@ angular.module('verUsuarios', [])
     
   ];
 
+
+$scope.verMas = function(index){
+  console.log($('.usernombre').eq(index).text());
+  $('.modalBodyUser').append("<div><div class="+'info'+"><h2>Daniela Hernández Villafuerte</h2><p>dhernandezv@ucenfotec.ac.cr</p><p>Fecha de nacimiento: 02/02/1989</p><p>San José, Pavas</p><p>Cédula: 123456789</p><p>Role: Estuidante</p></div><div class="+'contImgUser'+"><img src="+'img/user3.png'+"></div></div></div>");
+
+
+  if(index ==0){
+    console.log($scope.usuarios[0].nombre);
+  }
+ }
+
+
     
 
   });
