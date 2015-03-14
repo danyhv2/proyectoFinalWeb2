@@ -1,4 +1,4 @@
-var app = angular.module('module',['ngResource','ngRoute']);
+var app = angular.module('moduleLogin',['ngResource','ngRoute']);
 
 app.controller('signupController',function($scope, $location, $http, $rootScope) {
         
