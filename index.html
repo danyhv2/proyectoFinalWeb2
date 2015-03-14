@@ -30,12 +30,12 @@
             <div class="collapse navbar-collapse" id="menuCollapse">
               <img id="imgLogo" class="hidden-xs" src="img/logoApp.png" alt="Logo">
                 <ul class="menuList nav navbar-nav show " id="menu-principal">
-                  <li><a class="menu-link" ui-sref="home">Home</a></li>
+                  <li><a class="menu-link hide"  id ="home" ui-sref="home">Home</a></li>
                    <li><a class="menu-link hide" id="documentos" ui-sref="documentos">Documentos</a></li>
                    <li><a class="menu-link hide" id="perfil" ui-sref="perfil">Perfil</a></li>
                    <li><a class="menu-link hide" id="grupo" ui-sref="grupo">Grupo</a></li> 
                    <li><a class="menu-link hide" id="reportes-menu" ui-sref="reportes">Reportes</a></li>
-                   <li><a class="menu-link" ui-sref="estudiante">Estudiante</a></li> 
+                   <li><a class="menu-link hide" id ="estudiante" ui-sref="estudiante">Estudiante</a></li> 
                    <li><a class="menu-link hide" id="grupo2" ui-sref="grupo2">Grupo2</a></li>                
                 </ul>
                 <ul class="menuSesion nav navbar-nav navbar-right">
@@ -60,7 +60,7 @@
               <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 <strong>Debe ingresar el correo de la universidad</strong>
           </div>
-            <form class="formUser"  id ="formLogin" ng-model="userForm" name="userForm"  novalidate>
+            <form class="formUser"  id ="formLogin" ng-model="userForm" name="userForm" ng-controller = "signupController"  novalidate>
               <fieldset class="col-sm-6">
                 <div class="col-md-12">
                   <md-input-container>
