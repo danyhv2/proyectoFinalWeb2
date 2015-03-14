@@ -92,10 +92,7 @@
 			];
 			$scope.opciones = [
 			{
-				opcion : 'si'
-			},
-			{
-				opcion : 'no'
+				opcion : 'Seleccionar'
 			}
 
 			];
@@ -172,7 +169,6 @@
 			$scope.muchos = [];
 			$scope.muchos2 = [];
 			$scope.temps =[];
-			$scope.enviarProyectos =[];
 						<!-- //arreglo vacios-->
 
 						<!-- //funcion ordenar tabla de grupos-->
@@ -278,6 +274,8 @@
 					$scope.grupos.push({nombreGrupo :$scope.nuevoName, misEstudiantes:$scope.muchos});
 						console.log($scope.grupos);
 					$('#errorEstudiante').detach();
+					$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut();
+					$('#modalNuevoGrupo').modal('hide');
 					$scope.nuevoName = '';
 					$scope.nuevoEstudiante ='';
 					$scope.muchos = [];
@@ -308,6 +306,8 @@
 					$scope.grupos.push({nombreGrupo :$scope.nuevoName, misEstudiantes:$scope.muchos});
 						console.log($scope.grupos);
 					$('#errorEstudiante').detach();
+					$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut()
+					$('#modalNuevoGrupo').modal('hide');
 					$scope.nuevoName = '';
 					$scope.nuevoEstudiante ='';
 					$scope.muchos = [];
@@ -371,11 +371,14 @@
 									$('#errorEstudiante').detach();
 									$('#errorRoles').detach();
 									$scope.muchos.push({nombre:$scope.nuevoEstudiante.miName, role:$scope.nuevoRole});
+									$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut()
+									$('#modalNuevoGrupo').modal('hide');
 									console.log($scope.nuevoEstudiante);
 									console.log($scope.muchos);
 									console.log($scope.muchos.length);
 									$scope.nuevoEstudiante ='';
 									$scope.nuevoRole ='';
+
 							}
 							}
 					}//2
@@ -385,12 +388,15 @@
 						<!-- //fin funcion agregar nombre de y role de estudiantes a arreglo vacio-->
 			
 						<!-- //funciones de remover-->
+			$scope.removeGrupoProyectosVotacion=function(este){
+				var i = $scope.enviarProyectos.indexOf(este);
+				$scope.enviarProyectos.splice(i,1);
+			};
 			$scope.removeGrupo=function(grupo){
 				var i = $scope.grupos.indexOf(grupo);
-				var r = confirm("Desea eliminar esto");
-				if (r == true) {
+				$scope.removeGrupo1=function(){
 				$scope.grupos.splice(i,1);
-				}
+				};
 			};
 			$scope.removeGrupo2=function(grupo){
 				var i = $scope.muchos.indexOf(grupo);
@@ -415,18 +421,23 @@
 			};
 			$scope.removeGrupo5=function(todosArchivo){
 				var i = $scope.todosArchivos.indexOf(todosArchivo);
-				console.log(todosArchivo);
-				var r = confirm("Desea borra este archivo");
-				if (r == true) {
+				$('#mostrarArchivos').modal('hide');
+				$scope.removeGrupo55=function(){
 				$scope.todosArchivos.splice(i,1);
-				}
+				$('#mostrarArchivos').modal('show');	
+				};
+				$scope.removeGrupo555=function(){
+				$('#mostrarArchivos').modal('show');	
+				};
 			};
 			$scope.botonCancelar=function(grupo){
 				$('#errorNombreGrupo').detach();
 				$('#errorEstudiante').detach();
 				$('#errorRoles').detach();
+				$('#errorModiEs').detach();
 				$scope.nuevoName = '';
 				$scope.nuevoEstudiante ='';
+				$scope.nuevoEstudiante2 ='';
 				$scope.nuevoRole ='';
 				$scope.muchos = [];
 				$scope.muchos2 = [];
@@ -497,6 +508,7 @@
 							$('#errorArchivoName').detach();
 							$('#errorArchivoGrupo').detach();
 							$scope.GruposArchivos[i].archivos.push({nombre:$scope.nuevoNameArhivo, fecha: time, hora: hora});
+							$('<p id="msgSuccess" class="alert alert-success mipos">Archivo subido correctamente.</p>').insertBefore('h1#miArch').delay(3000).fadeOut();
 							console.log($scope.GruposArchivos[i]);
 							$scope.archivoParaSubir ='';
 							$scope.nuevoNameArhivo = '';
@@ -558,6 +570,7 @@
 							$('#errorArchivoName').detach();
 							$('#errorArchivoGrupo').detach();
 							$scope.GruposArchivos2[i].archivos.push({nombre:$scope.nuevoNameArhivo, fecha: time, hora: hora});
+							$('<p id="msgSuccess" class="alert alert-success mipos">Archivo subido correctamente.</p>').insertBefore('h1#miBtn').delay(3000).fadeOut();
 							$scope.archivoParaSubir ='';
 							$scope.nuevoNameArhivo = '';
 							$scope.enviarArchivo = '';
@@ -608,27 +621,16 @@
 				console.log($scope.todosIntegrantes);
 				
 			};
+			$scope.enviarProyectos =[];
 			$scope.mostrarProyectosVotacion=function(proyecto){
-				console.log(proyecto.nuevoEnviado.opcion);
-				console.log($scope.enviarProyectos);
+				var contar = 0;
+				//console.log(proyecto.nuevoEnviado.opcion);
+				//console.log($scope.enviarProyectos);
 				var i = $scope.proyectos.indexOf(proyecto);
-				console.log($scope.temProyectos);
-				if (proyecto.nuevoEnviado.opcion == 'si') {
+				if (proyecto.nuevoEnviado.opcion == 'Seleccionar') {
 					$scope.temProyectos =[];
 					$scope.enviarProyectos.push($scope.proyectos[i].proyectoName);
-					console.log($scope.enviarProyectos[0]);
-				}else if ($scope.enviarProyectos.length <= 0) {
-				}else{
-					for(var m=0; m< $scope.enviarProyectos.length;m++){
-							if ($scope.enviarProyectos[m] != $scope.proyectos[i].proyectoName) {
-							console.log($scope.enviarProyectos[m]);
-								$scope.temProyectos.push($scope.enviarProyectos[m]);
-							}else{
-								console.log('hola');
-								console.log($scope.temProyectos);
-							}
-						}
-								$scope.enviarProyectos = $scope.temProyectos;
+					//console.log($scope.enviarProyectos[0]);
 				}
 			};
 
@@ -701,7 +703,9 @@
 				<!--//rutas-->
 
 		modulo.config(function($stateProvider, $urlRouterProvider) {
-    	    
+    
+	    $urlRouterProvider.otherwise('/');
+	    
 	    $stateProvider
 	        
 	      	 .state('grupo2.crearGrupo', {
