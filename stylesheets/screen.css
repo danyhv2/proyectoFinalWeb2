@@ -1016,6 +1016,11 @@ form button {
   opacity: 0.7;
 }
 
+/* line 133, ../sass/_documentos.scss */
+#add {
+  margin: 0;
+}
+
 /* line 1, ../sass/_reportes.scss */
 .listdemoBasicUsage .face {
   border-radius: 30px;
