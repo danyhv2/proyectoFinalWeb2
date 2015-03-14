@@ -57,6 +57,9 @@
               </button>
             </span>
           </p>
+          <div ng-show="voteForm.$submitted || voteForm.ínpFechaInicio.$touched">
+            <div class="msgError" ng-show="voteForm.ínpFechaInicio.$error.required">La fecha de inicio es muy importante, por favor rellenarla.</div>
+          </div>
           </md-input-container>
           <md-input-container ng-controller="DatepickerDemoCtrl">
           <p class="input-group">
@@ -67,11 +70,35 @@
               <img src="img/datepicker.png">
               </button>
             </span>
+          <div ng-show="voteForm.$submitted || voteForm.ínpFechaCierre.$touched">
+            <div class="msgError" ng-show="voteForm.ínpFechaCierre.$error.required">La fecha de cierre es muy importante, por favor rellenarla.</div>
+          </div>
           </p>
           </md-input-container>
           <md-input-container>
           <label>Cantidad de proyectos</label>
-          <input id="amountProjects" required name="direccion" ng-model="amountProjects">
+          <select name="cantidadProyectos" class="form-control" id="cantidadProyectos">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+          </select>
           <div ng-show="voteForm.$submitted || voteForm.direccion.$touched">
             <div class="msgError" ng-show="voteForm.direccion.$error.required">Por favor digite la cantidad de proyectos para esta votación.</div>
           </div>
@@ -81,18 +108,19 @@
         <div class="col-md-6">
           <md-input-container>
           <label>Valor por estrella</label>
-          <input id="stars" required name="stars" ng-model="stars">
+          <input  type="number" id="stars" required name="stars" ng-model="stars">
+          <span class="glyphicon glyphicon-star"></span>
           <div ng-show="voteForm.$submitted || voteForm.direccion.$touched">
             <div class="msgError" ng-show="voteForm.direccion.$error.required">El valor por estrellas es requerido.</div>
           </div>
           </md-input-container>
           <div ng-controller="VotacionCtrl">
             
-          <p>Selected Value: <span class="radioValue">{{metodo}}</span></p>
-          <md-radio-group id="metodoVoto" ng-model="method">
-          <md-radio-button value="Enlace">Enlace</md-radio-button>
-          <md-radio-button value="Correo electrónico">Correo electrónico</md-radio-button>
-          </md-radio-group>
+            <p>Selected Value: <span class="radioValue">{{metodo}}</span></p>
+            <md-radio-group id="metodoVoto" ng-model="method">
+            <md-radio-button value="Enlace">Enlace</md-radio-button>
+            <md-radio-button value="Correo electrónico">Correo electrónico</md-radio-button>
+            </md-radio-group>
           </div>
         </div>
       </fieldset>
