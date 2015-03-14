@@ -9,14 +9,14 @@
       </div>
       <form class="search" role="search">
         <div class="form-group">
-          <input type="text" class="form-control search-report" placeholder="Buscar correo electronico" ng-model="filter.Correo"required>
+          <input type="text" class="form-control search-report" placeholder="Buscar" ng-model="filter">
             <span type="button" id="searchGlyph" class="glyphicon glyphicon-search visible">
             </span>
         </div>
       </form>
     </div>
     <md-list class="col-xs-12 col-sm-12 min-heigth">
-      <md-item ng-repeat="usuario in usuarios | filter:filter:strict" class="col-xs-12 col-sm-4">
+      <md-item ng-repeat="usuario in usuarios | filter:filter" class="col-xs-12 col-sm-4">
         <md-item-content class ="div">
           <div class="md-tile-content information-reports" >
            <img ng-src="{{usuario.img}}" class="face">
