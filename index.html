@@ -35,8 +35,8 @@
                    <li><a class="menu-link hide" id="perfil" ui-sref="perfil">Perfil</a></li>
                    <li><a class="menu-link hide" id="grupo" ui-sref="grupo">Grupo</a></li> 
                    <li><a class="menu-link hide" id="reportes-menu" ui-sref="reportes">Reportes</a></li>
-                   <li><a class="menu-link hide" id ="estudiante" ui-sref="estudiante">Estudiante</a></li> 
-                   <li><a class="menu-link hide" id="grupo2" ui-sref="grupo2">Profesor</a></li>                
+                   <li><a class="menu-link hide" id ="estudiante" ui-sref="estudiante">Equipo</a></li> 
+                   <li><a class="menu-link hide" id="grupo2" ui-sref="grupo2">Clase</a></li>                
                 </ul>
                 <ul class="menuSesion nav navbar-nav navbar-right">
                   <li class ="hide" id="img-configuracion"><a class="menu-link config" ui-sref="configuracion"><img src="img/config.png" alt="Configuracion"></a></li>
@@ -68,7 +68,7 @@
                     <input  md-maxlength="30" required type ="email" name="email" 
                     ng-model="usuario.email" ng-pattern ="patternEmail">
                       <div ng-show="userForm.$submitted || userForm.email.$touched">
-                        <div class="msgdanger" ng-show="userForm.email.$error.required"> es un campo requerido</div>
+                       <div class="msgdanger" ng-show="userForm.email.$error.required"> es un campo requerido</div>
                         <div class="msgdanger" ng-show="userForm.email.$error.pattern"> Fomato Invalido</div>
                       </div>
                   </md-input-container>

@@ -22,6 +22,7 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         posicion = i;
                         $('#login').modal('hide');
                         $('#formLogin').trigger("reset");
+                        break
                     }
                 }
                 if (data[i].email != email) {
@@ -78,6 +79,8 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         $('#documentos').addClass('show');
                         $('#perfil').removeClass('hide');
                         $('#perfil').addClass('show');
+                         $('#estudiante').removeClass('hide');
+                        $('#estudiante').addClass('show');
 
                         /*$location.url('/perfil');*/
                     }

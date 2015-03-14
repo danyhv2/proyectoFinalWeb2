@@ -58,10 +58,10 @@ app.controller("documentosController", function ($scope, $http, dataResource,$ro
         $('#myModal').modal('hide');
         window.clearTimeout(timeoutHandle);
 
-            $("#message1").removeClass('hide');
+            /*$("#message1").removeClass('hide');
             timeoutHandle = window.setTimeout(function(){
                 $("#message1").addClass('hide');
-            }, 2000);
+            }, 2000);*/
 
        
         JSON.stringify(documentoNuevo);    

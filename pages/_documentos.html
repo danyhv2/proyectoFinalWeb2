@@ -26,28 +26,26 @@
         <h4 class="modal-title" id="myModalLabel">Agregar documento</h4>
       </div>
       <div class="modal-body">
-        <div class="alert alert-danger hide" role="alert" id="alert-error" >
-          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          <span class="sr-only">Error:</span>
-              Debe Ingresar todos los datos
-        </div>
        <form class="formUser" ng-model="documentForm" name="documentForm" novalidate>
         <md-input-container>
           <label>Titulo del Documento</label>
             <input name="titulo" ng-model="documento.titulo"  required />
             <div ng-show="documentForm.$submitted || documentForm.titulo.$touched">
+            <div class="msgdanger" ng-show="documentForm.titulo.$error.required"> El titulo es un campo requerido</div>
             </div>
         </md-input-container>
         <md-input-container>
           <label>Nombre del Grupo</label>
             <input name="grupo" ng-model="documento.grupo" required />
             <div ng-show="documentForm.$submitted || documentForm.grupo.$touched">
+             <div class="msgdanger" ng-show="documentForm.grupo.$error.required"> El nombre del grupo es un campo requerido</div> 
             </div>
         </md-input-container>
         <md-input-container>
           <label>Descripción</label>
             <input name="descripcion" ng-model="documento.descripcion" required />
             <div ng-show="documentForm.$submitted || documentForm.descripcion.$touched">
+              <div class="msgdanger" ng-show="documentForm.descripcion.$error.required"> La descripción es un campo requerido</div>
             </div>
         </md-input-container>
         <input type="file" id='file' required/>
