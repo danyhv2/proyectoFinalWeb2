@@ -701,9 +701,7 @@
 				<!--//rutas-->
 
 		modulo.config(function($stateProvider, $urlRouterProvider) {
-    
-	    $urlRouterProvider.otherwise('/usuario');
-	    
+    	    
 	    $stateProvider
 	        
 	      	 .state('grupo2.crearGrupo', {

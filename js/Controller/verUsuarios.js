@@ -80,7 +80,6 @@ if(index == 3){
  $('.cerrarModal').click(function(){
   $('.containerModal').remove();
   $("#modalInfoUser").modal('hide');
-  console.log('test');
  });
     
   });
