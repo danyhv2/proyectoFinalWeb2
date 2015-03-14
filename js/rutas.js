@@ -1,4 +1,4 @@
-var route = angular.module('rutas', ['ui.router', 'module', 'routerApp', 'moduleDocs','moduleReport']);
+var route = angular.module('rutas', ['ui.router', 'module', 'routerApp', 'moduleDocs','moduleReport','moduleLogin']);
 
 route.config(function($stateProvider, $urlRouterProvider) {
     

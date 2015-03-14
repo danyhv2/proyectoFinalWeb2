@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +24,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -258,24 +258,28 @@ h1, legend {
   color: ddd6d6 !important;
   text-align: center;
 }
+/* line 45, ../sass/_configuracion.scss */
+.modal-header span {
+  color: #ffffff;
+}
 
-/* line 46, ../sass/_configuracion.scss */
+/* line 49, ../sass/_configuracion.scss */
 .mainConfig {
   background-color: #e3e1e1;
   width: 100%;
 }
-/* line 49, ../sass/_configuracion.scss */
+/* line 52, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig {
   background-color: #f5f3f4;
   max-width: 60em;
   margin: 0 auto;
+  min-height: 450px;
 }
-/* line 53, ../sass/_configuracion.scss */
+/* line 57, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig ul {
   padding-top: 20px;
   border-bottom: 1px solid #D5D5D5;
 }
-/* line 56, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig ul li a {
   color: #757475;
   font-weight: bold;
@@ -295,6 +299,9 @@ h1, legend {
   padding-left: 15px;
 }
 /* line 72, ../sass/_configuracion.scss */
+=======
+/* line 65, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .errorSearch {
   font-size: 13px;
   color: #f44336;
@@ -302,31 +309,52 @@ h1, legend {
   margin-top: 12px;
   display: none;
 }
+<<<<<<< HEAD
 /* line 77, ../sass/_configuracion.scss */
+=======
+/* line 70, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .msgError {
   font-size: 13px;
   color: #f44336;
 }
+<<<<<<< HEAD
 /* line 81, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalExito {
   display: none;
 }
 /* line 84, ../sass/_configuracion.scss */
+=======
+/* line 74, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig #modalExito {
+  display: none;
+}
+/* line 77, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig #modalContent {
   position: absolute;
   background-color: #dff0d8;
 }
+<<<<<<< HEAD
 /* line 88, ../sass/_configuracion.scss */
+=======
+/* line 81, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig #modalConfirm {
   position: absolute;
   display: none;
   z-index: 10001;
 }
+<<<<<<< HEAD
 /* line 93, ../sass/_configuracion.scss */
+=======
+/* line 86, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .btnConfirmModal {
   background-color: #722d7d;
   color: #ddd6d6;
 }
+<<<<<<< HEAD
 /* line 96, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .btnAdd {
   color: #ffffff;
@@ -336,11 +364,26 @@ h1, legend {
   padding-top: 30px;
 }
 /* line 101, ../sass/_configuracion.scss */
+=======
+/* line 89, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .btnAdd {
+  color: #ffffff;
+}
+/* line 92, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser {
+  padding-top: 30px;
+}
+/* line 94, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .formUser legend {
   padding-left: 18px;
   font-size: 1.625em;
 }
+<<<<<<< HEAD
 /* line 105, ../sass/_configuracion.scss */
+=======
+/* line 98, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .formUser .msgErrorEmail {
   font-size: 13px;
   color: #f44336;
@@ -348,14 +391,22 @@ h1, legend {
   margin-top: 12px;
   display: none;
 }
+<<<<<<< HEAD
 /* line 110, ../sass/_configuracion.scss */
+=======
+/* line 103, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .formUser #msgSuccess, .mainConfig .wrapperConfig .formUser .msgErrorUser {
   margin-left: 18px;
   width: 272px;
   margin-top: 12px;
   display: none;
 }
+<<<<<<< HEAD
 /* line 114, ../sass/_configuracion.scss */
+=======
+/* line 107, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .formUser .btnAddUser {
   background-color: #722d7d;
   color: #ddd6d6;
@@ -363,11 +414,16 @@ h1, legend {
   margin-right: 75px;
   margin-bottom: 40px;
 }
+<<<<<<< HEAD
 /* line 120, ../sass/_configuracion.scss */
+=======
+/* line 113, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .formUser .lblEdit a {
   color: #786c84;
   font-weight: bold;
 }
+<<<<<<< HEAD
 /* line 124, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .optCuatri {
   float: left;
@@ -397,22 +453,62 @@ h1, legend {
   display: none;
 }
 /* line 147, ../sass/_configuracion.scss */
+=======
+/* line 117, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser .optCuatri {
+  float: left;
+}
+/* line 120, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser .optAno {
+  float: right;
+}
+/* line 125, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .inpSearchUser {
+  padding-left: 35px;
+}
+/* line 128, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .lblEditUser {
+  padding-left: 50px;
+}
+/* line 130, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .lblEditUser a {
+  font-size: 16px;
+}
+/* line 134, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .errPass {
+  display: none;
+}
+/* line 137, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .saveUser, .mainConfig .wrapperConfig .contUsuarios .cancelUser, .mainConfig .wrapperConfig .contUsuarios .saveUserAccess, .mainConfig .wrapperConfig .contUsuarios .cancelUserAccess, .mainConfig .wrapperConfig .contUsuarios .inpNewPass, .mainConfig .wrapperConfig .contUsuarios .inpNewPassConfirm {
+  display: none;
+}
+/* line 140, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .contUsuarios .imgProfile {
   width: 70px;
   height: 70px;
   margin-top: 62px;
 }
+<<<<<<< HEAD
 /* line 153, ../sass/_configuracion.scss */
+=======
+/* line 146, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .contVerUsuarios {
   padding-bottom: 1px;
   padding-left: 20px;
   padding-right: 20px;
 }
+<<<<<<< HEAD
 /* line 157, ../sass/_configuracion.scss */
+=======
+/* line 150, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .contVerUsuarios thead {
   color: #545355;
   border-bottom: 3px solid #722d7b;
 }
+<<<<<<< HEAD
 /* line 160, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios thead th {
   font-weight: bold;
@@ -438,6 +534,37 @@ h1, legend {
   float: right;
 }
 /* line 182, ../sass/_configuracion.scss */
+=======
+/* line 153, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contVerUsuarios thead th {
+  font-weight: bold;
+}
+/* line 157, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contVerUsuarios tbody {
+  font-size: 14px;
+}
+/* line 159, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contVerUsuarios tbody tr {
+  border-bottom: 2px solid #b68cbb;
+}
+/* line 164, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .containerModal {
+  color: #757475;
+}
+/* line 166, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .containerModal span {
+  font-weight: bold;
+}
+/* line 171, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig #modalInfoUser .info {
+  float: left;
+}
+/* line 174, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig #modalInfoUser .contImgUser {
+  float: right;
+}
+/* line 178, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .mainConfig .wrapperConfig .btnDatePicker {
   border: none;
   background-color: #f5f3f4;
@@ -445,12 +572,17 @@ h1, legend {
 }
 
 /*MODAL EDITAR CURSO*/
+<<<<<<< HEAD
 /* line 193, ../sass/_configuracion.scss */
+=======
+/* line 189, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 md-checkbox.md-default-theme.md-checked .md-icon {
   background-color: rgba(104, 57, 119, 0.87);
 }
 
 /*MODAL EDITAR CARRERA*/
+<<<<<<< HEAD
 /* line 199, ../sass/_configuracion.scss */
 #modalEditarCarrera .contBuscarCarrera, #modalEditarCarrera .contBuscarCurso, #modalEditarCarrera .inpSearchUser, #modalEditarCurso .contBuscarCarrera, #modalEditarCurso .contBuscarCurso, #modalEditarCurso .inpSearchUser, .formEditUser .contBuscarCarrera, .formEditUser .contBuscarCurso, .formEditUser .inpSearchUser {
   width: 50%;
@@ -460,11 +592,26 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   width: 100%;
 }
 /* line 203, ../sass/_configuracion.scss */
+=======
+/* line 195, ../sass/_configuracion.scss */
+#modalEditarCarrera .contBuscarCarrera, #modalEditarCarrera .contBuscarCurso, #modalEditarCarrera .inpSearchUser, #modalEditarCurso .contBuscarCarrera, #modalEditarCurso .contBuscarCurso, #modalEditarCurso .inpSearchUser, .formEditUser .contBuscarCarrera, .formEditUser .contBuscarCurso, .formEditUser .inpSearchUser {
+  width: 50%;
+}
+/* line 197, ../sass/_configuracion.scss */
+#modalEditarCarrera .contBuscarCarrera p, #modalEditarCarrera .contBuscarCurso p, #modalEditarCarrera .inpSearchUser p, #modalEditarCurso .contBuscarCarrera p, #modalEditarCurso .contBuscarCurso p, #modalEditarCurso .inpSearchUser p, .formEditUser .contBuscarCarrera p, .formEditUser .contBuscarCurso p, .formEditUser .inpSearchUser p {
+  width: 100%;
+}
+/* line 199, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 #modalEditarCarrera .contBuscarCarrera p input, #modalEditarCarrera .contBuscarCurso p input, #modalEditarCarrera .inpSearchUser p input, #modalEditarCurso .contBuscarCarrera p input, #modalEditarCurso .contBuscarCurso p input, #modalEditarCurso .inpSearchUser p input, .formEditUser .contBuscarCarrera p input, .formEditUser .contBuscarCurso p input, .formEditUser .inpSearchUser p input {
   float: left;
   width: 88%;
 }
+<<<<<<< HEAD
 /* line 207, ../sass/_configuracion.scss */
+=======
+/* line 203, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 #modalEditarCarrera .contBuscarCarrera p a, #modalEditarCarrera .contBuscarCurso p a, #modalEditarCarrera .inpSearchUser p a, #modalEditarCurso .contBuscarCarrera p a, #modalEditarCurso .contBuscarCurso p a, #modalEditarCurso .inpSearchUser p a, .formEditUser .contBuscarCarrera p a, .formEditUser .contBuscarCurso p a, .formEditUser .inpSearchUser p a {
   float: right;
   margin-top: 10px;
@@ -473,12 +620,20 @@ md-checkbox.md-default-theme.md-checked .md-icon {
 }
 
 /*BUTTON UPLOAD*/
+<<<<<<< HEAD
 /* line 218, ../sass/_configuracion.scss */
+=======
+/* line 214, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .upload-buttons input[type="file"] {
   width: 6.3em \0/IE9;
 }
 
+<<<<<<< HEAD
 /* line 222, ../sass/_configuracion.scss */
+=======
+/* line 218, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .upload-button {
   Height: 26px;
   line-height: 30px;
@@ -491,14 +646,22 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   cursor: pointer;
 }
 
+<<<<<<< HEAD
 /* line 235, ../sass/_configuracion.scss */
+=======
+/* line 231, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .sel-file {
   padding: 1px 5px;
   font-size: smaller;
   color: grey;
 }
 
+<<<<<<< HEAD
 /* line 241, ../sass/_configuracion.scss */
+=======
+/* line 237, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .response {
   padding: 0;
   padding-top: 10px;
@@ -506,27 +669,43 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   clear: both;
 }
 
+<<<<<<< HEAD
 /* line 248, ../sass/_configuracion.scss */
+=======
+/* line 244, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .response .sel-file li, .response .reqh {
   color: blue;
   padding-bottom: 5px;
 }
 
+<<<<<<< HEAD
 /* line 254, ../sass/_configuracion.scss */
+=======
+/* line 250, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .progress {
   display: inline-block;
   width: 100px;
   border: 3px groove #CCC;
 }
 
+<<<<<<< HEAD
 /* line 260, ../sass/_configuracion.scss */
+=======
+/* line 256, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .progress div {
   font-size: smaller;
   background: orange;
   width: 0;
 }
 
+<<<<<<< HEAD
 /* line 266, ../sass/_configuracion.scss */
+=======
+/* line 262, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .drop-box {
   background: #F8F8F8;
   border: 5px dashed #DDD;
@@ -538,40 +717,68 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   margin-left: 20px;
 }
 
+<<<<<<< HEAD
 /* line 277, ../sass/_configuracion.scss */
+=======
+/* line 273, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .up-buttons {
   float: left;
 }
 
+<<<<<<< HEAD
 /* line 281, ../sass/_configuracion.scss */
+=======
+/* line 277, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .drop-box.dragover {
   border: 5px dashed blue;
 }
 
+<<<<<<< HEAD
 /* line 285, ../sass/_configuracion.scss */
+=======
+/* line 281, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .drop-box.dragover-err {
   border: 5px dashed red;
 }
 
+<<<<<<< HEAD
 /* line 289, ../sass/_configuracion.scss */
+=======
+/* line 285, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .js-fileapi-wrapper {
   display: inline-block;
   vertical-align: middle;
 }
 
+<<<<<<< HEAD
 /* line 294, ../sass/_configuracion.scss */
+=======
+/* line 290, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 button {
   padding: 1px 5px;
   font-size: smaller;
   margin: 0 3px;
 }
 
+<<<<<<< HEAD
 /* line 300, ../sass/_configuracion.scss */
+=======
+/* line 296, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .ng-v {
   float: right;
 }
 
+<<<<<<< HEAD
 /* line 304, ../sass/_configuracion.scss */
+=======
+/* line 300, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .thumb {
   float: left;
   width: 18px;
@@ -579,7 +786,11 @@ button {
   padding-right: 10px;
 }
 
+<<<<<<< HEAD
 /* line 311, ../sass/_configuracion.scss */
+=======
+/* line 307, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 form .thumb {
   width: 24px;
   height: 24px;
@@ -588,12 +799,20 @@ form .thumb {
   top: 7px;
 }
 
+<<<<<<< HEAD
 /* line 319, ../sass/_configuracion.scss */
+=======
+/* line 315, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 form .progress {
   line-height: 15px;
 }
 
+<<<<<<< HEAD
 /* line 323, ../sass/_configuracion.scss */
+=======
+/* line 319, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .edit-area {
   font-size: 14px;
   background: black;
@@ -601,31 +820,51 @@ form .progress {
   padding: 5px 1px;
 }
 
+<<<<<<< HEAD
 /* line 330, ../sass/_configuracion.scss */
+=======
+/* line 326, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 #htmlEdit {
   margin-bottom: 25px;
 }
 
+<<<<<<< HEAD
 /* line 334, ../sass/_configuracion.scss */
+=======
+/* line 330, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .edit-div {
   font-size: smaller;
 }
 
+<<<<<<< HEAD
 /* line 338, ../sass/_configuracion.scss */
+=======
+/* line 334, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .CodeMirror {
   font-size: 14px;
   border: 1px solid #ccc;
   margin-bottom: 15px;
 }
 
+<<<<<<< HEAD
 /* line 344, ../sass/_configuracion.scss */
+=======
+/* line 340, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 form button {
   padding: 3px 10px;
   font-weight: bold;
   margin-top: 10px;
 }
 
+<<<<<<< HEAD
 /* line 350, ../sass/_configuracion.scss */
+=======
+/* line 346, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .sub {
   font-size: smaller;
   color: #777;
@@ -633,7 +872,11 @@ form button {
   padding-left: 10px;
 }
 
+<<<<<<< HEAD
 /* line 357, ../sass/_configuracion.scss */
+=======
+/* line 353, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .err {
   font-size: 12px;
   color: #C53F00;
@@ -643,51 +886,87 @@ form button {
   border: 1px solid black;
 }
 
+<<<<<<< HEAD
 /* line 366, ../sass/_configuracion.scss */
+=======
+/* line 362, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .s3 {
   font-size: smaller;
   color: #333;
   margin-left: 20px;
 }
 
+<<<<<<< HEAD
 /* line 371, ../sass/_configuracion.scss */
+=======
+/* line 367, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .s3 fieldset {
   border: 1px solid #AAA;
 }
 
+<<<<<<< HEAD
 /* line 374, ../sass/_configuracion.scss */
+=======
+/* line 370, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .s3 label {
   width: 180px;
   display: inline-block;
 }
 
+<<<<<<< HEAD
 /* line 378, ../sass/_configuracion.scss */
+=======
+/* line 374, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .s3 input {
   width: 300px;
 }
 
+<<<<<<< HEAD
 /* line 381, ../sass/_configuracion.scss */
+=======
+/* line 377, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .s3 .helper {
   margin-left: 5px;
 }
 
+<<<<<<< HEAD
 /* line 385, ../sass/_configuracion.scss */
+=======
+/* line 381, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .howto {
   margin-left: 10px;
 }
 
+<<<<<<< HEAD
 /* line 389, ../sass/_configuracion.scss */
+=======
+/* line 385, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .server {
   margin-bottom: 20px;
 }
 
+<<<<<<< HEAD
 /* line 393, ../sass/_configuracion.scss */
+=======
+/* line 389, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 .srv-title {
   font-weight: bold;
   padding: 5px 0 10px 0;
 }
 
+<<<<<<< HEAD
 /* line 398, ../sass/_configuracion.scss */
+=======
+/* line 394, ../sass/_configuracion.scss */
+>>>>>>> e90601a996b88eacd8c2c4a2185356a6bae8d060
 :not(output):-moz-ui-invalid {
   box-shadow: none;
 }
