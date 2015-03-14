@@ -1,5 +1,9 @@
 /*Estilos Guillermo*/
 
+.alinieminento{
+  margin-left: 22%;
+}
+
 .tablaDetallesCurso{
   width: 100%;
   margin-top: 1em;
@@ -10,6 +14,13 @@
 
     }
   }
+}
+.spaceB{
+  margin-top: 1em;
+}
+
+.spaceB:last-child{
+  margin-bottom: 2em;
 }
 
 .tablaDetallesCursoEstu{

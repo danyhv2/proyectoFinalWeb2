@@ -253,6 +253,35 @@
         }
 
         $scope.guarNuevGr = function() {
+            var count = 0;
+            if ($scope.infoIngresada1 === "" || $scope.infoIngresada1 === undefined){
+                count ++
+                $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#Nam').delay(1000).fadeOut();
+            };
+
+            if ($scope.infoIngresada2 === "" || $scope.infoIngresada2 === undefined){
+                count ++
+                $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#Nam1').delay(1000).fadeOut();
+            };
+
+            if ($scope.infoIngresada3 === "" || $scope.infoIngresada3 === undefined){
+                count ++
+                $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#Nam2').delay(1000).fadeOut();
+            };
+
+            if ($scope.infoIngresada4 === "" || $scope.infoIngresada4 === undefined){
+                count ++
+                $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#Nam3').delay(1000).fadeOut();
+            };
+
+            if ($scope.infoIngresada5 === "" || $scope.infoIngresada5 === undefined){
+                count ++
+                $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#Nam4').delay(1000).fadeOut();
+            };
+
+            if (count === 0) {
+
+            
             var grupoTemp = {
                 "NombreDelCurso": $scope.infoIngresada1,
                 "NombreDelGrupo": $scope.infoIngresada2,
@@ -271,6 +300,7 @@
             $scope.infoIngresada4 = "";
             $scope.infoIngresada5 = "";
             $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#cajaCursos').delay(1000).fadeOut();
+            };
         }
 
         $scope.resetForm = function() {
