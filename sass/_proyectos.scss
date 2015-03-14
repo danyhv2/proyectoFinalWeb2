@@ -1,6 +1,5 @@
-.cabecera-votacion h2{
-	display: block;
-	text-indent:1em;
+.cabecera-votacion h2, .cabecera-votacion a{
+	display: inline-block;
 }
 .wrap{
 	max-width: 1200px;
@@ -37,7 +36,8 @@
 	li{
 		width: 20.83333333333333%;
 	}
-}
-h1,h2,h3,h4{
-	color:#757475;
+	img{
+				-webkit-border-radius: 50%;
+		        border-radius: 50%;
+	}
 }

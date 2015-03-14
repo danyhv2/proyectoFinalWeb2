@@ -42,112 +42,61 @@
     </table>
   </div>
   <div class="row">
-    <form class="formUser" ng-model="voteForm" name="voteForm">
+    <form class="formUser" ng-model="voteForm" name="voteForm" ng-submit="validar() && voteForm.$valid" novalidate>
       <fieldset class="col-md-12">
-        <p id="msgSuccess" class="alert alert-success" mg-show="voteForm.$valid">Configuración de votación establecida correctamente.</p>
-        <p class="msgErrorUser alert alert-danger" ng-show="voteForm.$invalid">Haz dejado un cambio vacio.</p>
+        <p id="msgSuccess" class="alert alert-success">Configuración de votación establecida correctamente.</p>
+        <p class="msgErrorUser alert alert-danger">Haz dejado un cambio vacio.</p>
         <div class="col-md-6">
-          <!-- Fecha de Inicio -->
           <md-input-container ng-controller="DatepickerDemoCtrl">
-                    <p class="input-group">
-                      <label>Fecha de apertura de votación</label>
-                      <input id="openTime" name="openTime"  type="text" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="openTime" />
-                      <span class="input-group-btn">
-                        <button class="btnDatePicker" type="button" ng-click="open($event)">
-                          <img src="img/datepicker.png">
-                        </button>
-                      </span>
-                    </p>
-                    <div ng-show="userForm.$submitted || userForm.openTime.$touched">
-                      <div class="msgError" ng-show="userForm.openTime.$error.required">Debe ingresar una fecha de apertura para la votación.</div>
-                    </div>
-                  </md-input-container>
-
-                  <!--Fecha de cierre-->
-
-                  <md-input-container ng-controller="DatepickerDemoCtrl">
-                    <p class="input-group">
-                      <label>Fecha de cierre de votación</label>
-                      <input id="closeTime" name="closeTime"  type="text" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="closeTime" />
-                      <span class="input-group-btn">
-                        <button class="btnDatePicker" type="button" ng-click="open($event)">
-                          <img src="img/datepicker.png">
-                        </button>
-                      </span>
-                    </p>
-                    <div ng-show="userForm.$submitted || userForm.closeTime.$touched">
-                      <div class="msgError" ng-show="userForm.closeTime.$error.required">Debe ingresar una fecha de cierre para la votación.</div>
-                    </div>
-                  </md-input-container>
-
-                    <!-- Cantidad de proyectos -->
-          <div>
+          <p class="input-group">
+            <label>Fecha de inicio</label>
+            <input name="inpFechaInicio" id="inpFechaInicio"  type="datetime" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="openTime" />
+            <span class="input-group-btn">
+              <button class="btnDatePicker" type="button" ng-click="open($event)">
+              <img src="img/datepicker.png">
+              </button>
+            </span>
+          </p>
+          </md-input-container>
+          <md-input-container ng-controller="DatepickerDemoCtrl">
+          <p class="input-group">
+            <label>Fecha de cierre</label>
+            <input name="inpFechaCierre" id="inpFechaCierre"  type="datetime" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="closeTime" />
+            <span class="input-group-btn">
+              <button class="btnDatePicker" type="button" ng-click="open($event)">
+              <img src="img/datepicker.png">
+              </button>
+            </span>
+          </p>
+          </md-input-container>
+          <md-input-container>
           <label>Cantidad de proyectos</label>
-          <select name="cantidadProyectos" class="form-control" id="cantidadProyectos">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-          </select>
-          <div ng-show="voteForm.$submitted || voteForm.cantidadProyectos.$touched">
-            <div class="msgError" ng-show="voteForm.cantidadProyectos.$error.required">Por favor digite la cantidad de proyectos para esta votación.</div>
+          <input id="amountProjects" required name="direccion" ng-model="amountProjects">
+          <div ng-show="voteForm.$submitted || voteForm.direccion.$touched">
+            <div class="msgError" ng-show="voteForm.direccion.$error.required">Por favor digite la cantidad de proyectos para esta votación.</div>
           </div>
-          </div>
+          </md-input-container>
           <!--Termina la primer columna-->
         </div>
         <div class="col-md-6">
-          <div>
-          <select name="pesoDeEstrella" class="form-control" id="pesoDeEstrella">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
-          <span class="glyphicon glyphicon-star"></span>
-          <div ng-show="voteForm.$submitted || voteForm.pesoDeEstrella.$touched">
-            <div class="msgError" ng-show="voteForm.pesoDeEstrella.$error.required">El valor por estrellas es requerido.</div>
+          <md-input-container>
+          <label>Valor por estrella</label>
+          <input id="stars" required name="stars" ng-model="stars">
+          <div ng-show="voteForm.$submitted || voteForm.direccion.$touched">
+            <div class="msgError" ng-show="voteForm.direccion.$error.required">El valor por estrellas es requerido.</div>
           </div>
+          </md-input-container>
+          <div ng-controller="VotacionCtrl">
             
-          </div>
-          <div>
-            <label for="metodoDeVotacion">El método de votación es:{{metodo}}</label>
-             <select name="metodoDeVotacion" class="form-control" id="metodoVotacion">
-           <option value="Correo electrónico">Correo electrónico</option>
-           <option value="Enlace">Enlace</option>
-          </select>
-          <div ng-show="voteForm.$submitted || voteForm.metodoDeVotacion.$touched">
-            <div class="msgError" ng-show="voteForm.metodoDeVotacion.$error.required">El método es requerido.</div>
-          </div>
-          </div>
-
+          <p>Selected Value: <span class="radioValue">{{metodo}}</span></p>
+          <md-radio-group id="metodoVoto" ng-model="method">
+          <md-radio-button value="Enlace">Enlace</md-radio-button>
+          <md-radio-button value="Correo electrónico">Correo electrónico</md-radio-button>
+          </md-radio-group>
           </div>
         </div>
       </fieldset>
-      <div class="clearfix">
-      <button class="btn btn-default btn-right simpleColor" type="button" ng-click="validar()">Guardar Votación</button>
-      </div>
+      <button class="btn btnAddUser" type="submit">Guardar configuración</button>
       
     </form>
     

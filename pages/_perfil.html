@@ -10,20 +10,20 @@
 		</div>
 	</div>
 	<div class="cuerpo-perfil">
-		<p>Biografía: {{usuario.descripcion}}</p>
-		<p>Cédula: {{usuario.cedula}}</p>
+		<p>Acerca de: {{usuario.descripcion}}</p>
 		<p>Correo electrónico: {{usuario.correoElectronico}}</p>
 		<p>Teléfono: {{usuario.telefono}}</p>
 		<p>Celular: {{usuario.celular}}</p>
 		<p>Residencia: {{usuario.direccionExacta}}</p>
 	</div>
 	<div class="controls-right clearfix">
-		<!-- <button type="button" class="btn btn-right btn-default simpleColor"  data-toggle="modal" data-target="#modificarPerfil">Modificar Perfil</button> -->
+		<button type="button" class="btn btn-right btn-default simpleColor"  data-toggle="modal" data-target="#modificarPerfil">Modificar Perfil</button>
 		<a ui-sref="portafolio" class="btn btn-right btn-default simpleColor" >Ver Portafolio</a>
 	</div>
 </div>
+<social></social>
 <!-- Modal -->
-<!-- <div class="modal fade" id="modificarPerfil" tabindex="-1" role="dialog" aria-labelledby="modificarPerfil" aria-hidden="true">
+<div class="modal fade" id="modificarPerfil" tabindex="-1" role="dialog" aria-labelledby="modificarPerfil" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header modal-header-padding">
@@ -83,6 +83,6 @@
 					<button type="submit" class="btn btn-default simpleColor">Actualizar perfil</button>
 				</div>
 			</form>
-		</div> 
+		</div>
 	</div>
-</div>-->
+</div>

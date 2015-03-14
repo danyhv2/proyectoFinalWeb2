@@ -120,7 +120,10 @@
 
         $scope.delc = function(cs) {
             var z = $scope.este.datos.Carreras.indexOf(cs);
-            $scope.este.datos.Carreras.splice(z, 1);
+            $scope.delca = function(){
+                $scope.este.datos.Carreras.splice(z, 1);
+            }
+            
         }
 
         $scope.delCurso = function(valores) {

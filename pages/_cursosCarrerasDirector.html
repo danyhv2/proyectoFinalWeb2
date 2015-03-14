@@ -9,7 +9,7 @@
          <p>Está seguro que desea borrar la carrera?</p>
       </div>
       <div class="modal-footer">
-         <button type="button" class="btn btnConfirmModal"  ng-click="delc(valores)" 
+         <button type="button" class="btn btnConfirmModal"  ng-click="delca()" 
             data-dismiss="modal">Proceder</button>
          <button type="button" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
       </div>
@@ -23,7 +23,7 @@
                <tr ng-repeat="valores in este.datos.Carreras">
                   <td>{{valores.carrera}}</td>
                   <td><img src="img/edit.png"  ng-click="editCrusgru(valores)" data-toggle="modal" data-target="#modalDetallesCur" style="cursor: pointer"></td>
-                  <td><img src="img/del.png" data-toggle="modal" data-target="#modalConfirm" style="cursor: pointer"></td>
+                  <td><img src="img/del.png" data-toggle="modal"  ng-click="delc(valores)"  data-target="#modalConfirm" style="cursor: pointer"></td>
                </tr>
             </tbody>
          </table>

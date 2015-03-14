@@ -99,7 +99,7 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                                     
                        /* $location.url('/reportes');*/
                     }
-                     if ($rootScope.usuarioLogueado.Rol == "factorhumano") {
+                     if ($rootScope.usuarioLogueado.Rol == "Factorhumano") {
 
                         $('#link-abrir').addClass('hide'); 
                         $('#link-cerrar').removeClass('hide'); 
