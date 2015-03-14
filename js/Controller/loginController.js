@@ -99,6 +99,21 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                                     
                        /* $location.url('/reportes');*/
                     }
+                     if ($rootScope.usuarioLogueado.Rol == "factorhumano") {
+
+                        $('#link-abrir').addClass('hide'); 
+                        $('#link-cerrar').removeClass('hide'); 
+                        $('#documentos').removeClass('hide');
+                        $('#documentos').addClass('show');
+                        $('#perfil').removeClass('hide');
+                        $('#perfil').addClass('show');
+                        $('#reportes-menu').removeClass('hide');
+                        $('#reportes-menu').addClass('show');
+                        $('#grupo2').removeClass('hide');
+                        $('#grupo2').addClass('show');
+                                    
+                       /* $location.url('/reportes');*/
+                    }
                     if ($rootScope.usuarioLogueado.Rol == "director") {
                         $('#link-abrir').addClass('hide'); 
                         $('#link-cerrar').removeClass('hide'); 
