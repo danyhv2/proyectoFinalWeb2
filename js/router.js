@@ -97,7 +97,7 @@ console.log($scope.roleUser);
               $('.msgErrorEmail').css('display','block');
             }
               
-              if($scope.userForm.$valid && userExist != true){
+              if($scope.userForm.$valid && userExist != true && (pattern.test($('#inpEmail').val()))){
                 $scope.newUser = {
                 'Nombre': $scope.userName,
                 'PrimerApellido': $scope.firstLastName,
