@@ -125,4 +125,4 @@ function salir(){
     $('#link-abrir').removeClass('hide'); 
     $('#link-cerrar').removeClass('show');
     $('#link-cerrar').addClass('hide'); 
-}
+};

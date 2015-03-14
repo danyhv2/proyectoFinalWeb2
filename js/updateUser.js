@@ -64,23 +64,25 @@ angular.module('modifyUser', [])
         $scope.datos = jQuery.parseJSON(localStorage.getItem('users'));
         console.log($scope.datos[0].Nombre);
         //validar q el form no este vacion
-       // if($scope.userFormMain.$valid){
+       //if($scope.userFormMain.$valid){
           $scope.datos[0].Nombre = $('#inpNameUser').val();
           $scope.changedUser = [{
-                            'Nombre':  $scope.datos[0].Nombre,
-                            'PrimerApellido':  $scope.datos[0].PrimerApellido,
-                            'SegundoApellido':  $scope.datos[0].SegundoApellido,
-                            'Direccion':  $scope.datos[0].Direccion,
-                            'Cedula':  $scope.datos[0].Cedula,
+                            'Nombre': $('#inpNameUser').val(),
+                            'PrimerApellido':  $('#inpPrimerApellido').val(),
+                            'SegundoApellido':  $('#inpSegApellido').val(),
+                            'Direccion':  $('#inpDireccion').val(),
+                            'Cedula':  $('#inpCedula').val(),
                             'Foto':  $scope.datos[0].Foto,
-                            'FechaNacimiento':  $scope.datos[0].FechaNacimiento,
-                            'Correo':  $scope.datos[0].Correo,
-                            'Contrasena': $scope.datos[0].Contrasena
-                              }];
+                            'FechaNacimiento': $('#inpFecha').val(),
+                            'Correo':  $('#inpCorreo').val(),
+                            'Contrasena': $('#inpPassword').val(),
+                              }];               
                            
           localStorage.setItem('users',JSON.stringify($scope.changedUser));
           console.log(jQuery.parseJSON(localStorage.getItem('users')));
           $scope.disable=true;
+          $('#msgSuccess').css('display','block');
+          $('#msgSuccess').fadeOut(3000);
           $('.saveUser').css('display','none');
           $('.cancelUser').css('display','none');
       //}

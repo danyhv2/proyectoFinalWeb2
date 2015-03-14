@@ -79,6 +79,7 @@ console.log($scope.roleUser);
     //imgProfile.css({'width':'70px','height':'70px'});
     //console.log(imgProfile);
       var userExist = false;
+      var validEmail = false;
       var newUsers = jQuery.parseJSON(localStorage.getItem('users'));
             console.log(newUsers);
             if(newUsers !== null){
@@ -98,9 +99,12 @@ console.log($scope.roleUser);
             if($('#inpEmail').val() != '' &&! (pattern.test($('#inpEmail').val()))){
               console.log('invalid');
               $('.msgErrorEmail').css('display','block');
+                validEmail = true;
+            }else{
+              $('.msgErrorEmail').css('display','none');
             }
               
-              if($scope.userForm.$valid && userExist != true && (pattern.test($('#inpEmail').val()))){
+              if($scope.userForm.$valid && userExist != true && validEmail != true){
                 $scope.newUser = {
                 'Nombre': $scope.userName,
                 'PrimerApellido': $scope.firstLastName,
