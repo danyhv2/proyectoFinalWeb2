@@ -96,9 +96,12 @@
                         return (n)
                     });
 
+                
                     for (var c = 0; c <= notasPuestas.length - 1; c++) {
+                        var numeroPuest = Number(notasPuestas[c])
+                        var numeroPred = Number(notasPredef[c])
 
-                        if (notasPuestas[c] <= notasPredef[c]) {
+                        if (numeroPuest <= numeroPred) {
                             concordancia++;
                         } else {
                             concordancia--;
@@ -106,9 +109,9 @@
                     };
 
                     if (concordancia === notasPuestas.length) {
-                        alert("Exito")
+                        $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#formAddN').delay(1000).fadeOut();
                     } else {
-                        alert("error")
+                        $('<div class="msgError" aria-hidden="false">Los valores no pueden ser mayores a los de la rubrica</div>').insertBefore('#formAddN').delay(1000).fadeOut();
                     };
 
                 }
@@ -121,7 +124,6 @@
         }
 
         $scope.delCurso = function(valores) {
-            console.log(valores)
             var l = $scope.estCr.indexOf(valores);
             $scope.estCr.splice(l, 1);
         }
@@ -166,7 +168,7 @@
                     for (var m = valorActualC.length - 1; m >= 0; m--) {
                         archivos.Carreras[i].CursosAsignados.push(valorActualC[m])
                     };
-                    $('<span class="bg-success text-success errorMsj">Se agrego con exito</span>').insertAfter('#curs').delay(1000).fadeOut();
+                    $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#formAddR').delay(1000).fadeOut();
                 };
             };
             $scope.mCarrera = '';
@@ -206,6 +208,16 @@
             $scope.par4 = $scope.proT;
             $scope.par5 = $scope.estT;
 
+        }
+
+          $scope.delTempProf = function(cs) {
+            var z = $scope.proT.indexOf(cs);
+            $scope.proT.splice(z, 1);
+        }
+
+        $scope.delTempEst = function(zc) {
+            var z = $scope.estT.indexOf(zc);
+            $scope.estT.splice(z, 1);
         }
 
         $scope.estudAdd = function() {
@@ -455,9 +467,9 @@ var archivos = {
     }],
 
     "ParamatrosRubrica": [{
-        "parametro": "Prueba"
+        "parametro": "Parametro prueba"
     }, {
-        "parametro": "Prueba 1"
+        "parametro": "Parametro prueba 1"
     }],
 
     "GruposDeCurso": [{
@@ -465,16 +477,16 @@ var archivos = {
         "NombreDelGrupo": "Grupo 1",
         "Horario": "Noche",
         "Estudiantes": [{
-            "NombreEstudiante": "Frodo",
+            "NombreEstudiante": "Mario Marin",
         }, {
-            "NombreEstudiante": "Harry",
+            "NombreEstudiante": "Peter Parker",
         }],
 
         "Profesores": [{
-            "NombreProfesor": "Israel",
+            "NombreProfesor": "Jose Anruz",
             "Rol asignado": "Proceso"
         }, {
-            "NombreProfesor": "Carlos",
+            "NombreProfesor": "Sofia Vega",
             "Rol asignado": "Practica"
         }],
     }, {
@@ -490,11 +502,11 @@ var archivos = {
         }],
 
         "Profesores": [{
-            "NombreProfesor": "Israel",
+            "NombreProfesor": "Israel Martinez",
             "Rol asignado": "Proceso"
 
         }, {
-            "NombreProfesor": "Carlos",
+            "NombreProfesor": "Carlos Villafuerte",
             "Rol asignado": "Factor Humano"
         }],
     }],
@@ -547,8 +559,3 @@ var archivos = {
         "Profesor": "Robert Smith"
     }]
 }
-
-//poner el rango del Profesor
-//Mensajes de confirmacion y error
-//borrar profes o estudiantes
-//proceso teoria factor humano

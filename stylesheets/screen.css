@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 17, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,52 +24,52 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+/* line 116, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
 /* line 1, ../sass/_base.scss */
 body {
-  background-color: #E3E1E1;
+  background-color: #e3e1e1;
 }
 
 /*.container{
@@ -185,11 +185,11 @@ footer .contFooter .sprite {
 }
 /* line 38, ../sass/_footer.scss */
 footer .contFooter .fb {
-  background-position: -0px -0px;
+  background-position: 0px 0px;
 }
 /* line 42, ../sass/_footer.scss */
 footer .contFooter .twitter {
-  background-position: -0px -50px;
+  background-position: 0px -50px;
 }
 /* line 47, ../sass/_footer.scss */
 footer .contFooter .contInfoFooter {
@@ -208,22 +208,22 @@ footer .contFooter .logoCenfotec {
 /*Mixins*/
 /* line 13, ../sass/_configuracion.scss */
 body {
-  overflow: visible !important;
+  overflow: visible!important;
 }
 
 /* line 16, ../sass/_configuracion.scss */
 md-backdrop.md-select-backdrop {
-  display: none !important;
+  display: none!important;
 }
 
 /* line 19, ../sass/_configuracion.scss */
 .md-backdrop {
-  position: relative !important;
+  position: relative!important;
 }
 
 /* line 22, ../sass/_configuracion.scss */
 md-input-container {
-  overflow-x: visible !important;
+  overflow-x: visible!important;
 }
 
 /* line 25, ../sass/_configuracion.scss */
@@ -233,7 +233,7 @@ md-input-container.md-default-theme.md-input-invalid .md-input, .md-input {
 
 /* line 28, ../sass/_configuracion.scss */
 md-input-container.md-default-theme.md-input-invalid label {
-  color: #c7b9cf !important;
+  color: #c7b9cf!important;
 }
 
 /* line 31, ../sass/_configuracion.scss */
@@ -245,13 +245,13 @@ h1, legend {
 /* line 36, ../sass/_configuracion.scss */
 .modal-header {
   background-color: 7f2774;
-  color: ddd6d6 !important;
+  color: ddd6d6!important;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 /* line 41, ../sass/_configuracion.scss */
 .modal-header h1, .modal-header h4 {
-  color: ddd6d6 !important;
+  color: ddd6d6!important;
   text-align: center;
 }
 
@@ -408,7 +408,7 @@ h1, legend {
 }
 /* line 161, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalInfoUser .modalBodyUser {
-  padding-bottom: 214px !important;
+  padding-bottom: 214px!important;
 }
 /* line 164, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalInfoUser .info {
@@ -674,103 +674,138 @@ form button {
 }
 
 /*Estilos Guillermo*/
-/* line 5, ../sass/_rubricaEstilo.scss */
+/* line 3, ../sass/_rubricaEstilo.scss */
+.tablaDetallesCurso {
+  width: 100%;
+  margin-top: 1em;
+}
+/* line 6, ../sass/_rubricaEstilo.scss */
+.tablaDetallesCurso tr {
+  width: 100%;
+}
+/* line 8, ../sass/_rubricaEstilo.scss */
+.tablaDetallesCurso tr td {
+  width: 20%;
+}
+
+/* line 15, ../sass/_rubricaEstilo.scss */
+.tablaDetallesCursoEstu {
+  width: 100%;
+  margin-top: 1em;
+}
+/* line 18, ../sass/_rubricaEstilo.scss */
+.tablaDetallesCursoEstu tr {
+  width: 100%;
+}
+/* line 20, ../sass/_rubricaEstilo.scss */
+.tablaDetallesCursoEstu tr td {
+  width: 100%;
+  display: inline;
+}
+
+/* line 30, ../sass/_rubricaEstilo.scss */
 #navegacionDirector .nav > li > a:focus {
   color: white !important;
   text-decoration: none;
   background-color: #722d7b;
 }
 
-/* line 12, ../sass/_rubricaEstilo.scss */
+/* line 37, ../sass/_rubricaEstilo.scss */
 .cajaRubrica {
   width: 100%;
   display: inline-block;
 }
-/* line 15, ../sass/_rubricaEstilo.scss */
+/* line 40, ../sass/_rubricaEstilo.scss */
 .cajaRubrica .cont {
   width: 80%;
 }
-/* line 18, ../sass/_rubricaEstilo.scss */
+/* line 43, ../sass/_rubricaEstilo.scss */
 .cajaRubrica .imagN {
   margin-top: 8%;
 }
 
-/* line 23, ../sass/_rubricaEstilo.scss */
+/* line 48, ../sass/_rubricaEstilo.scss */
 .borrarRub {
   display: inline;
 }
 
-/* line 27, ../sass/_rubricaEstilo.scss */
+/* line 52, ../sass/_rubricaEstilo.scss */
 .errorMsj {
   background-color: transparent;
   font-size: 13px;
 }
 
-/* line 32, ../sass/_rubricaEstilo.scss */
+/* line 57, ../sass/_rubricaEstilo.scss */
 .jusH {
   display: inline;
 }
 
-/* line 37, ../sass/_rubricaEstilo.scss */
+/* line 62, ../sass/_rubricaEstilo.scss */
 .nays {
   margin-top: 2em;
 }
 
-/* line 41, ../sass/_rubricaEstilo.scss */
+/* line 66, ../sass/_rubricaEstilo.scss */
 .comie {
   margin-top: 2em;
 }
 
-/* line 45, ../sass/_rubricaEstilo.scss */
+/* line 70, ../sass/_rubricaEstilo.scss */
 .oneinrow {
   width: 30%;
   margin-left: 3%;
 }
 
-/* line 50, ../sass/_rubricaEstilo.scss */
+/* line 75, ../sass/_rubricaEstilo.scss */
 .twoinrow {
   width: 65%;
 }
 
-/* line 54, ../sass/_rubricaEstilo.scss */
+/* line 80, ../sass/_rubricaEstilo.scss */
+.maxVal {
+  height: 35em;
+  overflow-y: scroll;
+}
+
+/* line 85, ../sass/_rubricaEstilo.scss */
 #ContenedorRubricas {
   max-width: 60em;
   height: 50em;
 }
 
-/* line 59, ../sass/_rubricaEstilo.scss */
+/* line 90, ../sass/_rubricaEstilo.scss */
 .errormsj {
   width: 83%;
 }
 
-/* line 63, ../sass/_rubricaEstilo.scss */
+/* line 94, ../sass/_rubricaEstilo.scss */
 .errormsj2 {
   width: 78%;
   margin-left: 20%;
 }
 
-/* line 68, ../sass/_rubricaEstilo.scss */
+/* line 99, ../sass/_rubricaEstilo.scss */
 .izquierdaCaja {
   width: 40%;
   margin-left: 1%;
   margin-right: 1%;
 }
 
-/* line 74, ../sass/_rubricaEstilo.scss */
+/* line 105, ../sass/_rubricaEstilo.scss */
 .derechaCaja {
   width: 55%;
   position: relative;
 }
-/* line 77, ../sass/_rubricaEstilo.scss */
+/* line 108, ../sass/_rubricaEstilo.scss */
 .derechaCaja h3 {
   margin-left: 10%;
 }
-/* line 80, ../sass/_rubricaEstilo.scss */
+/* line 111, ../sass/_rubricaEstilo.scss */
 .derechaCaja .estiloCaja {
   padding-left: 10%;
 }
 
-/* line 85, ../sass/_rubricaEstilo.scss */
+/* line 116, ../sass/_rubricaEstilo.scss */
 .rayaCentral {
   height: 30em;
   width: 1%;
@@ -778,19 +813,19 @@ form button {
   position: absolute;
 }
 
-/* line 92, ../sass/_rubricaEstilo.scss */
+/* line 123, ../sass/_rubricaEstilo.scss */
 .simpleColor {
   background-color: #722d7b !important;
   color: #fff !important;
 }
 
-/* line 99, ../sass/_rubricaEstilo.scss */
+/* line 128, ../sass/_rubricaEstilo.scss */
 .contenedorDeCajas {
   height: 30em;
   overflow-y: scroll;
 }
 
-/* line 105, ../sass/_rubricaEstilo.scss */
+/* line 134, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi h3 {
   font-size: 1.87em;
   font-weight: bold;
@@ -893,7 +928,7 @@ form button {
 /* line 86, ../sass/_documentos.scss */
 .mejores-proyectos .logo h1 {
   font-size: 20px;
-  color: #ffffff;
+  color: white;
   margin-left: 0.5em;
 }
 /* line 92, ../sass/_documentos.scss */
@@ -909,7 +944,7 @@ form button {
 }
 /* line 104, ../sass/_documentos.scss */
 .modal-documentos .modal-body div {
-  margin-left: 0 !important;
+  margin-left: 0!important;
 }
 
 /* line 109, ../sass/_documentos.scss */
@@ -962,7 +997,7 @@ form button {
   top: 11px;
 }
 
-/* line 22, ../sass/_reportes.scss */
+/* line 24, ../sass/_reportes.scss */
 .information-reports div,
 .information-reports h3,
 .information-reports h4 {
@@ -970,13 +1005,13 @@ form button {
 }
 /* line 27, ../sass/_reportes.scss */
 .information-reports h3 {
-  font-size: 0.93223em !important;
-  font-weight: bold !important;
+  font-size: 0.93223em!important;
+  font-weight: bold!important;
 }
 
 /* line 33, ../sass/_reportes.scss */
 md-item-content.div {
-  border: 1px solid #e3e1e1 !important;
+  border: 1px solid #e3e1e1!important;
   min-height: 9em;
   margin-bottom: 1em;
 }
@@ -1042,7 +1077,7 @@ md-item-content.div {
 .secundary .curso {
   width: 26%;
 }
-/* line 93, ../sass/_reportes.scss */
+/* line 94, ../sass/_reportes.scss */
 .secundary .credito,
 .secundary .cuatrimestre {
   width: 18%;
@@ -1055,93 +1090,93 @@ md-item-content.div {
   float: left;
 }
 
-/* line 1, ../sass/_grupo.scss */
+/* line 2, ../sass/_grupo.scss */
 #crearGrupo {
   padding-bottom: 0;
 }
 
-/* line 8, ../sass/_grupo.scss */
+/* line 9, ../sass/_grupo.scss */
 #modalNuevoGrupo table {
   margin-bottom: 0px;
   margin-left: 14%;
   width: 89.5%;
 }
-/* line 14, ../sass/_grupo.scss */
+/* line 15, ../sass/_grupo.scss */
 #modalNuevoGrupo input {
   margin-left: 14%;
   width: 88%;
 }
-/* line 19, ../sass/_grupo.scss */
+/* line 20, ../sass/_grupo.scss */
 #modalNuevoGrupo select {
   margin-left: 16%;
   width: 84%;
 }
-/* line 24, ../sass/_grupo.scss */
+/* line 25, ../sass/_grupo.scss */
 #modalNuevoGrupo span {
   margin-left: 16%;
 }
-/* line 28, ../sass/_grupo.scss */
+/* line 29, ../sass/_grupo.scss */
 #modalNuevoGrupo label {
   margin-left: 16% !important;
   margin-top: 3%;
 }
-/* line 33, ../sass/_grupo.scss */
+/* line 34, ../sass/_grupo.scss */
 #modalNuevoGrupo #ordenar1 {
   margin-left: 0px;
 }
-/* line 37, ../sass/_grupo.scss */
+/* line 38, ../sass/_grupo.scss */
 #modalNuevoGrupo #errorNombreGrupo {
   margin-left: 14%;
 }
 
-/* line 45, ../sass/_grupo.scss */
+/* line 46, ../sass/_grupo.scss */
 #modificarGrupos table {
   margin-bottom: 0px;
   margin-left: 14%;
   width: 89.5%;
 }
-/* line 50, ../sass/_grupo.scss */
+/* line 51, ../sass/_grupo.scss */
 #modificarGrupos table h2 {
   margin-bottom: 0px;
 }
-/* line 55, ../sass/_grupo.scss */
+/* line 56, ../sass/_grupo.scss */
 #modificarGrupos th {
   color: #2a6496;
 }
-/* line 59, ../sass/_grupo.scss */
+/* line 60, ../sass/_grupo.scss */
 #modificarGrupos p {
   font-size: 15px;
 }
-/* line 63, ../sass/_grupo.scss */
+/* line 64, ../sass/_grupo.scss */
 #modificarGrupos h2 {
   text-align: center;
   font-size: 20px;
 }
-/* line 68, ../sass/_grupo.scss */
+/* line 69, ../sass/_grupo.scss */
 #modificarGrupos label {
   margin-left: 10% !important;
 }
-/* line 72, ../sass/_grupo.scss */
+/* line 73, ../sass/_grupo.scss */
 #modificarGrupos #agregarNuevos {
   margin-left: 36%;
 }
-/* line 76, ../sass/_grupo.scss */
+/* line 77, ../sass/_grupo.scss */
 #modificarGrupos div .modal-footer {
   margin-left: 14%;
 }
 
-/* line 82, ../sass/_grupo.scss */
+/* line 83, ../sass/_grupo.scss */
 #todoGrupos {
   margin-bottom: 0px;
   height: 100%;
 }
 
-/* line 88, ../sass/_grupo.scss */
+/* line 89, ../sass/_grupo.scss */
 .miMargen {
   margin-top: 1em;
 }
 
-/* line 93, ../sass/_grupo.scss */
+/* line 94, ../sass/_grupo.scss */
 .rayita {
   height: 100%;
   width: 10%;
@@ -1150,67 +1185,67 @@ md-item-content.div {
   position: absolute;
 }
 
-/* line 102, ../sass/_grupo.scss */
+/* line 103, ../sass/_grupo.scss */
 #estudiantes2 {
   margin-left: 10%;
   width: 93%;
 }
 
-/* line 110, ../sass/_grupo.scss */
+/* line 111, ../sass/_grupo.scss */
 #mostrarGrupos h2 {
   margin-left: 11%;
 }
-/* line 114, ../sass/_grupo.scss */
+/* line 115, ../sass/_grupo.scss */
 #mostrarGrupos li {
   margin-left: 11%;
 }
 
-/* line 121, ../sass/_grupo.scss */
+/* line 122, ../sass/_grupo.scss */
 #navegacionProfesor .nav > li > a:focus {
   color: white !important;
   text-decoration: none;
   background-color: #722d7b;
 }
 
-/* line 131, ../sass/_grupo.scss */
+/* line 132, ../sass/_grupo.scss */
 #ulMostrarEnviado li {
   margin-left: 12%;
 }
 
-/* line 138, ../sass/_grupo.scss */
+/* line 139, ../sass/_grupo.scss */
 #mostrarEnviados h2 {
   margin-left: 10% !important;
 }
 
-/* line 145, ../sass/_grupo.scss */
+/* line 146, ../sass/_grupo.scss */
 #mostrarArchivos .contenedorDeCajas {
   margin-left: 11%;
 }
-/* line 149, ../sass/_grupo.scss */
+/* line 150, ../sass/_grupo.scss */
 #mostrarArchivos h2 {
   text-align: center;
 }
 
-/* line 157, ../sass/_grupo.scss */
+/* line 158, ../sass/_grupo.scss */
 #subirArchivos input {
   margin-left: 13%;
   width: 84%;
 }
-/* line 162, ../sass/_grupo.scss */
+/* line 163, ../sass/_grupo.scss */
 #subirArchivos select {
   width: 83%;
   margin-left: 13%;
 }
-/* line 167, ../sass/_grupo.scss */
+/* line 168, ../sass/_grupo.scss */
 #subirArchivos label {
   margin-left: 13% !important;
   margin-top: 3%;
 }
-/* line 172, ../sass/_grupo.scss */
+/* line 173, ../sass/_grupo.scss */
 #subirArchivos h2 {
   text-align: center;
 }
-/* line 176, ../sass/_grupo.scss */
+/* line 177, ../sass/_grupo.scss */
 #subirArchivos span {
   margin-left: 13% !important;
 }
