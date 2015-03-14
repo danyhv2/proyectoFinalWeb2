@@ -2,8 +2,75 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 5, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 1, ../sass/_base.scss */
 body {
-  background-color: #E3E1E1; }
+  background-color: #E3E1E1;
+}
 
 /*.container{
 	background-color: $color-container;
@@ -27,245 +94,400 @@ body {
 	}
 
 }*/
+/* line 1, ../sass/_header.scss */
 header {
-  background: linear-gradient(to right, #a22068, #2e368f); }
-  header #menuContainer {
-    max-width: 60em;
-    /*max-height: 110px;*/
-    margin: 0 auto;
-    font-size: 16px;
-    padding-bottom: 2.2%; }
-    header #menuContainer a {
-      color: #ddd6d6; }
-  header #menuCollapse ul {
-    padding-top: 28px; }
-  header .menuSesion {
-    /*padding-left: 25px;*/ }
-    header .menuSesion .config {
-      width: 45px; }
-  header .menuList li {
-    padding-left: 4px; }
-  header .navbar-right img, header .navbar-right a, header #imgLogo {
-    float: left; }
-  header .imgLogoSmall {
-    width: 70px;
-    padding: 6px; }
-  header .signIcon {
-    padding-top: 16px; }
-  header #btnMenu:hover {
-    background-color: #10167B; }
+  background: linear-gradient(to right, #a22068, #2e368f);
+}
+/* line 4, ../sass/_header.scss */
+header #menuContainer {
+  max-width: 60em;
+  /*max-height: 110px;*/
+  margin: 0 auto;
+  font-size: 16px;
+  padding-bottom: 2.2%;
+}
+/* line 11, ../sass/_header.scss */
+header #menuContainer a {
+  color: #ddd6d6;
+}
+/* line 16, ../sass/_header.scss */
+header #menuCollapse ul {
+  padding-top: 28px;
+}
+/* line 19, ../sass/_header.scss */
+header .menuSesion {
+  /*padding-left: 25px;*/
+}
+/* line 21, ../sass/_header.scss */
+header .menuSesion .config {
+  width: 45px;
+}
+/* line 25, ../sass/_header.scss */
+header .menuList li {
+  padding-left: 4px;
+}
+/* line 28, ../sass/_header.scss */
+header .navbar-right img, header .navbar-right a, header #imgLogo {
+  float: left;
+}
+/* line 32, ../sass/_header.scss */
+header .imgLogoSmall {
+  width: 70px;
+  padding: 6px;
+}
+/* line 36, ../sass/_header.scss */
+header .signIcon {
+  padding-top: 16px;
+}
+/* line 39, ../sass/_header.scss */
+header #btnMenu:hover {
+  background-color: #10167B;
+}
 
+/* line 1, ../sass/_footer.scss */
 footer {
-  background: linear-gradient(to right, #a22068, #2e368f); }
-  footer .cf:after, footer .cf:before {
-    content: ' ';
-    display: table; }
-  footer .cf:after {
-    clear: both; }
-  footer .contFooter {
-    max-width: 60em;
-    margin: 0 auto;
-    font-size: 13px;
-    height: 95px;
-    padding-top: 20px; }
-    footer .contFooter li {
-      display: inline-block;
-      float: left; }
-      footer .contFooter li:nth-child(2) {
-        padding-left: 25px; }
-    footer .contFooter .txt {
-      display: block;
-      text-indent: 100%;
-      white-space: nowrap;
-      overflow: hidden; }
-    footer .contFooter .sprite {
-      background: url("../img/sprite.png") 0 0 no-repeat;
-      width: 50px;
-      height: 50px; }
-    footer .contFooter .fb {
-      background-position: -0px -0px; }
-    footer .contFooter .twitter {
-      background-position: -0px -50px; }
-    footer .contFooter .contInfoFooter {
-      margin: 0 auto;
-      /*max-width: 14.25em;*/
-      text-align: center;
-      line-height: 1.5;
-      color: #ddd6d6;
-      font-size: 0.813em; }
-    footer .contFooter .logoCenfotec {
-      float: right; }
+  background: linear-gradient(to right, #a22068, #2e368f);
+}
+/* line 5, ../sass/_footer.scss */
+footer .cf:after, footer .cf:before {
+  content: ' ';
+  display: table;
+}
+/* line 9, ../sass/_footer.scss */
+footer .cf:after {
+  clear: both;
+}
+/* line 13, ../sass/_footer.scss */
+footer .contFooter {
+  max-width: 60em;
+  margin: 0 auto;
+  font-size: 13px;
+  height: 95px;
+  padding-top: 20px;
+}
+/* line 19, ../sass/_footer.scss */
+footer .contFooter li {
+  display: inline-block;
+  float: left;
+}
+/* line 23, ../sass/_footer.scss */
+footer .contFooter li:nth-child(2) {
+  padding-left: 25px;
+}
+/* line 27, ../sass/_footer.scss */
+footer .contFooter .txt {
+  display: block;
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+/* line 33, ../sass/_footer.scss */
+footer .contFooter .sprite {
+  background: url("../img/sprite.png") 0 0 no-repeat;
+  width: 50px;
+  height: 50px;
+}
+/* line 38, ../sass/_footer.scss */
+footer .contFooter .fb {
+  background-position: -0px -0px;
+}
+/* line 42, ../sass/_footer.scss */
+footer .contFooter .twitter {
+  background-position: -0px -50px;
+}
+/* line 47, ../sass/_footer.scss */
+footer .contFooter .contInfoFooter {
+  margin: 0 auto;
+  /*max-width: 14.25em;*/
+  text-align: center;
+  line-height: 1.5;
+  color: #ddd6d6;
+  font-size: 0.813em;
+}
+/* line 55, ../sass/_footer.scss */
+footer .contFooter .logoCenfotec {
+  float: right;
+}
 
 /*Mixins*/
+/* line 13, ../sass/_configuracion.scss */
 body {
-  overflow: visible !important; }
+  overflow: visible !important;
+}
 
+/* line 16, ../sass/_configuracion.scss */
 md-backdrop.md-select-backdrop {
-  display: none !important; }
+  display: none !important;
+}
 
+/* line 19, ../sass/_configuracion.scss */
 .md-backdrop {
-  position: relative !important; }
+  position: relative !important;
+}
 
+/* line 22, ../sass/_configuracion.scss */
 md-input-container {
-  overflow-x: visible !important; }
+  overflow-x: visible !important;
+}
 
+/* line 25, ../sass/_configuracion.scss */
 md-input-container.md-default-theme.md-input-invalid .md-input, .md-input {
-  border-color: #967ba5; }
+  border-color: #967ba5;
+}
 
+/* line 28, ../sass/_configuracion.scss */
 md-input-container.md-default-theme.md-input-invalid label {
-  color: #c7b9cf !important; }
+  color: #c7b9cf !important;
+}
 
+/* line 31, ../sass/_configuracion.scss */
 h1, legend {
   color: #757475;
-  font-weight: 500; }
+  font-weight: 500;
+}
 
+/* line 36, ../sass/_configuracion.scss */
 .modal-header {
   background-color: 7f2774;
   color: ddd6d6 !important;
   border-top-left-radius: 5px;
-  border-top-right-radius: 5px; }
-  .modal-header h1, .modal-header h4 {
-    color: ddd6d6 !important;
-    text-align: center; }
-  .modal-header span {
-    color: #ffffff; }
+  border-top-right-radius: 5px;
+}
+/* line 41, ../sass/_configuracion.scss */
+.modal-header h1, .modal-header h4 {
+  color: ddd6d6 !important;
+  text-align: center;
+}
+/* line 45, ../sass/_configuracion.scss */
+.modal-header span {
+  color: #ffffff;
+}
 
+/* line 49, ../sass/_configuracion.scss */
 .mainConfig {
   background-color: #e3e1e1;
-  width: 100%; }
-  .mainConfig .wrapperConfig {
-    background-color: #f5f3f4;
-    max-width: 60em;
-    margin: 0 auto;
-    min-height: 450px; }
-    .mainConfig .wrapperConfig ul {
-      padding-top: 20px;
-      border-bottom: 1px solid #D5D5D5; }
-      .mainConfig .wrapperConfig ul li a {
-        color: #757475;
-        font-weight: bold; }
-      .mainConfig .wrapperConfig ul li > a:hover, .mainConfig .wrapperConfig ul .nav > li > a:focus {
-        text-decoration: none;
-        background-color: #D5D5D5; }
-      .mainConfig .wrapperConfig ul li.active a {
-        text-decoration: none;
-        background-color: #D5D5D5; }
-      .mainConfig .wrapperConfig ul li:first-child {
-        padding-left: 15px; }
-    .mainConfig .wrapperConfig .errorSearch {
-      font-size: 13px;
-      color: #f44336;
-      width: 272px;
-      margin-top: 12px;
-      display: none; }
-    .mainConfig .wrapperConfig .msgError {
-      font-size: 13px;
-      color: #f44336; }
-    .mainConfig .wrapperConfig #modalExito {
-      display: none; }
-    .mainConfig .wrapperConfig #modalContent {
-      position: absolute;
-      background-color: #dff0d8; }
-    .mainConfig .wrapperConfig #modalConfirm {
-      position: absolute;
-      display: none;
-      z-index: 10001; }
-    .mainConfig .wrapperConfig .btnConfirmModal {
-      background-color: #722d7d;
-      color: #ddd6d6; }
-    .mainConfig .wrapperConfig .btnAdd {
-      color: #ffffff; }
-    .mainConfig .wrapperConfig .formUser {
-      padding-top: 30px; }
-      .mainConfig .wrapperConfig .formUser legend {
-        padding-left: 18px;
-        font-size: 1.625em; }
-      .mainConfig .wrapperConfig .formUser .msgErrorEmail {
-        font-size: 13px;
-        color: #f44336;
-        width: 272px;
-        margin-top: 12px;
-        display: none; }
-      .mainConfig .wrapperConfig .formUser #msgSuccess, .mainConfig .wrapperConfig .formUser .msgErrorUser {
-        margin-left: 18px;
-        width: 272px;
-        margin-top: 12px;
-        display: none; }
-      .mainConfig .wrapperConfig .formUser .btnAddUser {
-        background-color: #722d7d;
-        color: #ddd6d6;
-        float: right;
-        margin-right: 75px;
-        margin-bottom: 40px; }
-      .mainConfig .wrapperConfig .formUser .lblEdit a {
-        color: #786c84;
-        font-weight: bold; }
-      .mainConfig .wrapperConfig .formUser .optCuatri {
-        float: left; }
-      .mainConfig .wrapperConfig .formUser .optAno {
-        float: right; }
-    .mainConfig .wrapperConfig .contUsuarios .inpSearchUser {
-      padding-left: 35px; }
-    .mainConfig .wrapperConfig .contUsuarios .lblEditUser {
-      padding-left: 50px; }
-      .mainConfig .wrapperConfig .contUsuarios .lblEditUser a {
-        font-size: 16px; }
-    .mainConfig .wrapperConfig .contUsuarios .errPass {
-      display: none; }
-    .mainConfig .wrapperConfig .contUsuarios .saveUser, .mainConfig .wrapperConfig .contUsuarios .cancelUser, .mainConfig .wrapperConfig .contUsuarios .saveUserAccess, .mainConfig .wrapperConfig .contUsuarios .cancelUserAccess, .mainConfig .wrapperConfig .contUsuarios .inpNewPass, .mainConfig .wrapperConfig .contUsuarios .inpNewPassConfirm {
-      display: none; }
-    .mainConfig .wrapperConfig .contUsuarios .imgProfile {
-      width: 70px;
-      height: 70px;
-      margin-top: 62px; }
-    .mainConfig .wrapperConfig .contVerUsuarios {
-      padding-bottom: 1px;
-      padding-left: 20px;
-      padding-right: 20px; }
-      .mainConfig .wrapperConfig .contVerUsuarios thead {
-        color: #545355;
-        border-bottom: 3px solid #722d7b; }
-        .mainConfig .wrapperConfig .contVerUsuarios thead th {
-          font-weight: bold; }
-      .mainConfig .wrapperConfig .contVerUsuarios tbody {
-        font-size: 14px; }
-        .mainConfig .wrapperConfig .contVerUsuarios tbody tr {
-          border-bottom: 2px solid #b68cbb; }
-    .mainConfig .wrapperConfig .containerModal {
-      color: #757475; }
-      .mainConfig .wrapperConfig .containerModal span {
-        font-weight: bold; }
-    .mainConfig .wrapperConfig #modalInfoUser .info {
-      float: left; }
-    .mainConfig .wrapperConfig #modalInfoUser .contImgUser {
-      float: right; }
-    .mainConfig .wrapperConfig .btnDatePicker {
-      border: none;
-      background-color: #f5f3f4;
-      padding-top: 28px; }
+  width: 100%;
+}
+/* line 52, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig {
+  background-color: #f5f3f4;
+  max-width: 60em;
+  margin: 0 auto;
+  min-height: 450px;
+}
+/* line 57, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig ul {
+  padding-top: 20px;
+  border-bottom: 1px solid #D5D5D5;
+}
+/* line 60, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig ul li a {
+  color: #757475;
+  font-weight: bold;
+}
+/* line 64, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig ul li > a:hover, .mainConfig .wrapperConfig ul .nav > li > a:focus {
+  text-decoration: none;
+  background-color: #D5D5D5;
+}
+/* line 68, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig ul li.active a {
+  text-decoration: none;
+  background-color: #D5D5D5;
+}
+/* line 72, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig ul li:first-child {
+  padding-left: 15px;
+}
+/* line 76, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .errorSearch {
+  font-size: 13px;
+  color: #f44336;
+  width: 272px;
+  margin-top: 12px;
+  display: none;
+}
+/* line 81, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .msgError {
+  font-size: 13px;
+  color: #f44336;
+}
+/* line 85, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig #modalExito {
+  display: none;
+}
+/* line 88, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig #modalContent {
+  position: absolute;
+  background-color: #dff0d8;
+}
+/* line 92, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig #modalConfirm {
+  position: absolute;
+  display: none;
+  z-index: 10001;
+}
+/* line 97, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .btnConfirmModal {
+  background-color: #722d7d;
+  color: #ddd6d6;
+}
+/* line 100, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .btnAdd {
+  color: #ffffff;
+}
+/* line 103, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser {
+  padding-top: 30px;
+}
+/* line 105, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser legend {
+  padding-left: 18px;
+  font-size: 1.625em;
+}
+/* line 109, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser .msgErrorEmail {
+  font-size: 13px;
+  color: #f44336;
+  width: 272px;
+  margin-top: 12px;
+  display: none;
+}
+/* line 114, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser #msgSuccess, .mainConfig .wrapperConfig .formUser .msgErrorUser {
+  margin-left: 18px;
+  width: 272px;
+  margin-top: 12px;
+  display: none;
+}
+/* line 118, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser .btnAddUser {
+  background-color: #722d7d;
+  color: #ddd6d6;
+  float: right;
+  margin-right: 75px;
+  margin-bottom: 40px;
+}
+/* line 124, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser .lblEdit a {
+  color: #786c84;
+  font-weight: bold;
+}
+/* line 128, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser .optCuatri {
+  float: left;
+}
+/* line 131, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser .optAno {
+  float: right;
+}
+/* line 136, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .inpSearchUser {
+  padding-left: 35px;
+}
+/* line 139, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .lblEditUser {
+  padding-left: 50px;
+}
+/* line 141, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .lblEditUser a {
+  font-size: 16px;
+}
+/* line 145, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .errPass {
+  display: none;
+}
+/* line 148, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .saveUser, .mainConfig .wrapperConfig .contUsuarios .cancelUser, .mainConfig .wrapperConfig .contUsuarios .saveUserAccess, .mainConfig .wrapperConfig .contUsuarios .cancelUserAccess, .mainConfig .wrapperConfig .contUsuarios .inpNewPass, .mainConfig .wrapperConfig .contUsuarios .inpNewPassConfirm {
+  display: none;
+}
+/* line 151, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contUsuarios .imgProfile {
+  width: 70px;
+  height: 70px;
+  margin-top: 62px;
+}
+/* line 157, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contVerUsuarios {
+  padding-bottom: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+/* line 161, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contVerUsuarios thead {
+  color: #545355;
+  border-bottom: 3px solid #722d7b;
+}
+/* line 164, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contVerUsuarios thead th {
+  font-weight: bold;
+}
+/* line 168, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contVerUsuarios tbody {
+  font-size: 14px;
+}
+/* line 170, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .contVerUsuarios tbody tr {
+  border-bottom: 2px solid #b68cbb;
+}
+/* line 175, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .containerModal {
+  color: #757475;
+}
+/* line 177, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .containerModal span {
+  font-weight: bold;
+}
+/* line 182, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig #modalInfoUser .info {
+  float: left;
+}
+/* line 185, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig #modalInfoUser .contImgUser {
+  float: right;
+}
+/* line 189, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .btnDatePicker {
+  border: none;
+  background-color: #f5f3f4;
+  padding-top: 28px;
+}
 
 /*MODAL EDITAR CURSO*/
+/* line 200, ../sass/_configuracion.scss */
 md-checkbox.md-default-theme.md-checked .md-icon {
-  background-color: rgba(104, 57, 119, 0.87); }
+  background-color: rgba(104, 57, 119, 0.87);
+}
 
 /*MODAL EDITAR CARRERA*/
+/* line 206, ../sass/_configuracion.scss */
 #modalEditarCarrera .contBuscarCarrera, #modalEditarCarrera .contBuscarCurso, #modalEditarCarrera .inpSearchUser, #modalEditarCurso .contBuscarCarrera, #modalEditarCurso .contBuscarCurso, #modalEditarCurso .inpSearchUser, .formEditUser .contBuscarCarrera, .formEditUser .contBuscarCurso, .formEditUser .inpSearchUser {
-  width: 50%; }
-  #modalEditarCarrera .contBuscarCarrera p, #modalEditarCarrera .contBuscarCurso p, #modalEditarCarrera .inpSearchUser p, #modalEditarCurso .contBuscarCarrera p, #modalEditarCurso .contBuscarCurso p, #modalEditarCurso .inpSearchUser p, .formEditUser .contBuscarCarrera p, .formEditUser .contBuscarCurso p, .formEditUser .inpSearchUser p {
-    width: 100%; }
-    #modalEditarCarrera .contBuscarCarrera p input, #modalEditarCarrera .contBuscarCurso p input, #modalEditarCarrera .inpSearchUser p input, #modalEditarCurso .contBuscarCarrera p input, #modalEditarCurso .contBuscarCurso p input, #modalEditarCurso .inpSearchUser p input, .formEditUser .contBuscarCarrera p input, .formEditUser .contBuscarCurso p input, .formEditUser .inpSearchUser p input {
-      float: left;
-      width: 88%; }
-    #modalEditarCarrera .contBuscarCarrera p a, #modalEditarCarrera .contBuscarCurso p a, #modalEditarCarrera .inpSearchUser p a, #modalEditarCurso .contBuscarCarrera p a, #modalEditarCurso .contBuscarCurso p a, #modalEditarCurso .inpSearchUser p a, .formEditUser .contBuscarCarrera p a, .formEditUser .contBuscarCurso p a, .formEditUser .inpSearchUser p a {
-      float: right;
-      margin-top: 10px;
-      padding-left: 5px;
-      width: 12%; }
+  width: 50%;
+}
+/* line 208, ../sass/_configuracion.scss */
+#modalEditarCarrera .contBuscarCarrera p, #modalEditarCarrera .contBuscarCurso p, #modalEditarCarrera .inpSearchUser p, #modalEditarCurso .contBuscarCarrera p, #modalEditarCurso .contBuscarCurso p, #modalEditarCurso .inpSearchUser p, .formEditUser .contBuscarCarrera p, .formEditUser .contBuscarCurso p, .formEditUser .inpSearchUser p {
+  width: 100%;
+}
+/* line 210, ../sass/_configuracion.scss */
+#modalEditarCarrera .contBuscarCarrera p input, #modalEditarCarrera .contBuscarCurso p input, #modalEditarCarrera .inpSearchUser p input, #modalEditarCurso .contBuscarCarrera p input, #modalEditarCurso .contBuscarCurso p input, #modalEditarCurso .inpSearchUser p input, .formEditUser .contBuscarCarrera p input, .formEditUser .contBuscarCurso p input, .formEditUser .inpSearchUser p input {
+  float: left;
+  width: 88%;
+}
+/* line 214, ../sass/_configuracion.scss */
+#modalEditarCarrera .contBuscarCarrera p a, #modalEditarCarrera .contBuscarCurso p a, #modalEditarCarrera .inpSearchUser p a, #modalEditarCurso .contBuscarCarrera p a, #modalEditarCurso .contBuscarCurso p a, #modalEditarCurso .inpSearchUser p a, .formEditUser .contBuscarCarrera p a, .formEditUser .contBuscarCurso p a, .formEditUser .inpSearchUser p a {
+  float: right;
+  margin-top: 10px;
+  padding-left: 5px;
+  width: 12%;
+}
 
 /*BUTTON UPLOAD*/
+/* line 225, ../sass/_configuracion.scss */
 .upload-buttons input[type="file"] {
-  width: 6.3em \0/IE9; }
+  width: 6.3em \0/IE9;
+}
 
+/* line 229, ../sass/_configuracion.scss */
 .upload-button {
   Height: 26px;
   line-height: 30px;
@@ -275,33 +497,45 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   position: relative;
   text-align: center;
   top: 7px;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
+/* line 242, ../sass/_configuracion.scss */
 .sel-file {
   padding: 1px 5px;
   font-size: smaller;
-  color: grey; }
+  color: grey;
+}
 
+/* line 248, ../sass/_configuracion.scss */
 .response {
   padding: 0;
   padding-top: 10px;
   margin: 3px 0;
-  clear: both; }
+  clear: both;
+}
 
+/* line 255, ../sass/_configuracion.scss */
 .response .sel-file li, .response .reqh {
   color: blue;
-  padding-bottom: 5px; }
+  padding-bottom: 5px;
+}
 
+/* line 261, ../sass/_configuracion.scss */
 .progress {
   display: inline-block;
   width: 100px;
-  border: 3px groove #CCC; }
+  border: 3px groove #CCC;
+}
 
+/* line 267, ../sass/_configuracion.scss */
 .progress div {
   font-size: smaller;
   background: orange;
-  width: 0; }
+  width: 0;
+}
 
+/* line 273, ../sass/_configuracion.scss */
 .drop-box {
   background: #F8F8F8;
   border: 5px dashed #DDD;
@@ -310,570 +544,913 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   text-align: center;
   padding-top: 25px;
   float: left;
-  margin-left: 20px; }
+  margin-left: 20px;
+}
 
+/* line 284, ../sass/_configuracion.scss */
 .up-buttons {
-  float: left; }
+  float: left;
+}
 
+/* line 288, ../sass/_configuracion.scss */
 .drop-box.dragover {
-  border: 5px dashed blue; }
+  border: 5px dashed blue;
+}
 
+/* line 292, ../sass/_configuracion.scss */
 .drop-box.dragover-err {
-  border: 5px dashed red; }
+  border: 5px dashed red;
+}
 
+/* line 296, ../sass/_configuracion.scss */
 .js-fileapi-wrapper {
   display: inline-block;
-  vertical-align: middle; }
+  vertical-align: middle;
+}
 
+/* line 301, ../sass/_configuracion.scss */
 button {
   padding: 1px 5px;
   font-size: smaller;
-  margin: 0 3px; }
+  margin: 0 3px;
+}
 
+/* line 307, ../sass/_configuracion.scss */
 .ng-v {
-  float: right; }
+  float: right;
+}
 
+/* line 311, ../sass/_configuracion.scss */
 .thumb {
   float: left;
   width: 18px;
   height: 18px;
-  padding-right: 10px; }
+  padding-right: 10px;
+}
 
+/* line 318, ../sass/_configuracion.scss */
 form .thumb {
   width: 24px;
   height: 24px;
   float: none;
   position: relative;
-  top: 7px; }
+  top: 7px;
+}
 
+/* line 326, ../sass/_configuracion.scss */
 form .progress {
-  line-height: 15px; }
+  line-height: 15px;
+}
 
+/* line 330, ../sass/_configuracion.scss */
 .edit-area {
   font-size: 14px;
   background: black;
   color: #f9f9f9;
-  padding: 5px 1px; }
+  padding: 5px 1px;
+}
 
+/* line 337, ../sass/_configuracion.scss */
 #htmlEdit {
-  margin-bottom: 25px; }
+  margin-bottom: 25px;
+}
 
+/* line 341, ../sass/_configuracion.scss */
 .edit-div {
-  font-size: smaller; }
+  font-size: smaller;
+}
 
+/* line 345, ../sass/_configuracion.scss */
 .CodeMirror {
   font-size: 14px;
   border: 1px solid #ccc;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+}
 
+/* line 351, ../sass/_configuracion.scss */
 form button {
   padding: 3px 10px;
   font-weight: bold;
-  margin-top: 10px; }
+  margin-top: 10px;
+}
 
+/* line 357, ../sass/_configuracion.scss */
 .sub {
   font-size: smaller;
   color: #777;
   padding-top: 5px;
-  padding-left: 10px; }
+  padding-left: 10px;
+}
 
+/* line 364, ../sass/_configuracion.scss */
 .err {
   font-size: 12px;
   color: #C53F00;
   margin: 15px;
   padding: 15px;
   background-color: #F0F0F0;
-  border: 1px solid black; }
+  border: 1px solid black;
+}
 
+/* line 373, ../sass/_configuracion.scss */
 .s3 {
   font-size: smaller;
   color: #333;
-  margin-left: 20px; }
+  margin-left: 20px;
+}
 
+/* line 378, ../sass/_configuracion.scss */
 .s3 fieldset {
-  border: 1px solid #AAA; }
+  border: 1px solid #AAA;
+}
 
+/* line 381, ../sass/_configuracion.scss */
 .s3 label {
   width: 180px;
-  display: inline-block; }
+  display: inline-block;
+}
 
+/* line 385, ../sass/_configuracion.scss */
 .s3 input {
-  width: 300px; }
+  width: 300px;
+}
 
+/* line 388, ../sass/_configuracion.scss */
 .s3 .helper {
-  margin-left: 5px; }
+  margin-left: 5px;
+}
 
+/* line 392, ../sass/_configuracion.scss */
 .howto {
-  margin-left: 10px; }
+  margin-left: 10px;
+}
 
+/* line 396, ../sass/_configuracion.scss */
 .server {
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 
+/* line 400, ../sass/_configuracion.scss */
 .srv-title {
   font-weight: bold;
-  padding: 5px 0 10px 0; }
+  padding: 5px 0 10px 0;
+}
 
+/* line 405, ../sass/_configuracion.scss */
 :not(output):-moz-ui-invalid {
-  box-shadow: none; }
+  box-shadow: none;
+}
 
 /*Estilos Guillermo*/
+/* line 3, ../sass/_rubricaEstilo.scss */
+.alinieminento {
+  margin-left: 22%;
+}
+
+/* line 7, ../sass/_rubricaEstilo.scss */
 .tablaDetallesCurso {
   width: 100%;
-  margin-top: 1em; }
-  .tablaDetallesCurso tr {
-    width: 100%; }
-    .tablaDetallesCurso tr td {
-      width: 20%; }
+  margin-top: 1em;
+}
+/* line 10, ../sass/_rubricaEstilo.scss */
+.tablaDetallesCurso tr {
+  width: 100%;
+}
+/* line 12, ../sass/_rubricaEstilo.scss */
+.tablaDetallesCurso tr td {
+  width: 20%;
+}
 
+/* line 18, ../sass/_rubricaEstilo.scss */
+.spaceB {
+  margin-top: 1em;
+}
+
+/* line 22, ../sass/_rubricaEstilo.scss */
+.spaceB:last-child {
+  margin-bottom: 2em;
+}
+
+/* line 26, ../sass/_rubricaEstilo.scss */
 .tablaDetallesCursoEstu {
   width: 100%;
-  margin-top: 1em; }
-  .tablaDetallesCursoEstu tr {
-    width: 100%; }
-    .tablaDetallesCursoEstu tr td {
-      width: 100%;
-      display: inline; }
+  margin-top: 1em;
+}
+/* line 29, ../sass/_rubricaEstilo.scss */
+.tablaDetallesCursoEstu tr {
+  width: 100%;
+}
+/* line 31, ../sass/_rubricaEstilo.scss */
+.tablaDetallesCursoEstu tr td {
+  width: 100%;
+  display: inline;
+}
 
+/* line 40, ../sass/_rubricaEstilo.scss */
 #navegacionDirector .nav > li > a:focus {
   color: white !important;
   text-decoration: none;
-  background-color: #722d7b; }
+  background-color: #722d7b;
+}
 
+/* line 48, ../sass/_rubricaEstilo.scss */
 .cajaRubrica {
   width: 100%;
-  display: inline-block; }
-  .cajaRubrica .cont {
-    width: 80%; }
-  .cajaRubrica .imagN {
-    margin-top: 8%; }
+  display: inline-block;
+}
+/* line 51, ../sass/_rubricaEstilo.scss */
+.cajaRubrica .cont {
+  width: 80%;
+}
+/* line 54, ../sass/_rubricaEstilo.scss */
+.cajaRubrica .imagN {
+  margin-top: 8%;
+}
 
+/* line 59, ../sass/_rubricaEstilo.scss */
 .borrarRub {
-  display: inline; }
+  display: inline;
+}
 
+/* line 63, ../sass/_rubricaEstilo.scss */
 .errorMsj {
   background-color: transparent;
-  font-size: 13px; }
+  font-size: 13px;
+}
 
+/* line 68, ../sass/_rubricaEstilo.scss */
 .jusH {
-  display: inline; }
+  display: inline;
+}
 
+/* line 73, ../sass/_rubricaEstilo.scss */
 .nays {
-  margin-top: 2em; }
+  margin-top: 2em;
+}
 
+/* line 77, ../sass/_rubricaEstilo.scss */
 .comie {
-  margin-top: 2em; }
+  margin-top: 2em;
+}
 
+/* line 81, ../sass/_rubricaEstilo.scss */
 .oneinrow {
   width: 30%;
-  margin-left: 3%; }
+  margin-left: 3%;
+}
 
+/* line 86, ../sass/_rubricaEstilo.scss */
 .twoinrow {
-  width: 65%; }
+  width: 65%;
+}
 
+/* line 91, ../sass/_rubricaEstilo.scss */
 .maxVal {
   height: 35em;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+}
 
+/* line 96, ../sass/_rubricaEstilo.scss */
 #ContenedorRubricas {
   max-width: 60em;
-  height: 50em; }
+  height: 50em;
+}
 
+/* line 101, ../sass/_rubricaEstilo.scss */
 .errormsj {
-  width: 83%; }
+  width: 83%;
+}
 
+/* line 105, ../sass/_rubricaEstilo.scss */
 .errormsj2 {
   width: 78%;
-  margin-left: 20%; }
+  margin-left: 20%;
+}
 
+/* line 110, ../sass/_rubricaEstilo.scss */
 .izquierdaCaja {
   width: 40%;
   margin-left: 1%;
-  margin-right: 1%; }
+  margin-right: 1%;
+}
 
+/* line 116, ../sass/_rubricaEstilo.scss */
 .derechaCaja {
   width: 55%;
-  position: relative; }
-  .derechaCaja h3 {
-    margin-left: 10%; }
-  .derechaCaja .estiloCaja {
-    padding-left: 10%; }
+  position: relative;
+}
+/* line 119, ../sass/_rubricaEstilo.scss */
+.derechaCaja h3 {
+  margin-left: 10%;
+}
+/* line 122, ../sass/_rubricaEstilo.scss */
+.derechaCaja .estiloCaja {
+  padding-left: 10%;
+}
 
+/* line 127, ../sass/_rubricaEstilo.scss */
 .rayaCentral {
   height: 30em;
   width: 1%;
   background-color: gray;
-  position: absolute; }
+  position: absolute;
+}
 
+/* line 134, ../sass/_rubricaEstilo.scss */
 .simpleColor {
   background-color: #722d7b !important;
-  color: #fff !important; }
+  color: #fff !important;
+}
 
+/* line 139, ../sass/_rubricaEstilo.scss */
 .contenedorDeCajas {
   height: 30em;
-  overflow-y: scroll; }
+  overflow-y: scroll;
+}
 
+/* line 145, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi h3 {
   font-size: 1.87em;
   font-weight: bold;
   color: #757475;
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 1, ../sass/_documentos.scss */
 .col-centered {
   float: none;
   margin: 0 auto;
   background-color: #e3e1e1;
-  overflow: auto; }
+  overflow: auto;
+}
 
+/* line 8, ../sass/_documentos.scss */
 .logo {
   width: 100%;
   height: auto;
   margin-top: 0.6em;
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 14, ../sass/_documentos.scss */
 .title-page {
   font-size: 1.875em;
   font-weight: bold;
   color: #757475;
-  display: inline-block; }
+  display: inline-block;
+}
 
+/* line 21, ../sass/_documentos.scss */
 .search {
-  margin-top: 1em; }
-  .search .form-group input {
-    width: 70%;
-    float: left; }
-  .search input::-webkit-input-placeholder {
-    color: #c7b9cf; }
+  margin-top: 1em;
+}
+/* line 26, ../sass/_documentos.scss */
+.search .form-group input {
+  width: 70%;
+  float: left;
+}
+/* line 32, ../sass/_documentos.scss */
+.search input::-webkit-input-placeholder {
+  color: #c7b9cf;
+}
 
+/* line 38, ../sass/_documentos.scss */
 #searchGlyph {
   top: 5px;
-  left: -2em; }
+  left: -2em;
+}
 
+/* line 43, ../sass/_documentos.scss */
 .documentos-disponibles {
-  margin-top: 1em; }
+  margin-top: 1em;
+}
 
+/* line 47, ../sass/_documentos.scss */
 .documentos {
   border: 1px solid #e3e1e1;
   padding: 1em;
   margin-bottom: 1em;
   font-family: "helvetica";
-  font-size: 14px; }
-  .documentos .titulo {
-    font-size: 20px;
-    color: #722d7d;
-    font-weight: normal;
-    display: inline-block;
-    margin: 0; }
-  .documentos .date-and-group {
-    display: inline-block; }
-    .documentos .date-and-group span {
-      margin-left: 1em; }
-  .documentos .ordenar-links {
-    text-align: right; }
-    .documentos .ordenar-links a {
-      color: #5F3870; }
-  .documentos p {
-    margin: 0.5em 0 0.3em 0; }
+  font-size: 14px;
+}
+/* line 54, ../sass/_documentos.scss */
+.documentos .titulo {
+  font-size: 20px;
+  color: #722d7d;
+  font-weight: normal;
+  display: inline-block;
+  margin: 0;
+}
+/* line 62, ../sass/_documentos.scss */
+.documentos .date-and-group {
+  display: inline-block;
+}
+/* line 65, ../sass/_documentos.scss */
+.documentos .date-and-group span {
+  margin-left: 1em;
+}
+/* line 69, ../sass/_documentos.scss */
+.documentos .ordenar-links {
+  text-align: right;
+}
+/* line 71, ../sass/_documentos.scss */
+.documentos .ordenar-links a {
+  color: #5F3870;
+}
+/* line 75, ../sass/_documentos.scss */
+.documentos p {
+  margin: 0.5em 0 0.3em 0;
+}
 
+/* line 81, ../sass/_documentos.scss */
 .mejores-proyectos .logo {
   background-color: #722d7d;
   padding: 0.5em;
-  margin: 0; }
-  .mejores-proyectos .logo h1 {
-    font-size: 20px;
-    color: #ffffff;
-    margin-left: 0.5em; }
+  margin: 0;
+}
+/* line 86, ../sass/_documentos.scss */
+.mejores-proyectos .logo h1 {
+  font-size: 20px;
+  color: #ffffff;
+  margin-left: 0.5em;
+}
+/* line 92, ../sass/_documentos.scss */
 .mejores-proyectos .information {
   border: 1px solid #e3e1e1;
   margin-top: 1em;
-  padding: 1em; }
+  padding: 1em;
+}
 
+/* line 101, ../sass/_documentos.scss */
 .modal-documentos .modal-body input {
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+}
+/* line 104, ../sass/_documentos.scss */
 .modal-documentos .modal-body div {
-  margin-left: 0 !important; }
+  margin-left: 0 !important;
+}
 
+/* line 109, ../sass/_documentos.scss */
 .link {
-  text-align: right; }
+  text-align: right;
+}
 
+/* line 113, ../sass/_documentos.scss */
 .information h1 {
   display: inline-block;
   font-size: 18px;
-  margin-bottom: 0.7em; }
+  margin-bottom: 0.7em;
+}
 
+/* line 120, ../sass/_documentos.scss */
 .AddDocument {
   background-color: #722d7d;
   color: #ddd6d6;
   border: 1px solid #722D7D;
-  margin: 0; }
-  .AddDocument:hover {
-    background-color: #722d7d;
-    color: #ddd6d6;
-    border: 1px solid #722D7D;
-    opacity: 0.7; }
+}
+/* line 125, ../sass/_documentos.scss */
+.AddDocument:hover {
+  background-color: #722d7d;
+  color: #ddd6d6;
+  border: 1px solid #722D7D;
+  opacity: 0.7;
+}
 
+/* line 1, ../sass/_reportes.scss */
 .listdemoBasicUsage .face {
   border-radius: 30px;
   border: 1px solid #ddd;
   width: 48px;
-  margin: 16px; }
+  margin: 16px;
+}
 
+/* line 8, ../sass/_reportes.scss */
 #reportes {
   background-color: #f5f3f4;
-  max-width: 60em; }
-  #reportes .search-report {
-    margin-bottom: 1em;
-    margin-left: 4em; }
-  #reportes #searchGlyph {
-    top: 11px; }
+  max-width: 60em;
+}
+/* line 12, ../sass/_reportes.scss */
+#reportes .search-report {
+  margin-bottom: 1em;
+  margin-left: 4em;
+}
+/* line 16, ../sass/_reportes.scss */
+#reportes #searchGlyph {
+  top: 11px;
+}
 
+/* line 22, ../sass/_reportes.scss */
 .information-reports div,
 .information-reports h3,
 .information-reports h4 {
-  display: inline-block; }
+  display: inline-block;
+}
+/* line 27, ../sass/_reportes.scss */
 .information-reports h3 {
   font-size: 0.93223em !important;
-  font-weight: bold !important; }
+  font-weight: bold !important;
+}
 
+/* line 33, ../sass/_reportes.scss */
 md-item-content.div {
   border: 1px solid #e3e1e1 !important;
   min-height: 9em;
-  margin-bottom: 1em; }
+  margin-bottom: 1em;
+}
 
+/* line 38, ../sass/_reportes.scss */
 .min-heigth {
-  min-height: 40em; }
+  min-height: 40em;
+}
 
+/* line 43, ../sass/_reportes.scss */
 .result img {
   width: 48px;
-  height: 48px; }
+  height: 48px;
+}
+/* line 47, ../sass/_reportes.scss */
 .result .header-info {
   display: inline-block;
   font-size: 13px;
   margin-left: 1em;
-  width: 100%; }
-  .result .header-info strong {
-    font-weight: bold;
-    font-size: 15px; }
+  width: 100%;
+}
+/* line 53, ../sass/_reportes.scss */
+.result .header-info strong {
+  font-weight: bold;
+  font-size: 15px;
+}
 
+/* line 61, ../sass/_reportes.scss */
 .link a {
   color: #752977;
-  cursor: pointer; }
+  cursor: pointer;
+}
 
+/* line 67, ../sass/_reportes.scss */
 .primary {
   border-bottom: 3px solid  #752977;
-  padding-bottom: 0.6em; }
-  .primary div {
-    display: inline-block;
-    font-size: 15px;
-    font-weight: bold;
-    width: 24%; }
-  .primary .credits {
-    text-align: center; }
+  padding-bottom: 0.6em;
+}
+/* line 71, ../sass/_reportes.scss */
+.primary div {
+  display: inline-block;
+  font-size: 15px;
+  font-weight: bold;
+  width: 24%;
+}
+/* line 77, ../sass/_reportes.scss */
+.primary .credits {
+  text-align: center;
+}
 
+/* line 82, ../sass/_reportes.scss */
 .secundary {
   padding-top: 0.7em;
   border-bottom: 2px solid #D4B6D8;
-  padding-bottom: 0.6em; }
-  .secundary div {
-    display: inline-block;
-    width: 24%; }
-  .secundary .curso {
-    width: 26%; }
-  .secundary .credito,
-  .secundary .cuatrimestre {
-    width: 18%;
-    text-align: center; }
+  padding-bottom: 0.6em;
+}
+/* line 86, ../sass/_reportes.scss */
+.secundary div {
+  display: inline-block;
+  width: 24%;
+}
+/* line 90, ../sass/_reportes.scss */
+.secundary .curso {
+  width: 26%;
+}
+/* line 93, ../sass/_reportes.scss */
+.secundary .credito,
+.secundary .cuatrimestre {
+  width: 18%;
+  text-align: center;
+}
 
+/* line 100, ../sass/_reportes.scss */
 .float {
   width: 40%;
-  float: left; }
+  float: left;
+}
 
+/* line 1, ../sass/_grupo.scss */
 #crearGrupo {
-  padding-bottom: 0; }
+  padding-bottom: 0;
+}
 
+/* line 8, ../sass/_grupo.scss */
 #modalNuevoGrupo table {
   margin-bottom: 0px;
   margin-left: 5%;
-  width: 93.5%; }
+  width: 93.5%;
+}
+/* line 14, ../sass/_grupo.scss */
 #modalNuevoGrupo input {
   width: 96%;
-  margin-left: 3%; }
+  margin-left: 3%;
+}
+/* line 19, ../sass/_grupo.scss */
 #modalNuevoGrupo select {
   margin-left: 6%;
-  width: 90%; }
+  width: 90%;
+}
+/* line 24, ../sass/_grupo.scss */
 #modalNuevoGrupo span {
   font-size: 13px;
   background: none;
-  margin-left: 6%; }
+  margin-left: 6%;
+}
+/* line 30, ../sass/_grupo.scss */
 #modalNuevoGrupo label {
   margin-left: 6% !important;
-  margin-top: 3%; }
+  margin-top: 3%;
+}
+/* line 35, ../sass/_grupo.scss */
 #modalNuevoGrupo h1 {
-  font-size: 2em; }
+  font-size: 2em;
+}
+/* line 39, ../sass/_grupo.scss */
 #modalNuevoGrupo #ordenar1 {
-  margin-left: 0px; }
+  margin-left: 0px;
+}
 
+/* line 47, ../sass/_grupo.scss */
 #modificarGrupos span {
   background: none;
-  font-size: 13px; }
+  font-size: 13px;
+}
+/* line 52, ../sass/_grupo.scss */
 #modificarGrupos h1 {
   font-size: 1.875em;
   font-weight: bold;
-  color: white; }
+  color: white;
+}
+/* line 58, ../sass/_grupo.scss */
 #modificarGrupos table {
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+}
+/* line 62, ../sass/_grupo.scss */
 #modificarGrupos .modal-dialog {
-  width: 81% !important; }
+  width: 81% !important;
+}
+/* line 66, ../sass/_grupo.scss */
 #modificarGrupos th {
-  color: #2a6496; }
+  color: #2a6496;
+}
+/* line 70, ../sass/_grupo.scss */
 #modificarGrupos p {
-  font-size: 15px; }
+  font-size: 15px;
+}
+/* line 74, ../sass/_grupo.scss */
 #modificarGrupos h2 {
   font-size: 1.5em;
   font-weight: bold;
   color: #757475;
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+}
+/* line 87, ../sass/_grupo.scss */
 #modificarGrupos #agregarNuevos {
-  margin-top: 1%; }
+  margin-top: 1%;
+}
 
+/* line 92, ../sass/_grupo.scss */
 #todoGrupos {
   margin-bottom: 0px;
-  height: 100%; }
+  height: 100%;
+}
 
+/* line 98, ../sass/_grupo.scss */
 .miMargen {
-  margin-top: 1em; }
+  margin-top: 1em;
+}
 
+/* line 103, ../sass/_grupo.scss */
 .rayita {
   height: 100%;
   width: 10%;
   margin-left: 2%;
   background-color: #722d7b;
-  position: absolute; }
+  position: absolute;
+}
 
+/* line 114, ../sass/_grupo.scss */
 #mostrarGrupos h1 {
   font-size: 2em;
-  text-align: center; }
+  text-align: center;
+}
+/* line 119, ../sass/_grupo.scss */
 #mostrarGrupos li {
-  margin-left: 11%; }
+  margin-left: 11%;
+}
 
+/* line 126, ../sass/_grupo.scss */
 #navegacionProfesor .nav > li > a:focus {
   color: white !important;
   text-decoration: none;
-  background-color: #722d7b; }
+  background-color: #722d7b;
+}
 
+/* line 136, ../sass/_grupo.scss */
 #ulMostrarEnviado li {
-  margin-left: 12%; }
+  margin-left: 12%;
+}
 
+/* line 143, ../sass/_grupo.scss */
 #mostrarEnviados h1 {
   font-size: 2em;
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 151, ../sass/_grupo.scss */
 #mostrarArchivos .contenedorDeCajas {
-  margin-left: 11%; }
+  margin-left: 11%;
+}
+/* line 156, ../sass/_grupo.scss */
 #mostrarArchivos h1 {
   text-align: center;
-  font-size: 2em; }
+  font-size: 2em;
+}
+/* line 161, ../sass/_grupo.scss */
 #mostrarArchivos h4 {
-  color: #428bca; }
+  color: #428bca;
+}
 
+/* line 169, ../sass/_grupo.scss */
 #subirArchivos #errorArchivoGrupo {
-  margin-left: 2%; }
+  margin-left: 2%;
+}
+/* line 173, ../sass/_grupo.scss */
 #subirArchivos label {
   margin-top: 3%;
-  margin-bottom: 1%; }
+  margin-bottom: 1%;
+}
+/* line 178, ../sass/_grupo.scss */
 #subirArchivos span {
   font-size: 13px;
-  background: none; }
+  background: none;
+}
+/* line 183, ../sass/_grupo.scss */
 #subirArchivos h1 {
   text-align: center;
-  font-size: 2em; }
+  font-size: 2em;
+}
+/* line 188, ../sass/_grupo.scss */
 #subirArchivos select {
   margin-left: 2%;
-  width: 96%; }
+  width: 96%;
+}
+/* line 193, ../sass/_grupo.scss */
 #subirArchivos #btnSubir {
-  margin-left: 3%; }
+  margin-left: 3%;
+}
+/* line 197, ../sass/_grupo.scss */
 #subirArchivos #lvl {
-  margin-left: 2%; }
+  margin-left: 2%;
+}
 
+/* line 204, ../sass/_grupo.scss */
 .contenedorRubricasUi h1 {
   font-size: 1.875em;
   font-weight: bold;
   color: #757475;
-  text-align: center; }
+  text-align: center;
+}
+/* line 211, ../sass/_grupo.scss */
 .contenedorRubricasUi #fechas {
-  background-color: transparent !important; }
+  background-color: transparent !important;
+}
 
+/* line 216, ../sass/_grupo.scss */
 .nofl {
-  float: none !important; }
+  float: none !important;
+}
 
+/* line 220, ../sass/_grupo.scss */
 #archivosbox {
-  padding: 0px; }
+  padding: 0px;
+}
 
+/* line 226, ../sass/_grupo.scss */
 #mostrarMiGrupo h1 {
   font-size: 1.875em;
   font-weight: bold;
   color: #757475;
-  text-align: center; }
+  text-align: center;
+}
+/* line 233, ../sass/_grupo.scss */
 #mostrarMiGrupo h4 {
-  color: #428bca; }
+  color: #428bca;
+}
 
+/* line 238, ../sass/_grupo.scss */
 #navegacionEstudiante .nav > li > a:focus {
   color: white !important;
   text-decoration: none;
-  background-color: #722d7b; }
+  background-color: #722d7b;
+}
 
+/* line 244, ../sass/_grupo.scss */
 .fechaGrupo {
-  margin-left: 2%; }
+  margin-left: 2%;
+}
 
+/* line 248, ../sass/_grupo.scss */
 .colorDeTitulos {
-  color: #428bca; }
+  color: #428bca;
+}
+
+/* line 252, ../sass/_grupo.scss */
+.contenedorDeCajas3 {
+  overflow-y: scroll;
+}
+
+/* line 256, ../sass/_grupo.scss */
+.misTitulos {
+  color: #757475 !important;
+}
+
+/* line 260, ../sass/_grupo.scss */
+.mipos {
+  position: absolute;
+}
+
+/* line 264, ../sass/_grupo.scss */
+.ventanasGru {
+  margin-left: 15% !important;
+}
 
 @media print {
+  /* line 2, ../sass/_perfil.scss */
   .btnPrint {
-    display: none; } }
+    display: none;
+  }
+}
+/* line 6, ../sass/_perfil.scss */
 .perfil-layout {
   width: 100%;
-  padding: 0 1.041666666666667% 0.7142857142857143em; }
-  .perfil-layout img {
-    max-width: 100%;
-    height: auto; }
-  .perfil-layout h1 {
-    text-align: center;
-    vertical-align: middle; }
+  padding: 0 1.041666666666667% 0.7142857142857143em;
+}
+/* line 7, ../sass/_perfil.scss */
+.perfil-layout img {
+  max-width: 100%;
+  height: auto;
+}
+/* line 13, ../sass/_perfil.scss */
+.perfil-layout h1 {
+  text-align: center;
+  vertical-align: middle;
+}
 
+/* line 18, ../sass/_perfil.scss */
 .cabecera-container {
   width: 62.5%;
   margin: 0 auto;
   margin-bottom: 20px;
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+}
 
+/* line 25, ../sass/_perfil.scss */
 .centrado-perfil {
-  width: 25.6%; }
+  width: 25.6%;
+}
 
+/* line 28, ../sass/_perfil.scss */
 .cabecera-slogan {
-  width: 72%; }
+  width: 72%;
+}
 
+/* line 31, ../sass/_perfil.scss */
 .cuerpo-perfil {
   width: 62.5%;
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
+/* line 35, ../sass/_perfil.scss */
 .cabcera-portafolio {
-  width: 25.6%; }
+  width: 25.6%;
+}
 
+/* line 1, ../sass/_proyectos.scss */
 .cabecera-votacion h2 {
   display: block;
-  text-indent: 1em; }
+  text-indent: 1em;
+}
 
+/* line 5, ../sass/_proyectos.scss */
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #f4f3f3; }
+  background-color: #f4f3f3;
+}
 
+/* line 10, ../sass/_proyectos.scss */
 .proyecto-top {
   width: 270px;
   border: 1px solid gray;
-  padding: 15px 16px; }
+  padding: 15px 16px;
+}
 
+/* line 15, ../sass/_proyectos.scss */
 .proyecto-info {
   display: -webkit-flex;
   display: -moz-flex;
@@ -881,95 +1458,129 @@ md-item-content.div {
   display: -o-flex;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around; }
+  justify-content: space-around;
+}
 
+/* line 24, ../sass/_proyectos.scss */
 .proyecto-slider {
-  margin: 8px 9px; }
+  margin: 8px 9px;
+}
 
+/* line 27, ../sass/_proyectos.scss */
 .btn-right {
-  float: right; }
+  float: right;
+}
 
+/* line 30, ../sass/_proyectos.scss */
 #proyecto-portafolio {
   list-style: none inside;
   padding: 0;
   margin: 1em 1.5625%;
   display: flex;
   -webkit-justify-content: space-between;
-  justify-content: space-between; }
-  #proyecto-portafolio li {
-    width: 20.83333333333333%; }
+  justify-content: space-between;
+}
+/* line 37, ../sass/_proyectos.scss */
+#proyecto-portafolio li {
+  width: 20.83333333333333%;
+}
 
+/* line 41, ../sass/_proyectos.scss */
 h1, h2, h3, h4 {
-  color: #757475; }
+  color: #757475;
+}
 
+/* line 1, ../sass/_slideshow.scss */
 .slideshow-container {
-  position: relative; }
-  .slideshow-container ul {
-    list-style: none inside; }
-  .slideshow-container #slideshow {
-    padding: 0px;
-    width: 100%;
-    height: 472px;
-    overflow: hidden; }
-    .slideshow-container #slideshow img {
-      width: 100%; }
-  .slideshow-container .slideshow-thumbs {
-    position: absolute;
-    top: 460px;
-    left: 475px; }
-    .slideshow-container .slideshow-thumbs li {
-      margin-left: 5px;
-      float: left;
-      background-color: #f3f4f4;
-      border: 1px solid gray;
-      border-radius: 50%; }
-      .slideshow-container .slideshow-thumbs li:first-child {
-        margin-left: 0px; }
-    .slideshow-container .slideshow-thumbs a {
-      display: block;
-      width: 10px;
-      height: 10px;
-      background-color: white;
-      border-radius: 50%; }
+  position: relative;
+}
+/* line 3, ../sass/_slideshow.scss */
+.slideshow-container ul {
+  list-style: none inside;
+}
+/* line 6, ../sass/_slideshow.scss */
+.slideshow-container #slideshow {
+  padding: 0px;
+  width: 100%;
+  height: 472px;
+  overflow: hidden;
+}
+/* line 11, ../sass/_slideshow.scss */
+.slideshow-container #slideshow img {
+  width: 100%;
+}
+/* line 15, ../sass/_slideshow.scss */
+.slideshow-container .slideshow-thumbs {
+  position: absolute;
+  top: 460px;
+  left: 475px;
+}
+/* line 19, ../sass/_slideshow.scss */
+.slideshow-container .slideshow-thumbs li {
+  margin-left: 5px;
+  float: left;
+  background-color: #f3f4f4;
+  border: 1px solid gray;
+  border-radius: 50%;
+}
+/* line 25, ../sass/_slideshow.scss */
+.slideshow-container .slideshow-thumbs li:first-child {
+  margin-left: 0px;
+}
+/* line 29, ../sass/_slideshow.scss */
+.slideshow-container .slideshow-thumbs a {
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+}
 
+/* line 2, ../sass/_votacion.scss */
 .votacionControl h1 {
-  text-indent: 1.428571428571429em; }
+  text-indent: 1.428571428571429em;
+}
 
+/* line 1, ../sass/_login.scss */
 .center {
-  text-align: center; }
+  text-align: center;
+}
 
+/* line 5, ../sass/_login.scss */
 .modal-login {
-  border-top: 0; }
+  border-top: 0;
+}
 
+/* line 9, ../sass/_login.scss */
 .msgdanger {
   font-size: 13px;
-  color: red; }
+  color: red;
+}
 
+/* line 13, ../sass/_login.scss */
 .msguser {
   font-size: 13px;
-  color: red; }
+  color: red;
+}
 
+/* line 17, ../sass/_login.scss */
 .ingresar-login {
-  text-align: right; }
+  text-align: right;
+}
 
+/* line 20, ../sass/_login.scss */
 .contrasena {
-  color: #722d7d; }
-  .contrasena:hover {
-    color: #722d7d; }
+  color: #722d7d;
+}
+/* line 22, ../sass/_login.scss */
+.contrasena:hover {
+  color: #722d7d;
+}
 
-/*# sourceMappingURL=screen.css.map */
-.votacionControl .glyphicon{
-  top:-26px;
-  right: -4px;
-  }
-.votacionControl .glyphicon:before{
-    color: #722d7d;
-}
-.votacionControl h3{
-  text-indent: 2.2em;
-}
-.votacionControl .table{
-  width: 85%;
-  margin-left: auto;
-  margin-right: auto;
+/* line 26, ../sass/_login.scss */
+#user-profile {
+  width: 25px;
+  height: 25px;
+  margin-top: 0.7em;
+  margin-left: 1em;
 }
