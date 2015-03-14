@@ -17,10 +17,13 @@ header{
 			padding-top: 28px;
 		}
 		.menuSesion{
-			padding-left: 25px;
+			/*padding-left: 25px;*/
+			.config{
+				width: 45px;
+			}
 		}
 		.menuList li{
-			padding-left: 25px;
+			padding-left: 4px;
 		}
 		.navbar-right img, .navbar-right a, #imgLogo{
 			float: left;
