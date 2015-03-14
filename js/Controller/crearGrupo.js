@@ -400,24 +400,18 @@
 			};
 			$scope.removeGrupo2=function(grupo){
 				var i = $scope.muchos.indexOf(grupo);
-				var r = confirm("Desea eliminar esto");
-				if (r == true) {
 				$scope.muchos.splice(i,1);
-				}
+
 			};
 			$scope.removeGrupo3=function(grupo){
 				var i = $scope.todos.indexOf(grupo);
-				var r = confirm("Desea eliminar esto");
-				if (r == true) {
 				$scope.todos.splice(i,1);
-				}
+
 			};
 			$scope.removeGrupo4=function(grupo){
 				var i = $scope.temps.indexOf(grupo);
-				var r = confirm("Desea eliminar esto");
-				if (r == true) {
 				$scope.temps.splice(i,1);
-				}
+	
 			};
 			$scope.removeGrupo5=function(todosArchivo){
 				var i = $scope.todosArchivos.indexOf(todosArchivo);
@@ -688,6 +682,7 @@
 					{
 						$scope.todos.push({nombre:$scope.temps2[r].nombre,role:$scope.temps2[r].role});
 					}
+					$('<p id="msgSuccess" class="alert alert-success mipos">Edición completada.</p>').insertBefore('h1#equip').delay(3000).fadeOut();
 				$scope.nuevoEstudiante2 ='';
 				$scope.temps =[];
 				$scope.temps2 =[];
