@@ -42,11 +42,13 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 		  })
         
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
-                
 });
 
-routerApp.controller('AppCtrl', function($scope) {
-  
+routerApp.controller('MenuC', function($scope) {
+    $('ul.menuConfig li a').click(function () {
+    $('ul.menuConfig li.active').removeClass('active')
+    $(this).parent('li').addClass('active')
+  });
 });
 var users = [];
 

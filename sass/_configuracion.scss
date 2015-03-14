@@ -56,11 +56,22 @@ h1, legend{
 		min-height: 450px;
 			ul{
 			padding-top:20px;
+			border-bottom: 1px solid #D5D5D5;
 				li a{
 					color:#757475;
 					font-weight: bold;	
 				}
-				
+				li > a:hover, .nav > li > a:focus {
+				  text-decoration: none;
+				  background-color: #D5D5D5;
+				}
+				li.active a{
+				  text-decoration: none;
+				  background-color: #D5D5D5;
+				}
+				li:first-child{
+					padding-left: 15px;
+				}
 			}
 			.errorSearch{
 					font-size:13px;
