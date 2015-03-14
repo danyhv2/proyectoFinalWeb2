@@ -113,7 +113,7 @@ h1, legend{
 					}
 					#msgSuccess, .msgErrorUser{
 						margin-left: 18px;
-						@include msg;
+						@include msg; 
 					}
 					.btnAddUser{
 						@include btnPurple;
