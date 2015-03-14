@@ -1,0 +1,25 @@
+.center{
+	text-align: center;
+}
+
+.modal-login{
+	border-top: 0;
+}
+
+.msgdanger{
+	font-size: 13px;
+	color: red;
+}
+.msguser{
+	font-size: 13px;
+	color: red;
+}
+.ingresar-login{
+	text-align: right;
+}
+.contrasena{
+	color: #722d7d;
+	&:hover{
+		color: #722d7d;	
+	}
+}

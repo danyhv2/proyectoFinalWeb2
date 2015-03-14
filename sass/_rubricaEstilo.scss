@@ -1,4 +1,29 @@
 /*Estilos Guillermo*/
+
+.tablaDetallesCurso{
+  width: 100%;
+  margin-top: 1em;
+  tr{
+    width: 100%;
+    td{
+      width: 20%;
+
+    }
+  }
+}
+
+.tablaDetallesCursoEstu{
+  width: 100%;
+  margin-top: 1em;
+  tr{
+    width: 100%;
+    td{
+      width: 100%;
+      display: inline;
+    }
+  }
+}
+
 #navegacionDirector
 {
   .nav > li > a:focus 
@@ -49,6 +74,12 @@
 
 .twoinrow{
   width: 65%;
+
+}
+
+.maxVal{
+  height: 35em;
+  overflow-y: scroll
 }
 
 #ContenedorRubricas{
@@ -93,8 +124,6 @@
     background-color: #722d7b !important;
     color: #fff !important;
 }
-
-
 
 .contenedorDeCajas{
   height: 30em; 

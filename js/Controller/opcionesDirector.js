@@ -96,9 +96,12 @@
                         return (n)
                     });
 
+                
                     for (var c = 0; c <= notasPuestas.length - 1; c++) {
+                        var numeroPuest = Number(notasPuestas[c])
+                        var numeroPred = Number(notasPredef[c])
 
-                        if (notasPuestas[c] <= notasPredef[c]) {
+                        if (numeroPuest <= numeroPred) {
                             concordancia++;
                         } else {
                             concordancia--;
@@ -106,9 +109,9 @@
                     };
 
                     if (concordancia === notasPuestas.length) {
-                        alert("Exito")
+                        $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#formAddN').delay(1000).fadeOut();
                     } else {
-                        alert("error")
+                        $('<div class="msgError" aria-hidden="false">Los valores no pueden ser mayores a los de la rubrica</div>').insertBefore('#formAddN').delay(1000).fadeOut();
                     };
 
                 }
@@ -121,9 +124,9 @@
         }
 
         $scope.delCurso = function(valores) {
-            console.log(valores)
             var l = $scope.estCr.indexOf(valores);
             $scope.estCr.splice(l, 1);
+            $('<p id="msgSuccess" class="alert alert-success">El profesor se elimino correctamente</p>').insertBefore('#tablaProfes').delay(500).fadeOut();
         }
 
         $scope.editCrusgru = function(valores) {
@@ -155,7 +158,6 @@
         }
 
         $scope.addCurso = function() {
-            console.log($scope.mCarrera)
             if ($scope.mCarrera === "" || $scope.mCurso ==="" || $scope.mCarrera === undefined || $scope.mCurso === undefined) {
                 $('<div class="msgError" aria-hidden="false">Debe seleccionar un valor en ambos campos</div>').insertAfter('#curs').delay(1000).fadeOut();
             }else{
@@ -166,7 +168,7 @@
                     for (var m = valorActualC.length - 1; m >= 0; m--) {
                         archivos.Carreras[i].CursosAsignados.push(valorActualC[m])
                     };
-                    $('<span class="bg-success text-success errorMsj">Se agrego con exito</span>').insertAfter('#curs').delay(1000).fadeOut();
+                    $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#formAddR').delay(1000).fadeOut();
                 };
             };
             $scope.mCarrera = '';
@@ -206,6 +208,18 @@
             $scope.par4 = $scope.proT;
             $scope.par5 = $scope.estT;
 
+        }
+
+          $scope.delTempProf = function(cs) {
+            var z = $scope.proT.indexOf(cs);
+            $scope.proT.splice(z, 1);
+            $('<p id="msgSuccess" class="alert alert-success">El profesor se elimino correctamente</p>').insertBefore('#tablaProfes').delay(500).fadeOut();
+        }
+
+        $scope.delTempEst = function(zc) {
+            var z = $scope.estT.indexOf(zc);
+            $scope.estT.splice(z, 1);
+            $('<p id="msgSuccess" class="alert alert-success">El estudiante se elimino correctamente</p>').insertBefore('#tablaEstud').delay(500).fadeOut();
         }
 
         $scope.estudAdd = function() {
@@ -284,9 +298,11 @@
                         <input required class="valoresTemp form-control" name="nombreEditRubrica" value="' + value + '">\
                 </div>')
 
-
                 });
             });
+
+            $("#rubricasModal div:first-child input").attr('disabled', 'disabled');
+            $("#rubricasModal div:eq(1) input").attr('disabled', 'disabled');
 
             var t = $scope.este.datos.RubricasCreadas.indexOf(valores);
 
@@ -294,6 +310,8 @@
 
                 var rubricasPorReemplazar = [],
                     rubrosPorReemplazar = [],
+                    validacion = [],
+                    numeroPuest = 0,
                     y = 0,
                     s = 0,
                     total = 0;
@@ -308,32 +326,51 @@
                     rubrosPorReemplazar.push($(this).text());
                 });
 
-
-                var cosa = [],
-                    RubricaLista = [];
-
-                function pushToAry(name, val) {
-                    var vas = {};
-                    vas[name] = val
-                    cosa.push(vas);
-                }
-
-                for (var w = 0; w < s; w++) {
-                    var rubr = rubrosPorReemplazar[w],
-                        num = rubricasPorReemplazar[w];
-
-                    pushToAry(rubr, num);
-
+                for (var i = 0; i <= rubricasPorReemplazar.length; i++) {
+                    var k = i + 2;
+                    validacion.push(rubricasPorReemplazar[k])
                 };
-
-
-                archivos.RubricasCreadas.push({
-                    "rubricaLista": cosa
+                validacion = $.grep(validacion, function(n) {
+                    return (n)
                 });
 
-                $scope.este.datos.RubricasCreadas.splice(t, 1);
-                $('.errormsj2').hide();
-                $('#rubricasModal').empty();
+
+                for (var g = 0; g <= validacion.length - 1; g++) {
+                    numeroPuest = numeroPuest + Number(validacion[g])
+                };
+                    console.log(numeroPuest)
+                if (numeroPuest === 100) {
+
+                    var cosa = [];
+
+                    function pushToAry(name, val) {
+                        var vas = {};
+                        vas[name] = val
+                        cosa.push(vas);
+                    }
+
+                       for (var w = 0; w < s; w++) {
+                        var rubr = rubrosPorReemplazar[w],
+                            num = rubricasPorReemplazar[w];
+
+                           pushToAry(rubr, num);
+
+                       };
+
+
+                           archivos.RubricasCreadas.push({
+                        "rubricaLista": cosa
+                    });
+
+                    $scope.este.datos.RubricasCreadas.splice(t, 1);
+                    $('.errormsj2').hide();
+                    $('#rubricasModal').empty();
+                    $('<p id="msgSuccess" class="alert alert-success">Datos guardados correctamente.</p>').insertBefore('#tutuloRubri').delay(1000).fadeOut();
+                }else{
+                    $('.errormsj2').hide();
+                    $('#rubricasModal').empty();
+                    $('<div class="msgError" aria-hidden="false">El valores deben sumar 100</div>').insertBefore('#tutuloRubri').delay(1000).fadeOut();
+                }
             }
         }
 
@@ -432,7 +469,6 @@
         .state('grupo.cursosCarreras', {
             url: '/carreras',
             templateUrl: 'pages/_cursosCarrerasDirector.html',
-            //templateUrl: 'pages/_rubricaEstudiante.html',
             controller: 'directorController'
         })
     });
@@ -455,9 +491,9 @@ var archivos = {
     }],
 
     "ParamatrosRubrica": [{
-        "parametro": "Prueba"
+        "parametro": "Parametro prueba"
     }, {
-        "parametro": "Prueba 1"
+        "parametro": "Parametro prueba 1"
     }],
 
     "GruposDeCurso": [{
@@ -465,16 +501,16 @@ var archivos = {
         "NombreDelGrupo": "Grupo 1",
         "Horario": "Noche",
         "Estudiantes": [{
-            "NombreEstudiante": "Frodo",
+            "NombreEstudiante": "Mario Marin",
         }, {
-            "NombreEstudiante": "Harry",
+            "NombreEstudiante": "Peter Parker",
         }],
 
         "Profesores": [{
-            "NombreProfesor": "Israel",
+            "NombreProfesor": "Jose Anruz",
             "Rol asignado": "Proceso"
         }, {
-            "NombreProfesor": "Carlos",
+            "NombreProfesor": "Sofia Vega",
             "Rol asignado": "Practica"
         }],
     }, {
@@ -490,11 +526,11 @@ var archivos = {
         }],
 
         "Profesores": [{
-            "NombreProfesor": "Israel",
+            "NombreProfesor": "Israel Martinez",
             "Rol asignado": "Proceso"
 
         }, {
-            "NombreProfesor": "Carlos",
+            "NombreProfesor": "Carlos Villafuerte",
             "Rol asignado": "Factor Humano"
         }],
     }],
@@ -547,8 +583,3 @@ var archivos = {
         "Profesor": "Robert Smith"
     }]
 }
-
-//poner el rango del Profesor
-//Mensajes de confirmacion y error
-//borrar profes o estudiantes
-//proceso teoria factor humano

@@ -133,31 +133,31 @@
                         <option>Noche</option>
                      </select>
                   </div>
-                  <div class="group">
-                     <label>Profesores</label>
-                     <ul class="list-group">
-                        <li ng-repeat="proT in proT" class="list-group-item">
-                           {{proT}}
-                           <select class="form-control">
+
+                  <table id="tablaProfes" class="tablaDetallesCurso">
+                     <th>Profesores</th>
+                     <tr ng-repeat="proT in proT" class="list-group-item">
+                        <td>{{proT}}</td><td><select class="form-control">
                               <option>Proceso</option>
                               <option>Practica</option>
                               <option>Factor Humano</option>
-                           </select>
-                        </li>
-                     </ul>
-                  </div>
-                  <div class="group">
-                     <label>Estudiantes</label>
-                     <ul class="list-group">
-                        <li ng-repeat="estT in estT" class="list-group-item">
-                           {{estT}}
-                        </li>
-                     </ul>
-                  </div>
+                           </select></td>
+                           <td><img class="pull-right" src="img/del.png" ng-click="delTempProf(valores)" style="cursor: pointer"></td>
+                     </tr>
+                  </table>
+
+                  <table id="tablaEstud" class="tablaDetallesCursoEstu">
+                     <th>Estudiantes</th>
+                     <tr ng-repeat="estT in estT" class="list-group-item">
+                        <td>{{estT}}</td><td><img src="img/del.png" ng-click="delTempEst(valores)" style="cursor: pointer"></td>
+                     </tr>
+                  </table>
+
                </div>
                <div class="alert alert-danger errormsj2">La suma de los porcentajes no es igual a 100.</div>
                <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-default simpleColor" data-dismiss="modal">Guardar</button>
                </div>
             </div>
          </div>

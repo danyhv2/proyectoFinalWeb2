@@ -1,0 +1,34 @@
+[
+{
+    "nombre": "Administrador",
+    "password": "12345",
+    "email": "admin@ucenfotec.ac.cr",
+    "thumbnail": "img/photo-11.png",
+    "img": "img/photo-1.jpg",
+    "rol": "administrador"
+},
+{
+    "nombre": "Profesor",
+    "password": "12345",
+    "email": "profesor@ucenfotec.ac.cr",
+    "thumbnail": "img/photo-22.png",    
+    "img": "img/photo-2.jpg",
+    "rol": "profesor"
+},
+{
+    "nombre": "Estudiante",
+    "password": "12345",
+    "email": "estudiante@ucenfotec.ac.cr",
+    "thumbnail":"img/photo-33.png",    
+    "img": "img/photo-3.jpg",
+    "rol": "estudiante"
+},
+{
+    "nombre": "Director",
+    "password": "12345",
+    "email": "director@ucenfotec.ac.cr",
+    "thumbnail":"img/photo-33.png",    
+    "img": "img/photo-3.jpg",
+    "rol": "director"
+}
+]
