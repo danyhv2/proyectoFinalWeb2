@@ -1,11 +1,11 @@
-<div>
+<div ng-controller='MenuC'>
       <ul class="menuConfig nav nav-tabs">
-        <li role="presentation"><a ui-sref=".ingresarUsuario">Ingresar Usuarios</a></li>
+        <li class="active" role="presentation"><a ui-sref=".ingresarUsuario">Ingresar Usuarios</a></li>
         <li role="presentation"><a ui-sref=".verUsuario">Ver Usuarios</a></li>
         <li role="presentation"><a ui-sref=".modificarUsuario">Modificar Usuarios</a></li>
         <li role="presentation"><a ui-sref=".ingresarCarrera">Ingresar Carrera</a></li>
         <li role="presentation"><a ui-sref=".ingresarCurso">Ingresar Curso</a></li>
-		<li role="presentation"><a ui-sref=".votacion">Configurar votación</a></li>
+		<li role="presentation"><a ui-sref=".votacion">Votación</a></li>
       </ul>
       <div ui-view></div>
 </div>
