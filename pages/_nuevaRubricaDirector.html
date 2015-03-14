@@ -9,7 +9,7 @@
          <p>Está seguro que desea borrar la rubrica?</p>
       </div>
       <div class="modal-footer">
-         <button type="button" class="btn btnConfirmModal" ng-click="delRe()"
+         <button type="button" class="btn btnConfirmModal" ng-click="delR(valores)"
             data-dismiss="modal">Proceder</button>
          <button type="button" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
       </div>
@@ -23,7 +23,7 @@
                <tr ng-repeat="valores in este.datos.RubricasCreadas">
                   <td>{{valores.rubricaLista[0].NombreDeRubrica}}</td>
                   <td><img src="img/edit.png"  ng-click="edit(valores)" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
-                  <td><img src="img/del.png" ng-click="delR(valores)" data-toggle="modal" data-target="#modalConfirm"  style="cursor: pointer"></td>
+                  <td><img src="img/del.png" data-toggle="modal" data-target="#modalConfirm"  style="cursor: pointer"></td>
                </tr>
             </tbody>
          </table>
