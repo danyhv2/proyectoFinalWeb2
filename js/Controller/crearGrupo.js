@@ -736,6 +736,14 @@
 	            templateUrl: 'pages/_tareasEstudiante.html',
 	            controller : 'gruposController'
 	        })
+
+	        .state('grupo2.notasProfesor', {
+	            url: '/AsignarNotas',
+	            templateUrl: 'pages/_rubricaEstudiante.html',
+	            controller: 'directorController'
+	        })
+
+	        
 	        
 	        
 	        
