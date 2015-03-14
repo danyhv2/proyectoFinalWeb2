@@ -126,6 +126,7 @@
         $scope.delCurso = function(valores) {
             var l = $scope.estCr.indexOf(valores);
             $scope.estCr.splice(l, 1);
+            $('<p id="msgSuccess" class="alert alert-success">El profesor se elimino correctamente</p>').insertBefore('#tablaProfes').delay(500).fadeOut();
         }
 
         $scope.editCrusgru = function(valores) {
@@ -212,11 +213,13 @@
           $scope.delTempProf = function(cs) {
             var z = $scope.proT.indexOf(cs);
             $scope.proT.splice(z, 1);
+            $('<p id="msgSuccess" class="alert alert-success">El profesor se elimino correctamente</p>').insertBefore('#tablaProfes').delay(500).fadeOut();
         }
 
         $scope.delTempEst = function(zc) {
             var z = $scope.estT.indexOf(zc);
             $scope.estT.splice(z, 1);
+            $('<p id="msgSuccess" class="alert alert-success">El estudiante se elimino correctamente</p>').insertBefore('#tablaEstud').delay(500).fadeOut();
         }
 
         $scope.estudAdd = function() {
@@ -295,9 +298,11 @@
                         <input required class="valoresTemp form-control" name="nombreEditRubrica" value="' + value + '">\
                 </div>')
 
-
                 });
             });
+
+            $("#rubricasModal div:first-child input").attr('disabled', 'disabled');
+            $("#rubricasModal div:eq(1) input").attr('disabled', 'disabled');
 
             var t = $scope.este.datos.RubricasCreadas.indexOf(valores);
 
@@ -305,6 +310,8 @@
 
                 var rubricasPorReemplazar = [],
                     rubrosPorReemplazar = [],
+                    validacion = [],
+                    numeroPuest = 0,
                     y = 0,
                     s = 0,
                     total = 0;
@@ -319,32 +326,51 @@
                     rubrosPorReemplazar.push($(this).text());
                 });
 
-
-                var cosa = [],
-                    RubricaLista = [];
-
-                function pushToAry(name, val) {
-                    var vas = {};
-                    vas[name] = val
-                    cosa.push(vas);
-                }
-
-                for (var w = 0; w < s; w++) {
-                    var rubr = rubrosPorReemplazar[w],
-                        num = rubricasPorReemplazar[w];
-
-                    pushToAry(rubr, num);
-
+                for (var i = 0; i <= rubricasPorReemplazar.length; i++) {
+                    var k = i + 2;
+                    validacion.push(rubricasPorReemplazar[k])
                 };
-
-
-                archivos.RubricasCreadas.push({
-                    "rubricaLista": cosa
+                validacion = $.grep(validacion, function(n) {
+                    return (n)
                 });
 
-                $scope.este.datos.RubricasCreadas.splice(t, 1);
-                $('.errormsj2').hide();
-                $('#rubricasModal').empty();
+
+                for (var g = 0; g <= validacion.length - 1; g++) {
+                    numeroPuest = numeroPuest + Number(validacion[g])
+                };
+                    console.log(numeroPuest)
+                if (numeroPuest === 100) {
+
+                    var cosa = [];
+
+                    function pushToAry(name, val) {
+                        var vas = {};
+                        vas[name] = val
+                        cosa.push(vas);
+                    }
+
+                       for (var w = 0; w < s; w++) {
+                        var rubr = rubrosPorReemplazar[w],
+                            num = rubricasPorReemplazar[w];
+
+                           pushToAry(rubr, num);
+
+                       };
+
+
+                           archivos.RubricasCreadas.push({
+                        "rubricaLista": cosa
+                    });
+
+                    $scope.este.datos.RubricasCreadas.splice(t, 1);
+                    $('.errormsj2').hide();
+                    $('#rubricasModal').empty();
+                    $('<p id="msgSuccess" class="alert alert-success">Datos guardados correctamente.</p>').insertBefore('#tutuloRubri').delay(1000).fadeOut();
+                }else{
+                    $('.errormsj2').hide();
+                    $('#rubricasModal').empty();
+                    $('<div class="msgError" aria-hidden="false">El valores deben sumar 100</div>').insertBefore('#tutuloRubri').delay(1000).fadeOut();
+                }
             }
         }
 

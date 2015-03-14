@@ -134,7 +134,7 @@
                      </select>
                   </div>
 
-                  <table class="tablaDetallesCurso">
+                  <table id="tablaProfes" class="tablaDetallesCurso">
                      <th>Profesores</th>
                      <tr ng-repeat="proT in proT" class="list-group-item">
                         <td>{{proT}}</td><td><select class="form-control">
@@ -146,7 +146,7 @@
                      </tr>
                   </table>
 
-                  <table class="tablaDetallesCursoEstu">
+                  <table id="tablaEstud" class="tablaDetallesCursoEstu">
                      <th>Estudiantes</th>
                      <tr ng-repeat="estT in estT" class="list-group-item">
                         <td>{{estT}}</td><td><img src="img/del.png" ng-click="delTempEst(valores)" style="cursor: pointer"></td>

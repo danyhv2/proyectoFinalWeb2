@@ -1,25 +1,22 @@
 <div id="portafolio" class="perfil-layout clearfix">
 	<h1>Portafolio</h1>
-	<div class="cabecera-container">
-		<div class="center-block cabcera-portafolio">
-			<img ng-src="{{usuario.foto}}" alt="{{usuario.nombre}}">
+	<div class="cabecera-perfil">
+		<div>
+			<img width="64" height="64" ng-src="{{usuario.foto}}" alt="{{usuario.nombre}}">
 		</div>
-		<div class="cabecera-slogan">
-			<h2>{{usuario.nombre  +' ' +usuario.primerApellido +' ' +usuario.segundoApellido}}</h2>
-			<h3>{{usuario.carrera}}</h3>
+		<div>
+			<h1>Nombre: {{usuario.nombre  +' ' +usuario.primerApellido +' ' +usuario.segundoApellido}}</h1>
+			<h2>Carrera: {{usuario.carrera}}</h2>
 		</div>
 	</div>
-	<div class="">
-		<h3>Introducción</h3>
-		<p>{{usuario.descripcion}}</p>
-		<h3>Datos personales</h3>
-		<p>Fecha de nacimiento: <time datetime="{{usuario.fechaNacimiento.small}}">{{usuario.fechaNacimiento.full}}</time></p>
+	<div class="cuerpo-perfil">
+		<p>Acerca de: {{usuario.descripcion}}</p>
 		<p>Correo electr&oacute;nico: {{usuario.correoElectronico}}</p>
 		<p>Tel&eacute;fono: {{usuario.telefono}}</p>
 		<p>Celular: {{usuario.celular}}</p>
 		<p>Residencia: {{usuario.direccionExacta}}</p>
 		<div>
-			<h2>Cursos Realizados:</h2>
+			<h2>Cursos Realizados</h2>
 			<table class="table table-striped table-hover">
 				<thead>
 					<th>
@@ -27,9 +24,8 @@
 							<td>
 								Nombre
 							</td>
-							<td>
-								Periodo
-							</td>
+							<td>Nota</td>
+							<td>Periodo</td>
 						</tr>
 					</th>
 				</thead>
@@ -39,32 +35,29 @@
 							{{curso.nombre}}
 						</td>
 						<td>
+							{{curso.nota}}
+						</td>
+						<td>
 							{{curso.periodo}}
 						</td>
 					</tr>
 				</tbody>
 			</table>
 			<!-- Proyectos-->
-			<h3>Proyectos:</h3>
 		<ul id="proyecto-portafolio">
-			<li ng-repeat="proj in proyectos">
-				<h3>{{proj.nombreDeProyecto}}</h3>
-				<a href="{{proj.leerMas}}">
-				<img  width="200" ng-src="{{proj.imgPreview}}">	
-				</a>
-				<p>{{proj.descripcion}}</p>
-				<a href="{{projec.leerMas}}"></a>
-			</li>
+			<li ng-repeat="proj in usuario.proyectos">
+				<img ng-src="{{proj.imgPreview}}">
+				{{}}</li>
 		</ul>
 		</div>
 	</div>
 	<div class="controls-right clearfix">
-		<button type="button" class="btn btn-default simpleColor btn-right btnPrint"  data-toggle="modal" data-target="#modificarPortafolio">Cambiar el portafolio</button>
-		<a ng-click="imprimirPortafolio()" class="btnPrint btn btn-right btn-default simpleColor">Imprimir</a>
+		<button type="button" class="btn btn-default btnPrint"  data-toggle="modal" data-target="#modificarPerfil">Cambiar el portafolio</button>
+		<a ng-click="imprimirPortafolio()" class="btnPrint btn btn-default">Imprimir</a>
 	</div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="modificarPortafolio" tabindex="-1" role="dialog" aria-labelledby="modificarPortafolio" aria-hidden="true">
+<div class="modal fade" id="modificarPerfil" tabindex="-1" role="dialog" aria-labelledby="modificarPerfil" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header modal-header-padding">
@@ -72,18 +65,15 @@
 				<h4 class="modal-title" id="modalPerfil">Modificar Portafolio</h4>
 			</div>
 			<div class="modal-body">
-				<form name="portafolioEditForm" novalidate>
+				<form name="portafolioEditForm" ng-submit="portafolioEditForm.$valid " novalidate>
 					<md-input-container>
 					<label>Correo electrónico</label>
-					<input id="email" type="email"required name="correoElectronico" ng-model="usuario.correoElectronico">
-					<div ng-show="portafolioEditForm.$submitted || portafolioEditForm.correoElectronico.$touched">
-                      <div class="msgError" ng-show="portafolioEditForm.correoElectronico.$error.required">Haz dejado el correo electrónico, por favor llenarlo.</div>
-                    </div>
+					<input required name="correoElectronico" ng-model="usuario.correoElectronico">
 					</md-input-container>
 				</div>
 				<div class="modal-footer">
-					<button type="button" class="btn btn-right btn-default" data-dismiss="modal">Cerrar</button>
-					<button type="submit" class="btn  btn-right simpleColor" ng-click="modificarPortafolio()">Actualizar Portafolio</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					<button type="button" class="btn btn-default" ng-click="actualizarDatos()">Actualizar Portafolio</button>
 					{{portafoliOEditForm.$valid}}
 				</div>
 			</form>
