@@ -50,6 +50,7 @@ routerApp.controller('MenuC', function($scope) {
     $(this).parent('li').addClass('active')
   });
 });
+
 var users = [];
 
 routerApp.controller('userCtrl', function($scope){
