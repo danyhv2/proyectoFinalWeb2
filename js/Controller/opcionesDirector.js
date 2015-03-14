@@ -157,7 +157,6 @@
         }
 
         $scope.addCurso = function() {
-            console.log($scope.mCarrera)
             if ($scope.mCarrera === "" || $scope.mCurso ==="" || $scope.mCarrera === undefined || $scope.mCurso === undefined) {
                 $('<div class="msgError" aria-hidden="false">Debe seleccionar un valor en ambos campos</div>').insertAfter('#curs').delay(1000).fadeOut();
             }else{
@@ -444,7 +443,6 @@
         .state('grupo.cursosCarreras', {
             url: '/carreras',
             templateUrl: 'pages/_cursosCarrerasDirector.html',
-            //templateUrl: 'pages/_rubricaEstudiante.html',
             controller: 'directorController'
         })
     });
