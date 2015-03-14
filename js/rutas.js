@@ -2,7 +2,7 @@ var route = angular.module('rutas', ['ui.router', 'module', 'routerApp', 'module
 
 route.config(function($stateProvider, $urlRouterProvider) {
     
-    $urlRouterProvider.otherwise('/');
+    /*$urlRouterProvider.otherwise('/');*/
     
     $stateProvider
         
