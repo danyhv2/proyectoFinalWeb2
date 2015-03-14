@@ -5,7 +5,7 @@
          <button type="button" class="simpleColor btn botonSim pull-right"  data-toggle="modal" data-target="#modelCrearGrupoCurso">Crear nuevo</button>
       </div>
       <!--Modal Confirm-->
-      <div class="modal-content in" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             <h4 class="modal-title">Confirmar borrado curso</h4>
@@ -28,37 +28,37 @@
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <h1 class="modal-title" id="myModalLabel">Crear Curso</h1>
                </div>
-               <form id="modalNuevoGru" name="CurForm" ng-submit="CurForm.$valid &&  guarNuevGr()">
+               <form id="modalNuevoGru" name="CurForm" ng-submit="guarNuevGr()">
                   <ng-form>
                      <div class="modal-body cajaDelmodal">
-                        <div class="group">
+                        <div id="Nam" class="group">
                            <md-input-container>
                               <label>Nombre del curso</label>
-                              <input   md-maxlength="20" required name="nombreRubrica" ng-model="infoIngresada1">
+                              <input md-maxlength="20" name="nombreRubrica" ng-model="infoIngresada1">
                            </md-input-container>
                         </div>
-                        <div class="group">
+                        <div id="Nam1" class="group">
                            <md-input-container>
                               <label>Nombre del grupo</label>
-                              <input  md-maxlength="20" required name="nombreRubrica" ng-model="infoIngresada2">
+                              <input  md-maxlength="20" name="nombreRubrica" ng-model="infoIngresada2">
                            </md-input-container>
                         </div>
-                        <div class="group">
+                        <div id="Nam2" class="group spaceB">
                            <label for="selHorario">Horario</label>
-                           <select required id="selHorario" class="form-control" ng-model="infoIngresada3">
+                           <select id="selHorario" class="form-control" ng-model="infoIngresada3">
                               <option>Mañana</option>
                               <option>Tarde</option>
                               <option>Noche</option>
                            </select>
                         </div>
-                        <div class="group">
+                        <div id="Nam3" class="group spaceB">
                            <label for="estu">Estudiantes:</label>
-                           <select  ng-change="estudAdd();" name="estu" id="estu" ng-model="infoIngresada4" required class="form-control" ng-options="nombreTemp.Estudiante for nombreTemp in este.datos.EstudiantesNormales">
+                           <select  ng-change="estudAdd();" name="estu" id="estu" ng-model="infoIngresada4" class="form-control" ng-options="nombreTemp.Estudiante for nombreTemp in este.datos.EstudiantesNormales">
                            </select>
                         </div>
-                        <div class="group">
+                        <div id="Nam4" class="group spaceB">
                            <label for="prof">Profesores:</label>
-                           <select  ng-change="profAdd();" name="prof" id="prof" ng-model="infoIngresada5" required class="form-control" ng-options="nombreTemp2.Profesor for nombreTemp2 in este.datos.ProfesoresNormales">
+                           <select  ng-change="profAdd();" name="prof" id="prof" ng-model="infoIngresada5" class="form-control" ng-options="nombreTemp2.Profesor for nombreTemp2 in este.datos.ProfesoresNormales">
                            </select>
                         </div>
                         <div class="group">
