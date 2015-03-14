@@ -52,7 +52,8 @@ route.config(function($stateProvider, $urlRouterProvider) {
 
          .state('estudiante', {
             url: '/estudiante',
-            template: '<p>Pendiente</p>'
+            templateUrl: 'pages/_navEstudianteGrupo.html',
+            controller: 'gruposController'
         })
          
         

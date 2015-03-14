@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 17, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,50 +24,50 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 103, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 32, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 116, C:/Program Files (x86)/Scout/vendor/gems/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 1, ../sass/_base.scss */
+/* line 1, L:/u/proyecto final web/wamp/www/miproyecto/sass/_base.scss */
 body {
   background-color: #e3e1e1;
 }
@@ -94,11 +94,11 @@ body {
 	}
 
 }*/
-/* line 1, ../sass/_header.scss */
+/* line 1, L:/u/proyecto final web/wamp/www/miproyecto/sass/_header.scss */
 header {
   background: linear-gradient(to right, #a22068, #2e368f);
 }
-/* line 4, ../sass/_header.scss */
+/* line 4, L:/u/proyecto final web/wamp/www/miproyecto/sass/_header.scss */
 header #menuContainer {
   max-width: 60em;
   /*max-height: 110px;*/
@@ -106,54 +106,54 @@ header #menuContainer {
   font-size: 16px;
   padding-bottom: 2.2%;
 }
-/* line 11, ../sass/_header.scss */
+/* line 11, L:/u/proyecto final web/wamp/www/miproyecto/sass/_header.scss */
 header #menuContainer a {
   color: #ddd6d6;
 }
-/* line 16, ../sass/_header.scss */
+/* line 16, L:/u/proyecto final web/wamp/www/miproyecto/sass/_header.scss */
 header #menuCollapse ul {
   padding-top: 28px;
 }
-/* line 19, ../sass/_header.scss */
+/* line 19, L:/u/proyecto final web/wamp/www/miproyecto/sass/_header.scss */
 header .menuSesion {
   padding-left: 25px;
 }
-/* line 22, ../sass/_header.scss */
+/* line 22, L:/u/proyecto final web/wamp/www/miproyecto/sass/_header.scss */
 header .menuList li {
   padding-left: 25px;
 }
-/* line 25, ../sass/_header.scss */
+/* line 25, L:/u/proyecto final web/wamp/www/miproyecto/sass/_header.scss */
 header .navbar-right img, header .navbar-right a, header #imgLogo {
   float: left;
 }
-/* line 29, ../sass/_header.scss */
+/* line 29, L:/u/proyecto final web/wamp/www/miproyecto/sass/_header.scss */
 header .imgLogoSmall {
   width: 70px;
   padding: 6px;
 }
-/* line 33, ../sass/_header.scss */
+/* line 33, L:/u/proyecto final web/wamp/www/miproyecto/sass/_header.scss */
 header .signIcon {
   padding-top: 16px;
 }
-/* line 36, ../sass/_header.scss */
+/* line 36, L:/u/proyecto final web/wamp/www/miproyecto/sass/_header.scss */
 header #btnMenu:hover {
   background-color: #10167B;
 }
 
-/* line 1, ../sass/_footer.scss */
+/* line 1, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer {
   background: linear-gradient(to right, #a22068, #2e368f);
 }
-/* line 5, ../sass/_footer.scss */
+/* line 5, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .cf:after, footer .cf:before {
   content: ' ';
   display: table;
 }
-/* line 9, ../sass/_footer.scss */
+/* line 9, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .cf:after {
   clear: both;
 }
-/* line 13, ../sass/_footer.scss */
+/* line 13, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .contFooter {
   max-width: 60em;
   margin: 0 auto;
@@ -161,37 +161,37 @@ footer .contFooter {
   height: 95px;
   padding-top: 20px;
 }
-/* line 19, ../sass/_footer.scss */
+/* line 19, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .contFooter li {
   display: inline-block;
   float: left;
 }
-/* line 23, ../sass/_footer.scss */
+/* line 23, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .contFooter li:nth-child(2) {
   padding-left: 25px;
 }
-/* line 27, ../sass/_footer.scss */
+/* line 27, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .contFooter .txt {
   display: block;
   text-indent: 100%;
   white-space: nowrap;
   overflow: hidden;
 }
-/* line 33, ../sass/_footer.scss */
+/* line 33, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .contFooter .sprite {
   background: url("../img/sprite.png") 0 0 no-repeat;
   width: 50px;
   height: 50px;
 }
-/* line 38, ../sass/_footer.scss */
+/* line 38, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .contFooter .fb {
   background-position: 0px 0px;
 }
-/* line 42, ../sass/_footer.scss */
+/* line 42, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .contFooter .twitter {
   background-position: 0px -50px;
 }
-/* line 47, ../sass/_footer.scss */
+/* line 47, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .contFooter .contInfoFooter {
   margin: 0 auto;
   /*max-width: 14.25em;*/
@@ -200,82 +200,82 @@ footer .contFooter .contInfoFooter {
   color: #ddd6d6;
   font-size: 0.813em;
 }
-/* line 55, ../sass/_footer.scss */
+/* line 55, L:/u/proyecto final web/wamp/www/miproyecto/sass/_footer.scss */
 footer .contFooter .logoCenfotec {
   float: right;
 }
 
 /*Mixins*/
-/* line 13, ../sass/_configuracion.scss */
+/* line 13, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 body {
   overflow: visible!important;
 }
 
-/* line 16, ../sass/_configuracion.scss */
+/* line 16, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 md-backdrop.md-select-backdrop {
   display: none!important;
 }
 
-/* line 19, ../sass/_configuracion.scss */
+/* line 19, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .md-backdrop {
   position: relative!important;
 }
 
-/* line 22, ../sass/_configuracion.scss */
+/* line 22, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 md-input-container {
   overflow-x: visible!important;
 }
 
-/* line 25, ../sass/_configuracion.scss */
+/* line 25, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 md-input-container.md-default-theme.md-input-invalid .md-input, .md-input {
   border-color: #967ba5;
 }
 
-/* line 28, ../sass/_configuracion.scss */
+/* line 28, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 md-input-container.md-default-theme.md-input-invalid label {
   color: #c7b9cf!important;
 }
 
-/* line 31, ../sass/_configuracion.scss */
+/* line 31, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 h1, legend {
   color: #757475;
   font-weight: 500;
 }
 
-/* line 36, ../sass/_configuracion.scss */
+/* line 36, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .modal-header {
   background-color: 7f2774;
   color: ddd6d6!important;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-/* line 41, ../sass/_configuracion.scss */
+/* line 41, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .modal-header h1, .modal-header h4 {
   color: ddd6d6!important;
   text-align: center;
 }
 
-/* line 46, ../sass/_configuracion.scss */
+/* line 46, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig {
   background-color: #e3e1e1;
   width: 100%;
 }
-/* line 49, ../sass/_configuracion.scss */
+/* line 49, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig {
   background-color: #f5f3f4;
   max-width: 60em;
   margin: 0 auto;
 }
-/* line 53, ../sass/_configuracion.scss */
+/* line 53, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig ul {
   padding-top: 20px;
 }
-/* line 55, ../sass/_configuracion.scss */
+/* line 55, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig ul li a {
   color: #757475;
   font-weight: bold;
 }
-/* line 61, ../sass/_configuracion.scss */
+/* line 61, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .errorSearch {
   font-size: 13px;
   color: #f44336;
@@ -283,45 +283,45 @@ h1, legend {
   margin-top: 12px;
   display: none;
 }
-/* line 66, ../sass/_configuracion.scss */
+/* line 66, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .msgError {
   font-size: 13px;
   color: #f44336;
 }
-/* line 70, ../sass/_configuracion.scss */
+/* line 70, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalExito {
   display: none;
 }
-/* line 73, ../sass/_configuracion.scss */
+/* line 73, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalContent {
   position: absolute;
   background-color: #dff0d8;
 }
-/* line 77, ../sass/_configuracion.scss */
+/* line 77, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalConfirm {
   position: absolute;
   display: none;
   z-index: 10001;
 }
-/* line 82, ../sass/_configuracion.scss */
+/* line 82, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .btnConfirmModal {
   background-color: #722d7d;
   color: #ddd6d6;
 }
-/* line 85, ../sass/_configuracion.scss */
+/* line 85, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .btnAdd {
   color: #ffffff;
 }
-/* line 88, ../sass/_configuracion.scss */
+/* line 88, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser {
   padding-top: 30px;
 }
-/* line 90, ../sass/_configuracion.scss */
+/* line 90, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser legend {
   padding-left: 18px;
   font-size: 1.625em;
 }
-/* line 94, ../sass/_configuracion.scss */
+/* line 94, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .msgErrorEmail {
   font-size: 13px;
   color: #f44336;
@@ -329,14 +329,14 @@ h1, legend {
   margin-top: 12px;
   display: none;
 }
-/* line 99, ../sass/_configuracion.scss */
+/* line 99, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser #msgSuccess, .mainConfig .wrapperConfig .formUser .msgErrorUser {
   margin-left: 18px;
   width: 272px;
   margin-top: 12px;
   display: none;
 }
-/* line 103, ../sass/_configuracion.scss */
+/* line 103, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .btnAddUser {
   background-color: #722d7d;
   color: #ddd6d6;
@@ -344,81 +344,81 @@ h1, legend {
   margin-right: 75px;
   margin-bottom: 40px;
 }
-/* line 109, ../sass/_configuracion.scss */
+/* line 109, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .lblEdit a {
   color: #786c84;
   font-weight: bold;
 }
-/* line 113, ../sass/_configuracion.scss */
+/* line 113, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .optCuatri {
   float: left;
 }
-/* line 116, ../sass/_configuracion.scss */
+/* line 116, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .optAno {
   float: right;
 }
-/* line 121, ../sass/_configuracion.scss */
+/* line 121, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .inpSearchUser {
   padding-left: 35px;
 }
-/* line 124, ../sass/_configuracion.scss */
+/* line 124, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .lblEditUser {
   padding-left: 50px;
 }
-/* line 126, ../sass/_configuracion.scss */
+/* line 126, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .lblEditUser a {
   font-size: 16px;
 }
-/* line 130, ../sass/_configuracion.scss */
+/* line 130, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .errPass {
   display: none;
 }
-/* line 133, ../sass/_configuracion.scss */
+/* line 133, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .saveUser, .mainConfig .wrapperConfig .contUsuarios .cancelUser, .mainConfig .wrapperConfig .contUsuarios .saveUserAccess, .mainConfig .wrapperConfig .contUsuarios .cancelUserAccess, .mainConfig .wrapperConfig .contUsuarios .inpNewPass, .mainConfig .wrapperConfig .contUsuarios .inpNewPassConfirm {
   display: none;
 }
-/* line 136, ../sass/_configuracion.scss */
+/* line 136, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .imgProfile {
   width: 70px;
   height: 70px;
   margin-top: 62px;
 }
-/* line 142, ../sass/_configuracion.scss */
+/* line 142, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios {
   padding-bottom: 1px;
   padding-left: 20px;
   padding-right: 20px;
 }
-/* line 146, ../sass/_configuracion.scss */
+/* line 146, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios thead {
   color: #545355;
   border-bottom: 3px solid #722d7b;
 }
-/* line 149, ../sass/_configuracion.scss */
+/* line 149, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios thead th {
   font-weight: bold;
 }
-/* line 153, ../sass/_configuracion.scss */
+/* line 153, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios tbody {
   font-size: 14px;
 }
-/* line 155, ../sass/_configuracion.scss */
+/* line 155, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios tbody tr {
   border-bottom: 2px solid #b68cbb;
 }
-/* line 161, ../sass/_configuracion.scss */
+/* line 161, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalInfoUser .modalBodyUser {
   padding-bottom: 214px!important;
 }
-/* line 164, ../sass/_configuracion.scss */
+/* line 164, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalInfoUser .info {
   float: left;
 }
-/* line 167, ../sass/_configuracion.scss */
+/* line 167, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalInfoUser .contImgUser {
   float: right;
 }
-/* line 171, ../sass/_configuracion.scss */
+/* line 171, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .mainConfig .wrapperConfig .btnDatePicker {
   border: none;
   background-color: #f5f3f4;
@@ -426,26 +426,26 @@ h1, legend {
 }
 
 /*MODAL EDITAR CURSO*/
-/* line 182, ../sass/_configuracion.scss */
+/* line 182, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 md-checkbox.md-default-theme.md-checked .md-icon {
   background-color: rgba(104, 57, 119, 0.87);
 }
 
 /*MODAL EDITAR CARRERA*/
-/* line 188, ../sass/_configuracion.scss */
+/* line 188, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 #modalEditarCarrera .contBuscarCarrera, #modalEditarCarrera .contBuscarCurso, #modalEditarCarrera .inpSearchUser, #modalEditarCurso .contBuscarCarrera, #modalEditarCurso .contBuscarCurso, #modalEditarCurso .inpSearchUser, .formEditUser .contBuscarCarrera, .formEditUser .contBuscarCurso, .formEditUser .inpSearchUser {
   width: 50%;
 }
-/* line 190, ../sass/_configuracion.scss */
+/* line 190, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 #modalEditarCarrera .contBuscarCarrera p, #modalEditarCarrera .contBuscarCurso p, #modalEditarCarrera .inpSearchUser p, #modalEditarCurso .contBuscarCarrera p, #modalEditarCurso .contBuscarCurso p, #modalEditarCurso .inpSearchUser p, .formEditUser .contBuscarCarrera p, .formEditUser .contBuscarCurso p, .formEditUser .inpSearchUser p {
   width: 100%;
 }
-/* line 192, ../sass/_configuracion.scss */
+/* line 192, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 #modalEditarCarrera .contBuscarCarrera p input, #modalEditarCarrera .contBuscarCurso p input, #modalEditarCarrera .inpSearchUser p input, #modalEditarCurso .contBuscarCarrera p input, #modalEditarCurso .contBuscarCurso p input, #modalEditarCurso .inpSearchUser p input, .formEditUser .contBuscarCarrera p input, .formEditUser .contBuscarCurso p input, .formEditUser .inpSearchUser p input {
   float: left;
   width: 88%;
 }
-/* line 196, ../sass/_configuracion.scss */
+/* line 196, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 #modalEditarCarrera .contBuscarCarrera p a, #modalEditarCarrera .contBuscarCurso p a, #modalEditarCarrera .inpSearchUser p a, #modalEditarCurso .contBuscarCarrera p a, #modalEditarCurso .contBuscarCurso p a, #modalEditarCurso .inpSearchUser p a, .formEditUser .contBuscarCarrera p a, .formEditUser .contBuscarCurso p a, .formEditUser .inpSearchUser p a {
   float: right;
   margin-top: 10px;
@@ -454,12 +454,12 @@ md-checkbox.md-default-theme.md-checked .md-icon {
 }
 
 /*BUTTON UPLOAD*/
-/* line 207, ../sass/_configuracion.scss */
+/* line 207, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .upload-buttons input[type="file"] {
   width: 6.3em \0/IE9;
 }
 
-/* line 211, ../sass/_configuracion.scss */
+/* line 211, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .upload-button {
   Height: 26px;
   line-height: 30px;
@@ -472,14 +472,14 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   cursor: pointer;
 }
 
-/* line 224, ../sass/_configuracion.scss */
+/* line 224, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .sel-file {
   padding: 1px 5px;
   font-size: smaller;
   color: grey;
 }
 
-/* line 230, ../sass/_configuracion.scss */
+/* line 230, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .response {
   padding: 0;
   padding-top: 10px;
@@ -487,27 +487,27 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   clear: both;
 }
 
-/* line 237, ../sass/_configuracion.scss */
+/* line 237, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .response .sel-file li, .response .reqh {
   color: blue;
   padding-bottom: 5px;
 }
 
-/* line 243, ../sass/_configuracion.scss */
+/* line 243, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .progress {
   display: inline-block;
   width: 100px;
   border: 3px groove #CCC;
 }
 
-/* line 249, ../sass/_configuracion.scss */
+/* line 249, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .progress div {
   font-size: smaller;
   background: orange;
   width: 0;
 }
 
-/* line 255, ../sass/_configuracion.scss */
+/* line 255, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .drop-box {
   background: #F8F8F8;
   border: 5px dashed #DDD;
@@ -519,40 +519,40 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   margin-left: 20px;
 }
 
-/* line 266, ../sass/_configuracion.scss */
+/* line 266, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .up-buttons {
   float: left;
 }
 
-/* line 270, ../sass/_configuracion.scss */
+/* line 270, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .drop-box.dragover {
   border: 5px dashed blue;
 }
 
-/* line 274, ../sass/_configuracion.scss */
+/* line 274, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .drop-box.dragover-err {
   border: 5px dashed red;
 }
 
-/* line 278, ../sass/_configuracion.scss */
+/* line 278, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .js-fileapi-wrapper {
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 283, ../sass/_configuracion.scss */
+/* line 283, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 button {
   padding: 1px 5px;
   font-size: smaller;
   margin: 0 3px;
 }
 
-/* line 289, ../sass/_configuracion.scss */
+/* line 289, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .ng-v {
   float: right;
 }
 
-/* line 293, ../sass/_configuracion.scss */
+/* line 293, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .thumb {
   float: left;
   width: 18px;
@@ -560,7 +560,7 @@ button {
   padding-right: 10px;
 }
 
-/* line 300, ../sass/_configuracion.scss */
+/* line 300, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 form .thumb {
   width: 24px;
   height: 24px;
@@ -569,12 +569,12 @@ form .thumb {
   top: 7px;
 }
 
-/* line 308, ../sass/_configuracion.scss */
+/* line 308, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 form .progress {
   line-height: 15px;
 }
 
-/* line 312, ../sass/_configuracion.scss */
+/* line 312, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .edit-area {
   font-size: 14px;
   background: black;
@@ -582,31 +582,31 @@ form .progress {
   padding: 5px 1px;
 }
 
-/* line 319, ../sass/_configuracion.scss */
+/* line 319, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 #htmlEdit {
   margin-bottom: 25px;
 }
 
-/* line 323, ../sass/_configuracion.scss */
+/* line 323, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .edit-div {
   font-size: smaller;
 }
 
-/* line 327, ../sass/_configuracion.scss */
+/* line 327, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .CodeMirror {
   font-size: 14px;
   border: 1px solid #ccc;
   margin-bottom: 15px;
 }
 
-/* line 333, ../sass/_configuracion.scss */
+/* line 333, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 form button {
   padding: 3px 10px;
   font-weight: bold;
   margin-top: 10px;
 }
 
-/* line 339, ../sass/_configuracion.scss */
+/* line 339, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .sub {
   font-size: smaller;
   color: #777;
@@ -614,7 +614,7 @@ form button {
   padding-left: 10px;
 }
 
-/* line 346, ../sass/_configuracion.scss */
+/* line 346, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .err {
   font-size: 12px;
   color: #C53F00;
@@ -624,188 +624,188 @@ form button {
   border: 1px solid black;
 }
 
-/* line 355, ../sass/_configuracion.scss */
+/* line 355, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .s3 {
   font-size: smaller;
   color: #333;
   margin-left: 20px;
 }
 
-/* line 360, ../sass/_configuracion.scss */
+/* line 360, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .s3 fieldset {
   border: 1px solid #AAA;
 }
 
-/* line 363, ../sass/_configuracion.scss */
+/* line 363, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .s3 label {
   width: 180px;
   display: inline-block;
 }
 
-/* line 367, ../sass/_configuracion.scss */
+/* line 367, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .s3 input {
   width: 300px;
 }
 
-/* line 370, ../sass/_configuracion.scss */
+/* line 370, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .s3 .helper {
   margin-left: 5px;
 }
 
-/* line 374, ../sass/_configuracion.scss */
+/* line 374, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .howto {
   margin-left: 10px;
 }
 
-/* line 378, ../sass/_configuracion.scss */
+/* line 378, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .server {
   margin-bottom: 20px;
 }
 
-/* line 382, ../sass/_configuracion.scss */
+/* line 382, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 .srv-title {
   font-weight: bold;
   padding: 5px 0 10px 0;
 }
 
-/* line 387, ../sass/_configuracion.scss */
+/* line 387, L:/u/proyecto final web/wamp/www/miproyecto/sass/_configuracion.scss */
 :not(output):-moz-ui-invalid {
   box-shadow: none;
 }
 
 /*Estilos Guillermo*/
-/* line 3, ../sass/_rubricaEstilo.scss */
+/* line 3, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .tablaDetallesCurso {
   width: 100%;
   margin-top: 1em;
 }
-/* line 6, ../sass/_rubricaEstilo.scss */
+/* line 6, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .tablaDetallesCurso tr {
   width: 100%;
 }
-/* line 8, ../sass/_rubricaEstilo.scss */
+/* line 8, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .tablaDetallesCurso tr td {
   width: 20%;
 }
 
-/* line 15, ../sass/_rubricaEstilo.scss */
+/* line 15, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .tablaDetallesCursoEstu {
   width: 100%;
   margin-top: 1em;
 }
-/* line 18, ../sass/_rubricaEstilo.scss */
+/* line 18, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .tablaDetallesCursoEstu tr {
   width: 100%;
 }
-/* line 20, ../sass/_rubricaEstilo.scss */
+/* line 20, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .tablaDetallesCursoEstu tr td {
   width: 100%;
   display: inline;
 }
 
-/* line 30, ../sass/_rubricaEstilo.scss */
+/* line 30, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 #navegacionDirector .nav > li > a:focus {
   color: white !important;
   text-decoration: none;
   background-color: #722d7b;
 }
 
-/* line 37, ../sass/_rubricaEstilo.scss */
+/* line 37, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .cajaRubrica {
   width: 100%;
   display: inline-block;
 }
-/* line 40, ../sass/_rubricaEstilo.scss */
+/* line 40, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .cajaRubrica .cont {
   width: 80%;
 }
-/* line 43, ../sass/_rubricaEstilo.scss */
+/* line 43, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .cajaRubrica .imagN {
   margin-top: 8%;
 }
 
-/* line 48, ../sass/_rubricaEstilo.scss */
+/* line 48, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .borrarRub {
   display: inline;
 }
 
-/* line 52, ../sass/_rubricaEstilo.scss */
+/* line 52, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .errorMsj {
   background-color: transparent;
   font-size: 13px;
 }
 
-/* line 57, ../sass/_rubricaEstilo.scss */
+/* line 57, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .jusH {
   display: inline;
 }
 
-/* line 62, ../sass/_rubricaEstilo.scss */
+/* line 62, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .nays {
   margin-top: 2em;
 }
 
-/* line 66, ../sass/_rubricaEstilo.scss */
+/* line 66, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .comie {
   margin-top: 2em;
 }
 
-/* line 70, ../sass/_rubricaEstilo.scss */
+/* line 70, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .oneinrow {
   width: 30%;
   margin-left: 3%;
 }
 
-/* line 75, ../sass/_rubricaEstilo.scss */
+/* line 75, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .twoinrow {
   width: 65%;
 }
 
-/* line 80, ../sass/_rubricaEstilo.scss */
+/* line 80, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .maxVal {
   height: 35em;
   overflow-y: scroll;
 }
 
-/* line 85, ../sass/_rubricaEstilo.scss */
+/* line 85, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 #ContenedorRubricas {
   max-width: 60em;
   height: 50em;
 }
 
-/* line 90, ../sass/_rubricaEstilo.scss */
+/* line 90, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .errormsj {
   width: 83%;
 }
 
-/* line 94, ../sass/_rubricaEstilo.scss */
+/* line 94, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .errormsj2 {
   width: 78%;
   margin-left: 20%;
 }
 
-/* line 99, ../sass/_rubricaEstilo.scss */
+/* line 99, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .izquierdaCaja {
   width: 40%;
   margin-left: 1%;
   margin-right: 1%;
 }
 
-/* line 105, ../sass/_rubricaEstilo.scss */
+/* line 105, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .derechaCaja {
   width: 55%;
   position: relative;
 }
-/* line 108, ../sass/_rubricaEstilo.scss */
+/* line 108, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .derechaCaja h3 {
   margin-left: 10%;
 }
-/* line 111, ../sass/_rubricaEstilo.scss */
+/* line 111, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .derechaCaja .estiloCaja {
   padding-left: 10%;
 }
 
-/* line 116, ../sass/_rubricaEstilo.scss */
+/* line 116, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .rayaCentral {
   height: 30em;
   width: 1%;
@@ -813,19 +813,19 @@ form button {
   position: absolute;
 }
 
-/* line 123, ../sass/_rubricaEstilo.scss */
+/* line 123, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .simpleColor {
   background-color: #722d7b !important;
   color: #fff !important;
 }
 
-/* line 128, ../sass/_rubricaEstilo.scss */
+/* line 128, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .contenedorDeCajas {
   height: 30em;
   overflow-y: scroll;
 }
 
-/* line 134, ../sass/_rubricaEstilo.scss */
+/* line 134, L:/u/proyecto final web/wamp/www/miproyecto/sass/_rubricaEstilo.scss */
 .contenedorRubricasUi h3 {
   font-size: 1.87em;
   font-weight: bold;
@@ -833,7 +833,7 @@ form button {
   text-align: center;
 }
 
-/* line 1, ../sass/_documentos.scss */
+/* line 1, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .col-centered {
   float: none;
   margin: 0 auto;
@@ -841,7 +841,7 @@ form button {
   overflow: auto;
 }
 
-/* line 8, ../sass/_documentos.scss */
+/* line 8, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .logo {
   width: 100%;
   height: auto;
@@ -849,7 +849,7 @@ form button {
   text-align: center;
 }
 
-/* line 14, ../sass/_documentos.scss */
+/* line 14, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .title-page {
   font-size: 1.875em;
   font-weight: bold;
@@ -857,32 +857,32 @@ form button {
   display: inline-block;
 }
 
-/* line 21, ../sass/_documentos.scss */
+/* line 21, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .search {
   margin-top: 1em;
 }
-/* line 26, ../sass/_documentos.scss */
+/* line 26, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .search .form-group input {
   width: 70%;
   float: left;
 }
-/* line 32, ../sass/_documentos.scss */
+/* line 32, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .search input::-webkit-input-placeholder {
   color: #c7b9cf;
 }
 
-/* line 38, ../sass/_documentos.scss */
+/* line 38, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 #searchGlyph {
   top: 5px;
   left: -2em;
 }
 
-/* line 43, ../sass/_documentos.scss */
+/* line 43, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .documentos-disponibles {
   margin-top: 1em;
 }
 
-/* line 47, ../sass/_documentos.scss */
+/* line 47, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .documentos {
   border: 1px solid #e3e1e1;
   padding: 1em;
@@ -890,7 +890,7 @@ form button {
   font-family: "helvetica";
   font-size: 14px;
 }
-/* line 54, ../sass/_documentos.scss */
+/* line 54, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .documentos .titulo {
   font-size: 20px;
   color: #722d7d;
@@ -898,75 +898,75 @@ form button {
   display: inline-block;
   margin: 0;
 }
-/* line 62, ../sass/_documentos.scss */
+/* line 62, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .documentos .date-and-group {
   display: inline-block;
 }
-/* line 65, ../sass/_documentos.scss */
+/* line 65, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .documentos .date-and-group span {
   margin-left: 1em;
 }
-/* line 69, ../sass/_documentos.scss */
+/* line 69, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .documentos .ordenar-links {
   text-align: right;
 }
-/* line 71, ../sass/_documentos.scss */
+/* line 71, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .documentos .ordenar-links a {
   color: #5F3870;
 }
-/* line 75, ../sass/_documentos.scss */
+/* line 75, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .documentos p {
   margin: 0.5em 0 0.3em 0;
 }
 
-/* line 81, ../sass/_documentos.scss */
+/* line 81, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .mejores-proyectos .logo {
   background-color: #722d7d;
   padding: 0.5em;
   margin: 0;
 }
-/* line 86, ../sass/_documentos.scss */
+/* line 86, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .mejores-proyectos .logo h1 {
   font-size: 20px;
   color: white;
   margin-left: 0.5em;
 }
-/* line 92, ../sass/_documentos.scss */
+/* line 92, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .mejores-proyectos .information {
   border: 1px solid #e3e1e1;
   margin-top: 1em;
   padding: 1em;
 }
 
-/* line 101, ../sass/_documentos.scss */
+/* line 101, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .modal-documentos .modal-body input {
   margin-bottom: 1em;
 }
-/* line 104, ../sass/_documentos.scss */
+/* line 104, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .modal-documentos .modal-body div {
   margin-left: 0!important;
 }
 
-/* line 109, ../sass/_documentos.scss */
+/* line 109, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .link {
   text-align: right;
 }
 
-/* line 113, ../sass/_documentos.scss */
+/* line 113, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .information h1 {
   display: inline-block;
   font-size: 18px;
   margin-bottom: 0.7em;
 }
 
-/* line 120, ../sass/_documentos.scss */
+/* line 120, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .AddDocument {
   background-color: #722d7d;
   color: #ddd6d6;
   border: 1px solid #722D7D;
   margin: 0;
 }
-/* line 126, ../sass/_documentos.scss */
+/* line 126, L:/u/proyecto final web/wamp/www/miproyecto/sass/_documentos.scss */
 .AddDocument:hover {
   background-color: #722d7d;
   color: #ddd6d6;
@@ -974,7 +974,7 @@ form button {
   opacity: 0.7;
 }
 
-/* line 1, ../sass/_reportes.scss */
+/* line 1, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .listdemoBasicUsage .face {
   border-radius: 30px;
   border: 1px solid #ddd;
@@ -982,201 +982,206 @@ form button {
   margin: 16px;
 }
 
-/* line 8, ../sass/_reportes.scss */
+/* line 8, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 #reportes {
   background-color: #f5f3f4;
   max-width: 60em;
 }
-/* line 12, ../sass/_reportes.scss */
+/* line 12, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 #reportes .search-report {
   margin-bottom: 1em;
   margin-left: 4em;
 }
-/* line 16, ../sass/_reportes.scss */
+/* line 16, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 #reportes #searchGlyph {
   top: 11px;
 }
 
-/* line 24, ../sass/_reportes.scss */
+/* line 24, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .information-reports div,
 .information-reports h3,
 .information-reports h4 {
   display: inline-block;
 }
-/* line 27, ../sass/_reportes.scss */
+/* line 27, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .information-reports h3 {
   font-size: 0.93223em!important;
   font-weight: bold!important;
 }
 
-/* line 33, ../sass/_reportes.scss */
+/* line 33, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 md-item-content.div {
   border: 1px solid #e3e1e1!important;
   min-height: 9em;
   margin-bottom: 1em;
 }
 
-/* line 38, ../sass/_reportes.scss */
+/* line 38, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .min-heigth {
   min-height: 40em;
 }
 
-/* line 43, ../sass/_reportes.scss */
+/* line 43, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .result img {
   width: 48px;
   height: 48px;
 }
-/* line 47, ../sass/_reportes.scss */
+/* line 47, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .result .header-info {
   display: inline-block;
   font-size: 13px;
   margin-left: 1em;
   width: 100%;
 }
-/* line 53, ../sass/_reportes.scss */
+/* line 53, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .result .header-info strong {
   font-weight: bold;
   font-size: 15px;
 }
 
-/* line 61, ../sass/_reportes.scss */
+/* line 61, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .link a {
   color: #752977;
   cursor: pointer;
 }
 
-/* line 67, ../sass/_reportes.scss */
+/* line 67, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .primary {
   border-bottom: 3px solid  #752977;
   padding-bottom: 0.6em;
 }
-/* line 71, ../sass/_reportes.scss */
+/* line 71, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .primary div {
   display: inline-block;
   font-size: 15px;
   font-weight: bold;
   width: 24%;
 }
-/* line 77, ../sass/_reportes.scss */
+/* line 77, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .primary .credits {
   text-align: center;
 }
 
-/* line 82, ../sass/_reportes.scss */
+/* line 82, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .secundary {
   padding-top: 0.7em;
   border-bottom: 2px solid #D4B6D8;
   padding-bottom: 0.6em;
 }
-/* line 86, ../sass/_reportes.scss */
+/* line 86, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .secundary div {
   display: inline-block;
   width: 24%;
 }
-/* line 90, ../sass/_reportes.scss */
+/* line 90, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .secundary .curso {
   width: 26%;
 }
-/* line 94, ../sass/_reportes.scss */
+/* line 94, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .secundary .credito,
 .secundary .cuatrimestre {
   width: 18%;
   text-align: center;
 }
 
-/* line 100, ../sass/_reportes.scss */
+/* line 100, L:/u/proyecto final web/wamp/www/miproyecto/sass/_reportes.scss */
 .float {
   width: 40%;
   float: left;
 }
 
-/* line 2, ../sass/_grupo.scss */
+/* line 2, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #crearGrupo {
   padding-bottom: 0;
 }
 
-/* line 9, ../sass/_grupo.scss */
+/* line 9, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modalNuevoGrupo table {
   margin-bottom: 0px;
-  margin-left: 14%;
-  width: 89.5%;
+  margin-left: 5%;
+  width: 93.5%;
 }
-/* line 15, ../sass/_grupo.scss */
+/* line 15, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modalNuevoGrupo input {
-  margin-left: 14%;
-  width: 88%;
+  width: 96%;
+  margin-left: 3%;
 }
-/* line 20, ../sass/_grupo.scss */
+/* line 20, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modalNuevoGrupo select {
-  margin-left: 16%;
-  width: 84%;
+  margin-left: 6%;
+  width: 90%;
 }
-/* line 25, ../sass/_grupo.scss */
+/* line 25, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modalNuevoGrupo span {
-  margin-left: 16%;
+  font-size: 13px;
+  background: none;
+  margin-left: 6%;
 }
-/* line 29, ../sass/_grupo.scss */
+/* line 31, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modalNuevoGrupo label {
-  margin-left: 16% !important;
+  margin-left: 6% !important;
   margin-top: 3%;
 }
-/* line 34, ../sass/_grupo.scss */
+/* line 36, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#modalNuevoGrupo h1 {
+  font-size: 2em;
+}
+/* line 40, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modalNuevoGrupo #ordenar1 {
   margin-left: 0px;
 }
-/* line 38, ../sass/_grupo.scss */
-#modalNuevoGrupo #errorNombreGrupo {
-  margin-left: 14%;
-}
 
-/* line 46, ../sass/_grupo.scss */
+/* line 48, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#modificarGrupos span {
+  background: none;
+  font-size: 13px;
+}
+/* line 53, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#modificarGrupos h1 {
+  font-size: 1.875em;
+  font-weight: bold;
+  color: white;
+}
+/* line 59, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modificarGrupos table {
   margin-bottom: 0px;
-  margin-left: 14%;
-  width: 89.5%;
 }
-/* line 51, ../sass/_grupo.scss */
-#modificarGrupos table h2 {
-  margin-bottom: 0px;
+/* line 63, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#modificarGrupos .modal-dialog {
+  width: 81% !important;
 }
-/* line 56, ../sass/_grupo.scss */
+/* line 67, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modificarGrupos th {
   color: #2a6496;
 }
-/* line 60, ../sass/_grupo.scss */
+/* line 71, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modificarGrupos p {
   font-size: 15px;
 }
-/* line 64, ../sass/_grupo.scss */
+/* line 75, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modificarGrupos h2 {
-  text-align: center;
-  font-size: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #757475;
+  margin-bottom: 0px;
 }
-/* line 69, ../sass/_grupo.scss */
-#modificarGrupos label {
-  margin-left: 10% !important;
-}
-/* line 73, ../sass/_grupo.scss */
+/* line 88, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #modificarGrupos #agregarNuevos {
-  margin-left: 36%;
-}
-/* line 77, ../sass/_grupo.scss */
-#modificarGrupos div .modal-footer {
-  margin-left: 14%;
+  margin-top: 1%;
 }
 
-/* line 83, ../sass/_grupo.scss */
+/* line 93, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #todoGrupos {
   margin-bottom: 0px;
   height: 100%;
 }
 
-/* line 89, ../sass/_grupo.scss */
+/* line 99, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 .miMargen {
   margin-top: 1em;
 }
 
-/* line 94, ../sass/_grupo.scss */
+/* line 104, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 .rayita {
   height: 100%;
   width: 10%;
@@ -1185,94 +1190,155 @@ md-item-content.div {
   position: absolute;
 }
 
-/* line 103, ../sass/_grupo.scss */
-#estudiantes2 {
-  margin-left: 10%;
-  width: 93%;
+/* line 115, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#mostrarGrupos h1 {
+  font-size: 2em;
+  text-align: center;
 }
-
-/* line 111, ../sass/_grupo.scss */
-#mostrarGrupos h2 {
-  margin-left: 11%;
-}
-/* line 115, ../sass/_grupo.scss */
+/* line 120, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #mostrarGrupos li {
   margin-left: 11%;
 }
 
-/* line 122, ../sass/_grupo.scss */
+/* line 127, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #navegacionProfesor .nav > li > a:focus {
   color: white !important;
   text-decoration: none;
   background-color: #722d7b;
 }
 
-/* line 132, ../sass/_grupo.scss */
+/* line 137, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #ulMostrarEnviado li {
   margin-left: 12%;
 }
 
-/* line 139, ../sass/_grupo.scss */
-#mostrarEnviados h2 {
-  margin-left: 10% !important;
+/* line 144, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#mostrarEnviados h1 {
+  font-size: 2em;
+  text-align: center;
 }
 
-/* line 146, ../sass/_grupo.scss */
+/* line 152, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #mostrarArchivos .contenedorDeCajas {
   margin-left: 11%;
 }
-/* line 150, ../sass/_grupo.scss */
-#mostrarArchivos h2 {
+/* line 156, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#mostrarArchivos h1 {
   text-align: center;
+  font-size: 2em;
+}
+/* line 161, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#mostrarArchivos h4 {
+  color: #428bca;
 }
 
-/* line 158, ../sass/_grupo.scss */
-#subirArchivos input {
-  margin-left: 13%;
-  width: 84%;
+/* line 169, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#subirArchivos #errorArchivoGrupo {
+  margin-left: 2%;
 }
-/* line 163, ../sass/_grupo.scss */
-#subirArchivos select {
-  width: 83%;
-  margin-left: 13%;
-}
-/* line 168, ../sass/_grupo.scss */
+/* line 173, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
 #subirArchivos label {
-  margin-left: 13% !important;
   margin-top: 3%;
+  margin-bottom: 1%;
 }
-/* line 173, ../sass/_grupo.scss */
-#subirArchivos h2 {
+/* line 178, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#subirArchivos span {
+  font-size: 13px;
+  background: none;
+}
+/* line 183, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#subirArchivos h1 {
+  text-align: center;
+  font-size: 2em;
+}
+/* line 188, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#subirArchivos select {
+  margin-left: 2%;
+  width: 96%;
+}
+/* line 193, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#subirArchivos #btnSubir {
+  margin-left: 3%;
+}
+/* line 197, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#subirArchivos #lvl {
+  margin-left: 2%;
+}
+
+/* line 204, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+.contenedorRubricasUi h1 {
+  font-size: 1.875em;
+  font-weight: bold;
+  color: #757475;
   text-align: center;
 }
-/* line 177, ../sass/_grupo.scss */
-#subirArchivos span {
-  margin-left: 13% !important;
+/* line 211, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+.contenedorRubricasUi #fechas {
+  background-color: transparent !important;
+}
+
+/* line 216, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+.nofl {
+  float: none !important;
+}
+
+/* line 220, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#archivosbox {
+  padding: 0px;
+}
+
+/* line 226, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#mostrarMiGrupo h1 {
+  font-size: 1.875em;
+  font-weight: bold;
+  color: #757475;
+  text-align: center;
+}
+/* line 233, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#mostrarMiGrupo h4 {
+  color: #428bca;
+}
+
+/* line 238, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+#navegacionEstudiante .nav > li > a:focus {
+  color: white !important;
+  text-decoration: none;
+  background-color: #722d7b;
+}
+
+/* line 244, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+.fechaGrupo {
+  margin-left: 2%;
+}
+
+/* line 248, L:/u/proyecto final web/wamp/www/miproyecto/sass/_grupo.scss */
+.colorDeTitulos {
+  color: #428bca;
 }
 
 @media print {
-  /* line 2, ../sass/_perfil.scss */
+  /* line 2, L:/u/proyecto final web/wamp/www/miproyecto/sass/_perfil.scss */
   .btnPrint {
     display: none;
   }
 }
-/* line 6, ../sass/_perfil.scss */
+/* line 6, L:/u/proyecto final web/wamp/www/miproyecto/sass/_perfil.scss */
 .perfil-layout {
   width: 100%;
   padding: 0 1.041666666666667% 0.7142857142857143em;
 }
-/* line 7, ../sass/_perfil.scss */
+/* line 7, L:/u/proyecto final web/wamp/www/miproyecto/sass/_perfil.scss */
 .perfil-layout img {
   max-width: 100%;
   height: auto;
 }
-/* line 13, ../sass/_perfil.scss */
+/* line 13, L:/u/proyecto final web/wamp/www/miproyecto/sass/_perfil.scss */
 .perfil-layout h1 {
   text-align: center;
   vertical-align: middle;
 }
 
-/* line 18, ../sass/_perfil.scss */
+/* line 18, L:/u/proyecto final web/wamp/www/miproyecto/sass/_perfil.scss */
 .cabecera-container {
   width: 62.5%;
   margin: 0 auto;
@@ -1281,47 +1347,47 @@ md-item-content.div {
   justify-content: space-between;
 }
 
-/* line 25, ../sass/_perfil.scss */
+/* line 25, L:/u/proyecto final web/wamp/www/miproyecto/sass/_perfil.scss */
 .centrado-perfil {
   width: 25.6%;
 }
 
-/* line 28, ../sass/_perfil.scss */
+/* line 28, L:/u/proyecto final web/wamp/www/miproyecto/sass/_perfil.scss */
 .cabecera-slogan {
   width: 72%;
 }
 
-/* line 31, ../sass/_perfil.scss */
+/* line 31, L:/u/proyecto final web/wamp/www/miproyecto/sass/_perfil.scss */
 .cuerpo-perfil {
   width: 62.5%;
   margin: 0 auto;
 }
 
-/* line 35, ../sass/_perfil.scss */
+/* line 35, L:/u/proyecto final web/wamp/www/miproyecto/sass/_perfil.scss */
 .cabcera-portafolio {
   width: 25.6%;
 }
 
-/* line 1, ../sass/_proyectos.scss */
+/* line 1, L:/u/proyecto final web/wamp/www/miproyecto/sass/_proyectos.scss */
 .cabecera-votacion h2, .cabecera-votacion a {
   display: inline-block;
 }
 
-/* line 4, ../sass/_proyectos.scss */
+/* line 4, L:/u/proyecto final web/wamp/www/miproyecto/sass/_proyectos.scss */
 .wrap {
   max-width: 1200px;
   margin: 0 auto;
   background-color: #f4f3f3;
 }
 
-/* line 9, ../sass/_proyectos.scss */
+/* line 9, L:/u/proyecto final web/wamp/www/miproyecto/sass/_proyectos.scss */
 .proyecto-top {
   width: 270px;
   border: 1px solid gray;
   padding: 15px 16px;
 }
 
-/* line 14, ../sass/_proyectos.scss */
+/* line 14, L:/u/proyecto final web/wamp/www/miproyecto/sass/_proyectos.scss */
 .proyecto-info {
   display: -webkit-flex;
   display: -moz-flex;
@@ -1332,17 +1398,17 @@ md-item-content.div {
   justify-content: space-around;
 }
 
-/* line 23, ../sass/_proyectos.scss */
+/* line 23, L:/u/proyecto final web/wamp/www/miproyecto/sass/_proyectos.scss */
 .proyecto-slider {
   margin: 8px 9px;
 }
 
-/* line 26, ../sass/_proyectos.scss */
+/* line 26, L:/u/proyecto final web/wamp/www/miproyecto/sass/_proyectos.scss */
 .btn-right {
   float: right;
 }
 
-/* line 29, ../sass/_proyectos.scss */
+/* line 29, L:/u/proyecto final web/wamp/www/miproyecto/sass/_proyectos.scss */
 #proyecto-portafolio {
   list-style: none inside;
   padding: 0;
@@ -1351,42 +1417,42 @@ md-item-content.div {
   -webkit-justify-content: space-between;
   justify-content: space-between;
 }
-/* line 36, ../sass/_proyectos.scss */
+/* line 36, L:/u/proyecto final web/wamp/www/miproyecto/sass/_proyectos.scss */
 #proyecto-portafolio li {
   width: 20.83333333333333%;
 }
-/* line 39, ../sass/_proyectos.scss */
+/* line 39, L:/u/proyecto final web/wamp/www/miproyecto/sass/_proyectos.scss */
 #proyecto-portafolio img {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
 
-/* line 1, ../sass/_slideshow.scss */
+/* line 1, L:/u/proyecto final web/wamp/www/miproyecto/sass/_slideshow.scss */
 .slideshow-container {
   position: relative;
 }
-/* line 3, ../sass/_slideshow.scss */
+/* line 3, L:/u/proyecto final web/wamp/www/miproyecto/sass/_slideshow.scss */
 .slideshow-container ul {
   list-style: none inside;
 }
-/* line 6, ../sass/_slideshow.scss */
+/* line 6, L:/u/proyecto final web/wamp/www/miproyecto/sass/_slideshow.scss */
 .slideshow-container #slideshow {
   padding: 0px;
   width: 100%;
   height: 472px;
   overflow: hidden;
 }
-/* line 11, ../sass/_slideshow.scss */
+/* line 11, L:/u/proyecto final web/wamp/www/miproyecto/sass/_slideshow.scss */
 .slideshow-container #slideshow img {
   width: 100%;
 }
-/* line 15, ../sass/_slideshow.scss */
+/* line 15, L:/u/proyecto final web/wamp/www/miproyecto/sass/_slideshow.scss */
 .slideshow-container .slideshow-thumbs {
   position: absolute;
   top: 460px;
   left: 475px;
 }
-/* line 19, ../sass/_slideshow.scss */
+/* line 19, L:/u/proyecto final web/wamp/www/miproyecto/sass/_slideshow.scss */
 .slideshow-container .slideshow-thumbs li {
   margin-left: 5px;
   float: left;
@@ -1394,11 +1460,11 @@ md-item-content.div {
   border: 1px solid gray;
   border-radius: 50%;
 }
-/* line 25, ../sass/_slideshow.scss */
+/* line 25, L:/u/proyecto final web/wamp/www/miproyecto/sass/_slideshow.scss */
 .slideshow-container .slideshow-thumbs li:first-child {
   margin-left: 0px;
 }
-/* line 29, ../sass/_slideshow.scss */
+/* line 29, L:/u/proyecto final web/wamp/www/miproyecto/sass/_slideshow.scss */
 .slideshow-container .slideshow-thumbs a {
   display: block;
   width: 10px;
@@ -1407,7 +1473,7 @@ md-item-content.div {
   border-radius: 50%;
 }
 
-/* line 2, ../sass/_votacion.scss */
+/* line 2, L:/u/proyecto final web/wamp/www/miproyecto/sass/_votacion.scss */
 .votacionControl h1 {
   text-indent: 1.428571428571429em;
 }
