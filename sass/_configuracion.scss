@@ -50,6 +50,7 @@ h1, legend{
 		background-color:#f5f3f4;
 		max-width:60em;
 		margin:0 auto;
+		min-height: 450px;
 			ul{
 			padding-top:20px;
 				li a{
@@ -157,10 +158,13 @@ h1, legend{
 					}
 				}
 			}	
+			.containerModal{
+  					color:#757475;
+  					span{
+  						font-weight: bold;
+  					}
+  				}
 			#modalInfoUser{
-					.modalBodyUser{
-						padding-bottom: 214px!important;
-					}
 					.info{
 						float:left;
 					}

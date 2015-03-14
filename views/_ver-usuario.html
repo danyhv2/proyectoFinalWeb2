@@ -12,18 +12,16 @@
 		</thead>
 		<tbody>
 		     <tr ng-repeat="users in usuarios" ng-click="verMas($index)">
-		     	<td class="usernombre">{{users.correo}}</td>
 		     	<td>{{users.nombre}}</td>
 		     	<td>{{users.primerApellido}}</td>
 		     	<td>{{users.segundoApellido}}</td>
+		     	<td class="usernombre">{{users.correo}}</td>
 		     	<td>{{users.role}}</td>
 		     	<td><a href="#" class="seeMore_{{$index}}" ><img src="img/see_03.png" data-toggle="modal" data-target="#modalInfoUser" alt="See More"></a></td>
 		     </tr>
 		</tbody>
 	</table>
 </div>
-
-
 <div id="modalInfoUser" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -32,22 +30,8 @@
         <h2 class="modal-title">Información del Usuario</h2>
       </div>
       <div class="modal-body modalBodyUser">
-      	<!--<div>
-      	<div class="info">
-	        <h2>Daniela Hernández Villafuerte</h2>
-	        <p>dhernandezv@ucenfotec.ac.cr</p>
-	        <p>Fecha de nacimiento: 02/02/1989</p>
-	        <p>San José, Pavas</p>
-	        <p>Cédula: 123456789</p>
-	        <p>Role: Estuidante</p>
-        </div>
-        <div class="contImgUser">
-        	<img src="img/user3.png">
-        </div>
-        </div>
-      </div>-->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      <div class="modal-footer row">
+        <button type="button" class="btn btn-default cerrarModal" data-dismiss="modal">Cerrar</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
