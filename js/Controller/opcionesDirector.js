@@ -427,6 +427,18 @@
         }
 
         $scope.add = function() {
+            var cont = 0;
+            if ($scope.newNombreRubrica === "" || $scope.newNombreRubrica === undefined) {
+                cont ++
+                $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#nombRrb').delay(1000).fadeOut();
+            };
+
+            if ($scope.newNombreGrupo === "" || $scope.newNombreGrupo === undefined) {
+                cont ++
+                $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#nombgrr').delay(1000).fadeOut();
+            };
+
+            if (cont === 0){
             var rubricasPorEnviar = [],
                 rubrosPorEnviar = [],
                 y = 0,
@@ -479,6 +491,7 @@
                 $('<div class="msgError" aria-hidden="false">El total debe ser 100</div>').insertBefore('#formRub').delay(1000).fadeOut();
             }
         }
+        };
     });
 
     module.config(function($stateProvider, $urlRouterProvider) {

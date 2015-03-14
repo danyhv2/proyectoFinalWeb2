@@ -6,18 +6,18 @@
 			  <thead>
 			    <tr>
 			      <th>
-			        <a href="" ng-click="ordenar('proyectoName')">Nombre</a>
+			        <a href="" ng-click="ordenar('proyectoName')" class="misTitulos">Nombre</a>
 			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-proyectoName')" ></span>
 			      </th>
 			      <th>
-			      	<a href="" ng-click="ordenar('curso')">Curso</a>
+			      	<a href="" ng-click="ordenar('curso')" class="misTitulos">Curso</a>
 			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-curso')" ></span>
 			      </th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr ng-repeat="proyecto in proyectos2 | filter:buscar | orderBy:ordenSeleccionado">
-			      <td><a href="" ng-click="mostrarIntegrantes2(proyecto)" data-toggle="modal" data-target="#mostrarMiGrupo">{{proyecto.proyectoName}}</a></td>
+			      <td><a href="" ng-click="mostrarIntegrantes2(proyecto)" data-toggle="modal" data-target="#mostrarMiGrupo" class="misTitulos">{{proyecto.proyectoName}}</a></td>
 			      <td>
 					{{proyecto.curso}}	
 				 </td>
@@ -39,10 +39,10 @@
 				          <thead>
 				            <tr>
 				              <th>
-				                <h4>Nombre</h4>
+				                <h4 class="misTitulos">Nombre</h4>
 				              </th>
 				              <th>
-				              	<h4>Role</h4>
+				              	<h4 class="misTitulos">Role</h4>
 				              </th>
 				            </tr>
 				          </thead>

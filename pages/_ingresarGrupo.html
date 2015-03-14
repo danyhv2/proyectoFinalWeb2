@@ -1,19 +1,35 @@
+	 <!--Modal Confirm-->
+   <div class="modal-content in ventanasGru" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+         <h4 class="modal-title">Confirmar borrado</h4>
+      </div>
+      <div class="modal-body">
+         <p>Está seguro que desea borrar el grupo</p>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btnConfirmModal" ng-click="removeGrupo1()"
+            data-dismiss="modal">Proceder</button>
+         <button type="button" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
+      </div>
+   </div>
+   <!--End Modal Confirm-->
 <div class="contenedorRubricasUi">
-	<h1>Equipos</h1>
+	<h1 id="equip">Equipos</h1>
 	<md-input-container>
 	  <label>Buscar equipo por nombre</label>
 	  <input id="buscar" name="buscar" ng-model="buscar">
 	  <div ng-show="userForm.$submitted || userForm.name.$touched">
 	  </div>
 	</md-input-container>
-	<br>
+	<br id="tutu">
 	<button  data-toggle="modal" data-target="#modalNuevoGrupo" class="btn simpleColor">Nuevo equipo</button>
 	<div class="contenedorDeCajas">
 		<table class="table table-striped table-condensed table-hover">
 		  <thead>
 		    <tr>
 		      <th>
-		        <a href="" ng-click="ordenar('nombreGrupo')">Nombre</a>
+		        <a href="" ng-click="ordenar('nombreGrupo')" class="misTitulos">Nombre</a>
 		        <span class="caret" style="cursor: pointer" ng-click="ordenar('-nombreGrupo')" ></span>
 		      </th>
 		      <th></th>
@@ -21,10 +37,10 @@
 		  </thead>
 		  <tbody>
 		    <tr ng-repeat="grupo in grupos | filter:buscar | orderBy:ordenSeleccionado">
-		      <td><a href="" ng-click="mostrarGrupo(grupo)" data-toggle="modal" data-target="#mostrarGrupos">{{grupo.nombreGrupo}}</a></td>
+		      <td><a href="" ng-click="mostrarGrupo(grupo)" data-toggle="modal" data-target="#mostrarGrupos" class="misTitulos">{{grupo.nombreGrupo}}</a></td>
 		      <td>
 		        <img ng-src="img/edit.png" ng-click="mostrarGrupo(grupo)" data-toggle="modal" data-target="#modificarGrupos" style="cursor: pointer">
-			    <img ng-src="img/del.png" ng-click="removeGrupo(grupo)" style="cursor: pointer">
+			    <img ng-src="img/del.png" ng-click="removeGrupo(grupo)" style="cursor: pointer" data-toggle="modal" data-target="#modalConfirm">
 			  </td>
 			</tr>
 		   </tbody>
@@ -69,7 +85,7 @@
 		          <thead>
 		            <tr>
 		              <th>
-		                <a href="" ng-click="ordenar('nombre')">Nombre</a>
+		                <a href="" ng-click="ordenar('nombre')" class="misTitulos">Nombre</a>
 		                <span id="ordenar1" class="caret" style="cursor: pointer" ng-click="ordenar('-nombre')" ></span>
 		              </th>
 		              <th>Role</th>
@@ -134,6 +150,9 @@
 				          </tbody>
 				     </table>
 		      </div>
+		        <div class="modal-footer">
+                 <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+              </div>
 		    </div>
 		  </div>
 		</div>
@@ -166,10 +185,10 @@
 				          <thead>
 				            <tr>
 				              <th>
-				                <h4>Nombre</h4>
+				                <p class="misTitulos">Nombre</p>
 				              </th>
 				              <th>
-				              	<h4>Role</h4>
+				              	<p class="misTitulos">Role</p>
 				              </th>
 				            </tr>
 				          </thead>
@@ -199,10 +218,10 @@
 				          <thead>
 				            <tr>
 				              <th>
-				                <h4>Nombre</h4>
+				                <p class="misTitulos">Nombre</p>
 				              </th>
 				              <th>
-				              	<h4>Role</h4>
+				              	<p class="misTitulos">Role</p>
 				              </th>
 				            </tr>
 				          </thead>

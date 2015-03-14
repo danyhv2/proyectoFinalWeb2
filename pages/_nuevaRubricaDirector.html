@@ -31,21 +31,27 @@
    </div>
    <div class="pull-right derechaCaja">
       <h3>Nueva Rubrica</h3>
-      <form id="formAddR" name="RubForm" ng-submit="RubForm.$valid && add()" class="estiloCaja contenedorDeCajas">
+      <form id="formAddR" name="RubForm" ng-submit="add()" class="estiloCaja contenedorDeCajas">
          <ng-form id="formRub" name="rubricaFormDirector">
+            <div id="nombRrb">
             <md-input-container>
                <label>Nombre de la rubrica</label>
-               <input md-maxlength="20" required name="nombreRubrica" ng-model="newNombreRubrica">
+               <input md-maxlength="20" name="nombreRubrica" ng-model="newNombreRubrica">
             </md-input-container>
+            </div>
+
+            <div id="nombgrr">
             <label>Nombre del grupo</label>
-            <select ng-model="newNombreGrupo" required name="nombreGrupo" class="form-control">
+            <select ng-model="newNombreGrupo" name="nombreGrupo" class="form-control">
                <option ng-repeat="grupos in este.datos.GruposDeCurso">{{grupos.NombreDelGrupo}}</option>
             </select>
+            </div>
+
             <div class="cajaRubrica" ng-repeat='par in este.datos.ParamatrosRubrica'>
                <div class="pull-left cont">
                   <md-input-container>
                      <label class="rubroP">{{par.parametro}}</label>
-                     <input md-maxlength="2" class="valNot" required name="numeroRubrica" ng-model="inte">
+                     <input md-maxlength="2" class="valNot" name="numeroRubrica" ng-model="inte">
                   </md-input-container>
                </div>
                <div class="pull-right imagN">

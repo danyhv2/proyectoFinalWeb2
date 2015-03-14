@@ -1,5 +1,21 @@
+	 <!--Modal Confirm-->
+   <div class="modal-content in ventanasGru" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+         <h4 class="modal-title">Confirmar borrado</h4>
+      </div>
+      <div class="modal-body">
+         <p>Está seguro que desea borrar el archivo</p>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btnConfirmModal" ng-click="removeGrupo55()"
+            data-dismiss="modal">Proceder</button>
+         <button type="button" class="btn btnAdd" data-dismiss="modal" ng-click="removeGrupo555()">Cancelar</button>
+      </div>
+   </div>
+   <!--End Modal Confirm-->
 <div class="contenedorRubricasUi clearfix">
-		<h1>Archivos</h1>
+		<h1 id="miArch">Archivos</h1>
 		<md-input-container>
 		  <label>Buscar grupo</label>
 		  <input id="buscar" name="buscar" ng-model="buscar">
@@ -19,19 +35,19 @@
                   </span>
               	 </p>
              	</md-input-container>
-		<div class="contenedorDeCajas clearfix">
+		<div class="contenedorDeCajas3 clearfix">
 			<table class="table table-striped table-condensed table-hover">
 			  <thead>
 			    <tr>
 			      <th>
-			        <a href="" ng-click="ordenar('gPName')">Nombre</a>
+			        <a href="" ng-click="ordenar('gPName')" class="misTitulos">Nombre</a>
 			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-gPName')" ></span>
 			      </th>
 			    </tr>
 			  </thead>
 			  <tbody>
 			    <tr ng-repeat="GruposArchivo in GruposArchivos | filter:buscar | orderBy:ordenSeleccionado">
-			      <td><a href="" ng-click="mostrarArchivos(GruposArchivo)" data-toggle="modal" data-target="#mostrarArchivos">{{GruposArchivo.gPName}}</a></td>
+			      <td><a href="" ng-click="mostrarArchivos(GruposArchivo)" data-toggle="modal" data-target="#mostrarArchivos" class="misTitulos">{{GruposArchivo.gPName}}</a></td>
 					</tr>
 			   </tbody>
 				</table>
@@ -46,7 +62,7 @@
 			      </div>
 			      <div class="modal-body" id="archivosbox">
 			      <div class="fechaGrupo">
-		      		<div><h4>Fecha de entrega</h4></div>
+		      		<div><h4 class="misTitulos">Fecha de entrega</h4></div>
 		      		<md-input-container>
 		      			<input type="text" type="date" disabled ng-model="mifecha">
 					</md-input-container>
@@ -55,19 +71,19 @@
 				          <thead>
 				            <tr>
 				              <th>
-				                <h4>Nombre</h4>
+				                <h4 class="misTitulos">Nombre</h4>
 				              </th>
 				              <th>
-				              	<h4>Fecha</h4>
+				              	<h4 class="misTitulos">Fecha</h4>
 				              </th>
 				              <th>
-				              	<h4>Hora</h4>
+				              	<h4 class="misTitulos">Hora</h4>
 				              </th>
 				            </tr>
 				          </thead>
 				          <tbody>
 					        <tr ng-repeat="todosArchivo in todosArchivos | orderBy:ordenSeleccionado">
-						      <td><a href="pdf/archivosProfesor/{{todosArchivo.nombre}}.txt" download="{{todosArchivo.nombre}}">{{todosArchivo.nombre}}</a></td>
+						      <td><a href="pdf/archivosProfesor/{{todosArchivo.nombre}}.txt" download="{{todosArchivo.nombre}}" class="misTitulos">{{todosArchivo.nombre}}</a></td>
 						      <td>
 						      	{{todosArchivo.fecha}}	
 						      </td>
@@ -75,7 +91,7 @@
 						      	{{todosArchivo.hora}}	
 						      </td>
 						      <td>
-								<td><img ng-src="img/del.png" ng-click="removeGrupo5(todosArchivo)" style="cursor: pointer">
+								<td><img ng-src="img/del.png" ng-click="removeGrupo5(todosArchivo)" style="cursor: pointer" data-toggle="modal" data-target="#modalConfirm">
 							  </td>
 							</tr>
 				          </tbody>
@@ -124,4 +140,5 @@
 		  </div>
 		</div>
 		<!--FIN DE MODAL-->
+	
 </div>
