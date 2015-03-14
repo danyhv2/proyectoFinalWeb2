@@ -14,7 +14,7 @@
             <p>Está seguro que desea borrar el curso?</p>
          </div>
          <div class="modal-footer">
-            <button type="button" class="btn btnConfirmModal" ng-click="del(grupos)"
+            <button type="button" class="btn btnConfirmModal" ng-click="delet()"
                data-dismiss="modal">Proceder</button>
             <button type="button" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
          </div>
@@ -95,7 +95,7 @@
                   <td>{{grupos.NombreDelCurso}}</td>
                   <td>{{grupos.NombreDelGrupo}}</td>
                   <td><img src="img/edit.png" data-toggle="modal" ng-click="editCrus(grupos)" data-target="#modelDetallesCurso" style="cursor: pointer"></td>
-                  <td><img src="img/del.png" data-toggle="modal" data-target="#modalConfirm" style="cursor: pointer"></td>
+                  <td><img src="img/del.png" data-toggle="modal" data-target="#modalConfirm" ng-click="del(grupos)" style="cursor: pointer"></td>
                </tr>
             </tbody>
          </table>

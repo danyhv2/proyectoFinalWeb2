@@ -180,8 +180,11 @@
         }
 
         $scope.del = function(grupos) {
-            var z = $scope.este.datos.GruposDeCurso.indexOf(grupos);
-            $scope.este.datos.GruposDeCurso.splice(z, 1);
+            var mn = $scope.este.datos.GruposDeCurso.indexOf(grupos);
+            
+            $scope.delet = function(){
+                $scope.este.datos.GruposDeCurso.splice(mn, 1);
+            } 
         }
 
         $scope.horChan = function() {
@@ -411,7 +414,11 @@
 
         $scope.delR = function(valores) {
             var f = $scope.este.datos.RubricasCreadas.indexOf(valores);
-            $scope.este.datos.RubricasCreadas.splice(f, 1);
+            
+            $scope.delRe = function(){
+                $scope.este.datos.RubricasCreadas.splice(f, 1);
+            }
+            
         }
 
         $scope.nuevoRubroAdd = function() {
@@ -533,11 +540,7 @@ var archivos = {
 
     }],
 
-    "ParamatrosRubrica": [{
-        "parametro": "Parametro prueba"
-    }, {
-        "parametro": "Parametro prueba 1"
-    }],
+    "ParamatrosRubrica": [],
 
     "GruposDeCurso": [{
         "NombreDelCurso": "Proyecto Web 1",
