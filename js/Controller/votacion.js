@@ -8,25 +8,32 @@ moduleVotacion.controller('VotacionCtrl', [
   '$scope',
 	function ($scope) {
 		$scope.votacion = configVotation;
-		$scope.metodo = 'No has selecionado metodo de votación';
-		$scope.fechaInicial = jQuery('#inpFechaInicio');
-		$scope.fechaFinal = jQuery('#inpFechaCierre');
-		$scope.cantidadProyectos = jQuery('#amountProjects');
-		$scope.estrellas = jQuery('#stars');
-		$scope.metodoVotacion = jQuery('#metodoVoto');
-
-		$scope.validar = function () {
-			if ($scope.fechaFinal.val() > $scope.fechaInicial.val()) {
-				var vote = {};
-				alert($scope.metodoVotacion.val());
-				vote.fechaInicio = $scope.fechaInicial.val();
-				vote.fechaCierre = $scope.fechaFinal.val();
-				vote.estrellas = $scope.estrellas.val();
-				vote.cantidadProyectos = $scope.cantidadProyectos.val();
-				vote.metodoDeVotacion = $scope.metodoVotacion.val();
-				configVotation.push(vote);
-			}
-		};
+		$scope.metodoVotacion = $('#metodoVotacion');
+		var opening = $('#openTime');
+		var ending = $('#closeTime');
+		var stars = $('#pesoDeEstrella');
+		var proyectos = $('#cantidadProyectos');
+		var metodo = $('#metodoVotacion');
+		$scope.cantidadProyectos =
+			$scope.validar = function () {
+				if (ending.val() > opening.val()) {
+					// alert('El formulario es valido');
+					var votacionNueva = {};
+					votacionNueva.fechaInicio = opening.val();
+					votacionNueva.fechaCierre = ending.val();
+					votacionNueva.estrellas = stars.val();
+					votacionNueva.cantidadProyectos = proyectos.val();
+					votacionNueva.metodoDeVotacion = metodo.val();
+					//Agregado al arreglo
+					configVotation.push(votacionNueva);
+					//Borrado
+					//					votacionNueva.fechaInicio = opening.val();
+					ending.val('');
+					stars.val('');
+					proyectos.val('');
+					metodo.val('');
+				}
+		}
   }
 ]);
 
