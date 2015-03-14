@@ -17,12 +17,13 @@
               <img id="imgPhoto" class="imgProfile img-circle" name="profilePhoto" ng-model="updateUser.datos[1].Foto" ng-src="{{updateUser.datos[1].Foto}}">
               </div>
                 <fieldset class="col-md-12 col-xs-10">
+                  <p id="msgSuccess" class="alert alert-success">Datos modificados correctamente.</p>
                   <legend>Datos Personales
                     <label class="lblEdit lblEditUser">
                       <a class="editUser" href="#">Editar</a>
                       <img src="img/edit.png" alt="Icono de Editar" ng-click="editarUsuario()" data-toggle="modal" data-target="#modalEditarUsuario">
                     </label>
-                  </legend>
+                    </legend>
                   <div class="col-md-6 col-sm-5">
                     <md-input-container>
                       <label>Nombre</label>
@@ -59,6 +60,9 @@
                     <label>Cédula</label>
                     <input id="inpCedula" name="userCed" ng-model="updateUser.datos[1].Cedula" ng-disabled="disable">
                   </md-input-container>
+                  <md-checkbox ng-model="data.cb1" id="chkCurso" aria-label="Checkbox 1" ng-disabled="disable">
+                      Inactivar
+                  </md-checkbox>
                 </div>
                 </fieldset>
               <fieldset class="col-md-12 col-sm-10 col-xs-10">
