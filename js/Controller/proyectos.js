@@ -22,6 +22,11 @@ moduleProyectos.controller('ProyectoCtrl', ['$scope', 'ControlProyecto',
 	function ($scope, ControlProyecto) {
 		$scope.proyectos = ControlProyecto.obtenerTodos();
 		$scope.enVotacion = true;
+		$scope.proyectoEnVotacion = $scope.proyectos[0];
+
+		$scope.proyectoSelecionado = function (proyecto) {
+			$scope.proyectoEnVotacion = proyecto;
+		}
 }]);
 
 
@@ -29,7 +34,7 @@ moduleProyectos.controller('ProyectoCtrl', ['$scope', 'ControlProyecto',
 moduleProyectos.factory('ControlProyecto', ['$http',
 	function ($http) {
 		return {
-			obtenerTodos: function () {
+			obtenerTodos: function (cantidadDeProyectos) {
 				return proyectosData;
 			}
 		};
@@ -39,18 +44,18 @@ var proyectosData = [{
 		usuario: 'Daniel',
 		descripcion: 'WebApp para control de historial de proyecto ',
 		imgPreview: 'img/portafolio/juego-pacman.png',
-		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGCoders',
+		leerMas: 'ProyectoEnVotacion',
 
 			}, {
 		nombre: 'Dmg Sliders',
 		usuario: 'Daniel',
 		descripcion: 'WebApp para control de historial de proyecto',
-		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGSliders',
+		leerMas: 'ProyectoEnVotacion',
 		imgPreview: 'img/portafolio/Sodoku.gif'
 			},
 	{
 		nombre: 'Dmg Systems',
 		descripcion: 'WebApp para control de historial de proyecto',
-		leerMas: 'http://localhost/ProyectoFinalWeb2/DMGSystems',
+		leerMas: 'ProyectoEnVotacion',
 		imgPreview: 'img/portafolio/elsiguiente.jpg',
 			}];
