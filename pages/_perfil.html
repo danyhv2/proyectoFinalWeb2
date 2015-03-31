@@ -1,27 +1,86 @@
 <div class="perfil-layout clearfix">
-	<h1>Perfil</h1>
-	<div class="cabecera-container">
-		<div class="centrado-perfil">
-			<img ng-src="{{usuario.foto}}" alt="{{usuario.nombre}}">
+	<div class="perfilContainer">
+		<div class="perfilInfo">
+			<h1>Sobre mi</h1>
+			<p>{{usuario.descripcion}}</p>
 		</div>
-		<div class="cabecera-slogan">
-			<h2>{{usuario.nombre  +' ' +usuario.primerApellido +' ' +usuario.segundoApellido}}</h2>
-			<h3>{{usuario.carrera}}</h3>
+		<div class="perfilDetalles" ng-controller="MyCtrl">
+			<div class="perfilImg col-sm-5">
+				<img class="userImg img-circle" ng-src="{{usuario.foto}}" alt="{{usuario.nombre}}"/>
+					<p ng-file-select class="btnCambiarImg">Cambiar imagen</p>	
+			</div>
+			
+			<!--AGREGAR FOTO-->
+                <md-input-container class="upload-div">    
+                <div class="upload-buttons">
+                <div id="editArea">
+                  <div class="up-buttons">
+                    <button class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.pdf,*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</button>
+                  </div>  
+                </div>
+                </div>
+                <ul ng-show="rejFiles.length > 0" class="response">
+                  <li class="sel-file" ng-repeat="f in rejFiles">
+                    El archivo que esta tratando de subir no es permitido.
+                  </li>
+                </ul>
+                <ul ng-show="files.length > 0" class="response">
+                  <li class="sel-file" ng-repeat="f in files">
+                    <img ng-show="f.dataUrl" ng-src="{{f.dataUrl}}" ng-model="photo" class="thumb">      
+                  </li>
+                </ul>
+              </md-input-container>
+  <!--FIN AGREGAR FOTO-->
+
+
+
+			<div class="perfilDatos col-sm-7">
+				<table class="table table-hover">
+					<tbody>
+					     <tr class="tNombre">
+					     	<td class="tInfo">Nombre:</td>
+					     	<td></td>
+					     	<td>{{usuario.nombre  +' ' +usuario.primerApellido +' ' +usuario.segundoApellido}}</td>
+					     </tr>
+					     <tr>
+					     	<td class="tInfo">Fecha de nacimiento:</td>
+					     	<td></td>
+					     	<td>{{usuario.fechaNacimiento}}</td>
+					     </tr>
+					     <tr>
+					     	<td class="tInfo">Dirección:</td>
+					     	<td></td>
+					     	<td>{{usuario.direccionExacta}}</td>
+					     </tr>
+					      <tr>
+					     	<td class="tInfo">Correo:</td>
+					     	<td></td>
+					     	<td>{{usuario.correoElectronico}}</td>
+					     </tr>
+					     <tr>
+					     	<td class="tInfo">Teléfono:</td>
+					     	<td></td>
+					     	<td>{{usuario.telefono}}</td>
+					     </tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 	</div>
-	<div class="cuerpo-perfil">
-		<p>Acerca de: {{usuario.descripcion}}</p>
-		<p>Correo electrónico: {{usuario.correoElectronico}}</p>
-		<p>Teléfono: {{usuario.telefono}}</p>
-		<p>Celular: {{usuario.celular}}</p>
-		<p>Residencia: {{usuario.direccionExacta}}</p>
-	</div>
-	<div class="controls-right clearfix">
-		<button type="button" class="btn btn-right btn-default simpleColor"  data-toggle="modal" data-target="#modificarPerfil">Modificar Perfil</button>
-		<a ui-sref="portafolio" class="btn btn-right btn-default simpleColor" >Ver Portafolio</a>
-	</div>
+	<div class="editCont col-xs-8 col-sm-4">
+			<label class="lblEditUser">
+              <a class="editUser" href="#" data-toggle="modal" data-target="#modificarPerfil">
+              	Editar
+              	<img src="img/edit.png" alt="Icono de Editar" ng-click="editarUsuario()" data-toggle="modal" data-target="#modalEditarUsuario">
+              </a>
+            </label>
+            <label class="lblPortfolio">
+              <a class="editUser" ui-sref="portafolio">Portafolio
+              	<img src="img/btnPortfolio1.png" alt="Icono de Editar" ng-click="editarUsuario()" data-toggle="modal" data-target="#modalEditarUsuario">
+              </a>
+            </label>
+		</div>
 </div>
-<social></social>
 <!-- Modal -->
 <div class="modal fade" id="modificarPerfil" tabindex="-1" role="dialog" aria-labelledby="modificarPerfil" aria-hidden="true">
 	<div class="modal-dialog">
@@ -32,15 +91,6 @@
 			</div>
 			<form name="editPerfil" ng-mode="editPerfil"  ng-submit="actualizarDatos() && editPerfil.$valid" novalidate>
 				<div class="modal-body">
-					<md-input-container>
-					<label>Cambiar foto </label>
-					<input required name="foto" ng-model="usuario.foto">
-					<div ng-show="editPerfil.$submitted || editPerfil.foto.$touched">
-						<div class="msgError" ng-show="editPerfil.foto.$error.required">
-							La foto no esta ingresada.
-						</div>
-					</div>
-					</md-input-container>
 					<md-input-container>
 					<label>Descripción</label>
 					<input required name="descripcion" ng-model="usuario.descripcion">
@@ -82,6 +132,7 @@
 					<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 					<button type="submit" class="btn btn-default simpleColor">Actualizar perfil</button>
 				</div>
+				{{editPerfil.$valid}}
 			</form>
 		</div>
 	</div>

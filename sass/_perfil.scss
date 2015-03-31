@@ -4,20 +4,59 @@
 	}
 }
 .perfil-layout{
-	img{
-		max-width: 100%;
-		height: auto;
-	}
 	width: 100%;
-	padding:0 1.041666666666667% 0.7142857142857143em;
-	h1{
-		text-align: center;
-		vertical-align: middle;
+	padding:25px 40px 25px 45px;
+	.perfilInfo{
+		width:85%;
+	}
+	.perfilImg{
+		padding-top:35px;
+		.btnCambiarImg{
+			margin-top: -60px;
+			margin-left: 78px;
+			display:none;
+		}
+		img{
+			border: 3px solid rgb(151, 34, 107);
+			width:270px;
+			cursor: pointer;
+			&:hover{
+				opacity:0.4;
+			}
+		}
+		&:hover .btnCambiarImg{
+				display: block;
+			}
+	}
+	.perfilDatos{
+		padding-top:90px;
+		padding-bottom:20px;
+	}
+	.tNombre{
+		border-top: 2px solid #f5f3f4;
+	}
+	.tInfo{
+		font-weight: bold;
+	}
+	tr{
+		border-top: 2px solid rgb(151, 34, 107);
+	}
+	.editCont{
+		float:right;
+			.lblPortfolio{
+				float:right;
+			}
+			.lblEditUser, .lblPortfolio{
+				a{
+				color: #786c84;
+		  		font-weight: bold;
+			}
+		}
 	}
 }
 .cabecera-container{
 	width: 62.5%;
-	margin: 0 auto;
+	padding:20px;
 	margin-bottom: 20px;
 	display: flex;
 	justify-content:space-between;

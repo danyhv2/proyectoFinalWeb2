@@ -2,11 +2,11 @@ var perfilModule = angular.module('modulePerfil', []);
 
 perfilModule.controller('PerfilCtrl', ['$scope', 'ControlUsuario',
 	function ($scope, ControlUsuario) {
-		$scope.usuario = ControlUsuario.obtenerUsuario(0);
-		console.log($scope.usuario);
+		$scope.usuario = ControlUsuario.obtenerUsuario(1);
 		$scope.actualizarDatos = function (usuario) {
+			if($scope.editPerfil.$valid){
 			ControlUsuario.modificarUsuario(0, $scope.usuario.foto, $scope.usuario.correoElectronico, $scope.usuario.telefono, $scope.usuario.celular, $scope.usuario.descripcion, $scope.usuario.direccionExacta);
-			console.log($scope.usuario.foto);
+			}
 		};
 
 }]);
@@ -75,18 +75,15 @@ var usuarioData = [
 		}]
 },
 	{
-		foto: 'img/user-32.png',
+		foto: 'img/user100.png',
 		carrera: 'Diseño y Desarrollo Web',
-		nombre: 'Melisa Rsoales Quiros',
-		fechaNacimiento: {
-			full: '20 de agosto del 1993',
-			small: '20-09-1993'
-		},
+		nombre: 'Melisa Rosales Quiros',
+		fechaNacimiento: '20 de agosto del 1993',
 		correoElectronico: 'mrosalesv@ucenfotec.ac.cr',
 		telefono: 22563450,
 		celular: 89770980,
-		descripcion: 'Amante logo de la programación',
-		direccionExacta: 'San isidro de heredia',
+		descripcion: 'Mi nombre es Daniela y me encanta estar actualiza con las últimas tecnologías que hay en el mercado. Etiam varius sapien ut velit luctus ultricies. Donec auctor lacus nec ultricies blandit. Morbi condimentum massa sed orci commodo, at cursus massa varius.',
+		direccionExacta: 'San José, Costa Rica',
 		tipo: 'usuario',
 		cursos: [{
 			nombre: 'Diseño Digital 2',
