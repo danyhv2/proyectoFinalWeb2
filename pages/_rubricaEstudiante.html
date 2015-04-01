@@ -1,5 +1,53 @@
-<div class ="contenedorRubricasUi" ng-controller='directorController as este'>
-   <div class="pull-left izquierdaCaja">
+   <div class="contenedorRubricasUi col-sm-12" ng-controller='directorController as este'>
+      <md-input-container class="col-sm-6 col-xs-12 inpSearchStudent">
+         <p class="input-group">
+           <label>Buscar estudiante por correo</label>
+           <input class="searchStudent" name="buscarEstudiante" ng-model="searchEstudiante">
+           <a href="#" ng-click="updateUser.updateModel()">
+               <img src="img/searchIcon.png">
+           </a>
+         </p>
+         <p class="errorSearch">El estudiante que está tratando de buscar no existe.</p>
+     </md-input-container>
+   <div class="col-sm-12">
+     <md-input-container class="nombreEstudiante">
+         <label>Estudiante: <span>Daniela Hernandez Villafuerte</span></label>
+     </md-input-container>
+     <md-select class="optCuatri" required ng-model="cuatriCurso" name="cuatrimestre" placeholder="Seleccione curso">
+       <md-option value="Diseño I">Diseño I</md-option>
+       <md-option value="Progra Web Dinámica" >Progra Web Dinámica</md-option>
+       <md-option value="Proyecto Web 1" >Proyecto Web 1</md-option>
+     </md-select>
+  </div>
+  <div class="col-sm-8 col-sm-offset-2">
+   <form>
+      <h1>Rúbrica</h1>
+      <table class="table" id="tableNotas">
+         <tbody>
+              <tr ng-repeat="valor in rubricas">
+               <th>{{valor.rubro}} {{valor.valor}}%</th> 
+               <td>
+               <md-input-container class="tValor">
+                    <label>Valor</label>
+                    <input type="number" class="valorRubrica" ng-model="searchUser">
+                 </md-input-container>
+              </td>
+              </tr>
+              <tr class="lastTr">
+               <th>Total</th>
+               <td>
+               <md-input-container class="tValor">
+                    <label>Valor</label>
+                    <input type="number" class="valorRubrica" ng-model="searchUser">
+                 </md-input-container>
+              </td>
+              </tr>
+         </tbody>
+      </table>
+      <input type="submit" class="btn btn-default simpleColor" value="Asignar">
+   </form>
+  </div>
+   <!--<div class="pull-left izquierdaCaja">
       <h3>Grupos</h3>
       <div class="contenedorDeCajas">
          <table class="table table-hover">
@@ -19,6 +67,7 @@
       <div class="rayaCentral"></div>
       <div class="oneinrow pull-left">
          <h3>Rubrica</h3>
+         <p ng-repeat="data in rubricas">{{data.nombre}}</p>
          <div id="notasVista">
          </div>
       </div>
@@ -36,5 +85,8 @@
             </div>
          </ng-form>
       </div>
+   </div>-->
    </div>
-</div>
+
+
+

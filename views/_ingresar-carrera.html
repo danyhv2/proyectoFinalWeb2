@@ -2,9 +2,17 @@
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
             <form class="formUser" ng-model="userForm" name="userForm" ng-submit="validateCarrera() && userForm.$valid" novalidate>
-              <fieldset class="col-sm-6">
-                <legend>Información de la Carrera</legend>
-                <div class="col-md-12">
+              <fieldset class="col-sm-12">
+                <legend class="col-xs-6">Información de la Carrera</legend>
+                <div class="col-xs-4 col-md-offset-2">
+                  <label class="lblEdit">
+                    <a ui-sref=".editarCarrera" data-toggle="modal" data-target="#modalEditarCarrera">
+                      Editar
+                      <img src="img/edit.png" alt="Icono de Editar">
+                    </a>                  
+                  </label>
+                </div>
+                <div class="col-xs-12 col-sm-6">
                 <p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>
                 <p class="msgErrorUser alert alert-danger">El usuario que quiere ingresar ya fue agregado anteriormente.</p>
                   <md-input-container>
@@ -30,14 +38,6 @@
                   </md-input-container>
                 </div>
               </fieldset>
-              <div class="hidden-xs col-md-4 col-md-offset-2">
-                <label class="lblEdit">
-                  <a ui-sref=".editarCarrera" data-toggle="modal" data-target="#modalEditarCarrera">
-                    Editar
-                    <img src="img/edit.png" alt="Icono de Editar">
-                  </a>                  
-                </label>
-              </div>
               <div class="col-xs-12">   
               <button class="btn btnAddUser" type="submit">Ingresar</button>
               </div>

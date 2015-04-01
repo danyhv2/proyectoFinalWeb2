@@ -16,36 +16,47 @@
    <!--End Modal Confirm-->
 <div class="contenedorRubricasUi">
 	<h1 id="equip">Equipos</h1>
-	<md-input-container>
+	<!--<md-input-container>
 	  <label>Buscar equipo por nombre</label>
 	  <input id="buscar" name="buscar" ng-model="buscar">
 	  <div ng-show="userForm.$submitted || userForm.name.$touched">
 	  </div>
-	</md-input-container>
-	<br id="tutu">
-	<button  data-toggle="modal" data-target="#modalNuevoGrupo" class="btn simpleColor">Nuevo equipo</button>
-	<div class="contenedorDeCajas">
-		<table class="table table-striped table-condensed table-hover">
-		  <thead>
-		    <tr>
-		      <th>
-		        <a href="" ng-click="ordenar('nombreGrupo')" class="misTitulos">Nombre</a>
-		        <span class="caret" style="cursor: pointer" ng-click="ordenar('-nombreGrupo')" ></span>
-		      </th>
-		      <th></th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <tr ng-repeat="grupo in grupos | filter:buscar | orderBy:ordenSeleccionado">
-		      <td><a href="" ng-click="mostrarGrupo(grupo)" data-toggle="modal" data-target="#mostrarGrupos" class="misTitulos">{{grupo.nombreGrupo}}</a></td>
-		      <td>
-		        <img ng-src="img/edit.png" ng-click="mostrarGrupo(grupo)" data-toggle="modal" data-target="#modificarGrupos" style="cursor: pointer">
-			    <img ng-src="img/del.png" ng-click="removeGrupo(grupo)" style="cursor: pointer" data-toggle="modal" data-target="#modalConfirm">
-			  </td>
-			</tr>
-		   </tbody>
-			</table>
+	</md-input-container>-->
+	<md-input-container class="col-sm-6 col-xs-12 inpSearchStudent">
+         <p class="input-group">
+           <label>Buscar equipo por nombre</label>
+           <input class="searchStudent" name="buscarEstudiante" ng-model="searchEstudiante">
+           <a href="#" ng-click="updateUser.updateModel()">
+               <img src="img/searchIcon.png">
+           </a>
+         </p>
+         <p class="errorSearch">El equipo que está tratando de buscar no existe.</p>
+     </md-input-container>
+	<div class="col-sm-3 col-sm-offset-2">
+		<button  data-toggle="modal" data-target="#modalNuevoGrupo" class="btn simpleColor">Nuevo equipo</button>
 	</div>
+		<div class="contenedorDeCajas col-xs-12">
+			<table class="table table-striped table-condensed table-hover">
+			  <thead>
+			    <tr>
+			      <th>
+			        <a href="" ng-click="ordenar('nombreGrupo')" class="misTitulos">Nombre</a>
+			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-nombreGrupo')" ></span>
+			      </th>
+			      <th></th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr ng-repeat="grupo in grupos | filter:buscar | orderBy:ordenSeleccionado">
+			      <td><a href="" ng-click="mostrarGrupo(grupo)" data-toggle="modal" data-target="#mostrarGrupos" class="misTitulos">{{grupo.nombreGrupo}}</a></td>
+			      <td>
+			        <img ng-src="img/edit.png" ng-click="mostrarGrupo(grupo)" data-toggle="modal" data-target="#modificarGrupos" style="cursor: pointer">
+				    <img ng-src="img/del.png" ng-click="removeGrupo(grupo)" style="cursor: pointer" data-toggle="modal" data-target="#modalConfirm">
+				  </td>
+				</tr>
+			   </tbody>
+			</table>
+		</div>
 	</div>
 		<!--MODAL-->
 		<div class="modal fade" id="modalNuevoGrupo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">

@@ -6,6 +6,29 @@
         var valorActualE = [],
             valorActualC = [],
             valorActualP = [];
+            //rubrica nueva
+        $scope.rubricas = [
+        {
+          rubro: 'Examen I',
+          valor: 30
+        },
+        { 
+          rubro: 'Examen II',
+          valor: 30
+        },
+        { 
+          rubro: 'Puntualidad',
+          valor: 10
+        },
+        { 
+          rubro: 'Tareas',
+          valor: 10
+        },
+        { 
+          rubro: 'Proyecto Final',
+          valor: 20
+        }
+      ];
         $('.errormsj').hide();
         $('.errormsj2').hide();
         $('.opcionesNota').hide();
@@ -629,3 +652,4 @@ var archivos = {
         "Profesor": "Robert Smith"
     }]
 }
+

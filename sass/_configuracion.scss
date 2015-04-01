@@ -24,9 +24,20 @@ md-input-container{
 }
 md-input-container.md-default-theme.md-input-invalid .md-input,.md-input{
 	border-color:#967ba5;
+	color:#757475!important;
 }
 md-input-container.md-default-theme.md-input-invalid label{
+	color:#c7b9cf;
+}
+.md-select-label{
+	color: #545355;
+}
+md-input-container.md-default-theme.md-input-focused label{
 	color:#c7b9cf!important;
+}
+md-input-container.md-default-theme.md-input-focused .md-input{
+	
+	border-color:#967ba5!important;
 }
 h1, legend{
 	color:#757475;
