@@ -31,6 +31,13 @@
                         <div class="msgError" ng-show="updCurso.userFormEditCurso.cuatrimestre.$error.required">Cuatrimestre es un campo requerido.</div>
                       </div>
                   </md-input-container>
+                  
+                  <md-select class="optCuatri" required ng-model="cuatriCurso" name="cuatrimestre" placeholder="Cuatrimestre">
+                      <md-option value="I Cuatrimestre">I Cuatrimestre</md-option>
+                      <md-option value="II Cuatrimestre" >II Cuatrimestre</md-option>
+                      <md-option value="III Cuatrimestre" >III Cuatrimestre</md-option>
+                    </md-select>
+
                   <md-input-container>
                     <label>Año Lectivo</label>
                     <input id="inpAno" required name="anoLectivo" ng-model="updCurso.datos[1].AnoLectivo">
