@@ -24,7 +24,6 @@
 			</div>
 			<div class="pull-right">
 				<img ng-src="img/edit2.png" ng-click="imprimirPortafolio()" ng-hide="no" style="cursor:pointer;">
-				<img ng-src="img/work.png"  style="cursor:pointer;" ng-show="no" data-toggle="modal" data-target="#mostrarPortafolio">
 				<img ng-src="img/edit2.png" ng-click="editarInfo()" ng-show="no" data-toggle="modal" data-target="#editarInfo" style="cursor:pointer;">
 				<img src="img/check.png" ng-click="imprimirPortafolio2()" ng-show="no" style="cursor:pointer;">
 				<img ng-src="img/print.png" ng-click="imprimirPortafolio3()" ng-hide="no" style="cursor:pointer;">
@@ -41,6 +40,9 @@
   text-align: center;
   background: purple;
 ">Mis proyectos</h1>
+	<div>
+		<img ng-src="img/work.png"  style="cursor:pointer;" ng-show="no" data-toggle="modal" data-target="#mostrarPortafolio">
+	</div>
 	<div class="col-md-4 col-xs-6" ng-repeat="proyecto in proyectos" style="margin-top: 2%;">
 				<style>
 					#stylish{  background: #fff;
