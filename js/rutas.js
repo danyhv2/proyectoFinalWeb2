@@ -18,7 +18,21 @@ route.config(function($stateProvider, $urlRouterProvider) {
 	})
           .state('grupo', {
             url: '/grupo',
-            templateUrl: 'pages/_opcionesDirector.html'
+            //templateUrl: 'pages/_opcionesDirector.html',
+             views: {
+                '': { 
+                templateUrl: 'pages/_opcionesDirector.html'
+                },
+                'grupo-cursos@grupo': { 
+                    templateUrl: 'pages/mobile/_mobileCursosDirector.html' 
+                },
+                'grupo-carreras@grupo': { 
+                    templateUrl: 'pages/mobile/_mobileCarrerasDirector.html' 
+                },
+                'nueva-rubrica@grupo': { 
+                    templateUrl: 'pages/mobile/_mobileRubricaDirector.html' 
+                }
+            }
         })
 	  .state('portafolio', {
 	    url: '/portafolio',

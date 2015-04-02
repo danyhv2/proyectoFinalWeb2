@@ -115,13 +115,13 @@
 }
 
 .maxVal{
-  height: 35em;
+  /*height: 35em;*/
   overflow-y: scroll
 }
 
 #ContenedorRubricas{
-  max-width: 60em;
-  height: 54em;
+  /*max-width: 60em;*/
+  padding-bottom:1px;
 }
 
 .errormsj{
@@ -157,7 +157,7 @@
 }
 
 .rayaCentral{
-  height: 30em;
+  /*height: 30em;*/
   width: 1%;
   background-color: gray;
   position: absolute;
@@ -169,7 +169,7 @@
 }
 
 .contenedorDeCajas{
-  height: 30em; 
+  /*height: 30em; */
   overflow-y: scroll
 }
 

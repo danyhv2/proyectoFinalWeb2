@@ -1,4 +1,4 @@
-<div class ="contenedorRubricasUi" ng-controller='directorController as este'>
+<div class ="contenedorRubricasUi hidden-xs" ng-controller='directorController as este'>
    <!--Modal Confirm-->
    <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
@@ -15,10 +15,8 @@
       </div>
    </div>
    <!--End Modal Confirm-->
-
    <div class="RubricaCaja">
    <button class="simpleColor btn pull-right aliasBtnR"  data-toggle="modal" data-target="#modelCrearRubrica" >Crear nueva rúbrica</button>
-   
       <h3>Rúbrica</h3>
       <div id="tutuloRubri" class="contenedorDeCajas">
          <table id="tableRubricas" class="table table-hover">
@@ -35,7 +33,6 @@
          </table>
       </div>
    </div>
-   
    <!-- Modal detalles -->
    <div class="modal fade" id="modelDetallesRubrica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -114,5 +111,4 @@
       </div>
    </div>
    <!--Modal end-->
-
 </div>
