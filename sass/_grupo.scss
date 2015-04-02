@@ -265,3 +265,57 @@
 {
 	margin-left: 15% !important;
 }
+@keyframes example {
+    from {background-color: white;}
+    to {background-color: black;}
+}
+#infoT
+{
+	background-color: white;
+}
+#infoT:hover
+{
+  	animation-name: example;
+  	animation-duration: 4s;
+	background: black;
+	a{
+		color: green;
+	}
+	h4
+	{
+		  color: white;	
+	}
+	 transition: all 0.2s ease;
+}
+#stylish:hover
+{
+	opacity:0.5;
+}
+@media print 
+{
+ #miImg 
+ {
+    border:none;
+ }
+ }
+ #wrapper .text {
+font-size: 1.3em;
+position: relative;
+bottom: 98px;
+left: 14px;
+visibility:hidden;
+}
+
+#wrapper:hover .text 
+{
+opacity:0.5;
+visibility:visible;
+}
+#wrapper:hover #miImg
+{
+opacity:0.5;
+}
+.noM
+{
+	margin-bottom:0px !important;
+}
