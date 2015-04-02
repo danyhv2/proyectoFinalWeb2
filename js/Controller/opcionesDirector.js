@@ -194,12 +194,13 @@
                     for (var m = valorActualC.length - 1; m >= 0; m--) {
                         archivos.Carreras[i].CursosAsignados.push(valorActualC[m])
                     };
-                    $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#formAddR').delay(1000).fadeOut();
+                    $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#tableGrupoCurso').delay(1000).fadeOut();
                 };
             };
             $scope.mCarrera = '';
             $scope.mCurso = '';
             $('#tablaCursos').empty();
+            $('#closeCarrera').click();
             };
 
 
@@ -207,7 +208,10 @@
 
         $scope.del = function(grupos) {
             var z = $scope.este.datos.GruposDeCurso.indexOf(grupos);
-            $scope.este.datos.GruposDeCurso.splice(z, 1);
+
+            $scope.delet = function(){
+                $scope.este.datos.GruposDeCurso.splice(z, 1);
+            }
         }
 
         $scope.horChan = function() {
@@ -290,11 +294,6 @@
                 $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#Nam1').delay(1000).fadeOut();
             };
 
-            if ($scope.infoIngresada3 === "" || $scope.infoIngresada3 === undefined){
-                count ++
-                $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#Nam2').delay(1000).fadeOut();
-            };
-
             if ($scope.infoIngresada4 === "" || $scope.infoIngresada4 === undefined){
                 count ++
                 $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#Nam3').delay(1000).fadeOut();
@@ -307,11 +306,9 @@
 
             if (count === 0) {
 
-            
             var grupoTemp = {
                 "NombreDelCurso": $scope.infoIngresada1,
                 "NombreDelGrupo": $scope.infoIngresada2,
-                "Horario": $scope.infoIngresada3,
                 "Estudiantes": valorActualE,
                 "Profesores": valorActualP,
             }
@@ -322,7 +319,6 @@
 
             $(".ProfeTempor").empty();
             $(".EstudTempor").empty();
-            $scope.infoIngresada3 = "";
             $scope.infoIngresada4 = "";
             $scope.infoIngresada5 = "";
             $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#cajaCursos').delay(1000).fadeOut();
@@ -334,13 +330,22 @@
             document.getElementById("modalNuevoGru").reset();
             $(".ProfeTempor").empty();
             $(".EstudTempor").empty();
-            $scope.infoIngresada3 = "";
             $scope.infoIngresada4 = "";
             $scope.infoIngresada5 = "";
         }
 
-        $scope.borrarRubTemp = function() {
-            $('#rubricasModal').empty();
+        $scope.resetFormRubric = function() {
+            document.getElementById("formAddR").reset();
+        }
+
+        $scope.resetFormCg = function() {
+            document.getElementById("formAddR").reset();
+        }
+
+        $scope.resetFormCg = function() {
+            $scope.mCarrera = '';
+            $scope.mCurso = '';
+            $('#tablaCursos').empty();
         }
 
         $scope.edit = function(valores) {
@@ -353,12 +358,28 @@
                         <label class="rubricasTemp">' + key + '</label>\
                         <input required class="valoresTemp form-control" name="nombreEditRubrica" value="' + value + '">\
                 </div>')
-
                 });
             });
 
-            $("#rubricasModal div:first-child input").attr('disabled', 'disabled');
-            $("#rubricasModal div:eq(1) input").attr('disabled', 'disabled');
+            var nombrer = $("#rubricasModal div:first-child input").val();
+            var nombreg = $("#rubricasModal div:eq(1) input").val();
+
+            $("#rubricasModal div:first-child ").hide();
+            $("#rubricasModal div:eq(1) ").hide();
+
+            $('#rubricasModal').prepend('\
+                <div class="group form-group">\
+                        <label >Nombre del grupo</label>\
+                        <input id="NombreGr" class="form-control" readonly name="nombreEditRubrica"\
+                </div>')
+            $('#rubricasModal').prepend('\
+                <div class="group form-group">\
+                        <label >Nombre de rubrica</label>\
+                        <input id="NombreRu" class="form-control" readonly name="nombreEditRubrica"\
+                </div>')
+
+            $("#NombreGr").val(nombreg);
+            $("#NombreRu").val(nombrer);
 
             var t = $scope.este.datos.RubricasCreadas.indexOf(valores);
 
@@ -394,7 +415,7 @@
                 for (var g = 0; g <= validacion.length - 1; g++) {
                     numeroPuest = numeroPuest + Number(validacion[g])
                 };
-                    console.log(numeroPuest)
+
                 if (numeroPuest === 100) {
 
                     var cosa = [];
@@ -412,7 +433,6 @@
                            pushToAry(rubr, num);
 
                        };
-
 
                            archivos.RubricasCreadas.push({
                         "rubricaLista": cosa
@@ -437,7 +457,9 @@
 
         $scope.delR = function(valores) {
             var f = $scope.este.datos.RubricasCreadas.indexOf(valores);
-            $scope.este.datos.RubricasCreadas.splice(f, 1);
+            $scope.delRubbr = function(){
+                $scope.este.datos.RubricasCreadas.splice(f, 1);    
+            }
         }
 
         $scope.nuevoRubroAdd = function() {
@@ -507,12 +529,16 @@
 
                 };
 
+
                 archivos.RubricasCreadas.push({
                     "rubricaLista": cosa
                 });
 
-                $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#formRub').delay(1000).fadeOut();
+                $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#tutuloRubri').delay(1500).fadeOut();
                 document.getElementById("formAddR").reset();
+                $('#selectGrupo').val(' ');
+                $('#closeRubrica').click();
+
             } else {
                 $('<div class="msgError" aria-hidden="false">El total debe ser 100</div>').insertBefore('#formRub').delay(1000).fadeOut();
             }
@@ -548,7 +574,7 @@ var archivos = {
         "rubricaLista": [{
             "NombreDeRubrica": "Rubrica 3"
         }, {
-            "NombreDeGrupo": "Grupo 3"
+            "NombreDeGrupo": "Curso 3"
         }, {
             "Examen": 60
         }, {
@@ -560,9 +586,9 @@ var archivos = {
     }],
 
     "ParamatrosRubrica": [{
-        "parametro": "Parametro prueba"
+        "parametro": "Valor prueba"
     }, {
-        "parametro": "Parametro prueba 1"
+        "parametro": "Valor prueba 1"
     }],
 
     "GruposDeCurso": [{
@@ -652,4 +678,3 @@ var archivos = {
         "Profesor": "Robert Smith"
     }]
 }
-
