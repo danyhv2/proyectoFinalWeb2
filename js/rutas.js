@@ -28,7 +28,6 @@ route.config(function($stateProvider, $urlRouterProvider) {
 
            .state('configuracion', {
             url: '/configuracion',
-            //templateUrl: 'pages/_opcionesConfig.html'
             views: {
                 '': { 
                 templateUrl: 'pages/_opcionesConfig.html'
