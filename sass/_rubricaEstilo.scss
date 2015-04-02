@@ -1,7 +1,33 @@
 /*Estilos Guillermo*/
+.aliasBtnR{
+  margin-right: 10%;
+}
 
 .alinieminento{
   margin-left: 22%;
+}
+#formAddR{
+  margin-top: 2em;
+}
+
+.contendorNuevaRubrica{
+  width: 90%;
+  margin: 0 auto;
+    #nuevRub{
+      border-bottom: 2px solid #b68cbb;
+        button{
+          margin-bottom: 1em;
+        }
+    }
+}
+
+#tableGrupoCurso, #tableRubricas, #tableGrupoCurso{
+  th{
+    border: none;
+  }
+  tr{
+    border-bottom: 2px solid #b68cbb;
+  }
 }
 
 .tablaDetallesCurso{
@@ -113,8 +139,14 @@
   margin-right: 1%;
 }
 
+.RubricaCaja{
+  width: 90%;
+  margin: 0 auto;
+}
+
 .derechaCaja{
-  width: 55%;
+  width: 50%;
+  margin-right: 5%;
   position: relative;
     h3{
       margin-left: 10%;
@@ -134,7 +166,6 @@
 .simpleColor {
     background-color: #722d7b !important;
     color: #fff !important;
-    float:right;
 }
 
 .contenedorDeCajas{

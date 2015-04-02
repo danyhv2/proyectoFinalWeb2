@@ -2,7 +2,7 @@
    <div>
       <div class="comie">
          <h3 class="jusH">Grupos creados</h3>
-         <button type="button" class="simpleColor btn botonSim pull-right"  data-toggle="modal" data-target="#modelCrearGrupoCurso">Crear nuevo</button>
+         <button type="button" class="simpleColor btn botonSim pull-right aliasBtnR"  data-toggle="modal" data-target="#modelCrearGrupoCurso">Crear nuevo</button>
       </div>
       <!--Modal Confirm-->
       <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -14,7 +14,7 @@
             <p>Está seguro que desea borrar el curso?</p>
          </div>
          <div class="modal-footer">
-            <button type="button" class="btn btnConfirmModal" ng-click="del(grupos)"
+            <button type="button" class="btn btnConfirmModal" ng-click="delet()"
                data-dismiss="modal">Proceder</button>
             <button type="button" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
          </div>
@@ -26,7 +26,7 @@
             <div class="modal-content">
                <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h1 class="modal-title" id="myModalLabel">Crear Curso</h1>
+                  <h1 class="modal-title" id="myModalLabel">Crear Grupo</h1>
                </div>
                <form id="modalNuevoGru" name="CurForm" ng-submit="guarNuevGr()">
                   <ng-form>
@@ -43,35 +43,31 @@
                               <input  md-maxlength="20" name="nombreRubrica" ng-model="infoIngresada2">
                            </md-input-container>
                         </div>
-                        <div id="Nam2" class="group spaceB">
-                           <label for="selHorario">Horario</label>
-                           <select id="selHorario" class="form-control" ng-model="infoIngresada3">
-                              <option>Mañana</option>
-                              <option>Tarde</option>
-                              <option>Noche</option>
-                           </select>
+
+                        <div id="Nam4" class="group spaceB">
+                           <label for="prof">Profesores:</label>
+                           <select  ng-change="profAdd();" name="prof" id="prof" ng-model="infoIngresada5" class="form-control" ng-options="nombreTemp2.Profesor for nombreTemp2 in este.datos.ProfesoresNormales">
+                           </select> 
+
                         </div>
+                        
+                        <div class="group">
+                           <table class="table table-hover">
+                              <th>Profesores asignados</th>
+                              <tbody  class="ProfeTempor">
+                              </tbody>
+                           </table>
+                        </div>
+
                         <div id="Nam3" class="group spaceB">
                            <label for="estu">Estudiantes:</label>
                            <select  ng-change="estudAdd();" name="estu" id="estu" ng-model="infoIngresada4" class="form-control" ng-options="nombreTemp.Estudiante for nombreTemp in este.datos.EstudiantesNormales">
                            </select>
                         </div>
-                        <div id="Nam4" class="group spaceB">
-                           <label for="prof">Profesores:</label>
-                           <select  ng-change="profAdd();" name="prof" id="prof" ng-model="infoIngresada5" class="form-control" ng-options="nombreTemp2.Profesor for nombreTemp2 in este.datos.ProfesoresNormales">
-                           </select>
-                        </div>
                         <div class="group">
                            <table class="table table-hover">
-                              <th>Estudiantes</th>
+                              <th>Estudiantes asignados</th>
                               <tbody  class="EstudTempor">
-                              </tbody>
-                           </table>
-                        </div>
-                        <div class="group">
-                           <table class="table table-hover">
-                              <th>Profesores</th>
-                              <tbody  class="ProfeTempor">
                               </tbody>
                            </table>
                         </div>
@@ -87,7 +83,7 @@
       </div>
       <!--Modal end-->
       <div id="cajaCursos" class="contenedorDeCajas nays">
-         <table class="table table-hover">
+         <table id="tableGrupoCurso" class="table table-hover">
             <th>Nombre del curso</th>
             <th>Nombre del grupo</th>
             <tbody>
@@ -95,7 +91,7 @@
                   <td>{{grupos.NombreDelCurso}}</td>
                   <td>{{grupos.NombreDelGrupo}}</td>
                   <td><img src="img/edit.png" data-toggle="modal" ng-click="editCrus(grupos)" data-target="#modelDetallesCurso" style="cursor: pointer"></td>
-                  <td><img src="img/del.png" data-toggle="modal" data-target="#modalConfirm" style="cursor: pointer"></td>
+                  <td><img src="img/del.png" data-toggle="modal" ng-click="del(grupos)" data-target="#modalConfirm" style="cursor: pointer"></td>
                </tr>
             </tbody>
          </table>
@@ -121,18 +117,6 @@
                         <input required name="nombreEdCur" ng-model="par2" readonly>
                      </md-input-container>
                   </div>
-                  <div class="group">
-                     <md-input-container>
-                        <label>Horario</label>
-                        <input required name="nombreEdCur" ng-model="par3" readonly>
-                     </md-input-container>
-                     <label for="hn">Nuevo Horario</label>
-                     <select class="form-control" id="hn" ng-model='nuevH' ng-change="horChan();" ng-model="parH3">
-                        <option>Mañana</option>
-                        <option>Tarde</option>
-                        <option>Noche</option>
-                     </select>
-                  </div>
 
                   <table id="tablaProfes" class="tablaDetallesCurso">
                      <th>Profesores</th>
@@ -149,15 +133,13 @@
                   <table id="tablaEstud" class="tablaDetallesCursoEstu">
                      <th>Estudiantes</th>
                      <tr ng-repeat="estT in estT" class="list-group-item">
-                        <td>{{estT}}</td><td><img src="img/del.png" ng-click="delTempEst(valores)" style="cursor: pointer"></td>
+                        <td>{{estT}}</td><td><img class="pull-right" src="img/del.png" ng-click="delTempEst(valores)" style="cursor: pointer"></td>
                      </tr>
                   </table>
 
                </div>
-               <div class="alert alert-danger errormsj2">La suma de los porcentajes no es igual a 100.</div>
                <div class="modal-footer">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  <button type="button" class="btn btn-default simpleColor" data-dismiss="modal">Guardar</button>
+                  <button type="button" class="btn btn-default simpleColor" data-dismiss="modal">Cerrar</button>
                </div>
             </div>
          </div>
