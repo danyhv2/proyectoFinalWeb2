@@ -1,4 +1,12 @@
-<div class="contUsuarios hidden-xs" ng-controller="userCtrl">
+<div id="accordionUsuarios2" role="tablist" aria-multiselectable="true">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionUsuarios2" href=".collapseUsers2" aria-expanded="true" aria-controls="collapseUsers2">
+          Ingresar Usuarios
+      </h4>
+    </div>
+    <div class="collapseUsers2 panel-collapse collapse in" role="tabpanel" >
+      <div class="panel-body">
+        <div class="contUsuarios" ng-controller="userCtrl">
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
             <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" novalidate>
@@ -130,3 +138,9 @@
        </div>
      <!--FIN FORMULARIO-->
   </div>
+      </div>
+    </div>
+</div>
+
+
+

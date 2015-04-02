@@ -1,0 +1,185 @@
+<div id="accordionCurso" role="tablist" aria-multiselectable="true">
+   <div class="panel-heading visible-xs" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionCurso" href=".collapseCurso" aria-expanded="true" aria-controls="collapseCurso">
+         Ingresar Curso
+      </h4>
+   </div>
+   <div class="collapseCurso panel-collapse collapse" role="tabpanel" >
+      <div class="panel-body">
+         <div class="contCurso" ng-controller="addCursoCtrl">
+            <div class="row">
+               <form id="formCurso" class="formUser" ng-model="userForm" name="userForm" ng-submit="validateCurso() && addCursoCtrl.userForm.$valid" novalidate>
+                  <fieldset class="col-sm-12">
+                     <legend class="col-xs-6">Información del Curso</legend>
+                     <div class="col-xs-4 col-md-offset-2">
+                        <label class="lblEdit">
+                        <a ui-sref=".editar" data-toggle="modal" data-target="#modalEditarCurso">
+                        Editar
+                        <img src="img/edit.png" alt="Icono de Editar">
+                        </a>                  
+                        </label>
+                     </div>
+                     <div class="col-xs-12 col-sm-6">
+                        <p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>
+                        <p class="msgErrorUser alert alert-danger">El usuario que quiere ingresar ya fue agregado anteriormente.</p>
+                        <md-input-container>
+                           <label>Nombre</label>
+                           <input id="inpUser" md-maxlength="30" required name="name" ng-model="nombreCurso">
+                           <div ng-show="userForm.$submitted || userForm.name.$touched">
+                              <div class="msgError" ng-show="userForm.name.$error.required">El nombre es un campo requerido.</div>
+                           </div>
+                        </md-input-container>
+                        <div class="col-xs-12">
+                           <div>
+                              <md-select class="optCuatri" required ng-model="cuatriCurso" name="cuatrimestre" placeholder="Cuatrimestre">
+                                 <md-option value="I Cuatrimestre">I Cuatrimestre</md-option>
+                                 <md-option value="II Cuatrimestre" >II Cuatrimestre</md-option>
+                                 <md-option value="III Cuatrimestre" >III Cuatrimestre</md-option>
+                              </md-select>
+                           </div>
+                           <md-select class="optAno" required ng-model="anoCurso" name="ano" placeholder="Año Lectivo">
+                              <md-option value="2015">2015</md-option>
+                              <md-option value="2016" >2016</md-option>
+                              <md-option value="2017" >2017</md-option>
+                              <md-option value="2018" >2018</md-option>
+                              <md-option value="2019" >2019</md-option>
+                              <md-option value="2020" >2020</md-option>
+                              <md-option value="2021" >2021</md-option>
+                           </md-select>
+                        </div>
+                        <md-input-container>
+                           <label>Horario</label>
+                           <input required name="horario" ng-model="horarioCurso">
+                           <div ng-show="userForm.$submitted || userForm.horario.$touched">
+                              <div class="msgError" ng-show="userForm.horario.$error.required">Debe ingresar un horario para el curso.</div>
+                           </div>
+                        </md-input-container>
+                        <md-input-container>
+                           <label>Créditos</label>
+                           <input type="number" min="1" required name="creditos" ng-model="creditosCurso">
+                           <div ng-show="userForm.$submitted || userForm.creditos.$touched">
+                              <div class="msgError" ng-show="userForm.creditos.$error.required">Debe ingresar los créditos para el curso.</div>
+                           </div>
+                        </md-input-container>
+                        <md-input-container>
+                           <label>Código</label>
+                           <input required name="codigo" ng-model="codCurso">
+                           <div ng-show="userForm.$submitted || userForm.codigo.$touched">
+                              <div class="msgError" ng-show="userForm.codigo.$error.required">Debe ingresar un código para el curso.</div>
+                           </div>
+                        </md-input-container>
+                     </div>
+                  </fieldset>
+                  <div class="col-xs-12">   
+                     <button class="btn btnAddUser" type="submit">Ingresar</button>
+                  </div>
+               </form>
+               <!--modal editar curso-->
+               <div class="modal fade" id="modalEditarCurso" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" ng-controller="updateCursoCtrl as updCurso">
+                  <div class="modal-dialog">
+                     <div class="modal-content" ng-hide="formVisibility">
+                        <div class="modal-header">
+                           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                           <h1>Información del Curso</h1>
+                        </div>
+                        <div class="modal-body">
+                           <form clas="form-horizontal" name="updCurso.userFormEditCurso" ng-submit="guardarCurso() && updCurso.userFormEditCurso.$valid" novalidate>
+                              <md-input-container class="contBuscarCurso">
+                                 <p class="input-group">
+                                    <label>Buscar curso por nombre</label>
+                                    <input name="buscarCurso" class="searchCurso">
+                                    <a href="#" ng-click="updCurso.updateModel()">
+                                    <img src="img/searchIcon.png">
+                                    </a>
+                                 </p>
+                                 <p class="errorSearch">El curso que está buscando no existe.</p>
+                              </md-input-container>
+                              <md-input-container>
+                                 <label>Nombre</label>
+                                 <input id="inpNombreCurso" md-maxlength="30" required name="nombreCurso" ng-model="updCurso.datos[1].Curso">
+                                 <div ng-show="updCurso.userFormEditCurso.$submitted || updCurso.userFormEditCurso.nombreCurso.$touched">
+                                    <div class="msgError" ng-show="updCurso.userFormEditCurso.nombreCurso.$error.required">El nombre es un campo requerido.</div>
+                                 </div>
+                              </md-input-container>
+                              <md-input-container>
+                                 <label>Cuatrimestre</label>
+                                 <input id="inpCuatrimestre" required name="cuatrimestre" ng-model="updCurso.datos[1].Cuatrimestre">
+                                 <div ng-show="updCurso.userFormEditCurso.$submitted || updCurso.userFormEditCurso.cuatrimestre.$touched">
+                                    <div class="msgError" ng-show="updCurso.userFormEditCurso.cuatrimestre.$error.required">Cuatrimestre es un campo requerido.</div>
+                                 </div>
+                              </md-input-container>
+                              <md-select class="optCuatri" required ng-model="cuatriCurso" name="cuatrimestre" placeholder="Cuatrimestre">
+                                 <md-option value="I Cuatrimestre">I Cuatrimestre</md-option>
+                                 <md-option value="II Cuatrimestre" >II Cuatrimestre</md-option>
+                                 <md-option value="III Cuatrimestre" >III Cuatrimestre</md-option>
+                              </md-select>
+                              <md-input-container>
+                                 <label>Año Lectivo</label>
+                                 <input id="inpAno" required name="anoLectivo" ng-model="updCurso.datos[1].AnoLectivo">
+                                 <div ng-messages="projectForm.clientName.$error">
+                                    <div ng-message="required">This is required.</div>
+                                 </div>
+                              </md-input-container>
+                              <md-input-container>
+                                 <label>Horario</label>
+                                 <input id="inpHorarioCurso" required name="horarioCurso" ng-model="updCurso.datos[1].Horario">
+                                 <div ng-show="updCurso.userFormEditCurso.$submitted || updCurso.userFormEditCurso.horarioCurso.$touched">
+                                    <div class="msgError" ng-show="updCurso.userFormEditCurso.horarioCurso.$error.required">Debe ingresar un horario para el curso.</div>
+                                 </div>
+                              </md-input-container>
+                              <md-input-container>
+                                 <label>Créditos</label>
+                                 <input id="inpCreditoCurso" type="number" min="1" required name="creditosCurso" ng-model="updCurso.datos[1].Creditos">
+                                 <div ng-show="updCurso.userFormEditCurso.$submitted || updCurso.userFormEditCurso.creditosCurso.$touched">
+                                    <div class="msgError" ng-show="updCurso.userFormEditCurso.creditosCurso.$error.required">Debe ingresar los créditos para el curso.</div>
+                                 </div>
+                              </md-input-container>
+                              <md-input-container>
+                                 <label>Código</label>
+                                 <input id="inpCodCurso" required name="codCurso" ng-model="updCurso.datos[1].Codigo">
+                                 <div ng-show="updCurso.userFormEditCurso.$submitted || updCurso.userFormEditCurso.codCurso.$touched">
+                                    <div class="msgError" ng-show="updCurso.userFormEditCurso.codCurso.$error.required">Debe ingresar un código para el curso.</div>
+                                 </div>
+                              </md-input-container>
+                              <md-checkbox ng-model="data.cb1" id="chkCurso" aria-label="Checkbox 1">
+                                 Inactivar
+                              </md-checkbox>
+                              <button class="btn btnSaveCurso btnConfirmModal" type="submit">Guardar</button> 
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!--modal exito-->
+               <div id="modalExito" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                  <div class="modal-dialog modal-sm">
+                     <div id="modalContent" class="modal-content alert alert-success">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span>El curso ha sido modificado exitosamente!</span>
+                     </div>
+                  </div>
+               </div>
+               <!--modal confirm-->
+               <div class="modal-dialog">
+                  <div id="modalConfirm" class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Confirmar inactivar curso</h4>
+                     </div>
+                     <div class="modal-body">
+                        <p>Está seguro que desea proceder con la inactivacción del curso?</p>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btnConfirmModal" data-dismiss="modal">Proceder</button>
+                        <button type="button" class="btn btnAdd cancelConfirm">Cancelar</button>
+                     </div>
+                  </div>
+                  <!-- /.modal-content -->
+               </div>
+               <!-- /.modal-dialog -->
+               <!--Fin modal editar-->
+            </div>
+         </div>
+      </div>
+   </div>
+</div>

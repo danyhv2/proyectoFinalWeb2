@@ -1,5 +1,10 @@
-<div id="accordionUsuarios" class="hidden-xs" role="tablist" aria-multiselectable="true">
-    <div class="collapseUsers" class="panel-collapse collapse in" role="tabpanel"	>
+<div id="accordionUsuarios" role="tablist" aria-multiselectable="true">
+    <div class="panel-heading visible-xs" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionUsuarios" href=".collapseUsers" aria-expanded="true" aria-controls="collapseUsers">
+          Ver Usuarios
+      </h4>
+    </div>
+    <div class="collapseUsers panel-collapse collapse" role="tabpanel"	>
       <div class="panel-body">
       	<div class="contVerUsuarios panel-body" ng-controller="verUserCtrl">
 			<h1>Usuarios</h1>
@@ -28,8 +33,6 @@
       </div>
     </div>
 </div>
-
-
 <div id="modalInfoUser" class="modal fade">
   <div class="modal-dialog">
     <div class="modal-content">

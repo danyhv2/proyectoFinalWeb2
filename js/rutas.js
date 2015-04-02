@@ -28,13 +28,29 @@ route.config(function($stateProvider, $urlRouterProvider) {
 
            .state('configuracion', {
             url: '/configuracion',
-            templateUrl: 'pages/_opcionesConfig.html'
-            // views:{
-            //     'usuario': {
-            //         templateUrl: 'views/_ingresar-usuario.html'
-            //     }
-            // }
+            //templateUrl: 'pages/_opcionesConfig.html'
+            views: {
+                '': { 
+                templateUrl: 'pages/_opcionesConfig.html'
+                },
+                'verUsuarios@configuracion': { 
+                    templateUrl: 'pages/mobile/_mobileUsuarios.html' 
+                },
+                'ingresarUsuarios@configuracion': { 
+                    templateUrl: 'pages/mobile/_mobileIngresarUsuarios.html' 
+                },
+                'modificarUsuarios@configuracion': { 
+                    templateUrl: 'pages/mobile/_mobileModificarUsuarios.html' 
+                },
+                'ingresarCarrera@configuracion': { 
+                    templateUrl: 'pages/mobile/_mobileIngresarCarrera.html' 
+                },
+                'ingresarCurso@configuracion': { 
+                    templateUrl: 'pages/mobile/_mobileIngresarCurso.html' 
+                }
+            }
         })
+
            .state('documentos', {
             url: '/documentos',
             templateUrl: 'pages/_documentos.html'
