@@ -1463,6 +1463,71 @@ md-item-content.div {
   margin-left: 15% !important;
 }
 
+@keyframes example {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: black;
+  }
+}
+/* line 272, ../sass/_grupo.scss */
+#infoT {
+  background-color: white;
+}
+
+/* line 276, ../sass/_grupo.scss */
+#infoT:hover {
+  animation-name: example;
+  animation-duration: 4s;
+  background: black;
+  transition: all 0.2s ease;
+}
+/* line 281, ../sass/_grupo.scss */
+#infoT:hover a {
+  color: green;
+}
+/* line 284, ../sass/_grupo.scss */
+#infoT:hover h4 {
+  color: white;
+}
+
+/* line 290, ../sass/_grupo.scss */
+#stylish:hover {
+  opacity: 0.5;
+}
+
+@media print {
+  /* line 296, ../sass/_grupo.scss */
+  #miImg {
+    border: none;
+  }
+}
+/* line 301, ../sass/_grupo.scss */
+#wrapper .text {
+  font-size: 1.3em;
+  position: relative;
+  bottom: 98px;
+  left: 14px;
+  visibility: hidden;
+}
+
+/* line 309, ../sass/_grupo.scss */
+#wrapper:hover .text {
+  opacity: 0.5;
+  visibility: visible;
+}
+
+/* line 314, ../sass/_grupo.scss */
+#wrapper:hover #miImg {
+  opacity: 0.5;
+}
+
+/* line 318, ../sass/_grupo.scss */
+.noM {
+  margin-bottom: 0px !important;
+}
+
 @media print {
   /* line 2, ../sass/_perfil.scss */
   .btnPrint {
