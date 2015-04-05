@@ -1,2 +1,40 @@
-<slideshow></slideshow>
-<slider-proyectos></slider-proyectos>
+<!-- <slideshow></slideshow>
+<slider-proyectos></slider-proyectos> -->
+
+<link rel="stylesheet" href="sass/_home.scss">
+<div class="col-xs-12 col-sm-12" ng-controller ="proyectoshomeController">
+	<h1>Proyectos en Votación</h1>
+		
+
+		<div class="col-xs-12 col-sm-4 well" ng-repeat="data in Mejoresproyectos">
+      	<img ng-src="{{data.img}}" class ="img-rounded">
+			  <h3>{{data.titulo}}</h3>
+        <p>{{data.descripcion}}</p>
+        <p class ="link"><a href ="" data-toggle="modal" data-target="#myModal" id="{{data.id}}" class="show">Leer más</a></p>
+        <p class ="link"><a href ="" id="{{data.id3}}" class="hidden">Votar</a></p>
+      </div>
+      <h1>Últimas Publicaciones </h1>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Información del Proyecto</h4>
+      </div>
+      <div class="modal-body" ng-controller ="proyectoshomeController">
+        <div class="col-xs-12 col-sm-12  hidden " ng-repeat="data in Mejoresproyectos" id="{{data.id2}}">
+          <img ng-src="{{data.img}}" class ="img-rounded">
+          <h3>{{data.titulo}}</h3>
+          <p>{{data.descripcion}}</p>
+        </div>
+        <button type="button" class="btn btn-default btn-proyect" data-dismiss="modal">Cerrar</button>
+      </div>
+      <div class="modal-footer top-display">
+      </div>
+    </div>
+  </div>
+</div>
+
