@@ -1,17 +1,26 @@
 [
 {
+	"id":"uno",
+	"id2":"cuatro",
+	"id3": "diez",
     "titulo": "Dmg Coders",
-    "descripcion": "WebApp para control de historial de proyecto",
-    "leerMas" : "https://www.ucenfotec.ac.cr/avisos/proyecto_2014/" 
+    "descripcion": "LoginNet es un sistema donde los estudiantes van a tener un espacio para compartir entre ellos temas académicos.....",
+   	"img": "img/proyecto-1.png"
 },
 {
-    "titulo": "Dmg Coders",
-    "descripcion": "WebApp para control de historial de proyecto",
-    "leerMas" : "https://www.ucenfotec.ac.cr/avisos/proyecto_2014/" 
+	"id":"dos",
+	"id2":"cinco",
+	"id3": "once",
+    "titulo": "Falafel",
+    "descripcion": "El sistema falafel podría ser descrito como un híbrido entre un CRM y un CMS pensado para nutricionistas e usuarios....",
+    "img": "img/proyecto-2.png" 
 },
 {
-    "titulo": "Dmg Coders",
-    "descripcion": "WebApp para control de historial de proyecto",
-    "leerMas" : "https://www.ucenfotec.ac.cr/avisos/proyecto_2014/" 
+	"id":"tres",
+	"id2":"seis",
+	"id3": "doce",
+    "titulo": "Virtual Record",
+    "descripcion": "Virtual Record es un sistema para el control de estudiantes que han llevado los diferentes cursos de proyecto..",
+    "img": "img/login-app.png" 
 }
 ]

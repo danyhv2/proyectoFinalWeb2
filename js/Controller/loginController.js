@@ -68,6 +68,18 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         $('#grupo2').addClass('show');
                         $('#estudiante').removeClass('hide');
                         $('#estudiante').addClass('show');
+                        $('#uno').removeClass('show');
+                        $('#uno').addClass('hidden');
+                        $('#dos').removeClass('show');
+                        $('#dos').addClass('hidden');
+                        $('#tres').removeClass('show');
+                        $('#tres').addClass('hidden');
+                        $('#diez').removeClass('hidden');
+                        $('#diez').addClass('show');
+                        $('#once').removeClass('hidden');
+                        $('#once').addClass('show');
+                        $('#doce').removeClass('hidden');
+                        $('#doce').addClass('show');
 
                         /*$location.url('/configuracion');*/
                     } 
@@ -81,6 +93,18 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         $('#perfil').addClass('show');
                          $('#estudiante').removeClass('hide');
                         $('#estudiante').addClass('show');
+                        $('#uno').removeClass('show');
+                        $('#uno').addClass('hidden');
+                        $('#dos').removeClass('show');
+                        $('#dos').addClass('hidden');
+                        $('#tres').removeClass('show');
+                        $('#tres').addClass('hidden');
+                        $('#diez').removeClass('hidden');
+                        $('#diez').addClass('show');
+                        $('#once').removeClass('hidden');
+                        $('#once').addClass('show');
+                        $('#doce').removeClass('hidden');
+                        $('#doce').addClass('show');
 
                         /*$location.url('/perfil');*/
                     }
@@ -96,6 +120,18 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         $('#reportes-menu').addClass('show');
                         $('#grupo2').removeClass('hide');
                         $('#grupo2').addClass('show');
+                        $('#uno').removeClass('show');
+                        $('#uno').addClass('hidden');
+                        $('#dos').removeClass('show');
+                        $('#dos').addClass('hidden');
+                        $('#tres').removeClass('show');
+                        $('#tres').addClass('hidden');
+                        $('#diez').removeClass('hidden');
+                        $('#diez').addClass('show');
+                        $('#once').removeClass('hidden');
+                        $('#once').addClass('show');
+                        $('#doce').removeClass('hidden');
+                        $('#doce').addClass('show');
                                     
                        /* $location.url('/reportes');*/
                     }
@@ -108,6 +144,18 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         $('#perfil').addClass('show');
                         $('#grupo').removeClass('hide');
                         $('#grupo').addClass('show');
+                        $('#uno').removeClass('show');
+                        $('#uno').addClass('hidden');
+                        $('#dos').removeClass('show');
+                        $('#dos').addClass('hidden');
+                        $('#tres').removeClass('show');
+                        $('#tres').addClass('hidden');
+                        $('#diez').removeClass('hidden');
+                        $('#diez').addClass('show');
+                        $('#once').removeClass('hidden');
+                        $('#once').addClass('show');
+                        $('#doce').removeClass('hidden');
+                        $('#doce').addClass('show');
                                     
                        /* $location.url('/grupo');*/
                     }
