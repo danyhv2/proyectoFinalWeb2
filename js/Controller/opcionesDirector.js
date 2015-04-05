@@ -334,12 +334,12 @@
             $scope.infoIngresada5 = "";
         }
 
-        $scope.resetFormRubric = function() {
-            document.getElementById("formAddR").reset();
+        $scope.borrarRubTemp = function() {
+            $('#rubricasModal').empty();
         }
 
-        $scope.resetFormCg = function() {
-            document.getElementById("formAddR").reset();
+        $scope.resetFormRubric = function() {
+            $('#formAddR').reset();
         }
 
         $scope.resetFormCg = function() {
@@ -350,7 +350,7 @@
 
         $scope.edit = function(valores) {
             $scope.cantidadParametros = valores
-
+            
             $.each($scope.cantidadParametros.rubricaLista, function(key, value) {
                 $.each(value, function(key, value) {
                     $('#rubricasModal').append('\
@@ -417,7 +417,6 @@
                 };
 
                 if (numeroPuest === 100) {
-
                     var cosa = [];
 
                     function pushToAry(name, val) {
@@ -433,7 +432,6 @@
                            pushToAry(rubr, num);
 
                        };
-
                            archivos.RubricasCreadas.push({
                         "rubricaLista": cosa
                     });
@@ -463,6 +461,7 @@
         }
 
         $scope.nuevoRubroAdd = function() {
+
             if ($scope.nuevoRubro === "" || $scope.nuevoRubro === undefined) {
                 $('<div class="msgError" aria-hidden="false">Debe llenar el campo</div>').insertBefore('#nuevRub').delay(1000).fadeOut();
             } else {
@@ -487,21 +486,39 @@
             };
 
             if (cont === 0){
+            
             var rubricasPorEnviar = [],
                 rubrosPorEnviar = [],
                 y = 0,
                 s = 0,
-                total = 0;
+                total = 0,
+                mobile = false;
 
-            $('.valNot').each(function() {
-                rubricasPorEnviar.push($(this).val());
-                y++
-                s++
-            });
+                if ($(window).width() < 760) {
 
-            $('.rubroP').each(function() {
-                rubrosPorEnviar.push($(this).text());
-            });
+                   $('.valNot').each(function() {
+                        rubricasPorEnviar.push($(this).val());
+                        y++
+                        s++
+                    });
+
+                    $('.rubroP').each(function() {
+                        rubrosPorEnviar.push($(this).text());
+                    });
+
+                }
+                else {
+
+                   $('.valNotPunto').each(function() {
+                        rubricasPorEnviar.push($(this).val());
+                        y++
+                        s++
+                    });
+
+                        $('.rubroPuntoTemporal').each(function() {
+                        rubrosPorEnviar.push($(this).text());
+                    });
+                }
 
             for (y--; y >= 0; y--) {
                 total = total + Number(rubricasPorEnviar[y])
@@ -528,7 +545,6 @@
                     pushToAry(rubr, num);
 
                 };
-
 
                 archivos.RubricasCreadas.push({
                     "rubricaLista": cosa
