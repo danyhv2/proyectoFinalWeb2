@@ -1144,6 +1144,19 @@ form button {
   opacity: 0.7;
 }
 
+/* line 133, ../sass/_documentos.scss */
+.saveDoc {
+  background-color: #722d7d;
+  color: #ddd6d6;
+  border: 1px solid #722D7D;
+}
+/* line 137, ../sass/_documentos.scss */
+.saveDoc:hover {
+  background-color: #722d7d;
+  color: #ddd6d6;
+  opacity: 0.7;
+}
+
 /* line 1, ../sass/_reportes.scss */
 .listdemoBasicUsage .face {
   border-radius: 30px;
@@ -1747,38 +1760,49 @@ md-item-content.div {
   text-align: center;
 }
 
-/* line 5, ../sass/_login.scss */
+/* line 4, ../sass/_login.scss */
+.btnLogin {
+  background-color: #722d7d;
+  color: #ddd6d6;
+}
+/* line 7, ../sass/_login.scss */
+.btnLogin:hover {
+  opacity: 0.7;
+  color: #ddd6d6;
+}
+
+/* line 13, ../sass/_login.scss */
 .modal-login {
   border-top: 0;
 }
 
-/* line 9, ../sass/_login.scss */
+/* line 17, ../sass/_login.scss */
 .msgdanger {
   font-size: 13px;
   color: red;
 }
 
-/* line 13, ../sass/_login.scss */
+/* line 21, ../sass/_login.scss */
 .msguser {
   font-size: 13px;
   color: red;
 }
 
-/* line 17, ../sass/_login.scss */
+/* line 25, ../sass/_login.scss */
 .ingresar-login {
   text-align: right;
 }
 
-/* line 20, ../sass/_login.scss */
+/* line 28, ../sass/_login.scss */
 .contrasena {
   color: #722d7d;
 }
-/* line 22, ../sass/_login.scss */
+/* line 30, ../sass/_login.scss */
 .contrasena:hover {
   color: #722d7d;
 }
 
-/* line 26, ../sass/_login.scss */
+/* line 34, ../sass/_login.scss */
 #user-profile {
   width: 25px;
   height: 25px;

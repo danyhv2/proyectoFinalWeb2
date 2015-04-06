@@ -68,26 +68,26 @@
                 <div class="col-md-12">
                   <md-input-container>
                     <label>Correo Electrónico</label>
-                    <input  md-maxlength="30" required type ="email" name="email" 
+                    <input required type ="email" name="email" 
                     ng-model="usuario.email" ng-pattern ="patternEmail">
                       <div ng-show="userForm.$submitted || userForm.email.$touched">
-                       <div class="msgdanger" ng-show="userForm.email.$error.required"> es un campo requerido</div>
-                        <div class="msgdanger" ng-show="userForm.email.$error.pattern"> Fomato Invalido</div>
+                       <div class="msgdanger" ng-show="userForm.email.$error.required"> El correo es un campo requerido</div>
+                        <div class="msgdanger" ng-show="userForm.email.$error.pattern">Fomato Inválido</div>
                       </div>
                   </md-input-container>
                   <md-input-container>
                     <label>Contraseña</label>
-                    <input  md-maxlength="30" required name="password" type ="password" ng-model="usuario.password">
+                    <input required name="password" type ="password" ng-model="usuario.password">
                       <div ng-show="userForm.$submitted || userForm.password.$touched">
                         <div class="msgdanger" ng-show="userForm.password.$error.required">La contraseña es un campo requerido</div>
                       </div>
                   </md-input-container>
-                  <a href="#" class ="contrasena" data-toggle="modal" data-target="#contrasena">Olvido su Contraseña??</a>
+                  <a href="#" class ="contrasena" data-toggle="modal" data-target="#contrasena">Olvidó su Contraseña??</a>
                 </div>
               </fieldset>
               <div class="col-xs-12 ingresar-login"> 
                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>  
-              <button class="btn btn AddDocument" ng-click= "signupForm()">Ingresar</button>
+              <button class="btn btn btnLogin" ng-click= "signupForm()">Ingresar</button>
               </div>
           </form> 
         </div>

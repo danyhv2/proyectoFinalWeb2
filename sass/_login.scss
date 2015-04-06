@@ -1,6 +1,14 @@
 .center{
 	text-align: center;
 }
+.btnLogin{
+  background-color: #722d7d;
+  color: #ddd6d6;
+  &:hover{
+		opacity: 0.7;
+		color: #ddd6d6;
+	}
+}
 
 .modal-login{
 	border-top: 0;
