@@ -38,3 +38,37 @@
   </div>
 </div>
 
+<!-- bloque de facebook -->
+<script type="text/javascript">
+    
+  function goFamax() {
+    $('#famax').empty();
+    var facebookPageUrlInput = $('#facebookPageUrl').val();
+    var famaxColumnsInput = $('#famaxColumns').val();
+    $('#famax').famax({
+      //mandatory----------------
+      facebookPageUrl:facebookPageUrlInput,
+      fbAccessToken:"CAAJTO0BbbJUBAE3jj7KpVcLZAZBsaTIUvVH1lv5p7Yc4WmxMdsRddXYrNolfzC3QVLHjyLjsKEskfuEmwtHqJSTYEyPY9cZAhAif3DIQjjSIVTZB5uojFPyjtpeCkV0ykIrY4mlmAEFLdnx2TIFLgbPrFY9amb54nUIEGREAZC885mQuTeUaslOWfQRm187zdYUOD6NFsIHVqXRFpJkVi",
+
+      //optional-----------------
+      famaxWidgetWidth:"100%", //in px or % 
+      //famaxWidgetHeight:"400px",
+      famaxColumns:famaxColumnsInput,
+      famaxResultCount:6
+    });
+  }
+</script>
+<div id="select-page" class="hidden">
+    Enter your Facebook Page Url: <input type="text" id="facebookPageUrl" value="https://www.facebook.com/cenfotec"/>&nbsp;&nbsp; (Ex: http://www.facebook.com/codehandling)<br>
+    <div style="margin:8px;"></div>
+    Enter number of columns needed: <input type="text" id="famaxColumns" value="3"/>&nbsp;&nbsp; (Ex: 3)<br>
+    <div style="margin:10px;"></div>
+    <input type="button" value="Go Famax!" onclick="goFamax();">
+    </div>
+    
+    <div id="famax">
+    </div>    
+    <script>
+      goFamax();
+    </script>
+<!-- bloque de facebook -->
