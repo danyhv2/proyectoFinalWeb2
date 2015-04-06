@@ -1,7 +1,5 @@
 <!-- <slideshow></slideshow>
 <slider-proyectos></slider-proyectos> -->
-
-<link rel="stylesheet" href="sass/_home.scss">
 <div class="sliderHome" ng-controller="CarouselDemoCtrl" id="slides_control">
     <div>
       <carousel interval="myInterval">
@@ -42,9 +40,20 @@
           <h3>{{data.titulo}}</h3>
           <p>{{data.descripcion}}</p>
         </div>
-        <button type="button" class="btn btn-default btn-proyect" data-dismiss="modal">Cerrar</button>
+        <!-- <button type="button" class="btn btn-default btn-proyect" data-dismiss="modal">Cerrar</button> -->
       </div>
       <div class="modal-footer top-display">
+        <ul ng-social-buttons class="social-links"
+          data-url="current_url"
+          data-title="current_title"
+          data-description="current_description"
+          data-image="current_img"
+          showcounts="true">
+          <li class="ng-social-facebook">Facebook</li>
+          <li class="ng-social-google-plus">Google+</li>
+          <li class="ng-social-twitter">Twitter</li>
+        </ul>
+        <button type="button" class="btn btn-default btn-proyect" data-dismiss="modal">Cerrar</button>
       </div>
     </div>
   </div>

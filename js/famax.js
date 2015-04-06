@@ -16,7 +16,7 @@ var famax_global_options = {};
 			famaxColumnsHTML+='<div id="famax-video-list-div'+i+'" style="width:'+columnWidth+'%;" class="famax-video-list-div"></div>';
 		}
 		
-		$('#famax').append('<div id="famax-encloser">'+famaxColumnsHTML+'<div class="load-more-wrapper"><span class="load-more" id="load-more"> Load More..</span></div></div>');
+		$('#famax').append('<div id="famax-encloser">'+famaxColumnsHTML+'<div class="load-more-wrapper"><span class="load-more" id="load-more"> Ver más..</span></div></div>');
 		
 		$('#load-more').click(function(){
 			$('#load-more').text('loading..');
@@ -199,7 +199,7 @@ var famax_global_options = {};
 		
 		fqlPending = 0;
 		famaxLastCreatedTime = created_time;
-		$('#load-more').text('Load More..');
+		$('#load-more').text('Ver más..');
 	
 	},
 	

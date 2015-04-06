@@ -1,5 +1,6 @@
 .btn-proyect{
 	float: right;
+	margin-top: 1.3em;
 }
 .top-display{
 	border-top:none;
@@ -7,4 +8,13 @@
 
 h1.block-title-page{
 	margin: 0!important;
+}
+.ng-social{
+	float: left;
+	border-bottom: none !important;
+}
+
+.top-display{
+	display: inline-block;
+	width: 100%;
 }
