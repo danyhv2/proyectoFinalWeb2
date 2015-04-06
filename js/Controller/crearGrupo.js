@@ -146,7 +146,7 @@
 			}
 			];
 			$scope.notasG = [
-				{nombre:'Nombre', valor: 'Guillermo Sanchez Garay'}, 
+				//{nombre:'Nombre', valor: 'Guillermo Sanchez Garay'}, 
 				{nombre:'Profesor', valor:'Alvaro Cordero'},
 				{nombre:'Asistencia', valor:'5'}, 
 				{nombre:'Concepto', valor:'12'},
