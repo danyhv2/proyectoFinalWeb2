@@ -2,6 +2,18 @@
 <slider-proyectos></slider-proyectos> -->
 
 <link rel="stylesheet" href="sass/_home.scss">
+<div class="sliderHome" ng-controller="CarouselDemoCtrl" id="slides_control">
+    <div>
+      <carousel interval="myInterval">
+        <slide ng-repeat="slide in slides" active="slide.active">
+          <img ng-src="{{slide.image}}">
+          <div class="carousel-caption">
+
+          </div>
+        </slide>
+      </carousel>
+    </div>
+  </div>
 <div class="col-xs-12 col-sm-12" ng-controller ="proyectoshomeController">
 	<h1>Proyectos en Votación</h1>
 		
