@@ -8,7 +8,7 @@
       <div class="panel-body">
          <div class ="contenedorRubricasUi col-xs-12" ng-controller='directorController as este'>
             <!--Modal Confirm-->
-            <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modalConfirmRubrica modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                   <h4 class="modal-title">Confirmar borrado rúbrica</h4>
@@ -34,7 +34,7 @@
                      <tr ng-repeat="valores in este.datos.RubricasCreadas">
                         <td>{{valores.rubricaLista[0].NombreDeRubrica}}</td>
                         <td><img src="img/edit.png"  ng-click="edit(valores)" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
-                        <td><img src="img/del.png" data-toggle="modal" ng-click="delR(valores)" data-target="#modalConfirm"  style="cursor: pointer"></td>
+                        <td><img src="img/del.png" data-toggle="modal" ng-click="delR(valores)" data-target=".modalConfirmRubrica"  style="cursor: pointer"></td>
                      </tr>
                   </table>
                </div>

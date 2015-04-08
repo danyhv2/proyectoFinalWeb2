@@ -10,10 +10,10 @@
             <div>
                <div class="comie">
                   <h3 class="jusH">Grupos creados</h3>
-                  <button type="button" class="simpleColor btn botonSim pull-right aliasBtnR"  data-toggle="modal" data-target="#modelCrearGrupoCurso">Crear nuevo</button>
+                  <button type="button" class="simpleColor btn botonSim pull-right aliasBtnR"  data-toggle="modal" data-target="#modelCrearGrupoCurso2">Crear nuevo</button>
                </div>
                <!--Modal Confirm-->
-               <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+               <div class="confirmModal modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-header">
                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                      <h4 class="modal-title">Confirmar borrado curso</h4>
@@ -29,7 +29,7 @@
                </div>
                <!--End Modal Confirm-->
                <!-- Modal -->
-               <div class="modal fade" id="modelCrearGrupoCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+               <div class="modal fade" id="modelCrearGrupoCurso2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                      <div class="modal-content">
                         <div class="modal-header">
@@ -94,14 +94,14 @@
                         <tr ng-repeat="grupos in este.datos.GruposDeCurso">
                            <td>{{grupos.NombreDelCurso}}</td>
                            <td>{{grupos.NombreDelGrupo}}</td>
-                           <td><img src="img/edit.png" data-toggle="modal" ng-click="editCrus(grupos)" data-target="#modelDetallesCurso" style="cursor: pointer"></td>
-                           <td><img src="img/del.png" data-toggle="modal" ng-click="del(grupos)" data-target="#modalConfirm" style="cursor: pointer"></td>
+                           <td><img src="img/edit.png" data-toggle="modal" ng-click="editCrus(grupos)" data-target="#modelDetallesCurso2" style="cursor: pointer"></td>
+                           <td><img src="img/del.png" data-toggle="modal" ng-click="del(grupos)" data-target=".confirmModal" style="cursor: pointer"></td>
                         </tr>
                      </tbody>
                   </table>
                </div>
                <!--Modal-->
-               <div class="modal fade" id="modelDetallesCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+               <div class="modal fade" id="modelDetallesCurso2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
                      <div class="modal-content">
                         <div class="modal-header">
