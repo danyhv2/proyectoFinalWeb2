@@ -89,7 +89,7 @@
                      </md-select>
          
                      </div>
-         
+          
                      <div class="cajaRubrica" ng-repeat='par in este.datos.ParamatrosRubrica'>
                         <div class="pull-left cont">
                            <md-input-container>
@@ -98,7 +98,7 @@
                            </md-input-container>
                         </div>
                         <div class="pull-right imagN">
-                           <img class="borrarRub" src="img/del.png"  ng-click="delP(valores)" style="cursor: pointer">
+                           <img class="borrarRub" src="img/del.png"  ng-click="delP(par)" style="cursor: pointer">
                         </div>
                      </div>
                   </ng-form>
@@ -107,7 +107,7 @@
       
             </div>
             <div class="modal-footer">
-                <button type="button" id="closeRubrica" class="btn btn-default" ng-click="resetFormRubric()" data-dismiss="modal">Cerrar</button>
+                <button id="closeRubrica" class="btn btn-default" ng-click="resetFormRubric()" data-dismiss="modal">Cerrar</button>
             </div>
          </div>
       </div>

@@ -45,12 +45,12 @@
                         </div>
 
                         <div id="Nam4" class="group spaceB">
-                           <label for="prof">Profesores:</label>
-                           <select  ng-change="profAdd();" name="prof" id="prof" ng-model="infoIngresada5" class="form-control" ng-options="nombreTemp2.Profesor for nombreTemp2 in este.datos.ProfesoresNormales">
-                           </select> 
-
+                           <md-select placeholder="Profesores" ng-change="profAdd()" ng-model="infoIngresada5" name="prof">
+                               <md-option ng-repeat="nombreTemp2 in este.datos.ProfesoresNormales" ng-value="nombreTemp2">{{nombreTemp2.Profesor}}</md-option>
+                           </md-select>
                         </div>
-                        
+
+
                         <div class="group">
                            <table class="table table-hover">
                               <th>Profesores asignados</th>
@@ -60,9 +60,10 @@
                         </div>
 
                         <div id="Nam3" class="group spaceB">
-                           <label for="estu">Estudiantes:</label>
-                           <select  ng-change="estudAdd();" name="estu" id="estu" ng-model="infoIngresada4" class="form-control" ng-options="nombreTemp.Estudiante for nombreTemp in este.datos.EstudiantesNormales">
-                           </select>
+                           <md-select placeholder="Estudiantes" ng-change="estudAdd()" ng-model="infoIngresada4" name="estu">
+                               <md-option ng-repeat="nombreTemp in este.datos.EstudiantesNormales" ng-value="nombreTemp">{{nombreTemp.Estudiante}}</md-option>
+                           </md-select>
+
                         </div>
                         <div class="group">
                            <table class="table table-hover">
@@ -82,6 +83,7 @@
          </div>
       </div>
       <!--Modal end-->
+
       <div id="cajaCursos" class="contenedorDeCajas nays">
          <table id="tableGrupoCurso" class="table table-hover">
             <th>Nombre del curso</th>

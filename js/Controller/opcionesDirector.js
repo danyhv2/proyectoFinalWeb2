@@ -35,6 +35,7 @@
 
         //Parte de roy
 
+
         $scope.editNotas = function(valores) {
 
                 //var t = $scope.este.datos.GruposDeCurso.indexOf(valores);
@@ -339,7 +340,10 @@
         }
 
         $scope.resetFormRubric = function() {
-            $('#formAddR').reset();
+            
+            $scope.newNombreRubrica = "";
+            $scope.newNombreGrupo = "";
+            $(".valNotPunto").val("")
         }
 
         $scope.resetFormCg = function() {
@@ -354,10 +358,12 @@
             $.each($scope.cantidadParametros.rubricaLista, function(key, value) {
                 $.each(value, function(key, value) {
                     $('#rubricasModal').append('\
-                <div class="group form-group">\
-                        <label class="rubricasTemp">' + key + '</label>\
-                        <input required class="valoresTemp form-control" name="nombreEditRubrica" value="' + value + '">\
-                </div>')
+                <div class="group">\
+      <input type="text" class="valoresTemp" value='+ value +'>\
+      <span class="highlight"></span>\
+      <span class="bar"></span>\
+      <label class="rubricasTemp">'+ key +'</label>\
+    </div>')
                 });
             });
 
@@ -368,15 +374,20 @@
             $("#rubricasModal div:eq(1) ").hide();
 
             $('#rubricasModal').prepend('\
-                <div class="group form-group">\
-                        <label >Nombre del grupo</label>\
-                        <input id="NombreGr" class="form-control" readonly name="nombreEditRubrica"\
-                </div>')
+                <div class="group">      \
+      <input type="text" id="NombreGr" required>\
+      <span class="highlight"></span>\
+      <span class="bar"></span>\
+      <label>Nombre del curso</label>\
+    </div>')
+
             $('#rubricasModal').prepend('\
-                <div class="group form-group">\
-                        <label >Nombre de rubrica</label>\
-                        <input id="NombreRu" class="form-control" readonly name="nombreEditRubrica"\
-                </div>')
+                <div class="group">      \
+      <input type="text" id="NombreRu" required>\
+      <span class="highlight"></span>\
+      <span class="bar"></span>\
+      <label>Nombre de la rubrica</label>\
+    </div>')
 
             $("#NombreGr").val(nombreg);
             $("#NombreRu").val(nombrer);
