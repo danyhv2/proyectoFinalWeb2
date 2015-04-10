@@ -53,7 +53,8 @@ routerApp.controller('MenuC', function($scope) {
 
 var users = [];
 
-routerApp.controller('userCtrl', function($scope){
+routerApp.controller('userCtrl', function($scope, $http){
+  $scope.url = 'query1.php';
   $scope.roles = [
     {
       nombre: 'Estudiante'
