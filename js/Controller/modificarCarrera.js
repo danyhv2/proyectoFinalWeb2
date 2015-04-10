@@ -41,8 +41,8 @@ angular.module('modifyCarrera', [])
             localStorage.setItem('carreras',JSON.stringify($scope.changedCarrera));
             $('#modalEditarCarrera').modal('hide');
             $('.modal-backdrop').modal('hide');
-            $('#modalExito').fadeIn(1000);
-            $('#modalExito').fadeOut(3000);
+            //$('#modalExito').fadeIn(1000);
+            //$('#modalExito').fadeOut(3000);
         } 
         if($scope.updCarrera.formEditCarrera.$valid && $('#chkCurso').hasClass('md-checked')){
           $('#modalEditarCarrera').modal('hide');
@@ -59,7 +59,8 @@ angular.module('modifyCarrera', [])
       $('.btnConfirmModal').click(function() {
          $('#modalConfirm').modal('hide');
          $('#modalExito').fadeIn(1000);
-         $('#modalExito').fadeOut(3000);
+         $('#modalExito').fadeOut(1000);
+         $('#modalExito').css('display','none');
       });
 
   });
