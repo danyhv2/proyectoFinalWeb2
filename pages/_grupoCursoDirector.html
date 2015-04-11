@@ -3,7 +3,7 @@
       <div class="comie">
          <h3 class="jusH">Grupos creados</h3>
          <button type="button" class="simpleColor btn botonSim pull-right aliasBtnR"  data-toggle="modal" data-target="#modelCrearGrupoCurso">Crear nuevo</button>
-      </div>
+      </div> 
       <!--Modal Confirm-->
       <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-header">
@@ -20,12 +20,23 @@
          </div>
       </div>
       <!--End Modal Confirm-->
+
+      <!--Modal succes-->
+      <div id="modalExitoDelGrupo" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div id="modalContent" class="modal-content alert alert-success">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <span>La carrera ha sido modificada exitosamente!</span>
+      
+    </div>
+  </div>
+</div>
+
       <!-- Modal -->
       <div class="modal fade" id="modelCrearGrupoCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
          <div class="modal-dialog">
             <div class="modal-content">
                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <h1 class="modal-title" id="myModalLabel">Crear Grupo</h1>
                </div>
                <form id="modalNuevoGru" name="CurForm" ng-submit="guarNuevGr()">
@@ -105,7 +116,6 @@
          <div class="modal-dialog">
             <div class="modal-content">
                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                   <h1 class="modal-title" id="myModalLabel">Detalles</h1>
                </div>
                <div class="modal-body cajaDelmodal">
