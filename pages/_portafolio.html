@@ -1,30 +1,66 @@
-<md-content class="jumbotron noM">
-<h1 style="font-size: 1.87em;
-  font-weight: bold;
-  color: #757475;
-  text-align: center;  margin-bottom: 8%;">Portafolio</h1>
+<md-content class="jumbotron noM" id="todoPortafolio">
+<h1 style="margin-bottom: 8%;">Portafolio</h1>
 <div id="contenidoBonito">
+<div id="modalExito" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div id="modalContent" class="modal-content alert alert-success">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <span>Edición terminada!</span>
+    </div>
+  </div>
+</div>
+<div id="modalTrabajo" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" style="display: none;
+  position: fixed;
+  z-index: 1000;
+  margin-left: 20%;">
+  <div class="modal-dialog modal-sm">
+    <div id="modalContent" class="modal-content alert alert-success">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <span>Proyecto agregado correctamente!</span>
+    </div>
+  </div>
+</div>
+<div id="modalTrabajoB" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" style="display: none;
+  position: fixed;
+  z-index: 1000;
+  margin-left: 20%;">
+  <div class="modal-dialog modal-sm">
+    <div id="modalContent" class="modal-content alert alert-success">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <span>Proyecto borrado!</span>
+    </div>
+  </div>
+</div>
+<div id="modalTrabajoB2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" style="display: none;
+  position: fixed;
+  z-index: 1000;
+  margin-left: 20%;">
+  <div class="modal-dialog modal-sm">
+    <div id="modalContent" class="modal-content alert alert-success">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <span>Datos cambiados!</span>
+    </div>
+  </div>
+</div>
+
 	
-	<h1 style="  font-size: 1.87em;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  background: purple;">Información personal</h1>
+	<h1 class="pBlanco">Información personal</h1>
 		<div id="infoPerfil" class="clearfix">
-			<div class="pull-left" style="width:20%;cursor:pointer;" id="wrapper">
-				<img id="miImg"class="img-responsive img-circle" style="border:3px solid #97226b;"ng-src="{{miFoto}}" alt="">
-				<p class="text">Cambiar imagen</p>
+			<div class="pull-left " style="cursor:pointer;" id="wrapper">
+				<img id="miImg"class="img-responsive img-circle" ng-src="{{miFoto}}" alt="">
+				<i class="text" ><img src="img/camera.png" alt="" hide-md hide-gt-md style="margin-top: 61%;margin-left: 15%;"><p hide-sm>Cambiar imagen</p></i>
+				
 			</div>
-			<div class="pull-left" style="padding-left: 3%;padding-top: 4%;">
+			<div class="pull-left col-md-4 col-xs-4" id="divUl">
 				<ul>
-					<li style="padding:0; font-size: 1.5em;color: #757475;">{{miNombre}}</li>
-					<li style="font-size: 1.5em;color: #757475; padding-top: 3% !important;">{{miCorreo}}</li>
-					<li style="font-size: 1.5em;color: #757475; padding-top: 3% !important;">{{miTel}}</li>
+					<li style="padding:0; font-size: 118%;color: #757475;">{{miNombre}}</li>
+					<li style="font-size: 118%;color: #757475; padding-top: 3% !important;">{{miCorreo}}</li>
+					<li style="font-size: 118%;color: #757475; padding-top: 3% !important;">{{miTel}}</li>
 				</ul>
 			</div>
 			<div class="pull-right">
 				<img ng-src="img/edit2.png" ng-click="imprimirPortafolio()" ng-hide="no" style="cursor:pointer;">
-				<img ng-src="img/edit2.png" ng-click="editarInfo()" ng-show="no" data-toggle="modal" data-target="#editarInfo" style="cursor:pointer;">
+				<img id="edicionTotal" ng-src="img/edit2.png" ng-click="editarInfo()" ng-show="no" data-toggle="modal" data-target="#editarInfo" style="cursor:pointer;">
 				<img src="img/check.png" ng-click="imprimirPortafolio2()" ng-show="no" style="cursor:pointer;">
 				<img ng-src="img/print.png" ng-click="imprimirPortafolio3()" ng-hide="no" style="cursor:pointer;">
 			</div>
@@ -34,43 +70,29 @@
 			<p style="color: #757475;">{{miDesc}}</p>
 		</div>
 		<div id="trabajos">
-			<h1 style="  font-size: 1.87em;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  background: purple;
-">Mis proyectos</h1>
+			<h1 class="pBlanco">Mis proyectos</h1>
 	<div>
 		<img ng-src="img/work.png"  style="cursor:pointer;" ng-show="no" data-toggle="modal" data-target="#mostrarPortafolio">
 	</div>
 	<div class="col-md-4 col-xs-6" ng-repeat="proyecto in proyectos" style="margin-top: 2%;">
-				<style>
-					#stylish{  background: #fff;
-  					border-radius: 4px;
-  					box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-  					margin: 0 22px 22px 0;
-  					position: relative;
-  					width: 100%;
-  				max-height: 135px;min-height: 135px;}
-				</style>
 				<div id="miInfo" style="width: 79%;   box-shadow: 2px 2px 14px 2px;">
 						<div>
-							<img src="img/cerrar.png" alt="" class="pull-right" ng-click="borrarTrabajo(proyecto)" ng-show="no" style="cursor:pointer; position: absolute;z-index: 1;right: 22%;top: -3%;">
+							<img src="img/cerrar.png" alt="" class="pull-right borrarPortafolio" ng-click="borrarTrabajo(proyecto)" ng-show="no">
 						</div>
 					<div>
 						<a href="{{proyecto.pagina}}">
 							<img class="img-responsive" id="stylish" ng-src="{{proyecto.url}}">
 						</a>
 					</div>
-					<div layout="column" id="infoT" style="  max-height: 181px;">
-						<div>
-							<h2 style="text-align: center;"><a href="{{proyecto.pagina}}">{{proyecto.nombre}}</a></h2>
+					<div layout="column" id="infoT">
+						<div hide-sm>
+							<h2><a href="{{proyecto.pagina}}">{{proyecto.nombre}}</a></h2>
 						</div>
 						<div hide-sm>
-							<h4 style="text-align: center;">Por: {{proyecto.por}}</h4>
+							<h4>Por: {{proyecto.por}}</h4>
 						</div>
 						<div hide-sm>
-							<h4 style="text-align: center;">{{proyecto.tecnologias}}</h4>
+							<h4>{{proyecto.tecnologias}}</h4>
 						</div>
 					</div>	
 				</div>
@@ -150,7 +172,7 @@
 			       </form>
 				  </div>
 			     <div class="modal-footer">
-					<button type="button" class="btn simpleColor" data-dismiss="modal" ng-click="editarInfo()">Agregar</button>
+					<button type="button" class="btn simpleColor"  ng-click="editarInfo()">Agregar</button>
                  	<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="limpiar()">Cerrar</button>
              	 </div>
 			      </div>

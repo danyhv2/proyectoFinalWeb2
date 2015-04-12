@@ -7,7 +7,7 @@ modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location)
 		$scope.miCorreo = 'sq16roy@gmail.com';
 		$scope.miTel = '86108951';
 		$scope.miDir = 'San Ramon, Alajuela, Costa Rica';
-		$scope.miFoto = 'http://academyofldsdentists.com/site/wp-content/uploads/Cody-passport-photo-2x2.jpg';
+		$scope.miFoto = 'https://lh4.googleusercontent.com/-zs7WY0lop4A/AAAAAAAAAAI/AAAAAAAAAJI/8IyIZpVLAJE/photo.jpg';
 		$scope.miDesc = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Nuevo trabajo';
 
 		$scope.proyectos=[
@@ -25,6 +25,8 @@ modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location)
 			$scope.no= true;
 			$scope.imprimirPortafolio2 = function () {
 			$scope.no= false;
+			$('#modalExito').fadeIn(2000);
+        	 $('#modalExito').fadeOut(3000);
 			};
 		};
 			$scope.imprimirPortafolio3 = function () {
@@ -37,6 +39,9 @@ modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location)
 		$scope.borrarTrabajo = function ( proyecto ) {
   			var i = $scope.proyectos.indexOf(proyecto);
 			$scope.proyectos.splice(i,1);
+			$('#modalTrabajoB').fadeIn(2000);
+         	$('#modalTrabajoB').fadeOut(3000);
+			
 		};
 		$scope.agregarTrabajo = function () {
 			$scope.proyectos.push({nombre:$scope.nombreProyecto, por:$scope.hechoPor, url:$scope.urlImagen, tecnologias:$scope.tecnologias, pagina:$scope.urlPagina});
@@ -45,6 +50,8 @@ modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location)
 			$scope.urlImagen= '';
 			$scope.tecnologias= '';
 			$scope.urlPagina= '';
+			$('#modalTrabajo').fadeIn(2000);
+         	$('#modalTrabajo').fadeOut(3000);
 		};
 		$scope.limpiar = function(){
 			$scope.nombreProyecto= '';
@@ -54,13 +61,15 @@ modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location)
 			$scope.urlPagina= '';
 		};
 		$scope.editarInfo = function () {
-			if ($scope.miNombre2!=undefined) {
+			if ($scope.miCorreo2!=undefined) {
 				$scope.miNombre= $scope.miNombre2;
 				$scope.miCorreo = $scope.miCorreo2;
 				$scope.miTel = $scope.miTel2;
 				$scope.miDir = $scope.miDir2;
 				$scope.miFoto = $scope.miFoto2;
 				$scope.miDesc = $scope.miDesc2;
+				$('#modalTrabajoB2').fadeIn(2000);
+         		$('#modalTrabajoB2').fadeOut(3000);
 				
 			};
 		};
