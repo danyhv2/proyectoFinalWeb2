@@ -6,6 +6,7 @@
         var valorActualE = [],
             valorActualC = [],
             valorActualP = [];
+
             //rubrica nueva
         $scope.rubricas = [
         {
@@ -32,7 +33,9 @@
         $('.errormsj').hide();
         $('.errormsj2').hide();
         $('.opcionesNota').hide();
-
+        $('#modalExitoDelGrupo').hide();
+        $('#modalExitoDeRubrica').hide();
+        $('#modalExitoDeCarrera').hide();
         //Parte de roy
 
 
@@ -195,7 +198,9 @@
                     for (var m = valorActualC.length - 1; m >= 0; m--) {
                         archivos.Carreras[i].CursosAsignados.push(valorActualC[m])
                     };
-                    $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#tableGrupoCurso').delay(1000).fadeOut();
+
+                    $('#modalExitoDeCarrera').fadeIn(1000);
+                    $('#modalExitoDeCarrera').fadeOut(1000);
                 };
             };
             $scope.mCarrera = '';
@@ -322,7 +327,8 @@
             $(".EstudTempor").empty();
             $scope.infoIngresada4 = "";
             $scope.infoIngresada5 = "";
-            $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#cajaCursos').delay(1000).fadeOut();
+            $('#modalExitoDelGrupo').fadeIn(1000);
+            $('#modalExitoDelGrupo').fadeOut(1000);
             };
         }
 
@@ -374,20 +380,18 @@
             $("#rubricasModal div:eq(1) ").hide();
 
             $('#rubricasModal').prepend('\
-                <div class="group">      \
-      <input type="text" id="NombreGr" required>\
-      <span class="highlight"></span>\
-      <span class="bar"></span>\
-      <label>Nombre del curso</label>\
-    </div>')
+    <table class="table table-hover">\
+      <th>Nombre del curso</th>\
+      <tr>\
+         <td>'+nombreg+'</td>\
+      </tr>\
+   </table>')
 
             $('#rubricasModal').prepend('\
-                <div class="group">      \
-      <input type="text" id="NombreRu" required>\
-      <span class="highlight"></span>\
-      <span class="bar"></span>\
-      <label>Nombre de la rubrica</label>\
-    </div>')
+    <table class="table table-hover">\
+      <th>Nombre de la rubrica</th>\
+      <tr><td>'+nombrer+'</td></tr>\
+   </table>')
 
             $("#NombreGr").val(nombreg);
             $("#NombreRu").val(nombrer);
@@ -561,7 +565,8 @@
                     "rubricaLista": cosa
                 });
 
-                $('<p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>').insertBefore('#tutuloRubri').delay(1500).fadeOut();
+                $('#modalExitoDeRubrica').fadeIn(1000);
+            $('#modalExitoDeRubrica').fadeOut(1000);
                 document.getElementById("formAddR").reset();
                 $('#selectGrupo').val(' ');
                 $('#closeRubrica').click();

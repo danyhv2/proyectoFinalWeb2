@@ -2,7 +2,7 @@ var moduleHome = angular.module('moduleHome', ['ngResource','ngRoute']);
 
 moduleHome.controller('CarouselDemoCtrl', function($scope) {
 
-  $scope.myInterval = 4000;
+  $scope.myInterval = 4000; //Duracion entre cada img
   $scope.slides = [
     {
       image: 'img/noticias/noticia.jpg'

@@ -1,5 +1,10 @@
 /*Estilos Guillermo*/
 
+
+.SliderSinFlechas a{
+  display: none;
+}
+
 .tablaCursotemporal{
   margin-top: 2em;
 }
@@ -258,7 +263,7 @@ input:focus     { outline:none; }
 
 /* LABEL ======================================= */
 label          {
-  color:#999; 
+  color:#c7b9cf ; 
   font-size:18px;
   font-weight:normal;
   position:absolute;

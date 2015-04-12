@@ -189,19 +189,19 @@
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('select#estudiantes').after('<span id="errorEstudiante" class="bg-danger text-danger">Debe seleccionar un estudiante</span>');
+					$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
 				}else if ($scope.nuevoEstudiante == ''){
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('select#estudiantes').after('<span id="errorEstudiante" class="bg-danger text-danger">Debe seleccionar un estudiante</span>');
+					$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
 				}else if($scope.nuevoRole == undefined){
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('select#roles').after('<span id="errorRoles" class="bg-danger text-danger">Debe seleccionar un role</span>');
+					$('div#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
 				}else if ($scope.nuevoRole == ''){
-					$('select#roles').after('<span id="errorRoles" class="bg-danger text-danger">Debe seleccionar un role</span>');
+					$('div#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
 				}else{
 					for(var p=0; p< $scope.grupos.length;p++){
 							console.log($scope.grupos[0]);
@@ -214,7 +214,7 @@
 										$('#errorEstudiante').detach();
 										$('#errorRoles').detach();
 										$scope.nuevoRole ='';
-										$('select#estudiantes').after('<span id="errorEstudiante" class="bg-danger text-danger">Este estudiantes ya esta en un grupo</span>');
+										$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiantes ya esta en un grupo</span>');
 								}else{
 									$('#errorRoles').detach();
 								}
@@ -226,7 +226,7 @@
 									cuentaEstudiantes2++;
 									$('#errorModiEs').detach();
 									$('#errorEstudiante').detach();
-									$('select#estudiantes').after('<span id="errorEstudiante" class="bg-danger text-danger">Este estudiante ya esta en la lista para agregar</span>');
+									$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiante ya esta en la lista para agregar</span>');
 								}
 							}
 							if (cuentaEstudiantes2 == 0) {
@@ -255,26 +255,28 @@
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('div#name2').after('<span id="errorNombreGrupo" class="bg-danger text-danger">Debe ingresar un nombre para el equipo</span>');
+					$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Debe ingresar un nombre para el equipo</span>');
 				}else if ($scope.nuevoName == ''){
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('div#name2').after('<span id="errorNombreGrupo" class="bg-danger text-danger">Debe ingresar un nombre para el equipo</span>');
+					$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Debe ingresar un nombre para el equipo</span>');
 				}else{
 					$('#errorNombreGrupo').detach();
 	      	for(var z=0; z< $scope.grupos.length;z++)
 					{
 						if ( $scope.grupos[z].nombreGrupo == $scope.nuevoName) {
 								cuentaEquipos++;
-								$('div#name2').after('<span id="errorNombreGrupo" class="bg-danger text-danger">Estae nombre de grupo ya esta en uso</span>');
+								$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Estae nombre de grupo ya esta en uso</span>');
 						}
 					}
 					if (cuentaEquipos == 0) {
 					$scope.grupos.push({nombreGrupo :$scope.nuevoName, misEstudiantes:$scope.muchos});
 						console.log($scope.grupos);
 					$('#errorEstudiante').detach();
-					$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut();
+					$('#modalExito').fadeIn(2000);
+         			$('#modalExito').fadeOut(3000);
+					//$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut();
 					$('#modalNuevoGrupo').modal('hide');
 					$scope.nuevoName = '';
 					$scope.nuevoEstudiante ='';
@@ -287,26 +289,28 @@
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('div#name2').after('<span id="errorNombreGrupo" class="bg-danger text-danger">Debe ingresar un nombre para el equipo</span>');
+					$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Debe ingresar un nombre para el equipo</span>');
 				}else if ($scope.nuevoName == ''){
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('div#name2').after('<span id="errorNombreGrupo" class="bg-danger text-danger">Debe ingresar un nombre para el equipo</span>');
+					$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Debe ingresar un nombre para el equipo</span>');
 				}else{
 					$('#errorNombreGrupo').detach();
 	      	for(var z=0; z< $scope.grupos.length;z++)
 					{
 						if ( $scope.grupos[z].nombreGrupo == $scope.nuevoName) {
 								cuentaEquipos++;
-								$('div#name2').after('<span id="errorNombreGrupo" class="bg-danger text-danger">Estae nombre de grupo ya esta en uso</span>');
+								$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Estae nombre de grupo ya esta en uso</span>');
 						}
 					}
 					if (cuentaEquipos == 0) {
 					$scope.grupos.push({nombreGrupo :$scope.nuevoName, misEstudiantes:$scope.muchos});
 						console.log($scope.grupos);
 					$('#errorEstudiante').detach();
-					$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut()
+					$('#modalExito').fadeIn(2000);
+         			$('#modalExito').fadeOut(3000);
+					//$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut()
 					$('#modalNuevoGrupo').modal('hide');
 					$scope.nuevoName = '';
 					$scope.nuevoEstudiante ='';
@@ -324,19 +328,19 @@
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('select#estudiantes').after('<span id="errorEstudiante" class="bg-danger text-danger">Debe seleccionar un estudiante</span>');
+					$('select#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
 				}else if ($scope.nuevoEstudiante == ''){
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('select#estudiantes').after('<span id="errorEstudiante" class="bg-danger text-danger">Debe seleccionar un estudiante</span>');
+					$('select#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
 				}else if($scope.nuevoRole == undefined){
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('select#roles').after('<span id="errorRoles" class="bg-danger text-danger">Debe seleccionar un role</span>');
+					$('select#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
 				}else if ($scope.nuevoRole == ''){
-					$('select#roles').after('<span id="errorRoles" class="bg-danger text-danger">Debe seleccionar un role</span>');
+					$('select#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
 				}else{
 					for(var p=0; p< $scope.grupos.length;p++){
 							console.log($scope.grupos[0]);
@@ -349,7 +353,7 @@
 										$('#errorEstudiante').detach();
 										$('#errorRoles').detach();
 										$scope.nuevoRole ='';
-										$('select#estudiantes').after('<span id="errorEstudiante" class="bg-danger text-danger">Este estudiantes ya esta en un grupo</span>');
+										$('select#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiantes ya esta en un grupo</span>');
 								}else{
 									$('#errorRoles').detach();
 								}
@@ -361,7 +365,7 @@
 									cuentaEstudiantes2++;
 									$('#errorModiEs').detach();
 									$('#errorEstudiante').detach();
-									$('select#estudiantes').after('<span id="errorEstudiante" class="bg-danger text-danger">Este estudiante ya esta en la lista para agregar</span>');
+									$('select#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiante ya esta en la lista para agregar</span>');
 								}
 							}
 							if (cuentaEstudiantes2 == 0) {
@@ -370,8 +374,10 @@
 									$('#errorNombreGrupo').detach();
 									$('#errorEstudiante').detach();
 									$('#errorRoles').detach();
+									$('#modalExito').fadeIn(2000);
+         							$('#modalExito').fadeOut(3000);
 									$scope.muchos.push({nombre:$scope.nuevoEstudiante.miName, role:$scope.nuevoRole});
-									$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut()
+									//$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut()
 									$('#modalNuevoGrupo').modal('hide');
 									console.log($scope.nuevoEstudiante);
 									console.log($scope.muchos);
@@ -396,6 +402,8 @@
 				var i = $scope.grupos.indexOf(grupo);
 				$scope.removeGrupo1=function(){
 				$scope.grupos.splice(i,1);
+				$('#modalBorrar').fadeIn(2000);
+         		$('#modalBorrar').fadeOut(3000);
 				};
 			};
 			$scope.removeGrupo2=function(grupo){
@@ -454,32 +462,32 @@
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('div#nameArchivo2').after('<span id="errorArchivoName" class="bg-danger text-danger">Debe escribir un nombre para el archivo</span>');
+					$('input#nameArchivo').before('<span id="errorArchivoName" class="bg-danger" style="color:#f44336;">Debe escribir un nombre para el archivo</span>');
 				}else if ($scope.archivoParaSubir == 2) {
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('input#nameArchivo').after('<span id="errorArchivoUp" class="bg-danger text-danger">Debe selecionar un archivo</span>');
+					$('input#nameArchivo').before('<span id="errorArchivoUp" class="bg-danger" style="color:#f44336;">Debe selecionar un archivo</span>');
 				}else if ($scope.nuevoNameArhivo == '') {
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('div#nameArchivo2').after('<span id="errorArchivoName" class="bg-danger text-danger">Debe escribir un nombre para el archivo</span>');
+					$('input#nameArchivo').before('<span id="errorArchivoName" class="bg-danger" style="color:#f44336;">Debe escribir un nombre para el archivo</span>');
 				}else if ($scope.archivoParaSubir == 2) {
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('input#nameArchivo').after('<span id="errorArchivoUp" class="bg-danger text-danger">Debe selecionar un archivo</span>');
+					$('input#nameArchivo').before('<span id="errorArchivoUp" class="bg-danger" style="color:#f44336;">Debe selecionar un archivo</span>');
 				}else if ($scope.enviarArchivo == undefined) {
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('div#esteA').after('<span id="errorArchivoGrupo" class="bg-danger text-danger">Debe seleccionar un grupo</span>');
+					$('div#esteA').before('<span id="errorArchivoGrupo" class="bg-danger" style="color:#f44336;">Debe seleccionar un grupo</span>');
 				}else if ($scope.enviarArchivo == '') {
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('div#esteA').after('<span id="errorArchivoGrupo" class="bg-danger text-danger">Debe seleccionar un grupo</span>');
+					$('div#esteA').before('<span id="errorArchivoGrupo" class="bg-danger" style="color:#f44336;">Debe seleccionar un grupo</span>');
 				}else{
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
@@ -489,7 +497,7 @@
 							console.log($scope.nuevoNameArhivo)
 							if (($scope.GruposArchivos[i].archivos[x].nombre) == ($scope.nuevoNameArhivo)) {
 								contadorArchivos++;
-								$('div#nameArchivo2').after('<span id="errorArchivoName" class="bg-danger text-danger">Ya hay un archivo con ese nombre</span>');
+								$('div#nameArchivo2').before('<span id="errorArchivoName" class="bg-danger" style="color:#f44336;">Ya hay un archivo con ese nombre</span>');
 							}else{
 								$('#errorArchivoUp').detach();
 								$('#errorArchivoGrupo').detach();
@@ -502,7 +510,9 @@
 							$('#errorArchivoName').detach();
 							$('#errorArchivoGrupo').detach();
 							$scope.GruposArchivos[i].archivos.push({nombre:$scope.nuevoNameArhivo, fecha: time, hora: hora});
-							$('<p id="msgSuccess" class="alert alert-success mipos">Archivo subido correctamente.</p>').insertBefore('h1#miArch').delay(3000).fadeOut();
+							$('#modalExito').fadeIn(2000);
+         					$('#modalExito').fadeOut(3000);
+							//$('<p id="msgSuccess" class="alert alert-success mipos">Archivo subido correctamente.</p>').insertBefore('h1#miArch').delay(3000).fadeOut();
 							console.log($scope.GruposArchivos[i]);
 							$scope.archivoParaSubir ='';
 							$scope.nuevoNameArhivo = '';
@@ -518,32 +528,32 @@
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('div#nameArchivo2').after('<span id="errorArchivoName" class="bg-danger text-danger">Debe escribir un nombre para el archivo</span>');
+					$('input#nameArchivo').before('<span id="errorArchivoName" class="bg-danger" style="color:#f44336;">Debe escribir un nombre para el archivo</span>');
 				}else if ($scope.archivoParaSubir == 2) {
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('input#nameArchivo').after('<span id="errorArchivoUp" class="bg-danger text-danger">Debe selecionar un archivo</span>');
+					$('input#nameArchivo').before('<span id="errorArchivoUp" class="bg-danger" style="color:#f44336;">Debe selecionar un archivo</span>');
 				}else if ($scope.nuevoNameArhivo == '') {
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('div#nameArchivo2').after('<span id="errorArchivoName" class="bg-danger text-danger">Debe escribir un nombre para el archivo</span>');
+					$('input#nameArchivo').before('<span id="errorArchivoName" class="bg-danger" style="color:#f44336;">Debe escribir un nombre para el archivo</span>');
 				}else if ($scope.archivoParaSubir == 2) {
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('input#nameArchivo').after('<span id="errorArchivoUp" class="bg-danger text-danger">Debe selecionar un archivo</span>');
+					$('input#nameArchivo').before('<span id="errorArchivoUp" class="bg-danger" style="color:#f44336;">Debe selecionar un archivo</span>');
 				}else if ($scope.enviarArchivo == undefined) {
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('div#esteA').after('<span id="errorArchivoGrupo" class="bg-danger text-danger">Debe seleccionar un grupo</span>');
+					$('div#esteA').before('<span id="errorArchivoGrupo" class="bg-danger" style="color:#f44336;">Debe seleccionar un grupo</span>');
 				}else if ($scope.enviarArchivo == '') {
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
 					$('#errorArchivoGrupo').detach();
-					$('div#esteA').after('<span id="errorArchivoGrupo" class="bg-danger text-danger">Debe seleccionar un grupo</span>');
+					$('div#esteA').before('<span id="errorArchivoGrupo" class="bg-danger" style="color:#f44336;">Debe seleccionar un grupo</span>');
 				}else{
 					$('#errorArchivoName').detach();
 					$('#errorArchivoUp').detach();
@@ -551,7 +561,7 @@
 					for(var x=0; x< $scope.GruposArchivos2[i].archivos.length;x++){
 							if (($scope.GruposArchivos2[i].archivos[x].nombre) == ($scope.nuevoNameArhivo)) {
 								contadorArchivos++;
-								$('div#nameArchivo2').after('<span id="errorArchivoName" class="bg-danger text-danger">Ya hay un archivo con ese nombre</span>');
+								$('input#nameArchivo').before('<span id="errorArchivoName" class="bg-danger" style="color:#f44336;">Ya hay un archivo con ese nombre</span>');
 							}else{
 								$('#errorArchivoUp').detach();
 								$('#errorArchivoGrupo').detach();
@@ -564,7 +574,9 @@
 							$('#errorArchivoName').detach();
 							$('#errorArchivoGrupo').detach();
 							$scope.GruposArchivos2[i].archivos.push({nombre:$scope.nuevoNameArhivo, fecha: time, hora: hora});
-							$('<p id="msgSuccess" class="alert alert-success mipos">Archivo subido correctamente.</p>').insertBefore('h1#miBtn').delay(3000).fadeOut();
+							$('#modalExito').fadeIn(2000);
+        					$('#modalExito').fadeOut(3000);
+							//$('<p id="msgSuccess" class="alert alert-success mipos">Archivo subido correctamente.</p>').insertBefore('h1#miBtn').delay(3000).fadeOut();
 							$scope.archivoParaSubir ='';
 							$scope.nuevoNameArhivo = '';
 							$scope.enviarArchivo = '';
@@ -576,9 +588,10 @@
 			$scope.mostrarArchivos=function(GruposArchivo){
 				var i = $scope.GruposArchivos.indexOf(GruposArchivo);
 				$scope.todosArchivos = $scope.GruposArchivos[i].archivos;
-				var miDate = $('input#inpFechaEntrega').val();
+				var miDate = $('input#inpFechaInicio').val();
 				$scope.mifecha = miDate;
-
+				var miDate2 = $('input#inpFechaFinal').val();
+				$scope.mifecha2 = miDate2;
 			};
 			$scope.mostrarArchivos2=function(GruposArchivo){
 				var i = $scope.GruposArchivos2.indexOf(GruposArchivo);
@@ -586,7 +599,7 @@
 				console.log($scope.todosArchivos2);
 				var dt = new Date();
 				var time = dt.getDate() + "-" + (dt.getMonth()+1) + "-" + dt.getFullYear();
-				$scope.mifecha2 = time;
+				$scope.mifecha3 = time;
 				
 			};
 			$scope.mostrarGrupo=function(grupo){
@@ -634,10 +647,10 @@
 				console.log($scope.grupos);
 				if ($scope.nuevoEstudiante2 == undefined) {
 					$('#errorModiEs').detach();
-					$('select#estudiantes2').after('<span id="errorModiEs" class="bg-danger text-danger">Debe seleccionar un estudiante</span>');
+					$('div#estudiantes2').before('<span id="errorModiEs" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
 				}else if ($scope.nuevoEstudiante2 == ''){
 					$('#errorModiEs').detach();
-					$('select#estudiantes2').after('<span id="errorModiEs" class="bg-danger text-danger">Debe seleccionar un estudiante</span>');
+					$('div#estudiantes2').before('<span id="errorModiEs" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
 				}else{
 					for(var p=0; p< $scope.grupos.length;p++){
 							console.log($scope.grupos[0]);
@@ -649,7 +662,7 @@
 										$('#errorModiEs').detach();
 										$('#errorEstudiante').detach();
 										$('#errorRoles').detach();
-										$('select#estudiantes2').after('<span id="errorEstudiante" class="bg-danger text-danger">Este estudiantes ya esta en un grupo</span>');
+										$('div#estudiantes2').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiantes ya esta en un grupo</span>');
 								}
 							}	
 							}	
@@ -659,7 +672,7 @@
 									cuentaEstudiantes2++;
 									$('#errorModiEs').detach();
 									$('#errorEstudiante').detach();
-									$('select#estudiantes2').after('<span id="errorEstudiante" class="bg-danger text-danger">Este estudiante ya esta en la lista para agregar</span>');
+									$('div#estudiantes2').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiante ya esta en la lista para agregar</span>');
 								}
 							}
 							if (cuentaEstudiantes2 == 0) {
@@ -682,7 +695,9 @@
 					{
 						$scope.todos.push({nombre:$scope.temps2[r].nombre,role:$scope.temps2[r].role});
 					}
-					$('<p id="msgSuccess" class="alert alert-success mipos">Edición completada.</p>').insertBefore('h1#equip').delay(3000).fadeOut();
+					$('#modalEditar').fadeIn(2000);
+         			$('#modalEditar').fadeOut(3000);
+					//$('<p id="msgSuccess" class="alert alert-success mipos">Edición completada.</p>').insertBefore('h1#equip').delay(3000).fadeOut();
 				$scope.nuevoEstudiante2 ='';
 				$scope.temps =[];
 				$scope.temps2 =[];
