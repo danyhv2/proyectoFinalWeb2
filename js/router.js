@@ -76,9 +76,6 @@ routerApp.controller('userCtrl', function($scope, $http){
 console.log($scope.roleUser);
 };
   $scope.validate = function() {
-    //var imgProfile= $('.thumb');
-    //imgProfile.css({'width':'70px','height':'70px'});
-    //console.log(imgProfile);
       var userExist = false;
       var validEmail = false;
       var newUsers = jQuery.parseJSON(localStorage.getItem('users'));
@@ -119,8 +116,11 @@ console.log($scope.roleUser);
                 'Role': $('.optionsRole').find('span').text()
                 };
                 //console.log($scope.newUser);
-                $('#msgSuccess').css('display','block');
-                $('#msgSuccess').fadeOut(3000);
+                //$('#msgSuccess').css('display','block');
+                $('#modalExitoUsuarios').fadeIn(1000);
+                $('#modalExitoUsuarios').fadeOut(4000);
+                $('#modalExitoUsuarios').modal('hide');
+                //$('#msgSuccess').fadeOut(3000);
                 users.push($scope.newUser);
                 localStorage.setItem('users', JSON.stringify(users));
                 $('.formUser').trigger('reset');

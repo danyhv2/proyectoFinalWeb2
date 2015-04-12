@@ -4,7 +4,16 @@
             <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" novalidate>
               <fieldset class="col-md-12">
                 <legend>Datos Personales</legend>
-                <p id="msgSuccess" class="alert alert-success">Usuario ingresado correctamente.</p>
+                <!--<p id="msgSuccess" class="alert alert-success">Usuario ingresado correctamente.</p>-->
+                 <!--modal exito-->
+                <div id="modalExitoUsuarios" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                  <div class="modal-dialog modal-sm">
+                    <div id="modalContent" class="modal-content alert alert-success">
+                      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                      <span>Usuario ingresado correctamente!</span>
+                    </div>
+                  </div>
+                </div>
                 <p class="msgErrorUser alert alert-danger">El usuario que quiere ingresar ya fue agregado anteriormente.</p>
                 <div class="col-md-6">
                   <md-input-container>
@@ -130,3 +139,4 @@
        </div>
      <!--FIN FORMULARIO-->
   </div>
+

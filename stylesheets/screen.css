@@ -102,44 +102,60 @@ header {
 header #menuContainer {
   max-width: 60em;
   /*max-height: 110px;*/
+  height: 5.625em;
   margin: 0 auto;
   font-size: 16px;
   padding-bottom: 2.2%;
 }
-/* line 11, ../sass/_header.scss */
+/* line 12, ../sass/_header.scss */
 header #menuContainer a {
   color: #ddd6d6;
 }
-/* line 16, ../sass/_header.scss */
+/* line 17, ../sass/_header.scss */
 header #menuCollapse ul {
   padding-top: 28px;
 }
-/* line 19, ../sass/_header.scss */
+/* line 20, ../sass/_header.scss */
 header .menuSesion {
   /*padding-left: 25px;*/
 }
-/* line 21, ../sass/_header.scss */
+/* line 22, ../sass/_header.scss */
 header .menuSesion .config {
   width: 45px;
 }
-/* line 25, ../sass/_header.scss */
+/* line 26, ../sass/_header.scss */
 header .menuList li {
   padding-left: 4px;
 }
-/* line 28, ../sass/_header.scss */
+/* line 29, ../sass/_header.scss */
 header .navbar-right img, header .navbar-right a, header #imgLogo {
   float: left;
 }
 /* line 32, ../sass/_header.scss */
-header .imgLogoSmall {
-  width: 70px;
-  padding: 6px;
+header .signIn {
+  text-align: right;
+  margin-right: 90px;
+  /*margin-top: 35px;*/
+  margin-top: 18px;
 }
-/* line 36, ../sass/_header.scss */
+/* line 38, ../sass/_header.scss */
+header #imgLogo {
+  padding-top: 10px;
+}
+/* line 41, ../sass/_header.scss */
+header .imgLogoSmall {
+  /*width: 70px;*/
+  padding: 6px;
+  width: 92px;
+  padding: 6px;
+  margin-left: 30%;
+}
+/* line 48, ../sass/_header.scss */
 header .signIcon {
   padding-top: 16px;
+  padding-left: 8px;
 }
-/* line 39, ../sass/_header.scss */
+/* line 52, ../sass/_header.scss */
 header #btnMenu:hover {
   background-color: #10167B;
 }
@@ -213,55 +229,56 @@ footer .contFooter .logoCenfotec {
 /* line 13, ../sass/_configuracion.scss */
 body {
   overflow: visible !important;
+  background: linear-gradient(to right, #a22068, #2e368f) !important;
 }
 
-/* line 16, ../sass/_configuracion.scss */
+/* line 17, ../sass/_configuracion.scss */
 md-backdrop.md-select-backdrop {
   display: none !important;
 }
 
-/* line 19, ../sass/_configuracion.scss */
+/* line 20, ../sass/_configuracion.scss */
 .md-backdrop {
   position: relative !important;
 }
 
-/* line 22, ../sass/_configuracion.scss */
+/* line 23, ../sass/_configuracion.scss */
 md-input-container {
   overflow-x: visible !important;
 }
 
-/* line 25, ../sass/_configuracion.scss */
+/* line 26, ../sass/_configuracion.scss */
 md-input-container.md-default-theme.md-input-invalid .md-input, .md-input {
   border-color: #967ba5;
   color: #757475 !important;
 }
 
-/* line 29, ../sass/_configuracion.scss */
+/* line 30, ../sass/_configuracion.scss */
 md-input-container.md-default-theme.md-input-invalid label {
   color: #c7b9cf;
 }
 
-/* line 32, ../sass/_configuracion.scss */
+/* line 33, ../sass/_configuracion.scss */
 .md-select-menu-container.md-active {
   z-index: 10001 !important;
 }
 
-/* line 35, ../sass/_configuracion.scss */
+/* line 36, ../sass/_configuracion.scss */
 .md-select-label {
   color: #545355;
 }
 
-/* line 38, ../sass/_configuracion.scss */
+/* line 39, ../sass/_configuracion.scss */
 md-input-container.md-default-theme.md-input-focused label {
   color: #c7b9cf !important;
 }
 
-/* line 41, ../sass/_configuracion.scss */
+/* line 42, ../sass/_configuracion.scss */
 md-input-container.md-default-theme.md-input-focused .md-input {
   border-color: #967ba5 !important;
 }
 
-/* line 45, ../sass/_configuracion.scss */
+/* line 46, ../sass/_configuracion.scss */
 .panel-heading {
   background-color: #D5D5D5;
   border-radius: 0px;
@@ -272,65 +289,65 @@ md-input-container.md-default-theme.md-input-focused .md-input {
   border: 1px solid;
 }
 
-/* line 54, ../sass/_configuracion.scss */
+/* line 55, ../sass/_configuracion.scss */
 h1, legend {
   color: #757475;
   font-weight: 500;
 }
 
-/* line 59, ../sass/_configuracion.scss */
+/* line 60, ../sass/_configuracion.scss */
 .modal-header {
   background-color: 7f2774;
   color: ddd6d6 !important;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
-/* line 64, ../sass/_configuracion.scss */
+/* line 65, ../sass/_configuracion.scss */
 .modal-header h1, .modal-header h4 {
   color: ddd6d6 !important;
   text-align: center;
 }
-/* line 68, ../sass/_configuracion.scss */
+/* line 69, ../sass/_configuracion.scss */
 .modal-header span {
   color: #ffffff;
 }
 
-/* line 72, ../sass/_configuracion.scss */
+/* line 73, ../sass/_configuracion.scss */
 .mainConfig {
   background-color: #e3e1e1;
   width: 100%;
 }
-/* line 75, ../sass/_configuracion.scss */
+/* line 76, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig {
   background-color: #f5f3f4;
   max-width: 60em;
   margin: 0 auto;
-  min-height: 540px;
+  min-height: 600px;
 }
-/* line 80, ../sass/_configuracion.scss */
+/* line 81, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig ul {
   padding-top: 20px;
 }
-/* line 82, ../sass/_configuracion.scss */
+/* line 83, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig ul li a {
   color: #757475;
   font-weight: bold;
 }
-/* line 86, ../sass/_configuracion.scss */
+/* line 87, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig ul li > a:hover, .mainConfig .wrapperConfig ul .nav > li > a:focus {
   text-decoration: none;
   background-color: #D5D5D5;
 }
-/* line 90, ../sass/_configuracion.scss */
+/* line 91, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig ul li.active a {
   text-decoration: none;
   background-color: #D5D5D5;
 }
-/* line 94, ../sass/_configuracion.scss */
+/* line 95, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig ul li:first-child {
   padding-left: 15px;
 }
-/* line 98, ../sass/_configuracion.scss */
+/* line 99, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .errorSearch {
   font-size: 13px;
   color: #f44336;
@@ -338,45 +355,45 @@ h1, legend {
   margin-top: 12px;
   display: none;
 }
-/* line 103, ../sass/_configuracion.scss */
+/* line 104, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .msgError {
   font-size: 13px;
   color: #f44336;
 }
-/* line 107, ../sass/_configuracion.scss */
+/* line 108, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalExito {
   display: none;
 }
-/* line 110, ../sass/_configuracion.scss */
+/* line 111, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalContent {
   position: absolute;
   background-color: #dff0d8;
 }
-/* line 114, ../sass/_configuracion.scss */
+/* line 115, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalConfirm {
   position: absolute;
   display: none;
   z-index: 10001;
 }
-/* line 119, ../sass/_configuracion.scss */
+/* line 120, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .btnConfirmModal {
   background-color: #722d7d;
   color: #ddd6d6;
 }
-/* line 122, ../sass/_configuracion.scss */
+/* line 123, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .btnAdd {
   color: #ffffff;
 }
-/* line 125, ../sass/_configuracion.scss */
+/* line 126, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser {
   padding-top: 30px;
 }
-/* line 127, ../sass/_configuracion.scss */
+/* line 128, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser legend {
   padding-left: 18px;
   font-size: 1.625em;
 }
-/* line 131, ../sass/_configuracion.scss */
+/* line 132, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .msgErrorEmail {
   font-size: 13px;
   color: #f44336;
@@ -384,14 +401,21 @@ h1, legend {
   margin-top: 12px;
   display: none;
 }
-/* line 136, ../sass/_configuracion.scss */
+/* line 137, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser #msgSuccess, .mainConfig .wrapperConfig .formUser .msgErrorUser {
   margin-left: 18px;
   width: 272px;
   margin-top: 12px;
   display: none;
 }
-/* line 140, ../sass/_configuracion.scss */
+/* line 141, ../sass/_configuracion.scss */
+.mainConfig .wrapperConfig .formUser #modalExitoUsuarios {
+  display: none;
+  z-index: 100001;
+  position: relative;
+  top: -45px;
+}
+/* line 147, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .btnAddUser {
   background-color: #722d7d;
   color: #ddd6d6;
@@ -399,85 +423,85 @@ h1, legend {
   margin-right: 75px;
   margin-bottom: 40px;
 }
-/* line 146, ../sass/_configuracion.scss */
+/* line 153, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .lblEdit a {
   color: #786c84;
   font-weight: bold;
 }
-/* line 150, ../sass/_configuracion.scss */
+/* line 157, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .optCuatri {
   float: left;
 }
-/* line 153, ../sass/_configuracion.scss */
+/* line 160, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .formUser .optAno {
   float: right;
 }
-/* line 158, ../sass/_configuracion.scss */
+/* line 165, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .inpSearchUser {
   padding-left: 35px;
 }
-/* line 161, ../sass/_configuracion.scss */
+/* line 168, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .lblEditUser {
   padding-left: 50px;
 }
-/* line 163, ../sass/_configuracion.scss */
+/* line 170, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .lblEditUser a {
   font-size: 16px;
 }
-/* line 167, ../sass/_configuracion.scss */
+/* line 174, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .errPass {
   display: none;
 }
-/* line 170, ../sass/_configuracion.scss */
+/* line 177, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .saveUser, .mainConfig .wrapperConfig .contUsuarios .cancelUser, .mainConfig .wrapperConfig .contUsuarios .saveUserAccess, .mainConfig .wrapperConfig .contUsuarios .cancelUserAccess, .mainConfig .wrapperConfig .contUsuarios .inpNewPass, .mainConfig .wrapperConfig .contUsuarios .inpNewPassConfirm {
   display: none;
 }
-/* line 173, ../sass/_configuracion.scss */
+/* line 180, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contUsuarios .imgProfile {
   width: 70px;
   height: 70px;
   margin-top: 62px;
 }
-/* line 179, ../sass/_configuracion.scss */
+/* line 186, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios {
   padding-bottom: 1px;
   padding-left: 20px;
   padding-right: 20px;
 }
-/* line 183, ../sass/_configuracion.scss */
+/* line 190, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios thead {
   color: #545355;
   border-bottom: 3px solid #722d7b;
 }
-/* line 186, ../sass/_configuracion.scss */
+/* line 193, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios thead th {
   font-weight: bold;
 }
-/* line 190, ../sass/_configuracion.scss */
+/* line 197, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios tbody {
   font-size: 14px;
 }
-/* line 192, ../sass/_configuracion.scss */
+/* line 199, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .contVerUsuarios tbody tr {
   border-bottom: 2px solid #b68cbb;
 }
-/* line 197, ../sass/_configuracion.scss */
+/* line 204, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .containerModal {
   color: #757475;
 }
-/* line 199, ../sass/_configuracion.scss */
+/* line 206, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .containerModal span {
   font-weight: bold;
 }
-/* line 204, ../sass/_configuracion.scss */
+/* line 211, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalInfoUser .info {
   float: left;
 }
-/* line 207, ../sass/_configuracion.scss */
+/* line 214, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig #modalInfoUser .contImgUser {
   float: right;
 }
-/* line 211, ../sass/_configuracion.scss */
+/* line 218, ../sass/_configuracion.scss */
 .mainConfig .wrapperConfig .btnDatePicker {
   border: none;
   background-color: #f5f3f4;
@@ -485,26 +509,26 @@ h1, legend {
 }
 
 /*MODAL EDITAR CURSO*/
-/* line 222, ../sass/_configuracion.scss */
+/* line 229, ../sass/_configuracion.scss */
 md-checkbox.md-default-theme.md-checked .md-icon {
   background-color: rgba(104, 57, 119, 0.87);
 }
 
 /*MODAL EDITAR CARRERA*/
-/* line 228, ../sass/_configuracion.scss */
+/* line 235, ../sass/_configuracion.scss */
 #modalEditarCarrera .contBuscarCarrera, #modalEditarCarrera .contBuscarCurso, #modalEditarCarrera .inpSearchUser, #modalEditarCurso .contBuscarCarrera, #modalEditarCurso .contBuscarCurso, #modalEditarCurso .inpSearchUser, .formEditUser .contBuscarCarrera, .formEditUser .contBuscarCurso, .formEditUser .inpSearchUser {
   width: 50%;
 }
-/* line 230, ../sass/_configuracion.scss */
+/* line 237, ../sass/_configuracion.scss */
 #modalEditarCarrera .contBuscarCarrera p, #modalEditarCarrera .contBuscarCurso p, #modalEditarCarrera .inpSearchUser p, #modalEditarCurso .contBuscarCarrera p, #modalEditarCurso .contBuscarCurso p, #modalEditarCurso .inpSearchUser p, .formEditUser .contBuscarCarrera p, .formEditUser .contBuscarCurso p, .formEditUser .inpSearchUser p {
   width: 100%;
 }
-/* line 232, ../sass/_configuracion.scss */
+/* line 239, ../sass/_configuracion.scss */
 #modalEditarCarrera .contBuscarCarrera p input, #modalEditarCarrera .contBuscarCurso p input, #modalEditarCarrera .inpSearchUser p input, #modalEditarCurso .contBuscarCarrera p input, #modalEditarCurso .contBuscarCurso p input, #modalEditarCurso .inpSearchUser p input, .formEditUser .contBuscarCarrera p input, .formEditUser .contBuscarCurso p input, .formEditUser .inpSearchUser p input {
   float: left;
   width: 88%;
 }
-/* line 236, ../sass/_configuracion.scss */
+/* line 243, ../sass/_configuracion.scss */
 #modalEditarCarrera .contBuscarCarrera p a, #modalEditarCarrera .contBuscarCurso p a, #modalEditarCarrera .inpSearchUser p a, #modalEditarCurso .contBuscarCarrera p a, #modalEditarCurso .contBuscarCurso p a, #modalEditarCurso .inpSearchUser p a, .formEditUser .contBuscarCarrera p a, .formEditUser .contBuscarCurso p a, .formEditUser .inpSearchUser p a {
   float: right;
   margin-top: 10px;
@@ -513,12 +537,12 @@ md-checkbox.md-default-theme.md-checked .md-icon {
 }
 
 /*BUTTON UPLOAD*/
-/* line 247, ../sass/_configuracion.scss */
+/* line 254, ../sass/_configuracion.scss */
 .upload-buttons input[type="file"] {
   width: 6.3em \0/IE9;
 }
 
-/* line 251, ../sass/_configuracion.scss */
+/* line 258, ../sass/_configuracion.scss */
 .upload-button {
   Height: 26px;
   line-height: 30px;
@@ -531,14 +555,14 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   cursor: pointer;
 }
 
-/* line 264, ../sass/_configuracion.scss */
+/* line 271, ../sass/_configuracion.scss */
 .sel-file {
   padding: 1px 5px;
   font-size: smaller;
   color: grey;
 }
 
-/* line 270, ../sass/_configuracion.scss */
+/* line 277, ../sass/_configuracion.scss */
 .response {
   padding: 0;
   padding-top: 10px;
@@ -546,27 +570,27 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   clear: both;
 }
 
-/* line 277, ../sass/_configuracion.scss */
+/* line 284, ../sass/_configuracion.scss */
 .response .sel-file li, .response .reqh {
   color: blue;
   padding-bottom: 5px;
 }
 
-/* line 283, ../sass/_configuracion.scss */
+/* line 290, ../sass/_configuracion.scss */
 .progress {
   display: inline-block;
   width: 100px;
   border: 3px groove #CCC;
 }
 
-/* line 289, ../sass/_configuracion.scss */
+/* line 296, ../sass/_configuracion.scss */
 .progress div {
   font-size: smaller;
   background: orange;
   width: 0;
 }
 
-/* line 295, ../sass/_configuracion.scss */
+/* line 302, ../sass/_configuracion.scss */
 .drop-box {
   background: #F8F8F8;
   border: 5px dashed #DDD;
@@ -578,40 +602,40 @@ md-checkbox.md-default-theme.md-checked .md-icon {
   margin-left: 20px;
 }
 
-/* line 306, ../sass/_configuracion.scss */
+/* line 313, ../sass/_configuracion.scss */
 .up-buttons {
   float: left;
 }
 
-/* line 310, ../sass/_configuracion.scss */
+/* line 317, ../sass/_configuracion.scss */
 .drop-box.dragover {
   border: 5px dashed blue;
 }
 
-/* line 314, ../sass/_configuracion.scss */
+/* line 321, ../sass/_configuracion.scss */
 .drop-box.dragover-err {
   border: 5px dashed red;
 }
 
-/* line 318, ../sass/_configuracion.scss */
+/* line 325, ../sass/_configuracion.scss */
 .js-fileapi-wrapper {
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 323, ../sass/_configuracion.scss */
+/* line 330, ../sass/_configuracion.scss */
 button {
   padding: 1px 5px;
   font-size: smaller;
   margin: 0 3px;
 }
 
-/* line 329, ../sass/_configuracion.scss */
+/* line 336, ../sass/_configuracion.scss */
 .ng-v {
   float: right;
 }
 
-/* line 333, ../sass/_configuracion.scss */
+/* line 340, ../sass/_configuracion.scss */
 .thumb {
   float: left;
   width: 18px;
@@ -619,7 +643,7 @@ button {
   padding-right: 10px;
 }
 
-/* line 340, ../sass/_configuracion.scss */
+/* line 347, ../sass/_configuracion.scss */
 form .thumb {
   width: 24px;
   height: 24px;
@@ -628,12 +652,12 @@ form .thumb {
   top: 7px;
 }
 
-/* line 348, ../sass/_configuracion.scss */
+/* line 355, ../sass/_configuracion.scss */
 form .progress {
   line-height: 15px;
 }
 
-/* line 352, ../sass/_configuracion.scss */
+/* line 359, ../sass/_configuracion.scss */
 .edit-area {
   font-size: 14px;
   background: black;
@@ -641,31 +665,31 @@ form .progress {
   padding: 5px 1px;
 }
 
-/* line 359, ../sass/_configuracion.scss */
+/* line 366, ../sass/_configuracion.scss */
 #htmlEdit {
   margin-bottom: 25px;
 }
 
-/* line 363, ../sass/_configuracion.scss */
+/* line 370, ../sass/_configuracion.scss */
 .edit-div {
   font-size: smaller;
 }
 
-/* line 367, ../sass/_configuracion.scss */
+/* line 374, ../sass/_configuracion.scss */
 .CodeMirror {
   font-size: 14px;
   border: 1px solid #ccc;
   margin-bottom: 15px;
 }
 
-/* line 373, ../sass/_configuracion.scss */
+/* line 380, ../sass/_configuracion.scss */
 form button {
   padding: 3px 10px;
   font-weight: bold;
   margin-top: 10px;
 }
 
-/* line 379, ../sass/_configuracion.scss */
+/* line 386, ../sass/_configuracion.scss */
 .sub {
   font-size: smaller;
   color: #777;
@@ -673,7 +697,7 @@ form button {
   padding-left: 10px;
 }
 
-/* line 386, ../sass/_configuracion.scss */
+/* line 393, ../sass/_configuracion.scss */
 .err {
   font-size: 12px;
   color: #C53F00;
@@ -683,51 +707,51 @@ form button {
   border: 1px solid black;
 }
 
-/* line 395, ../sass/_configuracion.scss */
+/* line 402, ../sass/_configuracion.scss */
 .s3 {
   font-size: smaller;
   color: #333;
   margin-left: 20px;
 }
 
-/* line 400, ../sass/_configuracion.scss */
+/* line 407, ../sass/_configuracion.scss */
 .s3 fieldset {
   border: 1px solid #AAA;
 }
 
-/* line 403, ../sass/_configuracion.scss */
+/* line 410, ../sass/_configuracion.scss */
 .s3 label {
   width: 180px;
   display: inline-block;
 }
 
-/* line 407, ../sass/_configuracion.scss */
+/* line 414, ../sass/_configuracion.scss */
 .s3 input {
   width: 300px;
 }
 
-/* line 410, ../sass/_configuracion.scss */
+/* line 417, ../sass/_configuracion.scss */
 .s3 .helper {
   margin-left: 5px;
 }
 
-/* line 414, ../sass/_configuracion.scss */
+/* line 421, ../sass/_configuracion.scss */
 .howto {
   margin-left: 10px;
 }
 
-/* line 418, ../sass/_configuracion.scss */
+/* line 425, ../sass/_configuracion.scss */
 .server {
   margin-bottom: 20px;
 }
 
-/* line 422, ../sass/_configuracion.scss */
+/* line 429, ../sass/_configuracion.scss */
 .srv-title {
   font-weight: bold;
   padding: 5px 0 10px 0;
 }
 
-/* line 427, ../sass/_configuracion.scss */
+/* line 434, ../sass/_configuracion.scss */
 :not(output):-moz-ui-invalid {
   box-shadow: none;
 }
@@ -1934,8 +1958,10 @@ md-item-content.div {
 #user-profile {
   width: 25px;
   height: 25px;
-  margin-top: 0.7em;
-  margin-left: 1em;
+  /*margin-top: 0.7em;
+  margin-left: 1em;*/
+  margin-right: 18px;
+  margin-bottom: -2px;
 }
 
 /*Media queries*/
@@ -1947,6 +1973,16 @@ md-item-content.div {
   /* line 12, ../sass/_mediaQuery.scss */
   .mainConfig .wrapperConfig .contVerUsuarios .tUsuarios, .mainConfig .wrapperConfig .contVerUsuarios tbody {
     font-size: 12px !important;
+  }
+
+  /* line 19, ../sass/_mediaQuery.scss */
+  header #menuContainer {
+    height: 3.625em;
+  }
+  /* line 21, ../sass/_mediaQuery.scss */
+  header #menuContainer .signIn {
+    margin-top: 14px;
+    margin-right: 0px;
   }
 }
 /* line 1, ../sass/_home.scss */
@@ -1975,4 +2011,34 @@ h1.block-title-page {
 .top-display {
   display: inline-block;
   width: 100%;
+}
+
+/* line 1, ../sass/_menu.scss */
+.menuAside {
+  background: #95226C;
+  overflow-x: visible;
+  overflow-y: visible;
+}
+/* line 5, ../sass/_menu.scss */
+.menuAside li {
+  width: 250px;
+  background: linear-gradient(to left, #95226C 50%, #830B52 50%);
+  background-size: 200% 100%;
+  background-position: right bottom;
+  transition: all 1s ease;
+}
+/* line 11, ../sass/_menu.scss */
+.menuAside li:hover {
+  background-position: left bottom !important;
+}
+/* line 14, ../sass/_menu.scss */
+.menuAside li a {
+  border-bottom: 1px solid #B8A0B0;
+  padding: 16px;
+}
+/* line 20, ../sass/_menu.scss */
+.menuAside #img-configuracion span {
+  margin-top: 8px;
+  float: right;
+  margin-right: 80px;
 }

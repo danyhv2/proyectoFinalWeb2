@@ -12,6 +12,7 @@
 
 body{
 	overflow:visible!important;
+	background:linear-gradient(to right, #a22068, #2e368f)!important;
 }
 md-backdrop.md-select-backdrop{
 	display:none!important;
@@ -76,7 +77,7 @@ h1, legend{
 		background-color:#f5f3f4;
 		max-width:60em;
 		margin:0 auto;
-		min-height: 540px;
+		min-height: 600px;
 			ul{
 			padding-top:20px;	
 				li a{
@@ -136,6 +137,12 @@ h1, legend{
 					#msgSuccess, .msgErrorUser{
 						margin-left: 18px;
 						@include msg; 
+					}
+					#modalExitoUsuarios{
+						display:none;
+						z-index: 100001;
+						position: relative;
+						top: -45px;
 					}
 					.btnAddUser{
 						@include btnPurple;

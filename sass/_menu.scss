@@ -1,0 +1,29 @@
+.menuAside{
+	background: #95226C;
+	overflow-x: visible;
+	overflow-y: visible;
+	li{
+    width: 250px;
+    background:linear-gradient(to left, #95226C 50%, #830B52 50%);
+    background-size: 200% 100%;
+    background-position:right bottom;
+    transition:all 1s ease;
+    	&:hover {
+	    background-position:left bottom!important;
+	    } 
+	    a{
+	    border-bottom:1px solid #B8A0B0;
+	    padding:16px;
+	    }
+	}
+	#img-configuracion{
+		span{
+			margin-top: 8px;
+  			float: right;
+  			margin-right: 80px;
+		}
+	}
+	
+}
+
+
