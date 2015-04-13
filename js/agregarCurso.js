@@ -16,8 +16,8 @@ angular.module('agregarCurso', [])
         'Codigo': $scope.codCurso,
       };
       $('#formCurso').trigger("reset");
-      $('#msgSuccess').css('display', 'block');
-      $('#msgSuccess').fadeOut(3000);
+      $('#modalExitoCurso').fadeIn(1000);
+      $('#modalExitoCurso').fadeOut(4000);
       cursos.push($scope.newCurso);
       localStorage.setItem('cursos', JSON.stringify(cursos));
 

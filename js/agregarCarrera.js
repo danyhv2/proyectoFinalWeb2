@@ -12,8 +12,8 @@ angular.module('agregarCarrera', [])
         'Codigo': $scope.codigoCarrera,
         'Director': $scope.dirCarrera
       };
-      $('#msgSuccess').css('display', 'block');
-      $('#msgSuccess').fadeOut(3000);
+      $('#modalExitoCarrera').fadeIn(1000);
+      $('#modalExitoCarrera').fadeOut(4000);
       carreras.push($scope.newCarrera);
       localStorage.setItem('carreras', JSON.stringify(carreras));
       $('.formUser').trigger('reset');

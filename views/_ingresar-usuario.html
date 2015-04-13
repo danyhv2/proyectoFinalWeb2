@@ -4,7 +4,6 @@
             <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" novalidate>
               <fieldset class="col-md-12">
                 <legend>Datos Personales</legend>
-                <!--<p id="msgSuccess" class="alert alert-success">Usuario ingresado correctamente.</p>-->
                  <!--modal exito-->
                 <div id="modalExitoUsuarios" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                   <div class="modal-dialog modal-sm">
@@ -62,7 +61,7 @@
                 </md-input-container>
                 <md-input-container>
                   <label>Cédula</label>
-                  <input required name="cedula" md-maxlength="9" ng-model="idUser">
+                  <input validate-number required name="cedula" md-maxlength="9" ng-model="idUser" valid-values="validValues">
                   <div ng-show="userForm.$submitted || userForm.cedula.$touched">
                     <div class="msgError" ng-show="userForm.cedula.$error.required">Cédula es un campo requerido.</div>
                   </div>

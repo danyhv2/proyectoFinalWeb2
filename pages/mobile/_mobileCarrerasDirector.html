@@ -27,7 +27,7 @@
                <button class="simpleColor btn pull-right aliasBtnR" data-toggle="modal" data-target="#modalCrearCurso">Asignar curso</button>
                <h3>Carreras</h3>
                <div class="contenedorDeCajas col-xs-12">
-                  <table id="tableGrupoCurso" class="table table-hover">
+                  <table id="tableGrupoCurso" class="table">
                      <th>Nombre</th>
                      <th>Editar</th>
                      <th>Eliminar</th>
@@ -91,7 +91,7 @@
                                  <select ng-model="mCurso" ng-change="CursAdd();" name="nombreGrupo" class="form-control">
                                     <option ng-repeat="grupos in este.datos.GruposDeCurso">{{grupos.NombreDelCurso}}</option>
                                  </select>
-                                 <table class="table table-hover">
+                                 <table class="table">
                                     <th>Cursos por asignar</th>
                                     <tbody  class="CurTempor"  id="tablaCursos">
                                     </tbody>

@@ -380,7 +380,7 @@
             $("#rubricasModal div:eq(1) ").hide();
 
             $('#rubricasModal').prepend('\
-    <table class="table table-hover">\
+    <table class="table">\
       <th>Nombre del curso</th>\
       <tr>\
          <td>'+nombreg+'</td>\
@@ -388,7 +388,7 @@
    </table>')
 
             $('#rubricasModal').prepend('\
-    <table class="table table-hover">\
+    <table class="table">\
       <th>Nombre de la rubrica</th>\
       <tr><td>'+nombrer+'</td></tr>\
    </table>')

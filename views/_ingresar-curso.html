@@ -13,7 +13,15 @@
                   </label>
                 </div>
                 <div class="col-xs-12 col-sm-6">
-                <p id="msgSuccess" class="alert alert-success">Datos ingresados correctamente.</p>
+                <!--modal exito-->
+                 <div id="modalExitoCurso" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                   <div class="modal-dialog modal-sm">
+                     <div id="modalContent" class="modal-content alert alert-success">
+                       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                       <span>Datos ingresados correctamente!</span>
+                     </div>
+                   </div>
+                 </div>
                 <p class="msgErrorUser alert alert-danger">El usuario que quiere ingresar ya fue agregado anteriormente.</p>
                   <md-input-container>
                     <label>Nombre</label>

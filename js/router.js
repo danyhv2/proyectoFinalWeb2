@@ -55,6 +55,7 @@ var users = [];
 
 routerApp.controller('userCtrl', function($scope, $http){
   $scope.url = 'query1.php';
+  $scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
   $scope.roles = [
     {
       nombre: 'Estudiante'
@@ -72,9 +73,7 @@ routerApp.controller('userCtrl', function($scope, $http){
       nombre: 'Decano'
     }
   ];
-  $scope.selectAction = function() {
-console.log($scope.roleUser);
-};
+ 
   $scope.validate = function() {
       var userExist = false;
       var validEmail = false;
@@ -146,6 +145,26 @@ console.log($scope.roleUser);
             }
 
 
+});
+routerApp.directive('validateNumber', function ($parse) {
+    return {
+        scope: {
+          validValues: '=validValues'
+        },
+        link: function (scope, elm, attrs) {
+          elm.bind('keypress', function(e){
+            var char = String.fromCharCode(e.which||e.charCode||e.keyCode), matches = [];
+            angular.forEach(scope.validValues, function(value, key){
+              if(char === value) matches.push(char);
+            }, matches);
+            if(matches.length == 0){
+              console.log('no');
+              e.preventDefault();
+              return false;
+            }
+          });
+        }
+    }   
 });
   routerApp.controller('getUserCtrl', function($scope){
         var self=this;

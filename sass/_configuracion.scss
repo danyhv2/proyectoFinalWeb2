@@ -138,7 +138,7 @@ h1, legend{
 						margin-left: 18px;
 						@include msg; 
 					}
-					#modalExitoUsuarios{
+					#modalExitoUsuarios, #modalExitoCarrera, #modalExitoCurso{
 						display:none;
 						z-index: 100001;
 						position: relative;
