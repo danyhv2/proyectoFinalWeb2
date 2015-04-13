@@ -70,8 +70,16 @@ route.config(function($stateProvider, $urlRouterProvider) {
         })
             .state('grupo2', {
             url: '/grupo2',
-            templateUrl: 'pages/_navProfesor.html',
-            controller: 'gruposController'
+            views:{
+                '':{
+                templateUrl: 'pages/_navProfesor.html',
+                controller: 'gruposController'   
+                },
+                'crear-grupo@grupo2':{
+                    templateUrl: 'pages/mobile/_mobileGrupoProfesor.html',
+                    controller: 'gruposController'
+                }
+            }
         })
         
          .state('reportes', {
