@@ -81,8 +81,24 @@ route.config(function($stateProvider, $urlRouterProvider) {
 
          .state('estudiante', {
             url: '/estudiante',
-            templateUrl: 'pages/_navEstudianteGrupo.html',
-            controller: 'gruposController'
+            views:{
+                '':{
+                templateUrl: 'pages/_navEstudianteGrupo.html',
+                controller: 'gruposController'   
+                },
+                'mi-grupo@estudiante':{
+                    templateUrl: 'pages/mobile/_mobileMiGrupo.html',
+                    controller: 'gruposController'
+                },
+                'estudiante-nota@estudiante':{
+                    templateUrl: 'pages/mobile/_mobileEstudianteNota.html',
+                    controller: 'gruposController'
+                },
+                'estudiante-tarea@estudiante':{
+                    templateUrl: 'pages/mobile/_mobileTarea.html',
+                    controller: 'gruposController'
+                }
+            }
         })
          
         

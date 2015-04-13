@@ -1,0 +1,141 @@
+<div id="accordionTareas" role="tablist" aria-multiselectable="true">
+   <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionTareas" href=".collapseTareas" aria-expanded="true" aria-controls="collapseTareas">
+         Tareas
+      </h4>
+   </div>
+   <div class="collapseTareas panel-collapse collapse" role="tabpanel">
+      <div class="panel-body">
+         <div class="contenedorRubricasUi clearfix col-xs-12">
+            <h1 id="miBtn">Tareas</h1>
+            <button type="button" class="btn simpleColor" data-toggle="modal" data-target="#subirArchivos">Subir archivo</button>
+            <div class="contenedorDeCajas clearfix">
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <th>
+                           <a href="" ng-click="ordenar('gPName')" class="misTitulos">Nombre</a>
+                           <span class="caret" style="cursor: pointer" ng-click="ordenar('-gPName')" ></span>
+                        </th>
+                        <th><a href="" ng-click="ordenar('curso')" class="misTitulos">Curso</a>
+                           <span class="caret" style="cursor: pointer" ng-click="ordenar('-curso')" ></span>
+                        </th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr ng-repeat="GruposArchivo in GruposArchivos2 | filter:buscar | orderBy:ordenSeleccionado">
+                        <td><a href="" ng-click="mostrarArchivos2(GruposArchivo)" data-toggle="modal" data-target="#mostrarArchivos2" class="misTitulos">{{GruposArchivo.gPName}}</a></td>
+                        <td>
+                           {{GruposArchivo.curso}}
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
+            <!--MODAL-->
+            <div class="modal fade" id="mostrarArchivos2" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h1>Archivos</h1>
+                     </div>
+                     <div class="modal-body" id="archivosbox">
+                        <div class="fechaGrupo">
+                           <div>
+                              <h4 class="misTitulos">Fecha de entrega</h4>
+                           </div>
+                           <md-input-container>
+                              <input type="text" type="date" disabled ng-model="mifecha3">
+                           </md-input-container>
+                        </div>
+                        <table class="table">
+                           <thead>
+                              <tr>
+                                 <th>
+                                    <h4 class="misTitulos">Nombre</h4>
+                                 </th>
+                                 <th>
+                                    <h4 class="misTitulos">Fecha</h4>
+                                 </th>
+                                 <th>
+                                    <h4 class="misTitulos">Hora</h4>
+                                 </th>
+                                 <th>
+                                    <h4 class="misTitulos">Eliminar</h4>
+                                 </th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr ng-repeat="todosArchivo in todosArchivos2 | orderBy:ordenSeleccionado">
+                                 <td><a href="pdf/archivosProfesor/{{todosArchivo}.nombre}.txt" download="{{todosArchivo.nombre}}" class="misTitulos">{{todosArchivo.nombre}}</a></td>
+                                 <td>
+                                    {{todosArchivo.fecha}}  
+                                 </td>
+                                 <td>
+                                    {{todosArchivo.hora}} 
+                                 </td>
+                                 <td>
+                                    <img ng-src="img/del2.png" ng-click="removeGrupo5(todosArchivo)" style="cursor: pointer"  disabled>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--FIN DE MODAL-->
+         <!--MODAL-->
+         <div class="modal fade" id="subirArchivos" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cerrarArchivos()">&times;</button>
+                     <h1>Subir archivos</h1>
+                  </div>
+                  <div class="modal-body">
+                     <form class="form-horizontal">
+                        <md-input-container id="crearGrupo">
+                           <label class=".label" for="nombre">Nombre del archivo:</label> 
+                           <input type="text" name="archivo" id="nameArchivo" ng-model="nuevoNameArhivo" class=""> 
+                        </md-input-container>
+                        <div id="nameArchivo2"></div>
+                        <div class="form-group">
+                           <input type="file" name="file" id="namefile" class="form-control" ng-model="archivoParaSubir" style="width: 0px; height: 0px; position: absolute; padding: 0px; margin: 0px; overflow: hidden; opacity: 0;">
+                           <button class="btn simpleColor" ng-file-select ng-multiple="false" id="btnSubir">Seleccionar archivo</button>
+                        </div>
+                        <div class="form-group">
+                           <div id="esteA"></div>
+                           <label for="estudiantes2" id="lvl">Grupos:</label>
+                           <select name="grupos" id="gruposArchivos" ng-model="enviarArchivo"  class="form-control col-xs-4" ng-options="GruposArchivo as GruposArchivo.gPName for GruposArchivo in GruposArchivos2">
+                           </select>
+                        </div>
+                     </form>
+                  </div>
+                  <div class="modal-footer">
+                     <button  class="btn simpleColor" ng-click="subirArchivos2(enviarArchivo)">Guardar</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cerrarArchivos()">Cerrar</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--FIN DE MODAL-->
+      </div>
+      <!--MODAL-->
+      <div id="modalExito" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+         <div class="modal-dialog modal-sm">
+            <div id="modalContent" class="modal-content alert alert-success">
+               <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+               <span>Subido correctamente.</span> 
+            </div>
+         </div>
+      </div>
+      <!--MODALExit-->       
+   </div>
+</div>
+</div>
