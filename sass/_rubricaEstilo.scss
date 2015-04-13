@@ -182,7 +182,17 @@
 
 .contenedorDeCajas{
   height: 24em; 
-  overflow-y: scroll
+  overflow-y: scroll;
+}
+ .misTitulos{
+      font-weight:bold;
+      color:#545355;
+  }
+.tBold{
+  th{
+    font-weight:bold;
+    color:#545355;
+  }
 }
 
 .contenedorRubricasUi{

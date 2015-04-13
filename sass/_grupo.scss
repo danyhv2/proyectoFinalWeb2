@@ -173,10 +173,6 @@ body
 		text-align: center;
 		font-size : 2em;
 	}
-	h4
-	{
-		color : #428bca;
-	}
 }
 
 #subirArchivos  
@@ -240,14 +236,10 @@ body
 {
 	h1
 	{
-		font-size: 1.875em;
-  font-weight: bold;
-  color: #757475;
-  text-align: center;
-	}
-	h4
-	{
-		color : #428bca;
+	font-size: 1.875em;
+  	font-weight: bold;
+  	color: #757475;
+  	text-align: center;
 	}
 }
 #navegacionEstudiante .nav > li > a:focus
@@ -267,10 +259,6 @@ body
 .contenedorDeCajas3
 {
 	overflow-y: scroll;
-}
-.misTitulos
-{
-	color:#757475 !important;
 }
 .mipos
 {

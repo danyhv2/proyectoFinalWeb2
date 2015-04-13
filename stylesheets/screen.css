@@ -975,70 +975,82 @@ form button {
   overflow-y: scroll;
 }
 
-/* line 189, ../sass/_rubricaEstilo.scss */
+/* line 187, ../sass/_rubricaEstilo.scss */
+.misTitulos {
+  font-weight: bold;
+  color: #545355;
+}
+
+/* line 192, ../sass/_rubricaEstilo.scss */
+.tBold th {
+  font-weight: bold;
+  color: #545355;
+}
+
+/* line 199, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi h3 {
   font-size: 1.87em;
   font-weight: bold;
   color: #757475;
   text-align: center;
 }
-/* line 196, ../sass/_rubricaEstilo.scss */
+/* line 206, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi .inpSearchStudent p {
   width: 100%;
 }
-/* line 198, ../sass/_rubricaEstilo.scss */
+/* line 208, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi .inpSearchStudent p .searchStudent {
   float: left;
   width: 88%;
 }
-/* line 202, ../sass/_rubricaEstilo.scss */
+/* line 212, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi .inpSearchStudent p a {
   float: right;
   margin-top: 10px;
   padding-left: 5px;
   width: 12%;
 }
-/* line 210, ../sass/_rubricaEstilo.scss */
+/* line 220, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi .btnContainer {
   padding-top: 28px;
 }
-/* line 214, ../sass/_rubricaEstilo.scss */
+/* line 224, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi .nombreEstudiante label {
   color: #545355;
   font-weight: bold;
 }
-/* line 218, ../sass/_rubricaEstilo.scss */
+/* line 228, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi .nombreEstudiante span {
   font-weight: 400;
 }
-/* line 223, ../sass/_rubricaEstilo.scss */
+/* line 233, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi #tableNotas th {
   font-weight: bold;
   vertical-align: middle;
   color: #545355;
 }
-/* line 228, ../sass/_rubricaEstilo.scss */
+/* line 238, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi #tableNotas tr {
   border-top: 2px solid #b68cbb;
 }
-/* line 231, ../sass/_rubricaEstilo.scss */
+/* line 241, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi #tableNotas td {
   vertical-align: middle;
 }
-/* line 234, ../sass/_rubricaEstilo.scss */
+/* line 244, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi #tableNotas .tValor {
   padding-bottom: 2px;
 }
-/* line 237, ../sass/_rubricaEstilo.scss */
+/* line 247, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi #tableNotas .lastTr {
   border-bottom: 2px solid #b68cbb;
 }
-/* line 240, ../sass/_rubricaEstilo.scss */
+/* line 250, ../sass/_rubricaEstilo.scss */
 .contenedorRubricasUi #tableNotas .valorRubrica {
   width: 45%;
 }
 
-/* line 247, ../sass/_rubricaEstilo.scss */
+/* line 257, ../sass/_rubricaEstilo.scss */
 #rubricasModal {
   /* form starting stylings ------------------------------- */
   /* LABEL ======================================= */
@@ -1049,12 +1061,12 @@ form button {
   /* active state */
   /* ANIMATIONS ================ */
 }
-/* line 249, ../sass/_rubricaEstilo.scss */
+/* line 259, ../sass/_rubricaEstilo.scss */
 #rubricasModal .group {
   position: relative;
   margin-bottom: 45px;
 }
-/* line 253, ../sass/_rubricaEstilo.scss */
+/* line 263, ../sass/_rubricaEstilo.scss */
 #rubricasModal input {
   font-size: 18px;
   padding: 10px 10px 10px 5px;
@@ -1064,11 +1076,11 @@ form button {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
-/* line 262, ../sass/_rubricaEstilo.scss */
+/* line 272, ../sass/_rubricaEstilo.scss */
 #rubricasModal input:focus {
   outline: none;
 }
-/* line 265, ../sass/_rubricaEstilo.scss */
+/* line 275, ../sass/_rubricaEstilo.scss */
 #rubricasModal label {
   color: #c7b9cf;
   font-size: 18px;
@@ -1081,19 +1093,19 @@ form button {
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
-/* line 279, ../sass/_rubricaEstilo.scss */
+/* line 289, ../sass/_rubricaEstilo.scss */
 #rubricasModal input:focus ~ label, #rubricasModal input:valid ~ label {
   top: -20px;
   font-size: 14px;
   color-color: rgba(0, 0, 0, 0.26);
 }
-/* line 286, ../sass/_rubricaEstilo.scss */
+/* line 296, ../sass/_rubricaEstilo.scss */
 #rubricasModal .bar {
   position: relative;
   display: block;
   width: 300px;
 }
-/* line 287, ../sass/_rubricaEstilo.scss */
+/* line 297, ../sass/_rubricaEstilo.scss */
 #rubricasModal .bar:before, #rubricasModal .bar:after {
   content: '';
   height: 2px;
@@ -1105,19 +1117,19 @@ form button {
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
-/* line 298, ../sass/_rubricaEstilo.scss */
+/* line 308, ../sass/_rubricaEstilo.scss */
 #rubricasModal .bar:before {
   left: 50%;
 }
-/* line 301, ../sass/_rubricaEstilo.scss */
+/* line 311, ../sass/_rubricaEstilo.scss */
 #rubricasModal .bar:after {
   right: 50%;
 }
-/* line 306, ../sass/_rubricaEstilo.scss */
+/* line 316, ../sass/_rubricaEstilo.scss */
 #rubricasModal input:focus ~ .bar:before, #rubricasModal input:focus ~ .bar:after {
   width: 50%;
 }
-/* line 311, ../sass/_rubricaEstilo.scss */
+/* line 321, ../sass/_rubricaEstilo.scss */
 #rubricasModal .highlight {
   position: absolute;
   height: 60%;
@@ -1127,7 +1139,7 @@ form button {
   pointer-events: none;
   opacity: 0.5;
 }
-/* line 322, ../sass/_rubricaEstilo.scss */
+/* line 332, ../sass/_rubricaEstilo.scss */
 #rubricasModal input:focus ~ .highlight {
   -webkit-animation: inputHighlighter 0.3s ease;
   -moz-animation: inputHighlighter 0.3s ease;
@@ -1580,111 +1592,98 @@ body table td {
   text-align: center;
   font-size: 2em;
 }
-/* line 176, ../sass/_grupo.scss */
-#mostrarArchivos h4 {
-  color: #428bca;
-}
 
-/* line 184, ../sass/_grupo.scss */
+/* line 180, ../sass/_grupo.scss */
 #subirArchivos #errorArchivoGrupo {
   margin-left: 2%;
 }
-/* line 188, ../sass/_grupo.scss */
+/* line 184, ../sass/_grupo.scss */
 #subirArchivos label {
   margin-top: 3%;
   margin-bottom: 1%;
 }
-/* line 193, ../sass/_grupo.scss */
+/* line 189, ../sass/_grupo.scss */
 #subirArchivos span {
   font-size: 13px;
   background: none;
 }
-/* line 198, ../sass/_grupo.scss */
+/* line 194, ../sass/_grupo.scss */
 #subirArchivos h1 {
   text-align: center;
   font-size: 2em;
 }
-/* line 203, ../sass/_grupo.scss */
+/* line 199, ../sass/_grupo.scss */
 #subirArchivos select {
   margin-left: 2%;
   width: 96%;
 }
-/* line 208, ../sass/_grupo.scss */
+/* line 204, ../sass/_grupo.scss */
 #subirArchivos #btnSubir {
   margin-left: 3%;
 }
-/* line 212, ../sass/_grupo.scss */
+/* line 208, ../sass/_grupo.scss */
 #subirArchivos #lvl {
   margin-left: 2%;
 }
 
-/* line 219, ../sass/_grupo.scss */
+/* line 215, ../sass/_grupo.scss */
 .contenedorRubricasUi h1 {
   font-size: 1.875em;
   font-weight: bold;
   color: #757475;
   text-align: center;
 }
-/* line 226, ../sass/_grupo.scss */
+/* line 222, ../sass/_grupo.scss */
 .contenedorRubricasUi #fechas {
   background-color: transparent !important;
 }
 
-/* line 231, ../sass/_grupo.scss */
+/* line 227, ../sass/_grupo.scss */
 .nofl {
   float: none !important;
 }
 
-/* line 235, ../sass/_grupo.scss */
+/* line 231, ../sass/_grupo.scss */
 #archivosbox {
   padding: 0px;
 }
 
-/* line 241, ../sass/_grupo.scss */
+/* line 237, ../sass/_grupo.scss */
 #mostrarMiGrupo h1 {
   font-size: 1.875em;
   font-weight: bold;
   color: #757475;
   text-align: center;
 }
-/* line 248, ../sass/_grupo.scss */
-#mostrarMiGrupo h4 {
-  color: #428bca;
-}
 
-/* line 253, ../sass/_grupo.scss */
+/* line 245, ../sass/_grupo.scss */
 #navegacionEstudiante .nav > li > a:focus {
   color: white !important;
   text-decoration: none;
   background-color: #722d7b;
 }
 
-/* line 259, ../sass/_grupo.scss */
+/* line 251, ../sass/_grupo.scss */
 .fechaGrupo {
   margin-left: 2%;
 }
 
-/* line 263, ../sass/_grupo.scss */
+/* line 255, ../sass/_grupo.scss */
 .colorDeTitulos {
   color: #428bca;
 }
 
-/* line 267, ../sass/_grupo.scss */
+/* line 259, ../sass/_grupo.scss */
 .contenedorDeCajas3 {
   overflow-y: scroll;
 }
 
-/* line 271, ../sass/_grupo.scss */
-.misTitulos {
-  color: #757475 !important;
-}
-
-/* line 275, ../sass/_grupo.scss */
+/* line 263, ../sass/_grupo.scss */
 .mipos {
   position: absolute;
 }
 
-/* line 279, ../sass/_grupo.scss */
+/* line 267, ../sass/_grupo.scss */
 .ventanasGru {
   margin-left: 15% !important;
 }
@@ -1697,42 +1696,42 @@ body table td {
     background-color: black;
   }
 }
-/* line 287, ../sass/_grupo.scss */
+/* line 275, ../sass/_grupo.scss */
 #infoT {
   background-color: white;
 }
 
-/* line 291, ../sass/_grupo.scss */
+/* line 279, ../sass/_grupo.scss */
 #infoT:hover {
   animation-name: example;
   animation-duration: 0.5s;
   background: black;
   transition: all 0.2s ease;
 }
-/* line 296, ../sass/_grupo.scss */
+/* line 284, ../sass/_grupo.scss */
 #infoT:hover a {
   color: green;
 }
-/* line 299, ../sass/_grupo.scss */
+/* line 287, ../sass/_grupo.scss */
 #infoT:hover h4 {
   color: white;
 }
 
-/* line 305, ../sass/_grupo.scss */
+/* line 293, ../sass/_grupo.scss */
 #stylish:hover {
   opacity: 0.5;
 }
 
-/* line 312, ../sass/_grupo.scss */
+/* line 300, ../sass/_grupo.scss */
 #wrapper {
   width: 20%;
 }
-/* line 315, ../sass/_grupo.scss */
+/* line 303, ../sass/_grupo.scss */
 #wrapper #miImg {
   border: 3px solid #97226b !important;
 }
 
-/* line 320, ../sass/_grupo.scss */
+/* line 308, ../sass/_grupo.scss */
 #wrapper .text {
   font-size: 1.3em;
   position: relative;
@@ -1741,29 +1740,29 @@ body table td {
   visibility: hidden;
 }
 
-/* line 328, ../sass/_grupo.scss */
+/* line 316, ../sass/_grupo.scss */
 #wrapper:hover .text {
   opacity: 0.5;
   visibility: visible;
 }
 
-/* line 333, ../sass/_grupo.scss */
+/* line 321, ../sass/_grupo.scss */
 #wrapper:hover #miImg {
   opacity: 0.5;
 }
 
-/* line 337, ../sass/_grupo.scss */
+/* line 325, ../sass/_grupo.scss */
 .noM {
   margin-bottom: 0px !important;
 }
 
-/* line 341, ../sass/_grupo.scss */
+/* line 329, ../sass/_grupo.scss */
 .pBlanco {
   color: white !important;
   background: purple;
 }
 
-/* line 348, ../sass/_grupo.scss */
+/* line 336, ../sass/_grupo.scss */
 #todoPortafolio h1 {
   font-size: 1.87em;
   font-weight: bold;
@@ -1771,13 +1770,13 @@ body table td {
   text-align: center;
 }
 
-/* line 356, ../sass/_grupo.scss */
+/* line 344, ../sass/_grupo.scss */
 #divUl {
   padding-left: 3%;
   padding-top: 4%;
 }
 
-/* line 360, ../sass/_grupo.scss */
+/* line 348, ../sass/_grupo.scss */
 #stylish {
   background: #fff;
   border-radius: 4px;
@@ -1789,7 +1788,7 @@ body table td {
   min-height: 135px;
 }
 
-/* line 370, ../sass/_grupo.scss */
+/* line 358, ../sass/_grupo.scss */
 .borrarPortafolio {
   cursor: pointer;
   position: absolute;
@@ -1798,16 +1797,16 @@ body table td {
   top: -3%;
 }
 
-/* line 379, ../sass/_grupo.scss */
+/* line 367, ../sass/_grupo.scss */
 #miInfo h2 {
   text-align: center;
 }
-/* line 383, ../sass/_grupo.scss */
+/* line 371, ../sass/_grupo.scss */
 #miInfo h4 {
   text-align: center;
 }
 
-/* line 388, ../sass/_grupo.scss */
+/* line 376, ../sass/_grupo.scss */
 #infoT {
   max-height: 181px;
 }
