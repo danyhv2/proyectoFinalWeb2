@@ -67,8 +67,8 @@
                   </div>
                 </md-input-container>
                  <!--AGREGAR FOTO-->
-                <md-input-container class="upload-div" ng-controller="MyCtrl">    
-                <div class="upload-buttons">
+                <!--<md-input-container class="upload-div" ng-controller="MyCtrl">
+               <div class="upload-buttons">
                 <div id="editArea">
                   <div class="up-buttons">
                     <button class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.pdf,*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</button>
@@ -104,7 +104,9 @@
                   </li>
                 </ul>
                 <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
-              </md-input-container>
+              </md-input-container>-->
+              <input class="clearfix rounded" type="file" name="archivo" id="archivo" />
+
   <!--FIN AGREGAR FOTO-->
               </div>
               </fieldset>

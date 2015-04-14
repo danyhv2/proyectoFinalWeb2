@@ -54,7 +54,7 @@ routerApp.controller('MenuC', function($scope) {
 var users = [];
 
 routerApp.controller('userCtrl', function($scope, $http){
-  $scope.url = 'query1.php';
+  $scope.url = 'php/query.php';
   $scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
   $scope.roles = [
     {
@@ -126,13 +126,12 @@ routerApp.controller('userCtrl', function($scope, $http){
                 };
 
 
-
-                /*
-                  $http.post($scope.url, { "data" : $scope.keywords}).
+                  $http.post($scope.url, { 'nombre' : $scope.userName, 'PrimerApellido':$scope.firstLastName, 'SegundoApellido': $scope.secondLastName, 'Direccion':$scope.address, 'Cedula':$scope.idUser, 'Foto':$scope.idUser, 'FechaNacimiento': ($('#inpFechaNacimiento').val()), 'Correo': $scope.email, 'Contrasena': $scope.password}).
                   success(function(data, status) {
                     $scope.status = status;
                     $scope.data = data;
                     $scope.result = data; // Show result from server in our <pre></pre> element
+                    console.log(data);
                   })
                   .
                   error(function(data, status) {
@@ -141,7 +140,7 @@ routerApp.controller('userCtrl', function($scope, $http){
                   });
 
 
-                */
+                
             }
 
 
