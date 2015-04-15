@@ -43,7 +43,7 @@
                       <div class="msgError" ng-show="userForm.director.$error.required">Debe ingresar un nombre para el Director de Carrera.</div>
                     </div>
                   </md-input-container>-->
-                  <div class="col-md-6"> 
+                  <div class="col-md-8"> 
                     <md-select ng-model="roleUser" class="optionsDirector" ng-model="dirCarrera" placeholder="Seleccione un Director">
                       <md-option class="optRole"  ng-value="director.nombre" ng-repeat="director in data">{{director.nombre}} {{director.primerApellido}} {{director.segundoApellido}}</md-option>
                    </md-select>
