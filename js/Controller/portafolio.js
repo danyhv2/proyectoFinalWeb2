@@ -96,6 +96,8 @@ modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location)
 			$scope.urlImagen= '';
 			$scope.tecnologias= '';
 			$scope.urlPagina= '';
+    		$('#errorEstudiante').detach();
+
 		};
 		$scope.editarInfo = function (nombre,correo,tel,descrip) {
 			$('#errorEstudiante').detach();
