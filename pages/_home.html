@@ -19,9 +19,9 @@
 		<div class="col-xs-12 col-sm-4 well" ng-repeat="data in Mejoresproyectos">
       	<img ng-src="{{data.img}}" class ="img-rounded">
 			  <h3>{{data.titulo}}</h3>
-        <p>{{data.descripcion}}</p>
+        <p>{{data.descripcion1}}</p>
         <p class ="link"><a href ="" data-toggle="modal" data-target="#myModal" id="{{data.id}}" class="show">Leer más</a></p>
-        <p class ="link"><a ui-sref="pruebaMeli" id="{{data.id3}}" class="hidden">Votar</a></p>
+        <p class ="link"><a ui-sref="votacion" id="{{data.id3}}" class="hidden">Votar</a></p>
  
       </div>
       <h1>Últimas Publicaciones </h1>
@@ -39,7 +39,7 @@
         <div class="col-xs-12 col-sm-12  hidden " ng-repeat="data in Mejoresproyectos" id="{{data.id2}}">
           <img ng-src="{{data.img}}" class ="img-rounded">
           <h3>{{data.titulo}}</h3>
-          <p>{{data.descripcion}}</p>
+          <p>{{data.descripcion1}}</p>
         </div>
         <!-- <button type="button" class="btn btn-default btn-proyect" data-dismiss="modal">Cerrar</button> -->
       </div>

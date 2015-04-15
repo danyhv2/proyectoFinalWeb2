@@ -1,4 +1,23 @@
-<div ng-controller='tindalosController as tidal'>
-  <p>Pruba del ctrl</p>
-  <button ng-click='alertaPrueba()'>Apretame!</button>
+<div ng-controller='tindalosController as tidal' class="row proyectos_votacion_final">
+  <div class="col-xs-12 col-sm-12" id ="{{data.id}}"ng-repeat="(id,data) in Mejoresproyectos ">
+  	<div class="col-xs-12 col-sm-4">
+  		<img ng-src="{{data.img}}" alt="">
+  	</div>
+  	<div class="col-xs-12 col-sm-6">
+  		<h2>{{data.titulo}}</h2>
+  		<h3>{{data.equipo}}</h3>
+  		<h4>{{data.carrera}}</h4>
+  	</div>
+  	<div class="col-xs-12 col-sm-12">
+  		<p>
+  			{{data.descripcion2}}
+  		</p>
+  	</div>
+  	<div class="col-xs-12 col-sm-12" id="send-votacion">
+  	<span ng-repeat="rating in ratings">
+      <div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)" id="star"></div>
+    </span>
+    <button class="btn btn-default AddDocument" id="send" ng-click="validar()">Enviar</button>
+  	</div>
+  </div>
 </div>

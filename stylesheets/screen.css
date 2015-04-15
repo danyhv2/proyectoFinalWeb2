@@ -2,7 +2,7 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-/* line 5, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 5, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -24,45 +24,45 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 22, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 22, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 html {
   line-height: 1;
 }
 
-/* line 24, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 26, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 28, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 30, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 103, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 103, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 32, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 32, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 116, ../../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+/* line 116, ../../../../../Ruby200/lib/ruby/gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block;
 }
@@ -1977,11 +1977,6 @@ body table td {
   padding-top: 2em;
 }
 
-/* line 2, ../sass/_votacion.scss */
-.votacionControl h1 {
-  text-indent: 1.428571428571429em;
-}
-
 /* line 1, ../sass/_login.scss */
 .center {
   text-align: center;
@@ -2116,4 +2111,58 @@ h1.block-title-page {
   margin-top: 8px;
   float: right;
   margin-right: 80px;
+}
+
+/* line 2, ../sass/_votacion_proyectos.scss */
+.proyectos_votacion_final #dos,
+.proyectos_votacion_final #tres {
+  display: none;
+}
+/* line 6, ../sass/_votacion_proyectos.scss */
+.proyectos_votacion_final #uno {
+  margin-top: 3em;
+}
+
+/* line 10, ../sass/_votacion_proyectos.scss */
+.rating {
+  color: #a9a9a9;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 15, ../sass/_votacion_proyectos.scss */
+ul.rating {
+  display: inline-block;
+}
+
+/* line 18, ../sass/_votacion_proyectos.scss */
+.rating li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 1px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 26px;
+}
+
+/* line 27, ../sass/_votacion_proyectos.scss */
+.rating .filled {
+  color: #FFBF00;
+}
+
+/* line 31, ../sass/_votacion_proyectos.scss */
+#star {
+  display: inline-block;
+}
+
+/* line 34, ../sass/_votacion_proyectos.scss */
+#send {
+  margin-top: 0.3em;
+  margin-left: 1em;
+}
+
+/* line 39, ../sass/_votacion_proyectos.scss */
+#send-votacion {
+  margin-top: 3em;
 }
