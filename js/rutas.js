@@ -87,8 +87,8 @@ route.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'pages/_reportes.html'
         })
 
-        .state('pruebaMeli', {
-            url: '/pruebaMeli',
+        .state('votacion', {
+            url: '/votacion',
             templateUrl: 'pages/_tindalos.html'
         })
 

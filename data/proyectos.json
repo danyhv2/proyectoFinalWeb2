@@ -3,24 +3,36 @@
 	"id":"uno",
 	"id2":"cuatro",
 	"id3": "diez",
-    "titulo": "Dmg Coders",
-    "descripcion": "LoginNet es un sistema donde los estudiantes van a tener un espacio para compartir entre ellos temas académicos.....",
-   	"img": "img/proyecto-1.png"
+    "titulo": "LoginNet",
+    "descripcion1": "LoginNet es un sistema donde los estudiantes van a tener un espacio para compartir entre ellos temas académicos.....",
+   	"img": "img/proyecto-1.png",
+   	"carrera":"Diseño y Desarrollo Web",
+   	"equipo": "Quatro Media",
+   	"descripcion2":",Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500"
 },
 {
 	"id":"dos",
 	"id2":"cinco",
 	"id3": "once",
     "titulo": "Falafel",
-    "descripcion": "El sistema falafel podría ser descrito como un híbrido entre un CRM y un CMS pensado para nutricionistas e usuarios....",
-    "img": "img/proyecto-2.png" 
+    "descripcion1": "El sistema falafel podría ser descrito como un híbrido entre un CRM y un CMS pensado para nutricionistas e usuarios....",
+    "img": "img/proyecto-2.png",
+    "carrera":"Diseño y Desarrollo Web",
+   	"equipo": "Quatro Media",
+   	"descripcion2":",Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500"
+
+ 
 },
 {
 	"id":"tres",
 	"id2":"seis",
 	"id3": "doce",
     "titulo": "Virtual Record",
-    "descripcion": "Virtual Record es un sistema para el control de estudiantes que han llevado los diferentes cursos de proyecto..",
-    "img": "img/login-app.png" 
+    "descripcion1": "Virtual Record es un sistema para el control de estudiantes que han llevado los diferentes cursos de proyecto..",
+    "img": "img/login-app.png" ,
+    "carrera":"Diseño y Desarrollo Web",
+   	"equipo": "Quatro Media",
+   	"descripcion2":",Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500,Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500"
+
 }
 ]
