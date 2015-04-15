@@ -1,19 +1,6 @@
 <?php
-// The request is a JSON request.
-// We must read the input.
-// $_POST or $_GET will not work!
-define('DB_NAME', 'proyectoFinalWeb');
-    define('DB_USER', 'root');
-    define('DB_PASSWORD', NULL);
-    define('DB_HOST', 'localhost'); 
 
-    $con = mysqli_connect(DB_HOST, DB_USER,DB_PASSWORD, DB_NAME);
-	
-	if (mysqli_connect_errno())
-    {
-        echo "Failed to connect to MySQL". mysqli_connect_error();
-    }  
-
+include "config.php";
 
     $data = json_decode(file_get_contents("php://input"));
 	$usrname = mysql_real_escape_string($data->nombre);
@@ -23,6 +10,7 @@ define('DB_NAME', 'proyectoFinalWeb');
 	$userId = mysql_real_escape_string($data->Cedula);
 	$userImg = mysql_real_escape_string($data->Foto);
 	$fchNacimiento = mysql_real_escape_string($data->FechaNacimiento);
+	$userPic = mysql_real_escape_string($data->img);
 	$email = ($data->Correo);
 	$password = ($data->Contrasena);
 	$role=1;
@@ -30,7 +18,8 @@ define('DB_NAME', 'proyectoFinalWeb');
 	echo $usrname, $firstLastName, $SecondLastName, $address, $userId, $fchNacimiento, $email;
 
 	/*CONFIGURAR IMAGEN*/
-	$nombreimg = $_FILES['archivo']['name'];
+/*if(isset($_POST['submit'])){	
+$nombreimg = $_FILES['archivo']['name'];
 
 $ext_permitidas = array('jpg','jpeg','gif','png');
 $extension = end( explode('.', $_FILES['archivo']['name']) );
@@ -146,9 +135,42 @@ if($tamano <= $limite){
       }
    
 }
+}else{
+	echo 'No form';
+}
 
+*/
+if(isset($_FILES['archivo'])){
+$name = $_FILES["archivo"]["name"];
+//$size = $_FILES['file']['size']
+//$type = $_FILES['file']['type']
 
-	$query = 'INSERT INTO usuarios (nombre, primerApellido, segundoApellido, direccion, cedula, foto, fechaNacimiento, correo, contrasena, id_role) values ("' . $usrname . '","' . $firstLastName . '","' . $SecondLastName . '","'.$address.'","'.$userId.'","'.$userImg.'","'.$fchNacimiento.'","'.$email.'","'.$password.'","'.$role.'")';
+$tmp_name = $_FILES['archivo']['tmp_name'];
+$error = $_FILES['archivo']['error'];
+
+if (isset ($name)) {
+    if (!empty($name)) {
+
+    $location = '../uploads/';
+
+    if  (move_uploaded_file($tmp_name, $location.$name)){
+        echo 'Uploaded';    
+        }
+
+        } else {
+          echo 'please choose a file';
+          }
+    }
+}else{
+	echo 'fallo imagen';
+}
+
+$fNac = date("Y-m-d", strtotime($fchNacimiento));
+echo $fNac;
+echo $fchNacimiento;
+echo $_POST['fecha'];
+
+	$query = 'INSERT INTO usuarios (nombre, primerApellido, segundoApellido, direccion, cedula, foto, fechaNacimiento, correo, contrasena, id_role) values ("' . $usrname . '","' . $firstLastName . '","' . $SecondLastName . '","'.$address.'","'.$userId.'","'.$userImg.'","'.$fNac.'","'.$email.'","'.$password.'","'.$role.'")';
 
 
 	//$query= "CALL ingresarUsuario(".$email.",".$userId.",".$usrname.",".$firstLastName.",".$SecondLastName.",".$password.",".$address.",".$fchNacimiento.",".$role.",".$userImg.")";

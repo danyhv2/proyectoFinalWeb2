@@ -1,7 +1,7 @@
 <div class="contUsuarios hidden-xs" ng-controller="userCtrl">
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
-            <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" novalidate>
+            <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" enctype="multipart/form-data" method="POST" novalidate>
               <fieldset class="col-md-12">
                 <legend>Datos Personales</legend>
                  <!--modal exito-->
@@ -105,7 +105,7 @@
                 </ul>
                 <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
               </md-input-container>-->
-              <input class="clearfix rounded" type="file" name="archivo" id="archivo" />
+              <input class="clearfix rounded" type="file" name="archivo" id="archivo" ng-model="userPic" />
 
   <!--FIN AGREGAR FOTO-->
               </div>
@@ -135,7 +135,7 @@
                   </md-select>
                 </div>
               </fieldset>
-              <button class="btn btnAddUser" type="submit">Ingresar</button>
+              <button class="btn btnAddUser" type="submit" name="submit">Ingresar</button>
          </form> 
        </div>
      <!--FIN FORMULARIO-->
