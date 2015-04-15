@@ -46,21 +46,22 @@
 	
 	<h1 class="pBlanco">Información personal</h1>
 		<div id="infoPerfil" class="clearfix">
-			<div class="pull-left " style="cursor:pointer;" id="wrapper">
-				<img id="miImg"class="img-responsive img-circle" ng-src="{{miFoto}}" alt="">
-				<i class="text" ><img src="img/camera.png" alt="" hide-md hide-gt-md style="margin-top: 61%;margin-left: 15%;"><p hide-sm>Cambiar imagen</p></i>
-				
+			<div class="col-md-10 col-xs-6">
+				<div class="pull-left col-md-4" style="cursor:pointer;" id="wrapper">
+					<img id="miImg"class="img-responsive img-circle" ng-src="{{miFoto}}" alt="">
+					<i class="text" ><p hide-sm>Cambiar imagen</p></i>	
+				</div>
+				<div class="pull-left col-md-6" id="divUl">
+					<ul>
+						<li style="padding:0; font-size: 118%;color: #757475;">{{miNombre}}</li>
+						<li style="font-size: 118%;color: #757475; padding-top: 3% !important;">{{miCorreo}}</li>
+						<li style="font-size: 118%;color: #757475; padding-top: 3% !important;">{{miTel}}</li>
+					</ul>
+				</div>
 			</div>
-			<div class="pull-left col-md-4 col-xs-4" id="divUl">
-				<ul>
-					<li style="padding:0; font-size: 118%;color: #757475;">{{miNombre}}</li>
-					<li style="font-size: 118%;color: #757475; padding-top: 3% !important;">{{miCorreo}}</li>
-					<li style="font-size: 118%;color: #757475; padding-top: 3% !important;">{{miTel}}</li>
-				</ul>
-			</div>
-			<div class="pull-right">
+			<div class="pull-right col-md-2 col-xs-6" id="botonesEditar">
 				<img ng-src="img/edit2.png" ng-click="imprimirPortafolio()" ng-hide="no" style="cursor:pointer;">
-				<img id="edicionTotal" ng-src="img/edit2.png" ng-click="editarInfo()" ng-show="no" data-toggle="modal" data-target="#editarInfo" style="cursor:pointer;">
+				<img id="edicionTotal" ng-src="img/edit2.png" ng-click="editarInfo(miNombre,miCorreo,miTel,miDesc)" ng-show="no" data-toggle="modal" data-target="#editarInfo" style="cursor:pointer;">
 				<img src="img/check.png" ng-click="imprimirPortafolio2()" ng-show="no" style="cursor:pointer;">
 				<img ng-src="img/print.png" ng-click="imprimirPortafolio3()" ng-hide="no" style="cursor:pointer;">
 			</div>
@@ -72,7 +73,7 @@
 		<div id="trabajos">
 			<h1 class="pBlanco">Mis proyectos</h1>
 	<div>
-		<img ng-src="img/work.png"  style="cursor:pointer;" ng-show="no" data-toggle="modal" data-target="#mostrarPortafolio">
+		<img ng-src="img/work.png"  style="cursor:pointer;" ng-show="no" ng-click="ver()" data-toggle="modal" data-target="#mostrarPortafolio">
 	</div>
 	<div class="col-md-4 col-xs-6" ng-repeat="proyecto in proyectos" style="margin-top: 2%;">
 				<div id="miInfo" style="width: 79%;   box-shadow: 2px 2px 14px 2px;">
@@ -107,7 +108,7 @@
 			  <div class="modal-dialog">
 			    <div class="modal-content">
 			      <div class="modal-header">
-			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="limpiar()">&times;</button>
 			        <h1>Nuevo Trabajo</h1>
 			      </div>
 			      <div class="modal-body">
@@ -135,7 +136,7 @@
 			       </form>
 				  </div>
 			     <div class="modal-footer">
-					<button type="button" class="btn simpleColor" data-dismiss="modal" ng-click="agregarTrabajo()">Agregar</button>
+					<button type="button" class="btn simpleColor" ng-click="agregarTrabajo()">Agregar</button>
                  	<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="limpiar()">Cerrar</button>
              	 </div>
 			      </div>
@@ -144,7 +145,7 @@
 			</div>
 		<!--FIN DE MODAL-->
 		<!--MODAL-->
-			<div class="modal fade" id="editarInfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+			<div class="modal fade" id="editarInfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">
 			  <div class="modal-dialog">
 			    <div class="modal-content">
 			      <div class="modal-header">
@@ -172,8 +173,8 @@
 			       </form>
 				  </div>
 			     <div class="modal-footer">
-					<button type="button" class="btn simpleColor"  ng-click="editarInfo()">Agregar</button>
-                 	<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="limpiar()">Cerrar</button>
+					<button type="button" class="btn simpleColor"  ng-click="editarInfo2()">Agregar</button>
+                 	<button type="button" class="btn btn-default" data-dismiss="modal" ng-click="limpiar()">Cancelar</button>
              	 </div>
 			      </div>
 			    </div>

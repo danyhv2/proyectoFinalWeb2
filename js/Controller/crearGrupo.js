@@ -328,19 +328,19 @@
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('select#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
+					$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
 				}else if ($scope.nuevoEstudiante == ''){
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('select#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
+					$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
 				}else if($scope.nuevoRole == undefined){
 					$('#errorNombreGrupo').detach();
 					$('#errorEstudiante').detach();
 					$('#errorRoles').detach();
-					$('select#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
+					$('div#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
 				}else if ($scope.nuevoRole == ''){
-					$('select#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
+					$('div#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
 				}else{
 					for(var p=0; p< $scope.grupos.length;p++){
 							console.log($scope.grupos[0]);
@@ -353,7 +353,7 @@
 										$('#errorEstudiante').detach();
 										$('#errorRoles').detach();
 										$scope.nuevoRole ='';
-										$('select#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiantes ya esta en un grupo</span>');
+										$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiantes ya esta en un grupo</span>');
 								}else{
 									$('#errorRoles').detach();
 								}
@@ -365,7 +365,7 @@
 									cuentaEstudiantes2++;
 									$('#errorModiEs').detach();
 									$('#errorEstudiante').detach();
-									$('select#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiante ya esta en la lista para agregar</span>');
+									$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiante ya esta en la lista para agregar</span>');
 								}
 							}
 							if (cuentaEstudiantes2 == 0) {
@@ -394,10 +394,7 @@
 						<!-- //fin funcion agregar nombre de y role de estudiantes a arreglo vacio-->
 			
 						<!-- //funciones de remover-->
-			$scope.removeGrupoProyectosVotacion=function(este){
-				var i = $scope.enviarProyectos.indexOf(este);
-				$scope.enviarProyectos.splice(i,1);
-			};
+			
 			$scope.removeGrupo=function(grupo){
 				var i = $scope.grupos.indexOf(grupo);
 				$scope.removeGrupo1=function(){
@@ -634,10 +631,16 @@
 				//console.log(proyecto.nuevoEnviado.opcion);
 				//console.log($scope.enviarProyectos);
 				var i = $scope.proyectos.indexOf(proyecto);
-				if (proyecto.nuevoEnviado.opcion == 'Seleccionar') {
+				if (proyecto.nuevoEnviado == true) {
 					$scope.temProyectos =[];
 					$scope.enviarProyectos.push($scope.proyectos[i].proyectoName);
-					//console.log($scope.enviarProyectos[0]);
+					console.log($scope.enviarProyectos);
+					
+				}else if (proyecto.nuevoEnviado == false) {
+					var i = $scope.enviarProyectos.indexOf(proyecto.proyectoName);
+					$scope.enviarProyectos.splice(i,1);
+					console.log($scope.enviarProyectos);
+
 				}
 			};
 

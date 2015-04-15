@@ -12,6 +12,12 @@ body
 			border-bottom: 2px solid #b68cbb !important;
 		}
 	}
+	#modalConfirm
+	{
+		  margin: 0 auto !important;
+		  max-width: 20em !important;
+		  position: relative !important;
+	}
 }
 #crearGrupo
 {
@@ -173,6 +179,10 @@ body
 		text-align: center;
 		font-size : 2em;
 	}
+	h4
+	{
+		color : #428bca;
+	}
 }
 
 #subirArchivos  
@@ -236,10 +246,14 @@ body
 {
 	h1
 	{
-	font-size: 1.875em;
-  	font-weight: bold;
-  	color: #757475;
-  	text-align: center;
+		font-size: 1.875em;
+  font-weight: bold;
+  color: #757475;
+  text-align: center;
+	}
+	h4
+	{
+		color : #428bca;
 	}
 }
 #navegacionEstudiante .nav > li > a:focus
@@ -259,6 +273,11 @@ body
 .contenedorDeCajas3
 {
 	overflow-y: scroll;
+}
+.misTitulos
+{
+	font-weight: bold;
+  	color: #545355;
 }
 .mipos
 {
@@ -294,12 +313,9 @@ body
 {
 	opacity:0.5;
 }
-@media print 
-{
- }
+
  #wrapper
  {
- 	width:20%;
 	 #miImg 
 	 {
 	    border:3px solid #97226b !important;
@@ -308,8 +324,8 @@ body
  #wrapper .text {
 font-size: 1.3em;
 position: relative;
-bottom: 98px;
-left: 14px;
+bottom: 114px;
+left: 27px;
 visibility:hidden;
 }
 
@@ -377,3 +393,28 @@ opacity:0.5;
  {
  	max-height: 181px;
  }
+
+.nada
+{
+	display: none !important;
+}
+
+ @media print 
+{
+	#botonesEditar
+	{
+		display: none;
+	}
+	#wrapper
+	{
+		width :50%;
+		#miImg
+		{
+			border: 1px !important;
+		}
+	}
+	#menuContainer
+	{
+		display: none;
+	}
+}
