@@ -56,24 +56,6 @@ var users = [];
 routerApp.controller('userCtrl', function($scope, $http){
   $scope.url = 'php/query.php';
   $scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
-  $scope.roles = [
-    {
-      nombre: 'Estudiante'
-    },
-    { 
-      nombre: 'Administrador'
-    },
-    { 
-      nombre: 'Profesor'
-    },
-    { 
-      nombre: 'Director de Carrera'
-    },
-    { 
-      nombre: 'Decano'
-    }
-  ];
- 
   $scope.validate = function() {
       var userExist = false;
       var validEmail = false;
@@ -146,6 +128,20 @@ routerApp.controller('userCtrl', function($scope, $http){
             }
 
 
+});
+
+routerApp.controller('getRoles', function($scope, $http){
+  $http.post('php/getRoles.php').
+  success(function(data, status) {
+    $scope.status = status;
+    $scope.data = data;
+    $scope.result = data; // Show result from server in our <pre></pre> element
+  })
+  .
+  error(function(data, status) {
+    $scope.data = data || "Request failed";
+    $scope.status = status;     
+  });
 });
 routerApp.directive('validateNumber', function ($parse) {
     return {

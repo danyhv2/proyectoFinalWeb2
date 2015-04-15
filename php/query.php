@@ -13,9 +13,10 @@ include "config.php";
 	$userPic = mysql_real_escape_string($data->img);
 	$email = ($data->Correo);
 	$password = ($data->Contrasena);
-	$role=1;
+	$role="Administrador";
 
 	echo $usrname, $firstLastName, $SecondLastName, $address, $userId, $fchNacimiento, $email;
+
 
 	/*CONFIGURAR IMAGEN*/
 /*if(isset($_POST['submit'])){	
@@ -170,12 +171,9 @@ echo $fNac;
 echo $fchNacimiento;
 echo $_POST['fecha'];
 
-	$query = 'INSERT INTO usuarios (nombre, primerApellido, segundoApellido, direccion, cedula, foto, fechaNacimiento, correo, contrasena, id_role) values ("' . $usrname . '","' . $firstLastName . '","' . $SecondLastName . '","'.$address.'","'.$userId.'","'.$userImg.'","'.$fNac.'","'.$email.'","'.$password.'","'.$role.'")';
+	//$query = 'INSERT INTO usuarios (nombre, primerApellido, segundoApellido, direccion, cedula, foto, fechaNacimiento, correo, contrasena, id_role) values ("' . $usrname . '","' . $firstLastName . '","' . $SecondLastName . '","'.$address.'","'.$userId.'","'.$userImg.'","'.$fNac.'","'.$email.'","'.$password.'","'.$role.'")';
 
-
-	//$query= "CALL ingresarUsuario(".$email.",".$userId.",".$usrname.",".$firstLastName.",".$SecondLastName.",".$password.",".$address.",".$fchNacimiento.",".$role.",".$userImg.")";
-
-	//$query= "CALL ingresarUsuario(".$objData->nombre.",".$objData->primerApellido.",".$objData->segundoApellido.",".$objData->direccion.",".$objData->cedula.",".$objData->foto.",".$objData->fechaNacimiento.",".$objData->correo.",".$objData->contrasena.",".$objData->id-role.")";
+	$query= "CALL ingresarUsuario('$email','$userId','$usrname','$firstLastName','$SecondLastName','$password','$address','$fchNacimiento','$role','$userImg','')";
 
 	$result = mysqli_query($con, $query);
 
