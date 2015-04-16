@@ -13,5 +13,5 @@ define('DB_HOST', 'localhost');
     {
         echo "Failed to connect to MySQL". mysqli_connect_error();
     } 
-
+    mysqli_set_charset($con,"utf8");
 ?>

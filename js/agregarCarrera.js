@@ -19,6 +19,7 @@ var carrera = angular.module('agregarCarrera', [])
       $scope.result = dataCarrera;
       //console.log(data);
     })
+        
       $('#modalExitoCarrera').fadeIn(1000);
       $('#modalExitoCarrera').fadeOut(4000);
       //carreras.push($scope.newCarrera);

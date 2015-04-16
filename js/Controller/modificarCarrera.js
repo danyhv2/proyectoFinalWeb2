@@ -34,17 +34,20 @@ angular.module('modifyCarrera', [])
       $http.post('php/buscarCarrera.php', { "data" : $scope.getCarrera }).
       success(function(data) {
         $scope.data = data;
-        //console.log($scope.data.nombre);
-        //console.log(JSON.stringify(data));
-        $scope.newData= JSON.stringify(data);
-        console.log(data[0].nombre);
-      
-      self.formEditCarrera.nombre.$setViewValue(data[0].nombre);
-      self.formEditCarrera.codCarrera.$setViewValue(data[0].codCarrera);
-      //self.formEditCarrera.dirCarrera.$setViewValue(this.datos[i].Director);
-    
-      renderElement(['#inpNombreCarrera', '#inpCodCarrera']);
+        console.log(data.length);
+          
+        if(data.length==0){
+          $('.errorSearch').css('display','block');
+        }else{
+          $('.errorSearch').css('display','none');
+          self.formEditCarrera.nombre.$setViewValue(data[0].nombre);
+          self.formEditCarrera.codCarrera.$setViewValue(data[0].codCarrera);
+          self.formEditCarrera.director.$setViewValue(data[0].dirCarrera);
+          renderElement(['#inpNombreCarrera', '#inpCodCarrera', '#inpDirCarrera']);
+        }
+        
       })
+
     };
 
     $scope.guardarCarrera = function(){

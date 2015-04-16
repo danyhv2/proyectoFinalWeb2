@@ -94,7 +94,7 @@
                   <button class="btn btnAdd cancelUserAccess" type="submit" ng-click="cancelUsuarioAcceso()">Cancelar</button>
                 </div>
                 <div class="col-md-6 col-sm-5"> 
-                  <md-select ng-model="updateUser.datos[1].Role" class="optionsRoleUser" ng-disabled="disable2">
+                  <md-select ng-model="updateUser.datos[0].Role" class="optionsRoleUser" ng-disabled="disable2">
                     <md-option class="optRole" ng-value="role.nombre" ng-repeat="role in roles">{{role.nombre}}</md-option>
                   </md-select>
                 </div>

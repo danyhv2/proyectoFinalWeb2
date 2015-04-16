@@ -31,16 +31,16 @@
                         <div class="msgError" ng-show="updCarrera.formEditCarrera.codCarrera.$error.required">Debe ingresar un código para la carrera.</div>
                       </div>
                     </md-input-container>
-                    <md-input-container>
+                   <!-- <md-input-container>
                       <label>Director de Carrera</label>
                       <input id="inpDirCarrera" required name="dirCarrera" ng-model="updCarrera.datos[2].Director">
                       <div ng-show="updCarrera.formEditCarrera.$submitted || updCarrera.formEditCarrera.dirCarrera.$touched">
                         <div class="msgError" ng-show="updCarrera.formEditCarrera.dirCarrera.$error.required">Debe ingresar un nombre para el Director de Carrera.</div>
                       </div>
-                    </md-input-container>
+                    </md-input-container>-->
                     <div class="col-md-10 no-padding"> 
-                    <md-select ng-model="roleUser" class="optionsDirector" required name="director" ng-model="dirCarrera" placeholder="Seleccione un Director">
-                      <md-option class="optRole"  ng-value="director.nombre" ng-repeat="director in data">{{director.nombre}} {{director.primerApellido}} {{director.segundoApellido}}</md-option>
+                    <md-select id="inpDirCarrera" ng-model="data[0].dirCarrera" class="optionsDirector" required name="director">
+                      <md-option class="optRole" ng-value="data[0].dirCarrera" ng-repeat="director in data">{{director.dirCarrera}}</md-option>
                    </md-select>
                    <div ng-show="userForm.$submitted || userForm.director.$touched">
                       <div class="msgError" ng-show="userForm.director.$error.required">Debe ingresar un Director de Carrera.</div>
