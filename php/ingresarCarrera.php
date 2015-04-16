@@ -3,7 +3,7 @@
 include "config.php";
 
     $data = json_decode(file_get_contents("php://input"));
-	$nameCarrera = mysql_real_escape_string($data->nombre);
+	$nameCarrera = utf8_encode($data->nombre);
 	$codigo = mysql_real_escape_string($data->codigo);
 	$dirCarrera = mysql_real_escape_string($data->directorCarrera);
 

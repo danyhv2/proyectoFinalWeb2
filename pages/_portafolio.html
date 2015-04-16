@@ -12,7 +12,9 @@
 <div id="modalTrabajo" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" style="display: none;
   position: fixed;
   z-index: 1000;
-  margin-left: 20%;">
+  min-width: 325px;
+  margin-left: auto;
+  margin-right: auto;">
   <div class="modal-dialog modal-sm">
     <div id="modalContent" class="modal-content alert alert-success">
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -23,7 +25,7 @@
 <div id="modalTrabajoB" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" style="display: none;
   position: fixed;
   z-index: 1000;
-  margin-left: 20%;">
+  margin-left: 20%; min-width:250px">
   <div class="modal-dialog modal-sm">
     <div id="modalContent" class="modal-content alert alert-success">
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -46,7 +48,13 @@
 	
 	<h1 class="pBlanco">Información personal</h1>
 		<div id="infoPerfil" class="clearfix">
-			<div class="col-md-10 col-xs-6">
+			<div class="pull-right col-md-2 col-xs-6" id="botonesEditar">
+				<img ng-src="img/edit2.png" ng-click="imprimirPortafolio()" ng-hide="no" style="cursor:pointer;">
+				<img id="edicionTotal" ng-src="img/edit2.png" ng-click="editarInfo(miNombre,miCorreo,miTel,miDesc)" ng-show="no" data-toggle="modal" data-target="#editarInfo" style="cursor:pointer;">
+				<img src="img/check.png" ng-click="imprimirPortafolio2()" ng-show="no" style="cursor:pointer;">
+				<img ng-src="img/print.png" ng-click="imprimirPortafolio3()" ng-hide="no" style="cursor:pointer;">
+			</div>
+			<div class="col-md-10 col-xs-12">
 				<div class="pull-left col-md-4" style="cursor:pointer;" id="wrapper">
 					<img id="miImg"class="img-responsive img-circle" ng-src="{{miFoto}}" alt="">
 					<i class="text" ><p hide-sm>Cambiar imagen</p></i>	
@@ -58,12 +66,6 @@
 						<li style="font-size: 118%;color: #757475; padding-top: 3% !important;">{{miTel}}</li>
 					</ul>
 				</div>
-			</div>
-			<div class="pull-right col-md-2 col-xs-6" id="botonesEditar">
-				<img ng-src="img/edit2.png" ng-click="imprimirPortafolio()" ng-hide="no" style="cursor:pointer;">
-				<img id="edicionTotal" ng-src="img/edit2.png" ng-click="editarInfo(miNombre,miCorreo,miTel,miDesc)" ng-show="no" data-toggle="modal" data-target="#editarInfo" style="cursor:pointer;">
-				<img src="img/check.png" ng-click="imprimirPortafolio2()" ng-show="no" style="cursor:pointer;">
-				<img ng-src="img/print.png" ng-click="imprimirPortafolio3()" ng-hide="no" style="cursor:pointer;">
 			</div>
 			
 		</div>

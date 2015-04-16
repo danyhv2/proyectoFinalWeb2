@@ -1,6 +1,6 @@
 // Code goes here
 angular.module('modifyCarrera', [])
-  .controller('updateCarreraCtrl', function($scope) {
+  .controller('updateCarreraCtrl', function($scope, $http) {
    var self=this;
 
     function renderElement(elementIds) {
@@ -10,8 +10,10 @@ angular.module('modifyCarrera', [])
     }
 
     this.datos = jQuery.parseJSON(localStorage.getItem('carreras'));
+    //obtener query carreras
+      
 
-    self.updateModel = function updateModel() {
+    /*self.updateModel = function updateModel() {
       for(var i = 0; i < this.datos.length; i++){
         if($('.searchCarrera').val() != this.datos[i].Carrera){
             $('.errorSearch').css('display','block');
@@ -26,6 +28,23 @@ angular.module('modifyCarrera', [])
           renderElement(['#inpNombreCarrera', '#inpCodCarrera', '#inpDirCarrera']);
     }
     }
+    };*/
+
+    self.buscarCarrera = function(){
+      $http.post('php/buscarCarrera.php', { "data" : $scope.getCarrera }).
+      success(function(data) {
+        $scope.data = data;
+        //console.log($scope.data.nombre);
+        //console.log(JSON.stringify(data));
+        $scope.newData= JSON.stringify(data);
+        console.log(data[0].nombre);
+      
+      self.formEditCarrera.nombre.$setViewValue(data[0].nombre);
+      self.formEditCarrera.codCarrera.$setViewValue(data[0].codCarrera);
+      //self.formEditCarrera.dirCarrera.$setViewValue(this.datos[i].Director);
+    
+      renderElement(['#inpNombreCarrera', '#inpCodCarrera']);
+      })
     };
 
     $scope.guardarCarrera = function(){

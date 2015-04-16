@@ -18,7 +18,6 @@ moduleVotacion.controller('VotacionCtrl', [
 		$scope.validar = function () {
 			if ($scope.fechaFinal.val() > $scope.fechaInicial.val()) {
 				var vote = {};
-				alert($scope.metodoVotacion.val());
 				vote.fechaInicio = $scope.fechaInicial.val();
 				vote.fechaCierre = $scope.fechaFinal.val();
 				vote.estrellas = $scope.estrellas.val();

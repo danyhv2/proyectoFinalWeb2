@@ -10,8 +10,8 @@
                     <md-input-container class="contBuscarCarrera">
                         <p class="input-group">
                           <label>Buscar carrera</label>
-                          <input name="buscarCarrera" class="searchCarrera">
-                          <a href="#" ng-click="updCarrera.updateModel()">
+                          <input name="buscarCarrera" class="searchCarrera" ng-model="getCarrera">
+                          <a href="#" ng-click="updCarrera.buscarCarrera()">
                               <img src="img/searchIcon.png">
                           </a>
                         </p>
@@ -38,6 +38,14 @@
                         <div class="msgError" ng-show="updCarrera.formEditCarrera.dirCarrera.$error.required">Debe ingresar un nombre para el Director de Carrera.</div>
                       </div>
                     </md-input-container>
+                    <div class="col-md-10 no-padding"> 
+                    <md-select ng-model="roleUser" class="optionsDirector" required name="director" ng-model="dirCarrera" placeholder="Seleccione un Director">
+                      <md-option class="optRole"  ng-value="director.nombre" ng-repeat="director in data">{{director.nombre}} {{director.primerApellido}} {{director.segundoApellido}}</md-option>
+                   </md-select>
+                   <div ng-show="userForm.$submitted || userForm.director.$touched">
+                      <div class="msgError" ng-show="userForm.director.$error.required">Debe ingresar un Director de Carrera.</div>
+                   </div>
+                </div>
                     
                     <md-checkbox ng-model="data.cb1" id="chkCurso" aria-label="Checkbox 1">
                       Inactivar
