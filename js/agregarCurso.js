@@ -3,6 +3,7 @@ angular.module('agregarCurso', [])
   
 
   .controller('addCursoCtrl', function($scope) {
+    $scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
      var cursos=[];
    $scope.validateCurso = function () {
   
