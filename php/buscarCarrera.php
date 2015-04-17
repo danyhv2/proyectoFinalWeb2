@@ -5,7 +5,7 @@ $data = file_get_contents("php://input");
 
 $objData = json_decode($data);
 
-   $sql= "SELECT nombre, codCarrera FROM carreras  where nombre = '$objData->data'";
+   $sql= "CALL buscarCarrera('$objData->data')";
 
 	   $result = mysqli_query($con, $sql);   
 

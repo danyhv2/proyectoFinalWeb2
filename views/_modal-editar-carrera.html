@@ -1,4 +1,4 @@
-<div class="modal fade" id="modalEditarCarrera" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" ng-controller="updateCarreraCtrl as updCarrera">
+<div class="modal fade" id="modalEditarCarrera2" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" ng-controller="updateCarreraCtrl as updCarrera">
     <div class="modal-dialog">
         <div class="modal-content" ng-hide="formVisibility">
             <div class="modal-header">
@@ -6,7 +6,7 @@
                 <h1>Información de la Carrera</h1>
             </div>
             <div class="modal-body">
-                <form clas="form-horizontal" name="updCarrera.formEditCarrera" ng-submit="guardarCarrera() && updCarrera.formEditCarrera.$valid" novalidate>
+                <form clas="form-horizontal formModificarCarrera" name="updCarrera.formEditCarrera" ng-submit="modificar() && updCarrera.formEditCarrera.$valid" novalidate>
                     <md-input-container class="contBuscarCarrera">
                         <p class="input-group">
                           <label>Buscar carrera</label>
@@ -19,14 +19,14 @@
                     </md-input-container>
                       <md-input-container>
                       <label>Nombre</label>
-                      <input id="inpNombreCarrera" md-maxlength="60" required name="nombre" ng-model="updCarrera.datos[2].Carrera">
+                      <input id="inpNombreCarrera" md-maxlength="60" required name="nombre" ng-model="nombreCarrera">
                       <div ng-show="updCarrera.formEditCarrera.$submitted || updCarrera.formEditCarrera.nombre.$touched">
                         <div class="msgError" ng-show="updCarrera.formEditCarrera.nombre.$error.required">El nombre es un campo requerido.</div>
                       </div>
                     </md-input-container>
                     <md-input-container>
                       <label>Código</label>
-                      <input id="inpCodCarrera" required name="codCarrera" ng-model="updCarrera.datos[2].Codigo">
+                      <input id="inpCodCarrera" required name="codCarrera" ng-model="codigo">
                       <div ng-show="updCarrera.formEditCarrera.$submitted || updCarrera.formEditCarrera.codCarrera.$touched">
                         <div class="msgError" ng-show="updCarrera.formEditCarrera.codCarrera.$error.required">Debe ingresar un código para la carrera.</div>
                       </div>
@@ -39,7 +39,7 @@
                       </div>
                     </md-input-container>-->
                     <div class="col-md-10 no-padding"> 
-                    <md-select id="inpDirCarrera" ng-model="data[0].dirCarrera" class="optionsDirector" required name="director">
+                    <md-select id="inpDirCarrera" ng-model="director" class="optionsDirector" required name="director">
                       <md-option class="optRole" ng-value="data[0].dirCarrera" ng-repeat="director in data">{{director.dirCarrera}}</md-option>
                    </md-select>
                    <div ng-show="userForm.$submitted || userForm.director.$touched">
@@ -50,6 +50,7 @@
                     <md-checkbox ng-model="data.cb1" id="chkCurso" aria-label="Checkbox 1">
                       Inactivar
                     </md-checkbox>
+                    <input type="text" name="idCarrera" id="inpId" ng-model="id_carrera">
                 <button class="btn btnAdd btnConfirmModal" type="submit">Guardar</button> 
                 </form>
             </div>
@@ -58,7 +59,7 @@
 </div>
 
 <!--modal exito-->
-<div id="modalExito" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+<div id="modalExitoCarrera2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
     <div id="modalContent" class="modal-content alert alert-success">
       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
@@ -69,7 +70,7 @@
 </div>
  <!--modal confirm-->
 <div class="modal-dialog">
-  <div id="modalConfirm" class="modal-content">
+  <div id="modalConfirmCarrera" class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <h4 class="modal-title">Confirmar inactivar carrera</h4>

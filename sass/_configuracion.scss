@@ -108,14 +108,14 @@ h1, legend{
 				font-size:13px;
 				color:rgb(244,67,54);
 					}
-			#modalExito{
+			#modalExito, #modalExitoCarrera2, #inpId{
 				display:none;
 			}
 			#modalContent{
 				position:absolute;
 				background-color:#dff0d8;
 			}
-			#modalConfirm{
+			#modalConfirm, #modalConfirmCarrera{
 				position:absolute;
 				display:none;
 				z-index:10001;
@@ -234,7 +234,7 @@ md-checkbox.md-default-theme.md-checked .md-icon {
 	}
 /*MODAL EDITAR CARRERA*/
 
-#modalEditarCarrera, #modalEditarCurso, .formEditUser {
+#modalEditarCarrera, #modalEditarCarrera2, #modalEditarCurso, #modalEditarCurso2, .formEditUser {
 	.contBuscarCarrera, .contBuscarCurso, .inpSearchUser{
 		width:50%;
 		p{

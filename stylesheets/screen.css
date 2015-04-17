@@ -366,7 +366,7 @@ h1, legend {
   color: #f44336;
 }
 /* line 111, ../sass/_configuracion.scss */
-.mainConfig .wrapperConfig #modalExito {
+.mainConfig .wrapperConfig #modalExito, .mainConfig .wrapperConfig #modalExitoCarrera2, .mainConfig .wrapperConfig #inpId {
   display: none;
 }
 /* line 114, ../sass/_configuracion.scss */
@@ -375,7 +375,7 @@ h1, legend {
   background-color: #dff0d8;
 }
 /* line 118, ../sass/_configuracion.scss */
-.mainConfig .wrapperConfig #modalConfirm {
+.mainConfig .wrapperConfig #modalConfirm, .mainConfig .wrapperConfig #modalConfirmCarrera {
   position: absolute;
   display: none;
   z-index: 10001;
@@ -521,20 +521,20 @@ md-checkbox.md-default-theme.md-checked .md-icon {
 
 /*MODAL EDITAR CARRERA*/
 /* line 238, ../sass/_configuracion.scss */
-#modalEditarCarrera .contBuscarCarrera, #modalEditarCarrera .contBuscarCurso, #modalEditarCarrera .inpSearchUser, #modalEditarCurso .contBuscarCarrera, #modalEditarCurso .contBuscarCurso, #modalEditarCurso .inpSearchUser, .formEditUser .contBuscarCarrera, .formEditUser .contBuscarCurso, .formEditUser .inpSearchUser {
+#modalEditarCarrera .contBuscarCarrera, #modalEditarCarrera .contBuscarCurso, #modalEditarCarrera .inpSearchUser, #modalEditarCarrera2 .contBuscarCarrera, #modalEditarCarrera2 .contBuscarCurso, #modalEditarCarrera2 .inpSearchUser, #modalEditarCurso .contBuscarCarrera, #modalEditarCurso .contBuscarCurso, #modalEditarCurso .inpSearchUser, #modalEditarCurso2 .contBuscarCarrera, #modalEditarCurso2 .contBuscarCurso, #modalEditarCurso2 .inpSearchUser, .formEditUser .contBuscarCarrera, .formEditUser .contBuscarCurso, .formEditUser .inpSearchUser {
   width: 50%;
 }
 /* line 240, ../sass/_configuracion.scss */
-#modalEditarCarrera .contBuscarCarrera p, #modalEditarCarrera .contBuscarCurso p, #modalEditarCarrera .inpSearchUser p, #modalEditarCurso .contBuscarCarrera p, #modalEditarCurso .contBuscarCurso p, #modalEditarCurso .inpSearchUser p, .formEditUser .contBuscarCarrera p, .formEditUser .contBuscarCurso p, .formEditUser .inpSearchUser p {
+#modalEditarCarrera .contBuscarCarrera p, #modalEditarCarrera .contBuscarCurso p, #modalEditarCarrera .inpSearchUser p, #modalEditarCarrera2 .contBuscarCarrera p, #modalEditarCarrera2 .contBuscarCurso p, #modalEditarCarrera2 .inpSearchUser p, #modalEditarCurso .contBuscarCarrera p, #modalEditarCurso .contBuscarCurso p, #modalEditarCurso .inpSearchUser p, #modalEditarCurso2 .contBuscarCarrera p, #modalEditarCurso2 .contBuscarCurso p, #modalEditarCurso2 .inpSearchUser p, .formEditUser .contBuscarCarrera p, .formEditUser .contBuscarCurso p, .formEditUser .inpSearchUser p {
   width: 100%;
 }
 /* line 242, ../sass/_configuracion.scss */
-#modalEditarCarrera .contBuscarCarrera p input, #modalEditarCarrera .contBuscarCurso p input, #modalEditarCarrera .inpSearchUser p input, #modalEditarCurso .contBuscarCarrera p input, #modalEditarCurso .contBuscarCurso p input, #modalEditarCurso .inpSearchUser p input, .formEditUser .contBuscarCarrera p input, .formEditUser .contBuscarCurso p input, .formEditUser .inpSearchUser p input {
+#modalEditarCarrera .contBuscarCarrera p input, #modalEditarCarrera .contBuscarCurso p input, #modalEditarCarrera .inpSearchUser p input, #modalEditarCarrera2 .contBuscarCarrera p input, #modalEditarCarrera2 .contBuscarCurso p input, #modalEditarCarrera2 .inpSearchUser p input, #modalEditarCurso .contBuscarCarrera p input, #modalEditarCurso .contBuscarCurso p input, #modalEditarCurso .inpSearchUser p input, #modalEditarCurso2 .contBuscarCarrera p input, #modalEditarCurso2 .contBuscarCurso p input, #modalEditarCurso2 .inpSearchUser p input, .formEditUser .contBuscarCarrera p input, .formEditUser .contBuscarCurso p input, .formEditUser .inpSearchUser p input {
   float: left;
   width: 88%;
 }
 /* line 246, ../sass/_configuracion.scss */
-#modalEditarCarrera .contBuscarCarrera p a, #modalEditarCarrera .contBuscarCurso p a, #modalEditarCarrera .inpSearchUser p a, #modalEditarCurso .contBuscarCarrera p a, #modalEditarCurso .contBuscarCurso p a, #modalEditarCurso .inpSearchUser p a, .formEditUser .contBuscarCarrera p a, .formEditUser .contBuscarCurso p a, .formEditUser .inpSearchUser p a {
+#modalEditarCarrera .contBuscarCarrera p a, #modalEditarCarrera .contBuscarCurso p a, #modalEditarCarrera .inpSearchUser p a, #modalEditarCarrera2 .contBuscarCarrera p a, #modalEditarCarrera2 .contBuscarCurso p a, #modalEditarCarrera2 .inpSearchUser p a, #modalEditarCurso .contBuscarCarrera p a, #modalEditarCurso .contBuscarCurso p a, #modalEditarCurso .inpSearchUser p a, #modalEditarCurso2 .contBuscarCarrera p a, #modalEditarCurso2 .contBuscarCurso p a, #modalEditarCurso2 .inpSearchUser p a, .formEditUser .contBuscarCarrera p a, .formEditUser .contBuscarCurso p a, .formEditUser .inpSearchUser p a {
   float: right;
   margin-top: 10px;
   padding-left: 5px;
@@ -1447,117 +1447,98 @@ md-item-content.div {
   float: left;
 }
 
-/* line 3, ../sass/_grupo.scss */
-body table {
-  border-bottom: 2px solid #b68cbb !important;
-}
-/* line 6, ../sass/_grupo.scss */
-body table th {
-  border-bottom: 2px solid #b68cbb !important;
-}
-/* line 10, ../sass/_grupo.scss */
-body table td {
-  border-bottom: 2px solid #b68cbb !important;
-}
-/* line 15, ../sass/_grupo.scss */
-body #modalConfirm {
-  margin: 0 auto !important;
-  max-width: 20em !important;
-  position: relative !important;
-}
-
-/* line 22, ../sass/_grupo.scss */
+/* line 2, ../sass/_grupo.scss */
 #crearGrupo {
   padding-bottom: 1%;
 }
 
-/* line 29, ../sass/_grupo.scss */
+/* line 9, ../sass/_grupo.scss */
 #modalNuevoGrupo table {
   margin-bottom: 0px;
   margin-left: 5%;
   width: 93.5%;
 }
-/* line 35, ../sass/_grupo.scss */
+/* line 15, ../sass/_grupo.scss */
 #modalNuevoGrupo input {
   width: 96%;
   margin-left: 3%;
 }
-/* line 40, ../sass/_grupo.scss */
+/* line 20, ../sass/_grupo.scss */
 #modalNuevoGrupo select {
   margin-left: 6%;
   width: 90%;
 }
-/* line 45, ../sass/_grupo.scss */
+/* line 25, ../sass/_grupo.scss */
 #modalNuevoGrupo span {
   font-size: 13px;
   background: none;
   margin-left: 6%;
 }
-/* line 51, ../sass/_grupo.scss */
+/* line 31, ../sass/_grupo.scss */
 #modalNuevoGrupo label {
   margin-left: 6% !important;
   margin-top: 3%;
 }
-/* line 56, ../sass/_grupo.scss */
+/* line 36, ../sass/_grupo.scss */
 #modalNuevoGrupo h1 {
   font-size: 2em;
 }
-/* line 60, ../sass/_grupo.scss */
+/* line 40, ../sass/_grupo.scss */
 #modalNuevoGrupo #ordenar1 {
   margin-left: 0px;
 }
 
-/* line 68, ../sass/_grupo.scss */
+/* line 48, ../sass/_grupo.scss */
 #modificarGrupos span {
   background: none;
   font-size: 13px;
 }
-/* line 73, ../sass/_grupo.scss */
+/* line 53, ../sass/_grupo.scss */
 #modificarGrupos h1 {
   font-size: 1.875em;
   font-weight: bold;
   color: white;
 }
-/* line 79, ../sass/_grupo.scss */
+/* line 59, ../sass/_grupo.scss */
 #modificarGrupos table {
   margin-bottom: 0px;
 }
-/* line 83, ../sass/_grupo.scss */
+/* line 63, ../sass/_grupo.scss */
 #modificarGrupos .modal-dialog {
   width: 81% !important;
 }
-/* line 87, ../sass/_grupo.scss */
+/* line 67, ../sass/_grupo.scss */
 #modificarGrupos th {
   color: #2a6496;
 }
-/* line 91, ../sass/_grupo.scss */
+/* line 71, ../sass/_grupo.scss */
 #modificarGrupos p {
   font-size: 15px;
 }
-/* line 95, ../sass/_grupo.scss */
+/* line 75, ../sass/_grupo.scss */
 #modificarGrupos h2 {
   font-size: 1.5em;
   font-weight: bold;
   color: #757475;
   margin-bottom: 0px;
 }
-/* line 108, ../sass/_grupo.scss */
+/* line 88, ../sass/_grupo.scss */
 #modificarGrupos #agregarNuevos {
   margin-top: 1%;
 }
 
-/* line 113, ../sass/_grupo.scss */
+/* line 93, ../sass/_grupo.scss */
 #todoGrupos {
   margin-bottom: 0px;
   height: 100%;
 }
 
-/* line 119, ../sass/_grupo.scss */
+/* line 99, ../sass/_grupo.scss */
 .miMargen {
   margin-top: 1em;
 }
 
-/* line 124, ../sass/_grupo.scss */
+/* line 104, ../sass/_grupo.scss */
 .rayita {
   height: 100%;
   width: 10%;
@@ -1566,149 +1547,149 @@ body #modalConfirm {
   position: absolute;
 }
 
-/* line 135, ../sass/_grupo.scss */
+/* line 115, ../sass/_grupo.scss */
 #mostrarGrupos h1 {
   font-size: 2em;
   text-align: center;
 }
-/* line 140, ../sass/_grupo.scss */
+/* line 120, ../sass/_grupo.scss */
 #mostrarGrupos li {
   margin-left: 11%;
 }
 
-/* line 147, ../sass/_grupo.scss */
+/* line 127, ../sass/_grupo.scss */
 #navegacionProfesor .nav > li > a:focus {
   color: white !important;
   text-decoration: none;
   background-color: #722d7b;
 }
 
-/* line 157, ../sass/_grupo.scss */
+/* line 137, ../sass/_grupo.scss */
 #ulMostrarEnviado li {
   margin-left: 12%;
 }
 
-/* line 164, ../sass/_grupo.scss */
+/* line 144, ../sass/_grupo.scss */
 #mostrarEnviados h1 {
   font-size: 2em;
   text-align: center;
 }
 
-/* line 172, ../sass/_grupo.scss */
+/* line 152, ../sass/_grupo.scss */
 #mostrarArchivos .contenedorDeCajas {
   margin-left: 11%;
 }
-/* line 177, ../sass/_grupo.scss */
+/* line 157, ../sass/_grupo.scss */
 #mostrarArchivos h1 {
   text-align: center;
   font-size: 2em;
 }
-/* line 182, ../sass/_grupo.scss */
+/* line 162, ../sass/_grupo.scss */
 #mostrarArchivos h4 {
   color: #428bca;
 }
 
-/* line 190, ../sass/_grupo.scss */
+/* line 170, ../sass/_grupo.scss */
 #subirArchivos #errorArchivoGrupo {
   margin-left: 2%;
 }
-/* line 194, ../sass/_grupo.scss */
+/* line 174, ../sass/_grupo.scss */
 #subirArchivos label {
   margin-top: 3%;
   margin-bottom: 1%;
 }
-/* line 199, ../sass/_grupo.scss */
+/* line 179, ../sass/_grupo.scss */
 #subirArchivos span {
   font-size: 13px;
   background: none;
 }
-/* line 204, ../sass/_grupo.scss */
+/* line 184, ../sass/_grupo.scss */
 #subirArchivos h1 {
   text-align: center;
   font-size: 2em;
 }
-/* line 209, ../sass/_grupo.scss */
+/* line 189, ../sass/_grupo.scss */
 #subirArchivos select {
   margin-left: 2%;
   width: 96%;
 }
-/* line 214, ../sass/_grupo.scss */
+/* line 194, ../sass/_grupo.scss */
 #subirArchivos #btnSubir {
   margin-left: 3%;
 }
-/* line 218, ../sass/_grupo.scss */
+/* line 198, ../sass/_grupo.scss */
 #subirArchivos #lvl {
   margin-left: 2%;
 }
 
-/* line 225, ../sass/_grupo.scss */
+/* line 205, ../sass/_grupo.scss */
 .contenedorRubricasUi h1 {
   font-size: 1.875em;
   font-weight: bold;
   color: #757475;
   text-align: center;
 }
-/* line 232, ../sass/_grupo.scss */
+/* line 212, ../sass/_grupo.scss */
 .contenedorRubricasUi #fechas {
   background-color: transparent !important;
 }
 
-/* line 237, ../sass/_grupo.scss */
+/* line 217, ../sass/_grupo.scss */
 .nofl {
   float: none !important;
 }
 
-/* line 241, ../sass/_grupo.scss */
+/* line 221, ../sass/_grupo.scss */
 #archivosbox {
   padding: 0px;
 }
 
-/* line 247, ../sass/_grupo.scss */
+/* line 227, ../sass/_grupo.scss */
 #mostrarMiGrupo h1 {
   font-size: 1.875em;
   font-weight: bold;
   color: #757475;
   text-align: center;
 }
-/* line 254, ../sass/_grupo.scss */
+/* line 234, ../sass/_grupo.scss */
 #mostrarMiGrupo h4 {
   color: #428bca;
 }
 
-/* line 259, ../sass/_grupo.scss */
+/* line 239, ../sass/_grupo.scss */
 #navegacionEstudiante .nav > li > a:focus {
   color: white !important;
   text-decoration: none;
   background-color: #722d7b;
 }
 
-/* line 265, ../sass/_grupo.scss */
+/* line 245, ../sass/_grupo.scss */
 .fechaGrupo {
   margin-left: 2%;
 }
 
-/* line 269, ../sass/_grupo.scss */
+/* line 249, ../sass/_grupo.scss */
 .colorDeTitulos {
   color: #428bca;
 }
 
-/* line 273, ../sass/_grupo.scss */
+/* line 253, ../sass/_grupo.scss */
 .contenedorDeCajas3 {
   overflow-y: scroll;
 }
 
-/* line 277, ../sass/_grupo.scss */
+/* line 257, ../sass/_grupo.scss */
 .misTitulos {
   font-weight: bold;
   color: #545355 !important;
 }
 
-/* line 282, ../sass/_grupo.scss */
+/* line 262, ../sass/_grupo.scss */
 .mipos {
   position: absolute;
 }
 
-/* line 286, ../sass/_grupo.scss */
+/* line 266, ../sass/_grupo.scss */
 .ventanasGru {
   margin-left: 15% !important;
 }
@@ -1721,38 +1702,38 @@ body #modalConfirm {
     background-color: black;
   }
 }
-/* line 294, ../sass/_grupo.scss */
+/* line 274, ../sass/_grupo.scss */
 #infoT {
   background-color: white;
 }
 
-/* line 298, ../sass/_grupo.scss */
+/* line 278, ../sass/_grupo.scss */
 #infoT:hover {
   animation-name: example;
   animation-duration: 0.5s;
   background: black;
   transition: all 0.2s ease;
 }
-/* line 303, ../sass/_grupo.scss */
+/* line 283, ../sass/_grupo.scss */
 #infoT:hover a {
   color: green;
 }
-/* line 306, ../sass/_grupo.scss */
+/* line 286, ../sass/_grupo.scss */
 #infoT:hover h4 {
   color: white;
 }
 
-/* line 312, ../sass/_grupo.scss */
+/* line 292, ../sass/_grupo.scss */
 #stylish:hover {
   opacity: 0.5;
 }
 
-/* line 319, ../sass/_grupo.scss */
+/* line 299, ../sass/_grupo.scss */
 #wrapper #miImg {
   border: 3px solid #97226b !important;
 }
 
-/* line 324, ../sass/_grupo.scss */
+/* line 304, ../sass/_grupo.scss */
 #wrapper .text {
   font-size: 1.3em;
   position: relative;
@@ -1761,29 +1742,29 @@ body #modalConfirm {
   visibility: hidden;
 }
 
-/* line 332, ../sass/_grupo.scss */
+/* line 312, ../sass/_grupo.scss */
 #wrapper:hover .text {
   opacity: 0.5;
   visibility: visible;
 }
 
-/* line 337, ../sass/_grupo.scss */
+/* line 317, ../sass/_grupo.scss */
 #wrapper:hover #miImg {
   opacity: 0.5;
 }
 
-/* line 341, ../sass/_grupo.scss */
+/* line 321, ../sass/_grupo.scss */
 .noM {
   margin-bottom: 0px !important;
 }
 
-/* line 345, ../sass/_grupo.scss */
+/* line 325, ../sass/_grupo.scss */
 .pBlanco {
   color: white !important;
   background: purple;
 }
 
-/* line 352, ../sass/_grupo.scss */
+/* line 332, ../sass/_grupo.scss */
 #todoPortafolio h1 {
   font-size: 1.87em;
   font-weight: bold;
@@ -1791,13 +1772,13 @@ body #modalConfirm {
   text-align: center;
 }
 
-/* line 360, ../sass/_grupo.scss */
+/* line 340, ../sass/_grupo.scss */
 #divUl {
   padding-left: 3%;
   padding-top: 4%;
 }
 
-/* line 364, ../sass/_grupo.scss */
+/* line 344, ../sass/_grupo.scss */
 #stylish {
   background: #fff;
   border-radius: 4px;
@@ -1809,7 +1790,7 @@ body #modalConfirm {
   min-height: 135px;
 }
 
-/* line 374, ../sass/_grupo.scss */
+/* line 354, ../sass/_grupo.scss */
 .borrarPortafolio {
   cursor: pointer;
   position: absolute;
@@ -1818,41 +1799,41 @@ body #modalConfirm {
   top: -3%;
 }
 
-/* line 383, ../sass/_grupo.scss */
+/* line 363, ../sass/_grupo.scss */
 #miInfo h2 {
   text-align: center;
 }
-/* line 387, ../sass/_grupo.scss */
+/* line 367, ../sass/_grupo.scss */
 #miInfo h4 {
   text-align: center;
 }
 
-/* line 392, ../sass/_grupo.scss */
+/* line 372, ../sass/_grupo.scss */
 #infoT {
   max-height: 181px;
 }
 
-/* line 397, ../sass/_grupo.scss */
+/* line 377, ../sass/_grupo.scss */
 .nada {
   display: none !important;
 }
 
 @media print {
-  /* line 404, ../sass/_grupo.scss */
+  /* line 384, ../sass/_grupo.scss */
   #botonesEditar {
     display: none;
   }
 
-  /* line 408, ../sass/_grupo.scss */
+  /* line 388, ../sass/_grupo.scss */
   #wrapper {
     width: 50%;
   }
-  /* line 411, ../sass/_grupo.scss */
+  /* line 391, ../sass/_grupo.scss */
   #wrapper #miImg {
     border: 1px !important;
   }
 
-  /* line 416, ../sass/_grupo.scss */
+  /* line 396, ../sass/_grupo.scss */
   #menuContainer {
     display: none;
   }
