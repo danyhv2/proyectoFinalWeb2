@@ -46,6 +46,7 @@ md-input-container.md-default-theme.md-input-focused .md-input{
 .no-padding{
 	padding-left:0px;
 }
+
 .panel-heading{
 	background-color: #D5D5D5;
   	border-radius: 0px;
@@ -108,14 +109,14 @@ h1, legend{
 				font-size:13px;
 				color:rgb(244,67,54);
 					}
-			#modalExito, #modalExitoCarrera2, #inpId{
+			#modalExito, #modalExitoCarrera2, #inpId, #modalExitoCurso2{
 				display:none;
 			}
 			#modalContent{
 				position:absolute;
 				background-color:#dff0d8;
 			}
-			#modalConfirm, #modalConfirmCarrera{
+			#modalConfirm, #modalConfirmCarrera, #modalConfirmCurso{
 				position:absolute;
 				display:none;
 				z-index:10001;
@@ -223,6 +224,46 @@ h1, legend{
 				background-color: #f5f3f4;
 				padding-top: 28px;
 			}
+	}
+	.votacionControl{
+		h1, h2{
+			padding-left:30px;
+		}
+		h3{
+			color:#545355;
+		}
+		h2{
+			color: #757475;
+  			font-size: 26px;
+		}
+		fieldset{
+			padding-bottom: 40px;
+		}
+		.chkVotacion{
+			 float: right;
+  			 margin-top: -20px;
+  			 margin-right: 36px;
+		}
+		.mainProject{
+			padding-left:6%;
+			padding-bottom:30px;	
+		}
+		.projectInfo{
+			width:195px;
+		}
+		.estrellaVot{
+			padding-top:6px;
+			.contStar{
+				span{
+					margin-right: -4px;
+				  	float: right;
+				  	margin-top: -32px;
+				}
+				img{
+					width:45px;
+				}
+			}
+		}
 	}
 }
 
