@@ -1,4 +1,4 @@
-<div class ="contenedorRubricasUi hidden-xs" ng-controller='directorController as este'>
+<div class ="contenedorRubricasUi hidden-xs" ng-controller='directorController as este' data-ng-init="actualizarGrupos(); actualizarRubricas();">
    <!--Modal Confirm-->
    <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
@@ -16,7 +16,7 @@
    </div>
    <!--End Modal Confirm-->
 
-               <!--Modal succes-->
+   <!--Modal succes-->
       <div id="modalExitoDeRubrica" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   <div class="modal-dialog modal-sm">
     <div id="modalContent" class="modal-content alert alert-success">
@@ -28,7 +28,7 @@
 </div>
 
    <div class="RubricaCaja">
-   <button class="simpleColor btn pull-right aliasBtnR"  data-toggle="modal" data-target="#modelCrearRubrica" >Crear nueva rúbrica</button>
+   <button class="simpleColor btn pull-right aliasBtnR"  data-toggle="modal" data-target="#modelCrearRubrica" ng-click="agregarProfeEstudSelect()">Crear nueva rúbrica</button>
 
       <h3>Rúbrica</h3>
       <div id="tutuloRubri" class="contenedorDeCajas">
@@ -96,7 +96,7 @@
          
                      <div id="nombgrr">
                      <md-select id="selectGrupo" placeholder="Nombre del curso" ng-model="newNombreGrupo" name="nombreGrupo">
-                        <md-option ng-repeat="grupos in este.datos.GruposDeCurso" ng-value="grupos.NombreDelCurso">{{grupos.NombreDelCurso}}</md-option>
+                        <md-option ng-repeat="grupos in este.datos.CursosDisponilbes" ng-value="grupos.Curso">{{grupos.Curso}}</md-option>
                      </md-select>
          
                      </div>

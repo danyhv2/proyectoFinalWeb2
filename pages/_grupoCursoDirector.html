@@ -1,8 +1,8 @@
-<div class ="contenedorRubricasUi hidden-xs col-xs-12" ng-controller='directorController as este'>
+<div class ="contenedorRubricasUi hidden-xs col-xs-12" ng-controller='directorController as este' data-ng-init="actualizarGrupos()">
    <div>
       <div class="comie">
          <h3 class="jusH">Grupos creados</h3>
-         <button type="button" class="simpleColor btn botonSim pull-right aliasBtnR"  data-toggle="modal" data-target="#modelCrearGrupoCurso">Crear nuevo</button>
+         <button type="button" class="simpleColor btn botonSim pull-right aliasBtnR" ng-click="agregarProfeEstudSelect()" data-toggle="modal" data-target="#modelCrearGrupoCurso">Crear nuevo</button>
       </div> 
       <!--Modal Confirm-->
       <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -14,9 +14,9 @@
             <p>Está seguro que desea borrar el curso?</p>
          </div>
          <div class="modal-footer">
-            <button type="button" class="btn btnConfirmModal" ng-click="delet()"
-               data-dismiss="modal">Proceder</button>
-            <button type="button" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btnConfirmModal" ng-click="delet()" ng-hide="ocultarBotonProceder">Proceder</button>
+            <button class="btn btnConfirmModal m-progressBorrado" ng-show="ocultarBotonProceder">Button</button>
+            <button type="button" id="closeConfirmDel" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
          </div>
       </div>
       <!--End Modal Confirm-->
@@ -43,10 +43,9 @@
                   <ng-form>
                      <div class="modal-body cajaDelmodal">
                         <div id="Nam" class="group">
-                           <md-input-container>
-                              <label>Nombre del curso</label>
-                              <input md-maxlength="20" name="nombreRubrica" ng-model="infoIngresada1">
-                           </md-input-container>
+                           <md-select placeholder="Nombre del curso" ng-model="infoIngresada1" name="nombreCurso">
+                               <md-option ng-repeat="CursoDisp in este.datos.CursosDisponilbes" ng-value="CursoDisp.Curso">{{CursoDisp.Curso}}</md-option>
+                           </md-select>
                         </div>
                         <div id="Nam1" class="group">
                            <md-input-container>
@@ -74,7 +73,6 @@
                            <md-select placeholder="Estudiantes" ng-change="estudAdd()" ng-model="infoIngresada4" name="estu">
                                <md-option ng-repeat="nombreTemp in este.datos.EstudiantesNormales" ng-value="nombreTemp">{{nombreTemp.Estudiante}}</md-option>
                            </md-select>
-
                         </div>
                         <div class="group">
                            <table class="table">
@@ -86,7 +84,8 @@
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="resetForm()">Cerrar</button>
-                        <button type="submit" class="simpleColor btn">Guardar</button>
+                        <button type="submit" class="simpleColor btn" ng-hide="ocultarBotonGuardar">Guardar</button>
+                        <button class="btn btnConfirmModal m-progressBorrado" ng-show="ocultarBotonGuardar">Button</button>
                      </div>
                   </ng-form>
                </form>
@@ -135,19 +134,20 @@
                   <table id="tablaProfes" class="tablaDetallesCurso">
                      <th>Profesores</th>
                      <tr ng-repeat="proT in proT" class="list-group-item">
-                        <td>{{proT}}</td><td><select class="form-control">
+                        <td>{{proT.nombre}}</td><td>{{proT.rol}}</td>
+                        <!--<td><select class="form-control">
                               <option>Proceso</option>
                               <option>Practica</option>
                               <option>Factor Humano</option>
-                           </select></td>
-                           <td><img class="pull-right" src="img/del.png" ng-click="delTempProf(valores)" style="cursor: pointer"></td>
+                           </select></td>-->
+                           <td><img class="pull-right" src="img/del.png" ng-click="delTempProf(proT)" style="cursor: pointer"></td>
                      </tr>
-                  </table>
 
+                  </table>
                   <table id="tablaEstud" class="tablaDetallesCursoEstu">
                      <th>Estudiantes</th>
                      <tr ng-repeat="estT in estT" class="list-group-item">
-                        <td>{{estT}}</td><td><img class="pull-right" src="img/del.png" ng-click="delTempEst(valores)" style="cursor: pointer"></td>
+                        <td>{{estT.nombre}}</td><td><img class="pull-right" src="img/del.png" ng-click="delTempEst(estT)" style="cursor: pointer"></td>
                      </tr>
                   </table>
 

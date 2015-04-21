@@ -1,8 +1,173 @@
 (function() {
     var module = angular.module('module', ['ui.router']);
 
-    module.controller('directorController', function($scope) {
+    module.controller('directorController', function($scope, $http) {
         this.datos = archivos;
+
+        //Tomar estudiantes y nombres
+
+        $scope.NombreProfes = [];
+        $scope.NombreEstuds = [];
+        $scope.NombreCarrera = [];
+
+        $http.get('php/buscarProfesores.php').success(function(data){
+            $scope.NombreProfes1 = data;
+            
+            for (var i = $scope.NombreProfes1.length - 1; i >= 0; i--) {
+                $scope.NombreProfes.push($scope.NombreProfes1[i].nombre +" "+ $scope.NombreProfes1[i].primerApellido + " " + $scope.NombreProfes1[i].segundoApellido);
+            };
+        })
+
+        $http.get('php/buscarEstudiantesDirector.php').success(function(data){
+            $scope.NombreEstuds1 = data;
+            for (var i = 0; i < $scope.NombreEstuds1.length; i++) {
+                $scope.NombreEstuds.push($scope.NombreEstuds1[i].nombre +" "+ $scope.NombreEstuds1[i].primerApellido + " " + $scope.NombreEstuds1[i].segundoApellido);
+            };
+        })
+
+        $http.get('php/buscarCursosDirector.php').success(function(data){
+            $scope.NombreCarrera1 = data;
+            for (var i = $scope.NombreCarrera1.length - 1; i >= 0; i--) {
+                $scope.NombreCarrera.push($scope.NombreCarrera1[i].nombre);
+            };
+        })
+
+        //Tomar rubricas creadas y actualizar
+        $scope.actualizarRubricas = function(){
+            archivos.RubricasCreadas = [];
+
+            $http.get('php/buscarRubrica.php').success(function(data){
+                $scope.rubricasBuscadas = data;
+                
+
+                $http.get('php/buscarRubros.php').success(function(datu){
+                    $scope.rubros = datu;
+
+                    for (var i = $scope.rubricasBuscadas.length - 1; i >= 0; i--) {
+                        var rubrosDelCurso = [];
+                        var rubricaTemporal = [];
+
+                        rubricaTemporal = {
+                            "rubricaLista": [{
+                                    "NombreDeRubrica": $scope.rubricasBuscadas[i].NombreRubrica
+                                }, {
+                                    "NombreDeGrupo": $scope.rubricasBuscadas[i].CursoAsignado
+                                }]
+                        };
+            //-------------------Acomodar el array de rubros--------------//
+                        for (var r = $scope.rubros.length - 1; r >= 0; r--) {
+
+                            if ($scope.rubricasBuscadas[i].NombreRubrica === $scope.rubros[r].RubricaAsignada) {
+
+                                function pushToMery(name, val) {
+                                    var vas = {};
+                                    vas[name] = val
+                                    rubrosDelCurso.push(vas);
+                                }
+                                pushToMery($scope.rubros[r].nombre, $scope.rubros[r].valor);
+                            };
+                        };
+            //-------------------Pushear los rubros a el array base------------//
+
+                        for (var m = rubrosDelCurso.length - 1; m >= 0; m--) {
+                            rubricaTemporal.rubricaLista.push(rubrosDelCurso[m])
+                        };
+                        archivos.RubricasCreadas.push(rubricaTemporal)
+
+                    };
+                })
+            })
+        }
+
+        $scope.agregarProfeEstudSelect = function(){
+            archivos.ProfesoresNormales = [];
+            archivos.EstudiantesNormales = [];
+            archivos.CursosDisponilbes = [];
+
+            for (var i = $scope.NombreProfes.length - 1; i >= 0; i--) {
+                archivos.ProfesoresNormales.push({"Profesor" : $scope.NombreProfes[i]})
+            };
+
+            for (var i = $scope.NombreEstuds.length - 1; i >= 0; i--) {
+                archivos.EstudiantesNormales.push({"Estudiante" : $scope.NombreEstuds[i],
+                                                    "Correo" : $scope.NombreEstuds1[i].correo})
+            };
+
+            for (var i = $scope.NombreCarrera.length - 1; i >= 0; i--) {
+                archivos.CursosDisponilbes.push({"Curso" : $scope.NombreCarrera[i]})
+            };
+
+        }
+
+        //Esta funcion borra los grupos locales, jala los que en la bd y los agrega
+        $scope.actualizarGrupos = function(){
+            var gruposTemporales = [],
+                nombreCursoTemporal = [],
+                nombreGrupoTemporal = [], 
+                estudiantesTemporales = [],
+                profesoresTemporales = [];
+
+            archivos.GruposDeCurso = [];
+
+            $http.get('php/buscarGruposCurso.php').success(function(data){
+                var grup = data;
+                for (var i = grup.length - 1; i >= 0; i--) {
+                    nombreCursoTemporal.push(grup[i].NombreDelCurso);
+                    nombreGrupoTemporal.push(grup[i].NombreDelGrupo);
+                };
+
+                $http.get('php/buscarGrupoEstudiantes.php').success(function(dato){
+                    var est = dato;
+                    for (var i = est.length - 1; i >= 0; i--) {
+                        estudiantesTemporales.push({NombreEstudiante : est[i].NombreEstudiante,
+                                                    GrupoAsignado : est[i].grupoAsignado,
+                                                    correoEs : est[i].correo_estudiante})
+                    };
+                    //Ayuda
+
+                    $http.get('php/buscarGruposProfesor.php').success(function(date){
+                        var tal = date;
+                        for (var i = tal.length - 1; i >= 0; i--) {
+                        profesoresTemporales.push({NombreProfesor : tal[i].NombreProfesor,
+                                                    Rol : tal[i].Rol,
+                                                    GrupoAsignado : tal[i].GrupoAsignado})
+                        };
+                        //Hasta este punto se jalan todos los valores del grupo
+                        //Los inserto al json que uso
+                        var GrupoActualizableTemporal = {};
+
+                        for (var i = nombreGrupoTemporal.length - 1; i >= 0; i--) {
+                            var estudian = [],
+                                profest = [];
+
+                            for (var v = profesoresTemporales.length - 1; v >= 0; v--) {
+                                if (nombreGrupoTemporal[i] === profesoresTemporales[v].GrupoAsignado) {
+                                    profest.push(profesoresTemporales[v])
+                                };
+                            };
+
+                            for (var c = estudiantesTemporales.length - 1; c >= 0; c--) {
+                                if (nombreGrupoTemporal[i] === estudiantesTemporales[c].GrupoAsignado) {
+                                    estudian.push(estudiantesTemporales[c])
+                                };
+                            };
+
+                            GrupoActualizableTemporal = {
+                                "NombreDelCurso": nombreCursoTemporal[i],
+                                "NombreDelGrupo": nombreGrupoTemporal[i],
+                                "Estudiantes": estudian,
+                                "Profesores": profest
+                            };
+                            archivos.GruposDeCurso.push(GrupoActualizableTemporal)
+                        };
+                    })
+                })
+            })
+
+        }
+
+        //tester
+
         var valorActualE = [],
             valorActualC = [],
             valorActualP = [];
@@ -37,7 +202,6 @@
         $('#modalExitoDeRubrica').hide();
         $('#modalExitoDeCarrera').hide();
         //Parte de roy
-
 
         $scope.editNotas = function(valores) {
 
@@ -213,10 +377,32 @@
         }
 
         $scope.del = function(grupos) {
-            var z = $scope.este.datos.GruposDeCurso.indexOf(grupos);
-
+            var z = grupos.NombreDelGrupo;
+            $scope.ocultarBotonProceder = false;
             $scope.delet = function(){
-                $scope.este.datos.GruposDeCurso.splice(z, 1);
+
+        //-----------------------PHP Borrar----------------------
+            $http.post('php/borrarGrupoDirector.php', { 'nombreGruZ' : z}).
+              success(function(dataGrupo, status) {
+            });
+
+            $http.post('php/borrarGrupoEstudiantesDirector.php', { 'nombreGruEz' : z}).
+              success(function(dataGrupo, status) {
+            });
+
+            $http.post('php/borrarGrupoProfesoresDirector.php', { 'nombreGruPrZ' : z}).
+              success(function(dataGrupo, status) {
+            });
+        //-----------------------PHP Borrar----------------------
+
+                $scope.borrarGrup = function(){
+                    $scope.actualizarGrupos();
+                    $('#closeConfirmDel').click();
+                }
+
+                $scope.ocultarBotonProceder = true;
+
+                var myVar = setTimeout($scope.borrarGrup, 2000);
             }
         }
 
@@ -231,32 +417,47 @@
             $scope.proT = [];
 
             for (var j = 0; j < valorActual.Estudiantes.length; j++) {
-                $scope.estT.push(valorActual.Estudiantes[j].NombreEstudiante);
+                $scope.estT.push({nombre : valorActual.Estudiantes[j].NombreEstudiante,
+                                  grupo : valorActual.Estudiantes[j].GrupoAsignado,
+                                  correoEss : valorActual.Estudiantes[j].correoEs});
             }
 
             for (var k = 0; k < valorActual.Profesores.length; k++) {
-                $scope.proT.push(valorActual.Profesores[k].NombreProfesor);
+                $scope.proT.push({nombre : valorActual.Profesores[k].NombreProfesor,
+                                  rol : valorActual.Profesores[k].Rol,
+                                  grupo : valorActual.Profesores[k].GrupoAsignado});
             }
-
             $scope.par1 = valorActual.NombreDelCurso;
             $scope.par2 = valorActual.NombreDelGrupo;
-            $scope.par3 = valorActual.Horario;
             $scope.par4 = $scope.proT;
             $scope.par5 = $scope.estT;
-
         }
 
+//---------------------Funcion que borra el profe de la bd-------------------//
           $scope.delTempProf = function(cs) {
+            $http.post('php/editar_borrarProfesorGrupo.php', { 'GrupoPfr' : cs.grupo, 'nombrePrf': cs.nombre}).
+              success(function(dataGrupo, status) {
+            })
+
             var z = $scope.proT.indexOf(cs);
             $scope.proT.splice(z, 1);
+
             $('<p id="msgSuccess" class="alert alert-success">El profesor se elimino correctamente</p>').insertBefore('#tablaProfes').delay(500).fadeOut();
         }
+//---------------------Funcion que borra el profe de la bd-------------------//
+
+//---------------------Funcion que borra el estudiante de la bd--------------//
 
         $scope.delTempEst = function(zc) {
+            $http.post('php/editar_borrarEstudianteGrupo.php', { 'GrupoExt' : zc.grupo, 'correoExt': zc.correoEss}).
+              success(function(dataGrupo, status) {
+            })
             var z = $scope.estT.indexOf(zc);
             $scope.estT.splice(z, 1);
             $('<p id="msgSuccess" class="alert alert-success">El estudiante se elimino correctamente</p>').insertBefore('#tablaEstud').delay(500).fadeOut();
         }
+//---------------------Funcion que borra el estudiante de la bd--------------//
+
 
         $scope.estudAdd = function() {
             var tempEs = $scope.infoIngresada4;
@@ -274,7 +475,7 @@
         $scope.profAdd = function() {
             var tempPr = $scope.infoIngresada5;
             var pAdd = '';
-            $('.ProfeTempor').append('<tr><td class="nombrePTemp">' + tempPr.Profesor + '</td><td><select class="form-control">\
+            $('.ProfeTempor').append('<tr><td class="nombrePTemp">' + tempPr.Profesor + '</td><td><select class="form-control rolProfesorGrup">\
                     <option>Proceso</option>\
                     <option>Practica</option>\
                     <option>Factor Humano</option>\
@@ -285,7 +486,6 @@
             valorActualP.push({
                 "NombreProfesor": pAdd,
             })
-
         }
 
         $scope.guarNuevGr = function() {
@@ -319,16 +519,66 @@
                 "Profesores": valorActualP,
             }
 
-            archivos.GruposDeCurso.push(grupoTemp);
-            document.getElementById("modalNuevoGru").reset();
-            $('#modelCrearGrupoCurso').modal('hide');
+            //Metodo para agregar grupo
+// -----------------------PHP --------------------
+            $http.post('php/agregarGrupoCurso.php', { 'nombreC' : $scope.infoIngresada1, 'nombreG': $scope.infoIngresada2}).
+              success(function(dataGrupo, status) {
+            })
 
-            $(".ProfeTempor").empty();
-            $(".EstudTempor").empty();
-            $scope.infoIngresada4 = "";
-            $scope.infoIngresada5 = "";
-            $('#modalExitoDelGrupo').fadeIn(1000);
-            $('#modalExitoDelGrupo').fadeOut(1000);
+            //Metodo agregar estudiant
+            //-------------Buscar el correo del estudiante para agregarlo a la bd-------------------
+            var arregloTemporalCorreos = [];
+            for (var i = valorActualE.length - 1; i >= 0; i--) {
+                //Buscar el correo que pertenece al estudiante
+                for (var mt = archivos.EstudiantesNormales.length -1; mt >= 0; mt--) {
+                    if (valorActualE[i].NombreEstudiante == archivos.EstudiantesNormales[mt].Estudiante) {
+                        arregloTemporalCorreos.unshift(archivos.EstudiantesNormales[mt].Correo)
+                    };
+
+                };
+            };
+            for (var g = valorActualE.length - 1; g >= 0; g--) {
+                 $http.post('php/agregarEstudiantesGrupodirector.php', {'correoEst' : arregloTemporalCorreos[g], 'GrupoEnt': $scope.infoIngresada2}).
+                 success(function(dataGrupo, status) {
+                 })
+            };
+
+            //Metodo para agregar profesores
+
+            var pan = [];
+            $(".rolProfesorGrup").each(function() {
+                pan.push($(this).val());
+            });
+
+            for (var i = valorActualP.length - 1; i >= 0; i--) {
+                $http.post('php/agregarProfesoresGrupodirector.php', { 'nombreProf' : valorActualP[i].NombreProfesor, 'RolProf': pan[i], 'GrupoAsig': $scope.infoIngresada2}).
+                success(function(dataGrupo, status) {
+                })
+            };
+
+            $scope.ocultarBotonGuardar = true;
+            $scope.aggrGrup = function(){
+                    $scope.actualizarGrupos();
+                    document.getElementById("modalNuevoGru").reset();
+                    $('#modelCrearGrupoCurso').modal('hide');
+
+                    $(".ProfeTempor").empty();
+                    $(".EstudTempor").empty();
+                    $scope.infoIngresada4 = "";
+                    $scope.infoIngresada5 = "";
+                    $('#modalExitoDelGrupo').fadeIn(1500);
+                    $('#modalExitoDelGrupo').fadeOut(1500);
+                    $scope.ocultarBotonGuardar = false;
+                    valorActualE = [],
+                    valorActualC = [],
+                    valorActualP = [];
+                }
+
+            var myVar = setTimeout($scope.aggrGrup, 2000);
+//------------------------PHP---------------------
+
+            //archivos.GruposDeCurso.push(grupoTemp);
+            
             };
         }
 
@@ -506,6 +756,7 @@
                 rubrosPorEnviar = [],
                 y = 0,
                 s = 0,
+                f = 0,
                 total = 0,
                 mobile = false;
 
@@ -515,6 +766,7 @@
                         rubricasPorEnviar.push($(this).val());
                         y++
                         s++
+                        f++
                     });
 
                     $('.rubroP').each(function() {
@@ -528,6 +780,7 @@
                         rubricasPorEnviar.push($(this).val());
                         y++
                         s++
+                        f++
                     });
 
                         $('.rubroPuntoTemporal').each(function() {
@@ -560,6 +813,21 @@
                     pushToAry(rubr, num);
 
                 };
+
+    //--------------PHP AGREGAR RUBRICAS---------------//
+                $http.post('php/agregarRubricaDirector.php', { 'nombreRub' : $scope.newNombreRubrica, 'nombreCur': $scope.newNombreGrupo}).
+                  success(function(dataGrupo, status) {
+                })
+
+                for (f--; f >= 0; f--) {
+                    var rubr = rubrosPorEnviar[f],
+                        num = rubricasPorEnviar[f];
+
+                    $http.post('php/agregarRubrosDirector.php', { 'nomb' : rubr, 'valr': num, 'rubNomb': $scope.newNombreRubrica}).
+                      success(function(dataGrupo, status) {
+                    })
+                };
+
 
                 archivos.RubricasCreadas.push({
                     "rubricaLista": cosa
@@ -602,20 +870,7 @@
 })();
 
 var archivos = {
-    "RubricasCreadas": [{
-        "rubricaLista": [{
-            "NombreDeRubrica": "Rubrica 3"
-        }, {
-            "NombreDeGrupo": "Curso 3"
-        }, {
-            "Examen": 60
-        }, {
-            "Puntualidad": 20
-        }, {
-            "Concepto": 20
-        }]
-
-    }],
+    "RubricasCreadas": [],
 
     "ParamatrosRubrica": [{
         "parametro": "Valor prueba"
@@ -623,54 +878,11 @@ var archivos = {
         "parametro": "Valor prueba 1"
     }],
 
-    "GruposDeCurso": [{
-        "NombreDelCurso": "Proyecto Web 1",
-        "NombreDelGrupo": "Grupo 1",
-        "Horario": "Noche",
-        "Estudiantes": [{
-            "NombreEstudiante": "Mario Marin",
-        }, {
-            "NombreEstudiante": "Peter Parker",
-        }],
+    "GruposDeCurso": [],
 
-        "Profesores": [{
-            "NombreProfesor": "Jose Anruz",
-            "Rol asignado": "Proceso"
-        }, {
-            "NombreProfesor": "Sofia Vega",
-            "Rol asignado": "Practica"
-        }],
-    }, {
-        "NombreDelCurso": "Proyecto Web 3",
-        "NombreDelGrupo": "Grupo 3",
-        "Horario": "Noche",
-        "Estudiantes": [{
-            "NombreEstudiante": "Frodo Ramirez",
+    "EstudiantesNormales": [],
 
-        }, {
-            "NombreEstudiante": "Harry Ortiz",
-
-        }],
-
-        "Profesores": [{
-            "NombreProfesor": "Israel Martinez",
-            "Rol asignado": "Proceso"
-
-        }, {
-            "NombreProfesor": "Carlos Villafuerte",
-            "Rol asignado": "Factor Humano"
-        }],
-    }],
-
-    "EstudiantesNormales": [{
-        "Estudiante": "Mario Cascante",
-    }, {
-        "Estudiante": "Mariana Cascante",
-    }, {
-        "Estudiante": "Helen Post ",
-    }, {
-        "Estudiante": "Josiah Brandt"
-    }],
+    "CursosDisponilbes": [],
 
     "Carreras": [{
         "carrera": "Desarrollo de web",
@@ -700,13 +912,19 @@ var archivos = {
         }],
     }],
 
-    "ProfesoresNormales": [{
-        "Profesor": "Jennifer Moralez",
-    }, {
-        "Profesor": "Henrietta Mundo",
-    }, {
-        "Profesor": "Alfonso Collins ",
-    }, {
-        "Profesor": "Robert Smith"
-    }]
+    "ProfesoresNormales": []
 }
+
+
+//For the brave souls who get this far: You are the chosen ones,
+//the valiant knights of programming who toil away, without rest,
+//fixing our most awful code. To you, true saviors, kings of men,
+//I say this: never gonna give you up, never gonna let you down,
+//never gonna run around and desert you. Never gonna make you cry,
+//never gonna say goodbye. Never gonna tell a lie and hurt you.
+
+// This is black magic
+
+// from
+
+// *Some stackoverlow link
