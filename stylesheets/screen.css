@@ -366,7 +366,7 @@ h1, legend {
   color: #f44336;
 }
 /* line 112, ../sass/_configuracion.scss */
-.mainConfig .wrapperConfig #modalExito, .mainConfig .wrapperConfig #modalExitoCarrera2, .mainConfig .wrapperConfig #inpId, .mainConfig .wrapperConfig #modalExitoCurso2 {
+.mainConfig .wrapperConfig #modalExito, .mainConfig .wrapperConfig #modalExitoCarrera2, .mainConfig .wrapperConfig #inpId, .mainConfig .wrapperConfig #modalExitoCurso2, .mainConfig .wrapperConfig #inpUserId {
   display: none;
 }
 /* line 115, ../sass/_configuracion.scss */

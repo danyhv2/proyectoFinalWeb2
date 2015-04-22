@@ -16,7 +16,7 @@ angular.module('modifyUser', [])
           $scope.data = data;
           console.log(data);
 
-          if($('.searchCurso').val() != data[0].correo){
+          if(data.length==0 || data[0].inactivo == '1'){  
              $('.errorSearch').css('display','block');
           }
           else{
@@ -32,8 +32,10 @@ angular.module('modifyUser', [])
             self.userFormEdit.tel.$setViewValue(data[0].telefono);
             self.userFormEdit.profilePhoto.$setViewValue(data[0].Foto);
             self.userFormEdit.roleUsuario.$setViewValue(data[0].userRole);
+            self.userFormEdit.usuario_id.$setViewValue(data[0].idUsuario);
 
-            renderElement(['#inpNameUser', '#inpPrimerApellido', '#inpSegApellido', '#inpDireccion', '#inpFecha', '#inpCedula', '#inpCorreo', '#inpPassword', '#inpTelefono','#imgPhoto', '#roleUser', ]);
+
+            renderElement(['#inpNameUser', '#inpPrimerApellido', '#inpSegApellido', '#inpDireccion', '#inpFecha', '#inpCedula', '#inpCorreo', '#inpPassword', '#inpTelefono','#imgPhoto', '#roleUser', '#inpUserId']);
           }
 
     })// termina post
@@ -68,12 +70,12 @@ angular.module('modifyUser', [])
       $scope.guardarUsuario = function(){
         //$scope.datos = jQuery.parseJSON(localStorage.getItem('users'));
         console.log($scope.birthDate);
-        $http.post('php/modificarUsuario.php', { 'nombre' : $scope.nameUser, 'primerApellido':$scope.primerApellido, 'segundoApellido': $scope.segundoApellido, 'fechaNacimiento': ($('#inpFecha').val()), 'direccion': $scope.direccion, 'tel': $scope.telefono, 'ced': $scope.cedula, 'correo': $scope.correo, 'pass': $scope.contrasena, 'role': $scope.rol}).
+        $http.post('php/modificarUsuario.php', { 'nombre' : $scope.nameUser, 'primerApellido':$scope.primerApellido, 'segundoApellido': $scope.segundoApellido, 'fechaNacimiento': ($('#inpFecha').val()), 'direccion': $scope.direccion, 'tel': $scope.telefono, 'ced': $scope.cedula, 'correo': $scope.correo, 'pass': $scope.contrasena, 'role': $scope.rol, 'id': $scope.usuarioId}).
             success(function(data, status) {
               $scope.status = status;
               $scope.data = data;
               $scope.result = data; 
-              console.log(data);
+              console.log($scope.cedula);
             })
         //validar q el form no este vacion
        //if($scope.userFormMain.$valid){

@@ -1,5 +1,6 @@
 <div class="contenedorRubricasUi hidden-xs col-xs-12">
 		<h1>Mis grupos</h1>
+		<button type="button" class="btn simpleColor pull-right" data-toggle="modal" data-target="#addInfo">Agregar información</button>
 		<div class="">
 			<table class="table">
 			  <thead>
@@ -65,3 +66,66 @@
 			  </div>
 			</div>
 			<!--FIN DE MODAL-->
+			<!--MODAL AGREGAR INFO-->
+		<div class="modal fade" id="addInfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cerrarArchivos()">&times;</button>
+		        <h1>Agregar información del grupo</h1>
+		      </div>
+		      <div class="modal-body">
+		        <form class="form-horizontal">
+				  <md-input-container id="crearGrupo">
+                    <label class=".label" for="nombre">Descripción:</label> 
+                    <textarea columns="3" name="archivo" id="nameArchivo" ng-model="nuevoNameArhivo" class=""></textarea>
+                  </md-input-container>
+                  <!--AGREGAR FOTO-->
+                <md-input-container class="upload-div" ng-controller="MyCtrl">    
+                <div class="upload-buttons">
+                <div id="editArea">
+                  <div class="up-buttons">
+                    <button class="btn simpleColor upload-button" ng-file-select ng-model="files" ng-multiple="false" ng-accept="'*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Subir foto del proyecto</button>
+                  </div>  
+                </div>
+                </div>
+                <ul ng-show="rejFiles.length > 0" class="response">
+                  <li class="sel-file" ng-repeat="f in rejFiles">
+                    El archivo que esta tratando de subir no es permitido, debe ser .png o .jpg
+                  </li>
+                </ul>
+                <ul id="listImg" ng-show="files.length > 0" class="response">
+                  {{f.dataUrl}}
+                  <li class="sel-file" ng-repeat="f in files">
+                    <img ng-show="f.dataUrl" ng-src="{{f.dataUrl}}" ng-model="photo" class="thumb">
+                    <span class="progress" ng-show="f.progress >= 0">           
+                      <div style="width:{{f.progress}}%">{{f.progress}}%</div>
+                    </span>       
+                    <button class="button" ng-click="f.upload.abort();f.upload.aborted=true" ng-show="f.upload != null && f.progress < 100 && !f.upload.aborted">Abort</button>
+                    {{f.name}}
+                    <a ng-show="f.result" href="javascript:void(0)" ng-click="f.showDetail = !f.showDetail">details</a>
+                    <div ng-show="f.showDetail">
+                      <div data-ng-show="f.result.result == null">{{f.result}}</div>
+                      <ul>
+                        <li ng-repeat="item in f.result.result">
+                          <div data-ng-show="item.name">file name: {{item.name}}</div>
+                          <div data-ng-show="item.fieldName">name: {{item.fieldName}}</div>
+                          <div data-ng-show="item.size">size on the serve: {{item.size}}</div>
+                          <div data-ng-show="item.value">value: {{item.value}}</div>
+                        </li>
+                      </ul>
+                      <div data-ng-show="f.result.requestHeaders" class="reqh">request headers: {{f.result.requestHeaders}}</div>
+                    </div>
+                  </li>
+                </ul>
+                <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
+              </md-input-container>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		         <button  class="btn simpleColor">Guardar</button>
+                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cerrarArchivos()">Cerrar</button>
+              </div>
+		    </div>
+		  </div>
+		</div>
