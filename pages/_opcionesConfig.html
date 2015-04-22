@@ -5,7 +5,7 @@
         <li class="hidden-xs" role="presentation"><a ui-sref=".modificarUsuario">Modificar Usuarios</a></li>
         <li class="hidden-xs" role="presentation"><a ui-sref=".ingresarCarrera">Ingresar Carrera</a></li>
         <li  role="presentation"><a ui-sref=".ingresarCurso">Ingresar Curso</a></li>
-		<li  role="presentation"><a ui-sref=".votacion">Votación</a></li>
+		    <li class="hidden-xs" role="presentation"><a ui-sref=".votacion">Votación</a></li>
       </ul>
       <div ui-view class="hidden-xs" ></div>
       <div ui-view="ingresarUsuarios" class="visible-xs"></div>
@@ -13,5 +13,6 @@
       <div ui-view="modificarUsuarios" class="visible-xs"></div>
       <div ui-view="ingresarCarrera" class="visible-xs"></div>
       <!--<div ui-view="ingresarCurso" class="visible-xs"></div>-->
+      <div ui-view="configurarVotacion" class="visible-xs"></div>
       
 </div>

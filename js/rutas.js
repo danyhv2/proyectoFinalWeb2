@@ -59,6 +59,9 @@ route.config(function($stateProvider, $urlRouterProvider) {
                 },
                 'ingresarCurso@configuracion': { 
                     templateUrl: 'pages/mobile/_mobileIngresarCurso.html' 
+                },
+                'configurarVotacion@configuracion': { 
+                    templateUrl: 'views/_votacion.html' 
                 }
             }
         })
