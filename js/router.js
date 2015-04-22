@@ -59,6 +59,7 @@ routerApp.controller('userCtrl', function($scope, $http, $state, $upload){
   $scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
   $scope.validate = function() {
       var userExist = false;
+      var idExist = false;
       var validEmail = false;
       //obtener usuarios
 
@@ -68,11 +69,21 @@ routerApp.controller('userCtrl', function($scope, $http, $state, $upload){
           console.log(data2[1].nombre);
           
             if(data2 !== null){
+              //verificar si el correo existe
                 for(var i = 0; i < data2.length; i++) {
                 if(($('#inpEmail').val()) == data2[i].correo){
                   $('.msgErrorUser').css('display','block');
-                  $('.msgErrorUser').fadeOut(3000);
+                  $('.msgErrorUser').fadeOut(4000);
                    userExist = true;
+                   
+                }
+              }
+              //verificar si la cedula existe
+              for(var i = 0; i < data2.length; i++) {
+                if($scope.idUser == data2[i].cedula){
+                  $('.msgErrorId').css('display','block');
+                  $('.msgErrorId').fadeOut(4000);
+                   idExist = true;
                    
                 }
               }
@@ -90,7 +101,7 @@ routerApp.controller('userCtrl', function($scope, $http, $state, $upload){
               $('.msgErrorEmail').css('display','none');
             }
     
-              if($scope.userForm.$valid && userExist != true && validEmail != true){
+              if($scope.userForm.$valid && userExist != true && validEmail != true && idExist != true){
                
                 $http.post($scope.url, { 'nombre' : $scope.userName, 'PrimerApellido':$scope.firstLastName, 'SegundoApellido': $scope.secondLastName, 'Direccion':$scope.address, 'Cedula':$scope.idUser, 'Foto':$scope.idUser, 'FechaNacimiento': ($('#inpFechaNacimiento').val()), 'Correo': $scope.email, 'Contrasena': $scope.password, 'img': $scope.userPic, 'role': ($('.optionsRole').find('span').text())}).
                   success(function(data, status) {

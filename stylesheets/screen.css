@@ -407,7 +407,7 @@ h1, legend {
   display: none;
 }
 /* line 141, ../sass/_configuracion.scss */
-.mainConfig .wrapperConfig .formUser #msgSuccess, .mainConfig .wrapperConfig .formUser .msgErrorUser {
+.mainConfig .wrapperConfig .formUser #msgSuccess, .mainConfig .wrapperConfig .formUser .msgErrorUser, .mainConfig .wrapperConfig .formUser .msgErrorId {
   margin-left: 18px;
   width: 272px;
   margin-top: 12px;

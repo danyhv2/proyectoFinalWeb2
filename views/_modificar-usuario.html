@@ -27,20 +27,20 @@
                   <div class="col-md-6 col-sm-5">
                     <md-input-container>
                       <label>Nombre</label>
-                      <input id="inpNameUser" name="userName" ng-model="updateUser.datos[1].Nombre" ng-disabled="disable">
+                      <input id="inpNameUser" name="userName" ng-model="nameUser" ng-disabled="disable">
                     </md-input-container>
                     <md-input-container>
                       <label>Primer Apellido</label>
-                      <input id="inpPrimerApellido" name="primerApellido" ng-model="updateUser.datos[1].PrimerApellido" ng-disabled="disable">
+                      <input id="inpPrimerApellido" name="primerApellido" ng-model="primerApellido" ng-disabled="disable">
                     </md-input-container>
                     <md-input-container>
                       <label>Segundo Apellido</label>
-                      <input id="inpSegApellido" name="segundoApellido" ng-model="updateUser.datos[1].SegundoApellido" ng-disabled="disable">
+                      <input id="inpSegApellido" name="segundoApellido" ng-model="segundoApellido" ng-disabled="disable">
                     </md-input-container>
                     <md-input-container ng-controller="DatepickerDemoCtrl">
                       <p class="input-group">
                         <label>Fecha de Nacimiento</label>
-                        <input id="inpFecha" name="userFecha" type="text" class="form-control" datepicker-popup="{{format}}" ng-model="updateUser.datos[1].FechaNacimiento" is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="birthDate" ng-disabled="disable"/>
+                        <input id="inpFecha" name="userFecha" type="text" class="form-control" datepicker-popup="{{format}}" is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="birthDate" ng-disabled="disable"/>
                         <span class="input-group-btn">
                           <button class="btnDatePicker" type="button" ng-click="open($event)" ng-disabled="disable">
                             <img src="img/datepicker.png">
@@ -54,11 +54,15 @@
                   <div class="col-md-6 col-sm-5">
                   <md-input-container>
                     <label>Dirección</label>
-                    <input id="inpDireccion" name="userDireccion" ng-model="updateUser.datos[1].Direccion" ng-disabled="disable">
+                    <input id="inpDireccion" name="userDireccion" ng-model="direccion" ng-disabled="disable">
+                  </md-input-container>
+                  <md-input-container>
+                    <label>Teléfono</label>
+                    <input  validate-number valid-values="validValues" name="tel" id="inpTelefono" name="userTel" ng-model="telefono" ng-disabled="disable">
                   </md-input-container>
                   <md-input-container>
                     <label>Cédula</label>
-                    <input  validate-number valid-values="validValues" id="inpCedula" name="userCed" ng-model="updateUser.datos[1].Cedula" ng-disabled="disable">
+                    <input  validate-number valid-values="validValues" id="inpCedula" name="userCed" ng-model="cedula" ng-disabled="disable">
                   </md-input-container>
                   <md-checkbox ng-model="data.cb1" id="chkCurso" aria-label="Checkbox 1" ng-disabled="disable">
                       Inactivar
@@ -75,15 +79,15 @@
                 <div class="col-md-6 col-sm-5">
                   <md-input-container>
                     <label>Correo</label>
-                    <input id="inpCorreo" name="correo" ng-model="updateUser.datos[1].Correo" ng-disabled="disable2">
+                    <input id="inpCorreo" name="correo" ng-model="correo" ng-disabled="disable2">
                   </md-input-container>
                   <md-input-container>
                     <label>Contraseña</label>
-                    <input type="password" id="inpPassword" name="contrasena" ng-model="updateUser.datos[1].Contrasena" ng-disabled="disable2">
+                    <input type="password" id="inpPassword" name="contrasena" ng-model="contrasena" ng-disabled="disable2">
                   </md-input-container>
                   <md-input-container class="inpNewPass">
                     <label>Contraseña nueva</label>
-                    <input class="inpNew" type="password" ng-disabled="disable2">
+                    <input class="inpNew" ng-model="contrasena2" type="password" ng-disabled="disable2">
                   </md-input-container>
                   <md-input-container class="inpNewPassConfirm">
                     <label>Confirmar contraseña</label>
@@ -94,12 +98,12 @@
                   <button class="btn btnAdd cancelUserAccess" type="submit" ng-click="cancelUsuarioAcceso()">Cancelar</button>
                 </div>
                 <div class="col-md-6 col-sm-5"> 
-                  <md-select ng-model="updateUser.datos[0].Role" class="optionsRoleUser" ng-disabled="disable2">
+                  <md-select id="roleUser" ng-model="rol" class="optionsRoleUser" name="roleUsuario" ng-disabled="disable2">
                     <md-option class="optRole" ng-value="role.nombre" ng-repeat="role in roles">{{role.nombre}}</md-option>
                   </md-select>
                 </div>
               </fieldset>
-             
+             {{updateUser.userFormEdit.$valid}}
          </form>
        </div>
      <!--FIN FORMULARIO-->

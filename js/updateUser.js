@@ -1,6 +1,6 @@
 // Code goes here
 angular.module('modifyUser', [])
-  .controller('updateUserCtrl', function($scope) {
+  .controller('updateUserCtrl', function($scope, $http) {
   $scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
    var self=this;
 
@@ -10,29 +10,33 @@ angular.module('modifyUser', [])
       });
     }
 
-    this.datos = jQuery.parseJSON(localStorage.getItem('users'));
-
     self.updateModel = function updateModel() {
-      for(var i = 0; i < this.datos.length; i++){
-        if($('.searchCurso').val() != this.datos[i].Correo){
-           $('.errorSearch').css('display','block');
-        }
-        else{
-          $('.errorSearch').css('display','none');
-          self.userFormEdit.userName.$setViewValue(this.datos[i].Nombre);
-          self.userFormEdit.primerApellido.$setViewValue(this.datos[i].PrimerApellido);
-          self.userFormEdit.segundoApellido.$setViewValue(this.datos[i].SegundoApellido);
-          self.userFormEdit.userDireccion.$setViewValue(this.datos[i].Direccion);
-          self.userFormEdit.userCed.$setViewValue(this.datos[i].Cedula);
-          self.userFormEdit.userFecha.$setViewValue(this.datos[i].FechaNacimiento);
-          self.userFormEdit.correo.$setViewValue(this.datos[i].Correo);
-          self.userFormEdit.contrasena.$setViewValue(this.datos[i].Contrasena);
-          self.userFormEdit.profilePhoto.$setViewValue(this.datos[i].Foto);
+         $http.post('php/buscarUsuario.php', {"data" : $scope.searchUser}).
+          success(function(data) {
+          $scope.data = data;
+          console.log(data);
 
-          renderElement(['#inpNameUser', '#inpPrimerApellido', '#inpSegApellido', '#inpDireccion', '#inpFecha', '#inpCedula', '#inpCorreo', '#inpPassword', '#imgPhoto']);
-        }
+          if($('.searchCurso').val() != data[0].correo){
+             $('.errorSearch').css('display','block');
+          }
+          else{
+            $('.errorSearch').css('display','none');
+            self.userFormEdit.userName.$setViewValue(data[0].nombre);
+            self.userFormEdit.primerApellido.$setViewValue(data[0].primerApellido);
+            self.userFormEdit.segundoApellido.$setViewValue(data[0].segundoApellido);
+            self.userFormEdit.userDireccion.$setViewValue(data[0].direccion);
+            self.userFormEdit.userCed.$setViewValue(data[0].cedula);
+            self.userFormEdit.userFecha.$setViewValue(data[0].fechaNacimiento);
+            self.userFormEdit.correo.$setViewValue(data[0].correo);
+            self.userFormEdit.contrasena.$setViewValue(data[0].contrasena);
+            self.userFormEdit.tel.$setViewValue(data[0].telefono);
+            self.userFormEdit.profilePhoto.$setViewValue(data[0].Foto);
+            self.userFormEdit.roleUsuario.$setViewValue(data[0].userRole);
 
-    }
+            renderElement(['#inpNameUser', '#inpPrimerApellido', '#inpSegApellido', '#inpDireccion', '#inpFecha', '#inpCedula', '#inpCorreo', '#inpPassword', '#inpTelefono','#imgPhoto', '#roleUser', ]);
+          }
+
+    })// termina post
     };
 
     $scope.roles = [
@@ -62,11 +66,18 @@ angular.module('modifyUser', [])
             $('.cancelUser').css('display','block');
       }
       $scope.guardarUsuario = function(){
-        $scope.datos = jQuery.parseJSON(localStorage.getItem('users'));
-        console.log($scope.datos[0].Nombre);
+        //$scope.datos = jQuery.parseJSON(localStorage.getItem('users'));
+        console.log($scope.birthDate);
+        $http.post('php/modificarUsuario.php', { 'nombre' : $scope.nameUser, 'primerApellido':$scope.primerApellido, 'segundoApellido': $scope.segundoApellido, 'fechaNacimiento': ($('#inpFecha').val()), 'direccion': $scope.direccion, 'tel': $scope.telefono, 'ced': $scope.cedula, 'correo': $scope.correo, 'pass': $scope.contrasena, 'role': $scope.rol}).
+            success(function(data, status) {
+              $scope.status = status;
+              $scope.data = data;
+              $scope.result = data; 
+              console.log(data);
+            })
         //validar q el form no este vacion
        //if($scope.userFormMain.$valid){
-          $scope.datos[0].Nombre = $('#inpNameUser').val();
+          /*$scope.datos[0].Nombre = $('#inpNameUser').val();
           $scope.changedUser = [{
                             'Nombre': $('#inpNameUser').val(),
                             'PrimerApellido':  $('#inpPrimerApellido').val(),
@@ -80,7 +91,7 @@ angular.module('modifyUser', [])
                               }];               
                            
           localStorage.setItem('users',JSON.stringify($scope.changedUser));
-          console.log(jQuery.parseJSON(localStorage.getItem('users')));
+          console.log(jQuery.parseJSON(localStorage.getItem('users')));*/
           $scope.disable=true;
           $('#msgSuccess').css('display','block');
           $('#msgSuccess').fadeOut(3000);

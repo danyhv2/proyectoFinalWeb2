@@ -138,7 +138,7 @@ h1, legend{
 						color:rgb(244,67,54);
 						@include msg;
 					}
-					#msgSuccess, .msgErrorUser{
+					#msgSuccess, .msgErrorUser, .msgErrorId{
 						margin-left: 18px;
 						@include msg; 
 					}

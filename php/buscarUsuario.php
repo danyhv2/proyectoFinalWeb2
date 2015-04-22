@@ -5,7 +5,7 @@ $data = file_get_contents("php://input");
 
 $objData = json_decode($data);
 
-   $sql= "CALL buscarCarrera('$objData->data')";
+   $sql= "CALL buscarUsuario('$objData->data')";
 
 	   $result = mysqli_query($con, $sql);   
 

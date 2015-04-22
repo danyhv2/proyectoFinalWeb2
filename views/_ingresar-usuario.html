@@ -14,23 +14,24 @@
                   </div>
                 </div>
                 <p class="msgErrorUser alert alert-danger">El usuario que quiere ingresar ya fue agregado anteriormente.</p>
+                <p class="msgErrorId alert alert-danger">El número de cédula que está ingresando ya existe.</p>
                 <div class="col-md-6">
                   <md-input-container>
-                    <label>Nombre</label>
+                    <label>* Nombre</label>
                     <input id="inpUser" md-maxlength="30" required name="name" ng-model="userName">
                       <div ng-show="userForm.$submitted || userForm.name.$touched">
                         <div class="msgError" ng-show="userForm.name.$error.required">El nombre es un campo requerido.</div>
                       </div>
                   </md-input-container>
                   <md-input-container>
-                    <label>Primer Apellido</label>
+                    <label>* Primer Apellido</label>
                     <input required name="primerApellido" ng-model="firstLastName">
                     <div ng-show="userForm.$submitted || userForm.primerApellido.$touched">
                       <div class="msgError" ng-show="userForm.primerApellido.$error.required">Primer apellido es un campo requerido.</div>
                     </div>
                   </md-input-container>
                   <md-input-container>
-                    <label>Segundo Apellido</label>
+                    <label>* Segundo Apellido</label>
                     <input required name="segundoApellido" ng-model="secondLastName">
                     <div ng-show="userForm.$submitted || userForm.segundoApellido.$touched">
                       <div class="msgError" ng-show="userForm.segundoApellido.$error.required">Segundo apellido es un campo requerido.</div>
@@ -54,13 +55,14 @@
                 <div class="col-md-6">
                 <md-input-container>
                   <label>Dirección</label>
-                  <input id="dirUser" required name="direccion" ng-model="address">
-                  <div ng-show="userForm.$submitted || userForm.direccion.$touched">
-                    <div class="msgError" ng-show="userForm.direccion.$error.required">Dirección es un campo requerido.</div>
-                  </div>
+                  <input id="dirUser" name="direccion" ng-model="address">
                 </md-input-container>
                 <md-input-container>
-                  <label>Cédula</label>
+                  <label>Teléfono</label>
+                  <input validate-number name="telefono" md-maxlength="20" ng-model="tel" valid-values="validValues">
+                </md-input-container>
+                <md-input-container>
+                  <label>* Cédula</label>
                   <input validate-number required name="cedula" md-maxlength="9" ng-model="idUser" valid-values="validValues">
                   <div ng-show="userForm.$submitted || userForm.cedula.$touched">
                     <div class="msgError" ng-show="userForm.cedula.$error.required">Cédula es un campo requerido.</div>
@@ -116,7 +118,7 @@
                 <legend>Datos de Acceso</legend>
                 <div class="col-md-6">
                   <md-input-container>
-                    <label>Correo</label>
+                    <label>* Correo</label>
                     <input id="inpEmail" type="email" required name="email" ng-model="email">
                     <div ng-show="userForm.$submitted || userForm.cedula.$touched">
                       <div class="msgError" ng-show="userForm.email.$error.required">Correo es un campo requerido.</div>
@@ -124,7 +126,7 @@
                    <div class="msgErrorEmail">El correo que esta tratando de ingresar no es válido.</div>
                   </md-input-container>
                   <md-input-container>
-                    <label>Contraseña</label>
+                    <label>* Contraseña</label>
                     <input type="password" required name="password" ng-model="password">
                     <div ng-show="userForm.$submitted || userForm.password.$touched">
                       <div class="msgError" ng-show="userForm.password.$error.required">Debe ingresar una contraseña.</div>

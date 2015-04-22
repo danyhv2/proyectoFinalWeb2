@@ -8,7 +8,6 @@ include "config.php";
 	$idCarrera = mysql_real_escape_string($data->id);
 	$inactivo=($data->inactivo);
 
-   //$sql= "UPDATE carreras SET nombre = '$nombreCarrera', dirCarrera = '$dir', inactivo= '', codCarrera ='$cod' WHERE id_carrera = '$idCarrera'";
 	if($dir != '' && $nombreCarrera != '' && $cod != ''){
 		$sql = "CALL modificarCarrera('$nombreCarrera', '$dir', '$cod', '$idCarrera', '$inactivo')";
 	}
