@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 22, 2015 at 06:53 AM
+-- Generation Time: Apr 22, 2015 at 07:25 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.5.19
 
@@ -186,6 +186,18 @@ CREATE TABLE IF NOT EXISTS `estudiantes_por_curso` (
 
 INSERT INTO `estudiantes_por_curso` (`id_grupo_curso`, `correo_estudiante`, `nombre_equipo`, `grupo_asignado`, `id_rubrica`, `nota_final`, `id_rubrica_fact_humano`, `nota_final_fact_humano`) VALUES
 (0, 'test@gmail.com', 'Test', 'Grupo2', NULL, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gruposcurso`
+--
+
+CREATE TABLE IF NOT EXISTS `gruposcurso` (
+`IdGrupo` int(11) NOT NULL,
+  `IdCurso` int(11) NOT NULL,
+  `NombreDelGrupo` varchar(500) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -423,6 +435,12 @@ ALTER TABLE `estudiantes_por_curso`
  ADD KEY `nombre_grupo` (`nombre_equipo`), ADD KEY `nombre_equipo` (`nombre_equipo`);
 
 --
+-- Indexes for table `gruposcurso`
+--
+ALTER TABLE `gruposcurso`
+ ADD PRIMARY KEY (`IdGrupo`);
+
+--
 -- Indexes for table `grupos_proyectos`
 --
 ALTER TABLE `grupos_proyectos`
@@ -505,6 +523,11 @@ MODIFY `id_curso` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 ALTER TABLE `documentos`
 MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=63;
+--
+-- AUTO_INCREMENT for table `gruposcurso`
+--
+ALTER TABLE `gruposcurso`
+MODIFY `IdGrupo` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=53;
 --
 -- AUTO_INCREMENT for table `periodo_votacion`
 --
