@@ -1,4 +1,4 @@
-<div id="accordionUsuarios" class="hidden-xs" role="tablist" aria-multiselectable="true">
+<!--<div id="accordionUsuarios" role="tablist" aria-multiselectable="true">
     <div class="collapseUsers" class="panel-collapse collapse in" role="tabpanel"	>
       <div class="panel-body">
       	<div class="contVerUsuarios panel-body" ng-controller="verUserCtrl">
@@ -27,21 +27,131 @@
 		</div>
       </div>
     </div>
+    <div id="modalInfoUser" class="modal fade">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close cerrarModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h2 class="modal-title">Información del Usuario</h2>
+	      </div>
+	      <div class="modal-body modalBodyUser">
+	      <div class="modal-footer row">
+	        <button type="button" class="btn btn-default cerrarModal" data-dismiss="modal">Cerrar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>-->
+
+
+
+
+<!--<div id="accordionUsuarios" role="tablist" aria-multiselectable="true">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionUsuarios" href=".collapseUsers" aria-expanded="true" aria-controls="collapseUsers">
+          Ver Usuarios
+      </h4>
+    </div>
+    <div class="collapseUsers panel-collapse collapse" role="tabpanel"	>
+      <div class="panel-body">
+      	<div class="contVerUsuarios" ng-controller="verUserCtrl">
+			<h1>Usuarios</h1>
+			<table class="table tUsuarios">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Primer Apellido</th>
+						<th>Segundo Apellido</th>
+						<th class="hidden-xs">Correo</th>
+						<th>Role</th>
+					</tr>
+				</thead>
+				<tbody>
+				     <tr ng-repeat="users in data" ng-click="verMas($index)">
+				     	<td>{{users.nombre}}</td>
+				     	<td>{{users.primerApellido}}</td>
+				     	<td>{{users.segundoApellido}}</td>
+				     	<td class="usernombre hidden-xs">{{users.correo}}</td>
+				     	<td>{{users.userRole}}</td>
+				     	<td><a href="#" class="seeMore_{{$index}}" ><img src="img/see_03.png" data-toggle="modal" data-target="#modalInfoUser" alt="See More"></a></td>
+				     </tr>
+				</tbody>
+			</table>
+		</div>
+      </div>
+      <div id="modalInfoUser" class="modal fade">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close cerrarModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h2 class="modal-title">Información del Usuario</h2>
+	      </div>
+	      <div class="modal-body modalBodyUser">
+	      <div class="modal-footer row">
+	        <button type="button" class="btn btn-default cerrarModal" data-dismiss="modal">Cerrar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+    </div>
+</div>-->
+
+<div id="accordionUsuarios"  role="tablist" aria-multiselectable="true">
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordionUsuarios" href=".collapseUsers" aria-expanded="true" aria-controls="collapseUsers">
+          Ver usuarios
+        </a>
+      </h4>
+    </div>
+    <div class="collapseUsers panel-collapse collapse" role="tabpanel">
+      <div class="panel-body">
+      	<div class="contVerUsuarios" ng-controller="verUserCtrl">
+			<h1>Usuarios</h1>
+			<table class="table tUsuarios">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Primer Apellido</th>
+						<th>Segundo Apellido</th>
+						<th class="hidden-xs">Correo</th>
+						<th>Role</th>
+					</tr>
+				</thead>
+				<tbody>
+				     <tr ng-repeat="users in data" ng-click="verMas($index)">
+				     	<td>{{users.nombre}}</td>
+				     	<td>{{users.primerApellido}}</td>
+				     	<td>{{users.segundoApellido}}</td>
+				     	<td class="usernombre hidden-xs">{{users.correo}}</td>
+				     	<td>{{users.userRole}}</td>
+				     	<td><a href="#" class="seeMore_{{$index}}" ><img src="img/see_03.png" data-toggle="modal" data-target="#modalInfoUser" alt="See More"></a></td>
+				     </tr>
+				</tbody>
+			</table>
+		</div>
+		<!--MODAL-->
+		<div id="modalInfoUser" class="modal fade">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close cerrarModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h2 class="modal-title">Información del Usuario</h2>
+	      </div>
+	      <div class="modal-body modalBodyUser">
+	      <div class="modal-footer row">
+	        <button type="button" class="btn btn-default cerrarModal" data-dismiss="modal">Cerrar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+      </div>
+    </div>
+  </div>
+ 
 </div>
 
-
-<div id="modalInfoUser" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close cerrarModal" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2 class="modal-title">Información del Usuario</h2>
-      </div>
-      <div class="modal-body modalBodyUser">
-      <div class="modal-footer row">
-        <button type="button" class="btn btn-default cerrarModal" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
 

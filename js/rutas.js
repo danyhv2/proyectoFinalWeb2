@@ -46,7 +46,7 @@ route.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'pages/_opcionesConfig.html'
                 },
                 'verUsuarios@configuracion': { 
-                    templateUrl: 'pages/mobile/_mobileUsuarios.html' 
+                    templateUrl: 'views/_ver-usuario.html' 
                 },
                 'ingresarUsuarios@configuracion': { 
                     templateUrl: 'pages/mobile/_mobileIngresarUsuarios.html' 
