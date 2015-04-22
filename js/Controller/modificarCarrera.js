@@ -12,7 +12,6 @@ angular.module('modifyCarrera', [])
     self.buscarCarrera = function(){
       $http.post('php/buscarCarrera.php', { "data" : $scope.getCarrera }).
       success(function(data) {
-        $scope.data = data;
         console.log(data);
         console.log(data.length);
           

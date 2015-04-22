@@ -13,14 +13,13 @@ include "config.php";
 	$userPic = mysql_real_escape_string($data->img);
 	$email = ($data->Correo);
 	$password = ($data->Contrasena);
-	$role="Administrador";
+	$role=mysql_real_escape_string($data->role);
 
 	echo $usrname, $firstLastName, $SecondLastName, $address, $userId, $fchNacimiento, $email;
 
 
-	/*CONFIGURAR IMAGEN*/
-/*if(isset($_POST['submit'])){	
-$nombreimg = $_FILES['archivo']['name'];
+	/*CONFIGURAR IMAGEN*/	
+/*$nombreimg = $_FILES['archivo']['name'];
 
 $ext_permitidas = array('jpg','jpeg','gif','png');
 $extension = end( explode('.', $_FILES['archivo']['name']) );
@@ -136,11 +135,7 @@ if($tamano <= $limite){
       }
    
 }
-}else{
-	echo 'No form';
-}
-
-*/
+/*
 if(isset($_FILES['archivo'])){
 $name = $_FILES["archivo"]["name"];
 //$size = $_FILES['file']['size']
@@ -165,7 +160,7 @@ if (isset ($name)) {
 }else{
 	echo 'fallo imagen';
 }
-
+*/
 $fNac = date("Y-m-d", strtotime($fchNacimiento));
 echo $fNac;
 echo $fchNacimiento;

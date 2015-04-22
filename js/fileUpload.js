@@ -39,6 +39,29 @@ app.controller('MyCtrl', [ '$scope', '$http', '$timeout', '$compile', '$upload',
             }
         }
     });
+
+
+    /*SUBIR FOTO*/
+
+    $scope.onFileSelect = function($files) {
+        console.log('test');
+    $scope.message = "";
+    for (var i = 0; i < $files.length; i++) {
+        var file = $files[i];
+        console.log(file);
+        $scope.upload = $upload.upload({
+            url: 'php/subirFoto.php',
+            method: 'POST',               
+            file: file
+        }).success(function(data, status, headers, config) {
+            $scope.message = data;  
+            console.log(data);              
+        }).error(function(data, status) {
+            $scope.message = data;
+        });
+    }
+};
+
     
     $scope.uploadPic = function(files) {
         $scope.formUpload = true;
@@ -64,7 +87,17 @@ app.controller('MyCtrl', [ '$scope', '$http', '$timeout', '$compile', '$upload',
                     fileReader.onload = function(e) {
                         $timeout(function() {
                             file.dataUrl = e.target.result;
-                            //console.log(file.dataUrl);
+                            $scope.upload = $upload.upload({
+                                url: 'php/subirFoto.php',
+                                method: 'POST',               
+                                file: file
+                            }).success(function(data, status, headers, config) {
+                                $scope.message = data;  
+                                console.log(data);              
+                            }).error(function(data, status) {
+                                $scope.message = data;
+                            });
+                            console.log(file.dataUrl);
 
                         });
                     }
@@ -75,14 +108,24 @@ app.controller('MyCtrl', [ '$scope', '$http', '$timeout', '$compile', '$upload',
     
     function uploadUsing$upload(file) {
         file.upload = $upload.upload({
-            url: '/archivo' + $scope.getReqParams(),
+            //url: '/uploads' + $scope.getReqParams(),
+            url:'php/subriFoto.php',
             method: 'POST',
-            headers: {
+            /*headers: {
                 'my-header' : 'my-header-value'
-            },
-            fields: {username: $scope.username},
-            file: file,
-            fileFormDataName: 'myFile',
+            },*/
+            //headers: {'Content-Type': file.type},
+            //fields: {username: $scope.username},
+            //file: file,
+            //fileFormDataName: 'myFile',
+             //data: file,
+             file: file,
+            // console.log(file.type);
+        }).success(function(data, status, headers, config) {
+            $scope.message = data; 
+            console.log(data);               
+        }).error(function(data, status) {
+            $scope.message = data;
         });
 
         file.upload.then(function(response) {

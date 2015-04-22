@@ -1,7 +1,7 @@
 <div class="contUsuarios hidden-xs" ng-controller="userCtrl">
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
-            <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" enctype="multipart/form-data" method="POST" novalidate>
+            <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" enctype="multipart/form-data" novalidate>
               <fieldset class="col-md-12">
                 <legend>Datos Personales</legend>
                  <!--modal exito-->
@@ -67,27 +67,28 @@
                   </div>
                 </md-input-container>
                  <!--AGREGAR FOTO-->
-                <!--<md-input-container class="upload-div" ng-controller="MyCtrl">
-               <div class="upload-buttons">
+                <md-input-container class="upload-div" ng-controller="MyCtrl">    
+                <div class="upload-buttons">
                 <div id="editArea">
                   <div class="up-buttons">
-                    <button class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.pdf,*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</button>
+                    <button class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</button>
                   </div>  
                 </div>
                 </div>
                 <ul ng-show="rejFiles.length > 0" class="response">
                   <li class="sel-file" ng-repeat="f in rejFiles">
-                    El archivo que esta tratando de subir no es permitido.
+                    El archivo que esta tratando de subir no es permitido, debe ser .png o .jpg
                   </li>
                 </ul>
-                <ul ng-show="files.length > 0" class="response">
+                <ul id="listImg" ng-show="files.length > 0" class="response">
+                  {{f.dataUrl}}
                   <li class="sel-file" ng-repeat="f in files">
                     <img ng-show="f.dataUrl" ng-src="{{f.dataUrl}}" ng-model="photo" class="thumb">
                     <span class="progress" ng-show="f.progress >= 0">           
                       <div style="width:{{f.progress}}%">{{f.progress}}%</div>
                     </span>       
                     <button class="button" ng-click="f.upload.abort();f.upload.aborted=true" ng-show="f.upload != null && f.progress < 100 && !f.upload.aborted">Abort</button>
-                    {{f.name}} - size: {{f.size}}B - type: {{f.type}}
+                    {{f.name}} - size: {{f.size}}B 
                     <a ng-show="f.result" href="javascript:void(0)" ng-click="f.showDetail = !f.showDetail">details</a>
                     <div ng-show="f.showDetail">
                       <div data-ng-show="f.result.result == null">{{f.result}}</div>
@@ -104,8 +105,9 @@
                   </li>
                 </ul>
                 <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
-              </md-input-container>-->
-              <input class="clearfix rounded" type="file" name="archivo" id="archivo" ng-model="userPic" />
+              </md-input-container>
+             <!-- <input class="clearfix rounded" type="file" name="archivo" id="archivo" ng-model="userPic" />-->
+              <input type="file" name="image" id="image" ng-file-select="onFileSelect($files)">
 
   <!--FIN AGREGAR FOTO-->
               </div>
@@ -130,8 +132,8 @@
                   </md-input-container>
                 </div>
                 <div class="col-md-6" ng-controller="getRoles"> 
-                    <md-select ng-model="roleUser" class="optionsRole" placeholder="Seleccione Role">
-                      <md-option class="optRole" ng-model="roleUser" ng-value="role.id_role" ng-repeat="role in data">{{role.nombre}}</md-option>
+                    <md-select id="usuarioRole" ng-model="roleUser" class="optionsRole" placeholder="Seleccione Role">
+                      <md-option class="optRole" ng-model="roleUser" ng-value="role.nombre" ng-repeat="role in data">{{role.nombre}}</md-option>
                    </md-select>
                 </div>
               </fieldset>
@@ -139,5 +141,6 @@
          </form> 
        </div>
      <!--FIN FORMULARIO-->
+
   </div>
 

@@ -14,7 +14,6 @@ route.config(function($stateProvider, $urlRouterProvider) {
 	.state('perfil', {
 		url: '/perfil',
 		templateUrl: 'pages/_perfil.html',
-		controller: 'PerfilCtrl'
 	})
           .state('grupo', {
             url: '/grupo',

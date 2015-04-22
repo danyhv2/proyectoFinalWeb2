@@ -39,12 +39,13 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 			  url:'/votacion',
 			  templateUrl:'views/_votacion.html',
 			  controller:'VotacionCtrl'
-		  })
+		  });
         
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
 });
 
-routerApp.controller('MenuC', function($scope) {
+routerApp.controller('MenuC', function($scope, $state) {
+  $state.go('configuracion.ingresarUsuario');
     $('ul.menuConfig li a').click(function () {
     $('ul.menuConfig li.active').removeClass('active')
     $(this).parent('li').addClass('active')
@@ -53,20 +54,26 @@ routerApp.controller('MenuC', function($scope) {
 
 var users = [];
 
-routerApp.controller('userCtrl', function($scope, $http){
+routerApp.controller('userCtrl', function($scope, $http, $state, $upload){
   $scope.url = 'php/query.php';
   $scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
   $scope.validate = function() {
       var userExist = false;
       var validEmail = false;
-      var newUsers = jQuery.parseJSON(localStorage.getItem('users'));
-            console.log(newUsers);
-            if(newUsers !== null){
-                for(var i = 0; i < newUsers.length; i++) {
-                if(($('#inpEmail').val()) == newUsers[i].Correo){
+      //obtener usuarios
+
+        $http.post('php/obtenerUsuarios.php').
+        success(function(data2) {
+          $scope.data = data2;
+          console.log(data2[1].nombre);
+          
+            if(data2 !== null){
+                for(var i = 0; i < data2.length; i++) {
+                if(($('#inpEmail').val()) == data2[i].correo){
                   $('.msgErrorUser').css('display','block');
                   $('.msgErrorUser').fadeOut(3000);
                    userExist = true;
+                   
                 }
               }
             } 
@@ -82,40 +89,16 @@ routerApp.controller('userCtrl', function($scope, $http){
             }else{
               $('.msgErrorEmail').css('display','none');
             }
-              
+    
               if($scope.userForm.$valid && userExist != true && validEmail != true){
-                $scope.newUser = {
-                'Nombre': $scope.userName,
-                'PrimerApellido': $scope.firstLastName,
-                'SegundoApellido': $scope.secondLastName,
-                'Direccion': $scope.address,
-                'Cedula': $scope.idUser,
-                'Foto': ($('.thumb').attr('ng-src')),
-                'FechaNacimiento': ($('#inpFechaNacimiento').val()),
-                'Correo': $scope.email,
-                'Contrasena': $scope.password,
-                'Role': $('.optionsRole').find('span').text()
-                };
-                //console.log($scope.newUser);
-                //$('#msgSuccess').css('display','block');
-                $('#modalExitoUsuarios').fadeIn(1000);
-                $('#modalExitoUsuarios').fadeOut(4000);
-                $('#modalExitoUsuarios').modal('hide');
-                //$('#msgSuccess').fadeOut(3000);
-                users.push($scope.newUser);
-                localStorage.setItem('users', JSON.stringify(users));
-                $('.formUser').trigger('reset');
-                };
-
-                console.log($scope.userPic);
-
-
-                  $http.post($scope.url, { 'nombre' : $scope.userName, 'PrimerApellido':$scope.firstLastName, 'SegundoApellido': $scope.secondLastName, 'Direccion':$scope.address, 'Cedula':$scope.idUser, 'Foto':$scope.idUser, 'FechaNacimiento': ($('#inpFechaNacimiento').val()), 'Correo': $scope.email, 'Contrasena': $scope.password, 'img': $scope.userPic}).
+               
+                $http.post($scope.url, { 'nombre' : $scope.userName, 'PrimerApellido':$scope.firstLastName, 'SegundoApellido': $scope.secondLastName, 'Direccion':$scope.address, 'Cedula':$scope.idUser, 'Foto':$scope.idUser, 'FechaNacimiento': ($('#inpFechaNacimiento').val()), 'Correo': $scope.email, 'Contrasena': $scope.password, 'img': $scope.userPic, 'role': ($('.optionsRole').find('span').text())}).
                   success(function(data, status) {
                     $scope.status = status;
                     $scope.data = data;
-                    $scope.result = data; // Show result from server in our <pre></pre> element
+                    $scope.result = data; 
                     console.log(data);
+                    console.log($scope.roleUser);
                   })
                   .
                   error(function(data, status) {
@@ -123,7 +106,18 @@ routerApp.controller('userCtrl', function($scope, $http){
                     $scope.status = status;     
                   });
 
+                $('#modalExitoUsuarios').fadeIn(1000);
+                $('#modalExitoUsuarios').fadeOut(4000);
+                $('#modalExitoUsuarios').modal('hide');
+                //$('#msgSuccess').fadeOut(3000);
+                //users.push($scope.newUser);
+  
+                $('.formUser').trigger('reset');
+                };
 
+                console.log($scope.userPic);
+
+                })//fin del primer post
                 
             }
 
@@ -163,15 +157,5 @@ routerApp.directive('validateNumber', function ($parse) {
         }
     }   
 });
-  routerApp.controller('getUserCtrl', function($scope){
-        var self=this;
-        $scope.query = {};
-        $scope.queryBy = '$';
-   //obtener usuarios agregados
-        $scope.datos = [];
-        $scope.datos = jQuery.parseJSON(localStorage.getItem('users'));
-          //console.log($scope.datos.length);
-    
 
-  });
  

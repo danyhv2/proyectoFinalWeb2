@@ -343,32 +343,9 @@ md-checkbox.md-default-theme.md-checked .md-icon {
 	width: 0;
 }
 
-.drop-box {
-	background: #F8F8F8;
-	border: 5px dashed #DDD;
-	width: 200px;
-	height: 65px; 
-	text-align: center;
-	padding-top: 25px;
-	float: left;
-	margin-left: 20px;
-}
 
 .up-buttons {
 	float: left;
-}
-
-.drop-box.dragover {
-	border: 5px dashed blue;
-}
-
-.drop-box.dragover-err {
-	border: 5px dashed red;
-}
-
-.js-fileapi-wrapper {
-	display: inline-block;
-	vertical-align: middle;	
 }
 
 button {
@@ -377,24 +354,24 @@ button {
 	margin: 0 3px; 
 }
 
-.ng-v {
-	float: right;
+#listImg{
+	padding-top:0px;
 }
 
 .thumb {
 	float: left;
-	width: 18px;
-	height: 18px;
+	width: 85px;
+    height: 70px;
 	padding-right: 10px;
 }
 
-form .thumb {
+/*form .thumb {
 	width: 24px;
 	height: 24px;
 	float: none;
 	position: relative;
 	top: 7px;
-}
+}*/
 
 form .progress {
 	line-height: 15px;
@@ -407,9 +384,6 @@ form .progress {
 	padding: 5px 1px;	
 }
 
-#htmlEdit {
-	margin-bottom: 25px;	
-}
 
 .edit-div {
 	font-size: smaller;
@@ -421,18 +395,6 @@ form .progress {
 	margin-bottom: 15px;
 }
 
-form button {
-	padding: 3px 10px;
-	font-weight: bold;
-	margin-top:10px;
-}
-
-.sub {
-	font-size: smaller;
-	color: #777;
-	padding-top: 5px;
-	padding-left: 10px;
-}
 
 .err {
 	font-size: 12px;
@@ -441,38 +403,6 @@ form button {
 	padding: 15px;
 	background-color: #F0F0F0;
 	border: 1px solid black;
-}
-
-.s3 {
-	font-size: smaller;
-	color: #333;
-	margin-left: 20px;
-}
-.s3 fieldset {
-	border: 1px solid #AAA;
-}
-.s3 label {
-	width: 180px;
-	display: inline-block;
-}
-.s3 input {
-	width: 300px;
-}
-.s3 .helper {
-	margin-left: 5px;
-}
-
-.howto {
-	margin-left: 10px;
-}
-
-.server {
-	margin-bottom:20px;
-}
-
-.srv-title {
-	font-weight: bold;
-	padding: 5px 0 10px 0;
 }
 
 :not(output):-moz-ui-invalid {
