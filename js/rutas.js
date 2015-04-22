@@ -49,13 +49,13 @@ route.config(function($stateProvider, $urlRouterProvider) {
                     templateUrl: 'views/_ver-usuario.html' 
                 },
                 'ingresarUsuarios@configuracion': { 
-                    templateUrl: 'pages/mobile/_mobileIngresarUsuarios.html' 
+                    templateUrl: 'views/_ingresar-usuario.html' 
                 },
                 'modificarUsuarios@configuracion': { 
-                    templateUrl: 'pages/mobile/_mobileModificarUsuarios.html' 
+                    templateUrl: 'views/_modificar-usuario.html' 
                 },
                 'ingresarCarrera@configuracion': { 
-                    templateUrl: 'pages/mobile/_mobileIngresarCarrera.html' 
+                    templateUrl: 'views/_ingresar-carrera.html' 
                 },
                 'ingresarCurso@configuracion': { 
                     templateUrl: 'pages/mobile/_mobileIngresarCurso.html' 

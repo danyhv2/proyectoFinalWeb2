@@ -1,4 +1,12 @@
-<div class="contUsuarios hidden-xs" ng-controller="updateUserCtrl as updateUser">
+<div id="accordionUsuarios3" role="tablist" aria-multiselectable="true">
+    <div class="panel-heading visible-xs" role="tab" id="headingOne">
+      <h4 class="panel-title " data-toggle="collapse" data-parent="#accordionUsuarios3" href=".collapseUsers3" aria-expanded="true" aria-controls="collapseUsers">
+          Modificar Usuarios
+      </h4>
+    </div>
+    <div class="collapseUsers3 panel-collapse collapse in" role="tabpanel"  >
+      <div class="panel-body">
+        <div class="contUsuarios" ng-controller="updateUserCtrl as updateUser">
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
             <form class="formUser formEditUser" ng-mode-="userForm" name="updateUser.userFormEdit" ng-submit="validate() && userForm.$valid" novalidate>
@@ -108,4 +116,7 @@
          </form>
        </div>
      <!--FIN FORMULARIO-->
+  </div>
+    </div>
+</div>
   </div>

@@ -1,4 +1,12 @@
-<div class="contCarreras hidden-xs" ng-controller="addCarreraCtrl">
+<div id="accordionCarrera" role="tablist" aria-multiselectable="true">
+   <div class="panel-heading visible-xs" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionCarrera" href=".collapseCarrera" aria-expanded="true" aria-controls="collapseCarrera">
+         Ingresar Carrera
+      </h4>
+   </div>
+   <div class="collapseCarrera panel-collapse collapse in" role="tabpanel"  >
+      <div class="panel-body">
+         <div class="contCarreras" ng-controller="addCarreraCtrl">
           <div class="row">
             <form class="formUser" ng-model="userForm" name="userForm" ng-submit="validateCarrera() && userForm.$valid" novalidate>
               <fieldset class="col-sm-12">
@@ -60,3 +68,6 @@
          <div ui-view></div>
        </div>
   </div>
+      </div>
+   </div>
+</div>

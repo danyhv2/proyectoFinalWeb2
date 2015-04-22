@@ -1,4 +1,12 @@
-<div class="contUsuarios" ng-controller="userCtrl">
+<div id="accordionUsuarios2" role="tablist" aria-multiselectable="true">
+    <div class="panel-heading visible-xs" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionUsuarios2" href=".collapseUsers2" aria-expanded="true" aria-controls="collapseUsers2">
+          Ingresar Usuarios
+      </h4>
+    </div>
+    <div class="collapseUsers2 panel-collapse collapse in" role="tabpanel" >
+      <div class="panel-body">
+        <div class="contUsuarios" ng-controller="userCtrl">
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
             <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" enctype="multipart/form-data" novalidate>
@@ -110,7 +118,6 @@
               </md-input-container>
              <!-- <input class="clearfix rounded" type="file" name="archivo" id="archivo" ng-model="userPic" />-->
               <input type="file" name="image" id="image" ng-file-select="onFileSelect($files)">
-
   <!--FIN AGREGAR FOTO-->
               </div>
               </fieldset>
@@ -143,6 +150,12 @@
          </form> 
        </div>
      <!--FIN FORMULARIO-->
-
   </div>
+      </div>
+    </div>
+</div>
+
+
+
+
 

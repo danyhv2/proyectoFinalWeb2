@@ -40,6 +40,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 			  templateUrl:'views/_votacion.html',
 			  controller:'VotacionCtrl'
 		  });
+
         
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
 });
