@@ -110,7 +110,7 @@
 					</div>
 					</md-input-container>
 					<md-input-container>
-					<label>Dirección exacta</label>
+					<label>Dirección</label>
 					<input id="inpDireccion" required name="direccionExacta" ng-model="perfilDireccion">
 					<div ng-show="perfil.editPerfil.$submitted || perfil.editPerfil.direccionExacta.$touched">
 						<div class="msgError" ng-show="perfil.editPerfil.direccionExacta.$error.required">
@@ -127,3 +127,13 @@
 		</div>
 	</div>
 </div>
+<!--MODAL EXITO-->
+<div id="modalExitoPerfil" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div id="modalContent" class="modal-content alert alert-success">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <span>Perfil modificado exitosamente.</span>
+    </div>
+  </div>
+</div>
+

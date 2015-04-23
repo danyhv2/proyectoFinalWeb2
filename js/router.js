@@ -104,13 +104,13 @@ routerApp.controller('userCtrl', function($scope, $http, $state, $upload){
     
               if($scope.userForm.$valid && userExist != true && validEmail != true && idExist != true){
                
-                $http.post($scope.url, { 'nombre' : $scope.userName, 'PrimerApellido':$scope.firstLastName, 'SegundoApellido': $scope.secondLastName, 'Direccion':$scope.address, 'Cedula':$scope.idUser, 'Foto':$scope.idUser, 'FechaNacimiento': ($('#inpFechaNacimiento').val()), 'Correo': $scope.email, 'Contrasena': $scope.password, 'img': $scope.userPic, 'role': ($('.optionsRole').find('span').text())}).
+                $http.post($scope.url, { 'nombre' : $scope.userName, 'PrimerApellido':$scope.firstLastName, 'SegundoApellido': $scope.secondLastName, 'Direccion':$scope.address, 'Cedula':$scope.idUser, 'Foto':$scope.idUser, 'FechaNacimiento': ($('#inpFechaNacimiento').val()), 'Correo': $scope.email, 'Contrasena': $scope.password, 'img': $scope.userPic, 'role': ($('.optionsRole').find('span').first().text())}).
                   success(function(data, status) {
                     $scope.status = status;
                     $scope.data = data;
                     $scope.result = data; 
                     console.log(data);
-                    console.log($scope.roleUser);
+                    console.log($scope.roleUser1);
                   })
                   .
                   error(function(data, status) {

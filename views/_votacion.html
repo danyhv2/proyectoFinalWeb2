@@ -8,10 +8,10 @@
       <div class="panel-body">
         <div class="votacionControl" ng-controller="VotacionCtrl">
           <h1>Configurar Votación</h1>
-           <form class="formUser" ng-model="voteForm" name="voteForm" ng-submit="validar() && voteForm.$valid" novalidate>
+           <form class="formUser" ng-model="voteForm" name="voteForm" ng-submit="validarVotacion() && voteForm.$valid" novalidate>
               <fieldset class="col-md-12">
-                <p id="msgSuccess" class="alert alert-success">Configuración de votación establecida correctamente.</p>
-                <p class="msgErrorUser alert alert-danger">Haz dejado un cambio vacio.</p>
+                <p id="msgSuccess" class="alert alert-success">Configuración guardada.</p>
+                <p class="msgErrorUser alert alert-danger">La fecha de cierre debe se mayor que la fecha de inicio.</p>
                 <div class="col-xs-9 col-sm-4">
                   <md-input-container ng-controller="DatepickerDemoCtrl">
                     <p class="input-group">
@@ -42,7 +42,7 @@
                   <md-input-container class="estrellaVot">
                   <p class="input-group contStar">
                     <label>Valor por estrella</label>
-                    <input id="stars" required name="stars" ng-model="stars">
+                    <input type="number" validate-number valid-values="validValues" id="stars" required name="stars" ng-model="stars">
                     <span class="input-group-btn">
                       <img src="img/starVot.png">
                     </span>

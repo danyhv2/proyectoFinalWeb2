@@ -168,7 +168,7 @@ echo $_POST['fecha'];
 
 	//$query = 'INSERT INTO usuarios (nombre, primerApellido, segundoApellido, direccion, cedula, foto, fechaNacimiento, correo, contrasena, id_role) values ("' . $usrname . '","' . $firstLastName . '","' . $SecondLastName . '","'.$address.'","'.$userId.'","'.$userImg.'","'.$fNac.'","'.$email.'","'.$password.'","'.$role.'")';
 
-	$query= "CALL ingresarUsuario('$email','$userId','$usrname','$firstLastName','$SecondLastName','$password','$address','$fchNacimiento','$role','$userImg','')";
+	$query= "CALL ingresarUsuario('$email','$userId','$usrname','$firstLastName','$SecondLastName','$password','$address','$fNac','$role','$userImg','')";
 
 	$result = mysqli_query($con, $query);
 
