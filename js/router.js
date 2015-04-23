@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.bootstrap.demo','ui.router', 'fileUpload', 'module', 'rutas', 'moduleDocs','moduleReport', 'crearGrupo','moduleHome', 'modulePerfil', 'modulePortafolio', 'modifyUser', 'agregarCarrera', 'agregarCurso', 'modifyCarrera', 'modifyCurso', 'verUsuarios', 'moduleVotacion','moduleLogin', 'moduleSocial', 'tindalos']);
+var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.bootstrap.demo','ui.router', 'fileUpload', 'module', 'rutas', 'moduleDocs','moduleReport', 'crearGrupo','moduleHome', 'modulePerfil', 'modulePortafolio', 'modifyUser', 'agregarCarrera', 'agregarCurso', 'modifyCarrera', 'modifyCurso', 'verUsuarios', 'moduleVotacion','moduleLogin', 'moduleSocial', 'tindalos', 'angular-md5']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
@@ -55,7 +55,7 @@ routerApp.controller('MenuC', function($scope, $state) {
 
 var users = [];
 
-routerApp.controller('userCtrl', function($scope, $http, $state, $upload){
+routerApp.controller('userCtrl', function($scope, $http, $state, $upload, md5){
   $scope.url = 'php/query.php';
   $scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
   $scope.validate = function() {
