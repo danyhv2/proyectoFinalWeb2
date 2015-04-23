@@ -34,49 +34,58 @@
 
         //Tomar rubricas creadas y actualizar
         $scope.actualizarRubricas = function(){
-            archivos.RubricasCreadas = [];
 
+            archivos.RubricasCreadas = [];
+            
             $http.get('php/buscarRubrica.php').success(function(data){
                 $scope.rubricasBuscadas = data;
-                
 
                 $http.get('php/buscarRubros.php').success(function(datu){
                     $scope.rubros = datu;
 
                     for (var i = $scope.rubricasBuscadas.length - 1; i >= 0; i--) {
                         var rubrosDelCurso = [];
-                        var rubricaTemporal = [];
-
-                        rubricaTemporal = {
+                        var nombr  = $scope.rubricasBuscadas[i].NombreRubrica;
+                        var rubricaTemporal = {
                             "rubricaLista": [{
                                     "NombreDeRubrica": $scope.rubricasBuscadas[i].NombreRubrica
                                 }, {
-                                    "NombreDeGrupo": $scope.rubricasBuscadas[i].CursoAsignado
+                                    "NombreDeGrupo": "noob"
                                 }]
                         };
+
+                            $http.post('php/buscarRubricaAsignadaCurso.php', { 'RubNombre' : nombr}).
+                              success(function(data) {
+                                $scope.cursoAsig = data[0].nombre;
+                            });
+   
             //-------------------Acomodar el array de rubros--------------//
                         for (var r = $scope.rubros.length - 1; r >= 0; r--) {
 
-                            if ($scope.rubricasBuscadas[i].NombreRubrica === $scope.rubros[r].RubricaAsignada) {
+                            if ($scope.rubricasBuscadas[i].id_rubrica === $scope.rubros[r].id_rubrica) {
 
                                 function pushToMery(name, val) {
-                                    var vas = {};
-                                    vas[name] = val
-                                    rubrosDelCurso.push(vas);
-                                }
-                                pushToMery($scope.rubros[r].nombre, $scope.rubros[r].valor);
-                            };
-                        };
+                                      var vas = {};
+                                      vas[name] = val
+                                      rubrosDelCurso.push(vas);
+                                  }
+                                  pushToMery($scope.rubros[r].nombre, $scope.rubros[r].valor);
+                              };
+                          };
+
+                          console.log(rubrosDelCurso)
             //-------------------Pushear los rubros a el array base------------//
 
-                        for (var m = rubrosDelCurso.length - 1; m >= 0; m--) {
-                            rubricaTemporal.rubricaLista.push(rubrosDelCurso[m])
-                        };
-                        archivos.RubricasCreadas.push(rubricaTemporal)
-
+                            for (var m = rubrosDelCurso.length - 1; m >= 0; m--) {
+                                rubricaTemporal.rubricaLista.push(rubrosDelCurso[m])
+                            };
+                            archivos.RubricasCreadas.push(rubricaTemporal)
                     };
-                })
-            })
+
+                });
+
+            });
+
         }
 
         $scope.agregarProfeEstudSelect = function(){
@@ -103,6 +112,7 @@
         $scope.actualizarGrupos = function(){
             var gruposTemporales = [],
                 nombreCursoTemporal = [],
+                codigoCursoTemporal = [],
                 nombreGrupoTemporal = [], 
                 estudiantesTemporales = [],
                 profesoresTemporales = [];
@@ -112,7 +122,8 @@
             $http.get('php/buscarGruposCurso.php').success(function(data){
                 var grup = data;
                 for (var i = grup.length - 1; i >= 0; i--) {
-                    nombreCursoTemporal.push(grup[i].NombreDelCurso);
+                    nombreCursoTemporal.push(grup[i].nombre);
+                    codigoCursoTemporal.push(grup[i].id_curso)
                     nombreGrupoTemporal.push(grup[i].NombreDelGrupo);
                 };
 
@@ -120,7 +131,7 @@
                     var est = dato;
                     for (var i = est.length - 1; i >= 0; i--) {
                         estudiantesTemporales.push({NombreEstudiante : est[i].NombreEstudiante,
-                                                    GrupoAsignado : est[i].grupoAsignado,
+                                                    GrupoAsignado : est[i].grupo_asignado,
                                                     correoEs : est[i].correo_estudiante})
                     };
                     //Ayuda
@@ -128,9 +139,9 @@
                     $http.get('php/buscarGruposProfesor.php').success(function(date){
                         var tal = date;
                         for (var i = tal.length - 1; i >= 0; i--) {
-                        profesoresTemporales.push({NombreProfesor : tal[i].NombreProfesor,
-                                                    Rol : tal[i].Rol,
-                                                    GrupoAsignado : tal[i].GrupoAsignado})
+                        profesoresTemporales.push({NombreProfesor : tal[i].profesor,
+                                                    Rol : tal[i].nombre,
+                                                    GrupoAsignado : tal[i].grupoAsignado})
                         };
                         //Hasta este punto se jalan todos los valores del grupo
                         //Los inserto al json que uso
@@ -155,6 +166,7 @@
                             GrupoActualizableTemporal = {
                                 "NombreDelCurso": nombreCursoTemporal[i],
                                 "NombreDelGrupo": nombreGrupoTemporal[i],
+                                "codigoCurso" : codigoCursoTemporal[i],
                                 "Estudiantes": estudian,
                                 "Profesores": profest
                             };
@@ -165,6 +177,36 @@
             })
 
         }
+
+        //$scope.refrescarCarreras = function(){
+        //    archivos.Carreras = [];
+        //    $http.get('php/buscarCarreraDirector.php').success(function(date){
+        //        $scope.carreras = date;
+//
+        //        $http.get('php/buscarCarrerasCursos.php').success(function(data){
+        //            $scope.conten = data;
+        //            //-------------Asignar y eso-------------//
+//
+        //            for (var i = $scope.carreras.length - 1; i >= 0; i--) {
+//
+        //                var carreraTemp = {
+        //                    "carrera": $scope.carreras[i].nombre,
+        //                    "CursosAsignados": [],
+        //                }
+//
+        //                for (var j = $scope.conten.length - 1; j >= 0; j--) {
+        //                    if ($scope.conten[j].nombreCarrera == $scope.carreras[i].nombre) {
+        //                        carreraTemp.CursosAsignados.push({"curso" : $scope.conten[j].nombreCurso})
+        //                    };
+        //                };
+        //                archivos.Carreras.push(carreraTemp)
+        //            console.log($scope.conten)
+        //            };
+//
+        //        })
+//
+        //    })
+        //}
 
         //tester
 
@@ -512,16 +554,27 @@
 
             if (count === 0) {
 
+            var codCurz = 0;
+
+            for (var l = archivos.GruposDeCurso.length - 1; l >= 0; l--) {
+                if (archivos.GruposDeCurso[l].NombreDelCurso === $scope.infoIngresada1) {
+                    codCurz = archivos.GruposDeCurso[l].codigoCurso;
+                };
+            };
+
             var grupoTemp = {
                 "NombreDelCurso": $scope.infoIngresada1,
                 "NombreDelGrupo": $scope.infoIngresada2,
+                "codigoCurso" : codCurz,
                 "Estudiantes": valorActualE,
                 "Profesores": valorActualP,
             }
 
+            console.log(grupoTemp)
+
             //Metodo para agregar grupo
 // -----------------------PHP --------------------
-            $http.post('php/agregarGrupoCurso.php', { 'nombreC' : $scope.infoIngresada1, 'nombreG': $scope.infoIngresada2}).
+            $http.post('php/agregarGrupoCurso.php', { 'IdC' : codCurz, 'nombreG': $scope.infoIngresada2}).
               success(function(dataGrupo, status) {
             })
 
@@ -538,8 +591,9 @@
                 };
             };
             for (var g = valorActualE.length - 1; g >= 0; g--) {
-                 $http.post('php/agregarEstudiantesGrupodirector.php', {'correoEst' : arregloTemporalCorreos[g], 'GrupoEnt': $scope.infoIngresada2}).
+                 $http.post('php/agregarEstudiantesGrupodirector.php', {'IdCurso' : codCurz, 'correoEst' : arregloTemporalCorreos[g], 'GrupoEnt': $scope.infoIngresada2}).
                  success(function(dataGrupo, status) {
+
                  })
             };
 
@@ -550,8 +604,9 @@
                 pan.push($(this).val());
             });
 
-            for (var i = valorActualP.length - 1; i >= 0; i--) {
-                $http.post('php/agregarProfesoresGrupodirector.php', { 'nombreProf' : valorActualP[i].NombreProfesor, 'RolProf': pan[i], 'GrupoAsig': $scope.infoIngresada2}).
+            for (var u = valorActualP.length - 1; u >= 0; u--) {
+                console.log(valorActualP[u].NombreProfesor)
+                $http.post('php/agregarProfesoresGrupodirector.php', {'RolProf': pan[u], 'nombreProf' : valorActualP[u].NombreProfesor, 'GrupoAsig': $scope.infoIngresada2}).
                 success(function(dataGrupo, status) {
                 })
             };
@@ -575,9 +630,8 @@
                 }
 
             var myVar = setTimeout($scope.aggrGrup, 2000);
-//------------------------PHP---------------------
-
-            //archivos.GruposDeCurso.push(grupoTemp);
+//----------------------PHP--------------------
+            archivos.GruposDeCurso.push(grupoTemp);
             
             };
         }
@@ -672,9 +726,11 @@
                     var k = i + 2;
                     validacion.push(rubricasPorReemplazar[k])
                 };
+
                 validacion = $.grep(validacion, function(n) {
                     return (n)
                 });
+                //This is magic from some link in stackoverflow
 
 
                 for (var g = 0; g <= validacion.length - 1; g++) {
@@ -696,12 +752,14 @@
 
                            pushToAry(rubr, num);
 
-                       };
-                           archivos.RubricasCreadas.push({
-                        "rubricaLista": cosa
-                    });
 
-                    $scope.este.datos.RubricasCreadas.splice(t, 1);
+                            $http.post('php/editar_cambiarRubroRubrica.php', { 'valRub' : num, 'nomRub': rubr, 'RubrNon': cosa[0].NombreDeRubrica}).
+                                success(function(dataGrupo, status) {
+                            })
+
+                       };
+
+
                     $('.errormsj2').hide();
                     $('#rubricasModal').empty();
                     $('<p id="msgSuccess" class="alert alert-success">Datos guardados correctamente.</p>').insertBefore('#tutuloRubri').delay(1000).fadeOut();
@@ -721,6 +779,17 @@
         $scope.delR = function(valores) {
             var f = $scope.este.datos.RubricasCreadas.indexOf(valores);
             $scope.delRubbr = function(){
+
+                //----------------PHP Borrar rubrica-----------//
+                $http.post('php/borrarRubricaDirector.php', { 'rubNomb' : valores.rubricaLista[0].NombreDeRubrica}).
+                success(function(dataGrupo, status) {
+                })
+ 
+                $http.post('php/borrarRubrosRubrica.php', { 'nomn' : valores.rubricaLista[0].NombreDeRubrica}).
+                success(function(dataGrupo, status) {
+                })
+                //-------------------PHP BorrarRubrica------------//
+
                 $scope.este.datos.RubricasCreadas.splice(f, 1);    
             }
         }
@@ -834,7 +903,7 @@
                 });
 
                 $('#modalExitoDeRubrica').fadeIn(1000);
-            $('#modalExitoDeRubrica').fadeOut(1000);
+                $('#modalExitoDeRubrica').fadeOut(1000);
                 document.getElementById("formAddR").reset();
                 $('#selectGrupo').val(' ');
                 $('#closeRubrica').click();
@@ -928,3 +997,9 @@ var archivos = {
 // from
 
 // *Some stackoverlow link
+
+
+
+
+//Borre el index de no repetirse en area_profe y quite la relacion
+//Agrege primery key auntoincremental al id de rubrica cursos
