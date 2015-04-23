@@ -48,7 +48,7 @@
                   <md-input-container ng-controller="DatepickerDemoCtrl">
                     <p class="input-group">
                       <label>Fecha de Nacimiento</label>
-                      <input id="inpFechaNacimiento" name="fecha"  type="text" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="birthDate" />
+                      <input id="inpFechaNacimiento" name="fecha"  type="text" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" ng-model="birthDate" />
                       <span class="input-group-btn">
                         <button class="btnDatePicker" type="button" ng-click="open($event)">
                           <img src="img/datepicker.png">
@@ -116,8 +116,7 @@
                 </ul>
                 <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
               </md-input-container>
-             <!-- <input class="clearfix rounded" type="file" name="archivo" id="archivo" ng-model="userPic" />-->
-              <input type="file" name="image" id="image" ng-file-select="onFileSelect($files)">
+             
   <!--FIN AGREGAR FOTO-->
               </div>
               </fieldset>
