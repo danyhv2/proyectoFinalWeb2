@@ -62,9 +62,9 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `borrarRubrica`(IN `nombRub` VARCHAR
     NO SQL
 DELETE FROM `rubros_por_cursos` WHERE `NombreRubrica` = nombRub$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `borrarRubrosRubrica`(IN `Nomb` VARCHAR(500))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `borrarRubrosRubrica`(IN `nomb` VARCHAR(500))
     NO SQL
-DELETE FROM `rubros` WHERE `RubricaAsignada` = Nomb$$
+DELETE FROM `rubros` WHERE `RubricaAsignada` = nomb$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `editarRubroValor`(IN `valorRubro` INT, IN `nomRubro` VARCHAR(500), IN `nombRubrica` VARCHAR(500))
     NO SQL
@@ -80,52 +80,51 @@ DELETE FROM `profesores_por_grupo` WHERE `GrupoAsignado` = Grupo AND `NombreProf
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarCarrera`(IN `nombreCarrera` VARCHAR(50))
     NO SQL
-SELECT `id_carrera`, `nombre`, `codCarrera`, `dirCarrera`, `inactivo` FROM `proyectoFinalWeb`.`carreras`  where `nombre` = nombreCarrera
+SELECT `id_carrera`, `nombre`, `codCarrera`, `dirCarrera`, `inactivo` FROM `proyectoFinalWeb`.`carreras`  where `nombre` = nombreCarrera$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarCurso`(IN `nombreCurso` VARCHAR(50))
     NO SQL
-SELECT `id_curso`, `nombre`, `cuatrimestre`, `annoLectivo`, `horario`, `creditos`, `cod_curso`, `inactivo` FROM `proyectoFinalWeb`.`cursos`  where `nombre` = nombreCurso
+SELECT `id_curso`, `nombre`, `cuatrimestre`, `annoLectivo`, `horario`, `creditos`, `cod_curso`, `inactivo` FROM `proyectoFinalWeb`.`cursos`  where `nombre` = nombreCurso$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `buscarUsuario`(IN `email` VARCHAR(50))
     NO SQL
-Select * from usuarios where `correo` = email
+Select * from usuarios where `correo` = email$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ingresarCarrera`(IN `nombre` VARCHAR(50), IN `director` VARCHAR(500), IN `inactivo` BOOLEAN, IN `codigo` VARCHAR(50))
     NO SQL
-INSERT INTO `proyectoFinalWeb`.`carreras` (`id_carrera`, `nombre`, `dirCarrera`, `inactivo`, `codCarrera`) VALUES (NULL, nombre, director, inactivo, codigo)
+INSERT INTO `proyectoFinalWeb`.`carreras` (`id_carrera`, `nombre`, `dirCarrera`, `inactivo`, `codCarrera`) VALUES (NULL, nombre, director, inactivo, codigo)$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ingresarCurso`(IN `nombre` VARCHAR(100), IN `cuatrimestre` VARCHAR(50), IN `anno` INT(4), IN `horario` VARCHAR(50), IN `creditos` INT(10), IN `codigo` VARCHAR(50))
     NO SQL
-INSERT INTO `proyectoFinalWeb`.`cursos` (`id_curso`, `nombre`, `cuatrimestre`, `annoLectivo`, `horario`,`creditos`, `cod_Curso`) VALUES (NULL, nombre, cuatrimestre, anno, horario, creditos, codigo)
+INSERT INTO `proyectoFinalWeb`.`cursos` (`id_curso`, `nombre`, `cuatrimestre`, `annoLectivo`, `horario`,`creditos`, `cod_Curso`) VALUES (NULL, nombre, cuatrimestre, anno, horario, creditos, codigo)$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `ingresarUsuario`(IN `correo` VARCHAR(100), IN `cedula` INT(9), IN `nombre` VARCHAR(50), IN `primer_apellido` VARCHAR(50), IN `segundo_apellido` VARCHAR(50), IN `contrasena` VARCHAR(100), IN `direccion` VARCHAR(500), IN `fecha_nacimiento` DATE, IN `id_role` VARCHAR(50), IN `foto` BLOB, IN `inactivo` TINYINT(1))
     NO SQL
-    SQL SECURITY INVOKER
-INSERT INTO `proyectoFinalWeb`.`usuarios` (`correo`, `cedula`, `nombre`, `primerApellido`, `segundoApellido`, `contrasena`, `direccion`, `fechaNacimiento`, `userRole`, `foto`, `inactivo`) VALUES (correo, cedula, nombre, primer_apellido, segundo_apellido, contrasena, direccion, fecha_nacimiento, id_role, foto, inactivo)
+INSERT INTO `proyectoFinalWeb`.`usuarios` (`correo`, `cedula`, `nombre`, `primerApellido`, `segundoApellido`, `contrasena`, `direccion`, `fechaNacimiento`, `userRole`, `foto`, `inactivo`) VALUES (correo, cedula, nombre, primer_apellido, segundo_apellido, contrasena, direccion, fecha_nacimiento, id_role, foto, inactivo)$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarCarrera`(IN `nombre` VARCHAR(50), IN `director` VARCHAR(500), IN `codigo` VARCHAR(50), IN `id` INT(10), IN `inactivo` BOOLEAN)
     NO SQL
-UPDATE `proyectoFinalWeb`.`carreras` SET `nombre` = nombre, `dirCarrera` = director, `codCarrera` = codigo, `inactivo` = inactivo WHERE `id_carrera` = id
+UPDATE `proyectoFinalWeb`.`carreras` SET `nombre` = nombre, `dirCarrera` = director, `codCarrera` = codigo, `inactivo` = inactivo WHERE `id_carrera` = id$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarCurso`(IN `nombreCurso` VARCHAR(100), IN `cuatrimestre` VARCHAR(50), IN `anno` INT(4), IN `horario` VARCHAR(50), IN `credito` INT(10), IN `codCurso` VARCHAR(50), IN `inactivo` BOOLEAN, IN `id` INT(10))
     NO SQL
-UPDATE `proyectoFinalWeb`.`cursos` SET `nombre` = nombreCurso, `cuatrimestre` = cuatrimestre, `annoLectivo` = anno, `horario` = horario, `creditos` = credito, `cod_curso` = codCurso, `inactivo` = inactivo WHERE `id_curso` = id
+UPDATE `proyectoFinalWeb`.`cursos` SET `nombre` = nombreCurso, `cuatrimestre` = cuatrimestre, `annoLectivo` = anno, `horario` = horario, `creditos` = credito, `cod_curso` = codCurso, `inactivo` = inactivo WHERE `id_curso` = id$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarDescripcionPortafolio`(IN `descUser` VARCHAR(500), IN `email` VARCHAR(50))
     NO SQL
-UPDATE `proyectoFinalWeb`.`portafolio` SET `descripcion` = descUser WHERE `usuario_correo` = email
+UPDATE `proyectoFinalWeb`.`portafolio` SET `descripcion` = descUser WHERE `usuario_correo` = email$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarInfoUsuario`(IN `tel` INT(20), IN `dir` VARCHAR(500), IN `email` VARCHAR(50))
     NO SQL
-UPDATE `proyectoFinalWeb`.`usuarios` SET `telefono` = tel, `direccion` = dir WHERE `correo` = email
+UPDATE `proyectoFinalWeb`.`usuarios` SET `telefono` = tel, `direccion` = dir WHERE `correo` = email$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `modificarUsuario`(IN `email` VARCHAR(100), IN `ced` INT(9), IN `name` VARCHAR(50), IN `lastName` VARCHAR(50), IN `lastName2` VARCHAR(50), IN `address` VARCHAR(500), IN `tel` INT(20), IN `pass` VARCHAR(100), IN `dateBirth` DATE, IN `role` VARCHAR(50), IN `inactivo` BOOLEAN, IN `id` INT(10))
     NO SQL
-UPDATE `proyectoFinalWeb`.`usuarios` SET `nombre` = name,  `correo` = email,  `cedula`= ced,  `primerApellido` = lastName,  `segundoApellido` = lastName2,  `direccion` = address, `telefono` = tel, `contrasena` = pass,  `fechaNacimiento` = dateBirth, `userRole` = role,  `inactivo` = inactivo WHERE `idUsuario` = id
+UPDATE `proyectoFinalWeb`.`usuarios` SET `nombre` = name,  `correo` = email,  `cedula`= ced,  `primerApellido` = lastName,  `segundoApellido` = lastName2,  `direccion` = address, `telefono` = tel, `contrasena` = pass,  `fechaNacimiento` = dateBirth, `userRole` = role,  `inactivo` = inactivo WHERE `idUsuario` = id$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `obtenerPerfil`(IN `correoUser` VARCHAR(50))
     NO SQL
-Select p.descripcion, u.nombre, u.primerApellido, u.segundoApellido, u.cedula, u.direccion, u.fechaNacimiento, u.correo, u.telefono, u.foto from portafolio p, usuarios u where u.correo=correoUser and p.usuario_correo=correoUser
+Select p.descripcion, u.nombre, u.primerApellido, u.segundoApellido, u.cedula, u.direccion, u.fechaNacimiento, u.correo, u.telefono, u.foto from portafolio p, usuarios u where u.correo=correoUser and p.usuario_correo=correoUser$$
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `borrarEstudiante`(IN `correo1` VARCHAR(50))
     NO SQL
