@@ -23,13 +23,13 @@ route.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: 'pages/_opcionesDirector.html'
                 },
                 'grupo-cursos@grupo': { 
-                    templateUrl: 'pages/mobile/_mobileCursosDirector.html' 
+                    templateUrl: 'pages/_grupoCursoDirector.html' 
                 },
                 'grupo-carreras@grupo': { 
-                    templateUrl: 'pages/mobile/_mobileCarrerasDirector.html' 
+                    templateUrl: 'pages/_cursosCarrerasDirector.html' 
                 },
                 'nueva-rubrica@grupo': { 
-                    templateUrl: 'pages/mobile/_mobileRubricaDirector.html' 
+                    templateUrl: 'pages/_nuevaRubricaDirector.html' 
                 }
             }
         })

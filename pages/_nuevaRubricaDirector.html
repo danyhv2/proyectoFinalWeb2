@@ -1,127 +1,123 @@
-<div class ="contenedorRubricasUi hidden-xs" ng-controller='directorController as este' data-ng-init="actualizarGrupos(); actualizarRubricas();">
-   <!--Modal Confirm-->
-   <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-header">
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-         <h4 class="modal-title">Confirmar borrado rúbrica</h4>
-      </div>
-      <div class="modal-body">
-         <p>Está seguro que desea borrar la rúbrica?</p>
-      </div>
-      <div class="modal-footer">
-         <button type="button" class="btn btnConfirmModal" ng-click="delRubbr()"
-            data-dismiss="modal">Proceder</button>
-         <button type="button" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
-      </div>
+<div id="accordionRubrica" role="tablist" aria-multiselectable="true">
+   <div class="panel-heading visible-xs" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionRubrica" href=".collapseRubrica" aria-expanded="true" aria-controls="collapseRubrica">
+         Nueva rúbrica
+      </h4>
    </div>
-   <!--End Modal Confirm-->
-
-   <!--Modal succes-->
-      <div id="modalExitoDeRubrica" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
-    <div id="modalContent" class="modal-content alert alert-success">
-      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-      <span>La rubrica se agrego con exito</span>
-      
-    </div>
-  </div>
-</div>
-
-   <div class="RubricaCaja">
-   <button class="simpleColor btn pull-right aliasBtnR"  data-toggle="modal" data-target="#modelCrearRubrica" ng-click="agregarProfeEstudSelect()">Crear nueva rúbrica</button>
-
-      <h3>Rúbrica</h3>
-      <div id="tutuloRubri" class="contenedorDeCajas">
-         <table id="tableRubricas" class="table">
-            <th>Nombre</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-
-               <tr ng-repeat="valores in este.datos.RubricasCreadas">
-                  <td>{{valores.rubricaLista[0].NombreDeRubrica}}</td>
-                  <td><img src="img/edit.png"  ng-click="edit(valores)" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
-                  <td><img src="img/del.png" data-toggle="modal" ng-click="delR(valores)" data-target="#modalConfirm"  style="cursor: pointer"></td>
-               </tr>
-
-         </table>
-      </div>
-   </div>
-
-   <!-- Modal detalles -->
-   <div class="modal fade" id="modelDetallesRubrica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-
-               <h4 class="modal-title" id="myModalLabel">Detalles</h4>
-            </div>
-            <div class="modal-body cajaDelmodal" id="rubricasModal">
-            </div>
-            <div class="modal-footer">
-               <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="borrarRubTemp()">Cerrar</button>
-               <button type="button" class="simpleColor btn" data-dismiss="modal" ng-click="editCreat()">
-               Guardar</button>
-            </div>
-         </div>
-      </div>
-   </div>
-   <!--Modal end-->
-
-     <!-- Modal crear -->
-   <div class="modal fade" id="modelCrearRubrica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-         <div class="modal-content">
-            <div class="modal-header">
-               <h1 class="modal-title" id="myModalLabel">Nueva Rúbrica</h1>
-            </div>
-            <div class="contendorNuevaRubrica">
-
-               <div class="estiloCaja" id="nuevRub">
-                  <md-input-container>
-                     <label>Nuevo rubro</label>
-                     <input class="nuevoRubro" ng-model="nuevoRubro">
-                  </md-input-container>
-                  <button type="button" class="simpleColor btn" ng-click="nuevoRubroAdd()">
-                  Añadir rubro</button>
+   <div class="collapseRubrica panel-collapse collapse" role="tabpanel">
+      <div class="panel-body">
+         <div class ="contenedorRubricasUi" ng-controller='directorController as este' data-ng-init="actualizarGrupos(); actualizarRubricas();">
+            <!--Modal Confirm-->
+            <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+               <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                  <h4 class="modal-title">Confirmar borrado rúbrica</h4>
                </div>
-               
-               <form id="formAddR" name="RubForm" ng-submit="add()" class="estiloCaja contenedorDerubN">
-                  <ng-form id="formRub" name="rubricaFormDirector">
-                     <div id="nombRrb">
-                     <md-input-container>
-                        <label>Nombre de la rúbrica</label>
-                        <input md-maxlength="20" name="nombreRubrica" ng-model="newNombreRubrica">
-                     </md-input-container>
+               <div class="modal-body">
+                  <p>Está seguro que desea borrar la rúbrica?</p>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btnConfirmModal" ng-click="delRubbr()"
+                     data-dismiss="modal">Proceder</button>
+                  <button type="button" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
+               </div>
+            </div>
+            <!--End Modal Confirm-->
+            <!--Modal succes-->
+            <div id="modalExitoDeRubrica" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+               <div class="modal-dialog modal-sm">
+                  <div id="modalContent" class="modal-content alert alert-success">
+                     <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                     <span>La rubrica se agrego con exito</span>
+                  </div>
+               </div>
+            </div>
+            <div class="RubricaCaja">
+               <button class="simpleColor btn pull-right aliasBtnR"  data-toggle="modal" data-target="#modelCrearRubrica" ng-click="agregarProfeEstudSelect()">Crear nueva rúbrica</button>
+               <h3>Rúbrica</h3>
+               <div id="tutuloRubri" class="contenedorDeCajas">
+                  <table id="tableRubricas" class="table">
+                     <th>Nombre</th>
+                     <th>Editar</th>
+                     <th>Eliminar</th>
+                     <tr ng-repeat="valores in este.datos.RubricasCreadas">
+                        <td>{{valores.rubricaLista[0].NombreDeRubrica}}</td>
+                        <td><img src="img/edit.png"  ng-click="edit(valores)" data-toggle="modal" data-target="#modelDetallesRubrica" style="cursor: pointer"></td>
+                        <td><img src="img/del.png" data-toggle="modal" ng-click="delR(valores)" data-target="#modalConfirm"  style="cursor: pointer"></td>
+                     </tr>
+                  </table>
+               </div>
+            </div>
+            <!-- Modal detalles -->
+            <div class="modal fade" id="modelDetallesRubrica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Detalles</h4>
                      </div>
-         
-                     <div id="nombgrr">
-                     <md-select id="selectGrupo" placeholder="Nombre del curso" ng-model="newNombreGrupo" name="nombreGrupo">
-                        <md-option ng-repeat="grupos in este.datos.CursosDisponilbes" ng-value="grupos.Curso">{{grupos.Curso}}</md-option>
-                     </md-select>
-         
+                     <div class="modal-body cajaDelmodal" id="rubricasModal">
                      </div>
-          
-                     <div class="cajaRubrica" ng-repeat='par in este.datos.ParamatrosRubrica'>
-                        <div class="pull-left cont">
+                     <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="borrarRubTemp()">Cerrar</button>
+                        <button type="button" class="simpleColor btn" data-dismiss="modal" ng-click="editCreat()">
+                        Guardar</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <!--Modal end-->
+            <!-- Modal crear -->
+            <div class="modal fade" id="modelCrearRubrica" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+               <div class="modal-dialog">
+                  <div class="modal-content">
+                     <div class="modal-header">
+                        <h1 class="modal-title" id="myModalLabel">Nueva Rúbrica</h1>
+                     </div>
+                     <div class="contendorNuevaRubrica">
+                        <div class="estiloCaja" id="nuevRub">
                            <md-input-container>
-                              <label class="rubroPuntoTemporal">{{par.parametro}}</label>
-                              <input md-maxlength="2" class="valNotPunto" name="numeroRubrica" ng-model="inte">
+                              <label>Nuevo rubro</label>
+                              <input class="nuevoRubro" ng-model="nuevoRubro">
                            </md-input-container>
+                           <button type="button" class="simpleColor btn" ng-click="nuevoRubroAdd()">
+                           Añadir rubro</button>
                         </div>
-                        <div class="pull-right imagN">
-                           <img class="borrarRub" src="img/del.png"  ng-click="delP(par)" style="cursor: pointer">
-                        </div>
+                        <form id="formAddR" name="RubForm" ng-submit="add()" class="estiloCaja contenedorDerubN">
+                           <ng-form id="formRub" name="rubricaFormDirector">
+                              <div id="nombRrb">
+                                 <md-input-container>
+                                    <label>Nombre de la rúbrica</label>
+                                    <input md-maxlength="20" name="nombreRubrica" ng-model="newNombreRubrica">
+                                 </md-input-container>
+                              </div>
+                              <div id="nombgrr">
+                                 <md-select id="selectGrupo" placeholder="Nombre del curso" ng-model="newNombreGrupo" name="nombreGrupo">
+                                    <md-option ng-repeat="grupos in este.datos.CursosDisponilbes" ng-value="grupos.Curso">{{grupos.Curso}}</md-option>
+                                 </md-select>
+                              </div>
+                              <div class="cajaRubrica" ng-repeat='par in este.datos.ParamatrosRubrica'>
+                                 <div class="pull-left cont">
+                                    <md-input-container>
+                                       <label class="rubroPuntoTemporal">{{par.parametro}}</label>
+                                       <input md-maxlength="2" class="valNotPunto" name="numeroRubrica" ng-model="inte">
+                                    </md-input-container>
+                                 </div>
+                                 <div class="pull-right imagN">
+                                    <img class="borrarRub" src="img/del.png"  ng-click="delP(par)" style="cursor: pointer">
+                                 </div>
+                              </div>
+                           </ng-form>
+                           <div class="modal-footer">
+                              <button type="submit" class="simpleColor btn agregarBtn" id="agregarubrica">Agregar</button>
+                              <button id="closeRubrica" class="btn btn-default" ng-click="resetFormRubric()" data-dismiss="modal">Cerrar</button>
+                           </div>
+                        </form>
                      </div>
-                  </ng-form>
-            <div class="modal-footer">
-                  <button type="submit" class="simpleColor btn agregarBtn" id="agregarubrica">Agregar</button>
-                <button id="closeRubrica" class="btn btn-default" ng-click="resetFormRubric()" data-dismiss="modal">Cerrar</button>
+                  </div>
+               </div>
             </div>
-               </form>
-      
-            </div>
+            <!--Modal end-->
          </div>
       </div>
    </div>
-   <!--Modal end-->
 </div>

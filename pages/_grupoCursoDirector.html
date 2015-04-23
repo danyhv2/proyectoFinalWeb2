@@ -1,163 +1,165 @@
-<div class ="contenedorRubricasUi hidden-xs col-xs-12" ng-controller='directorController as este' data-ng-init="actualizarGrupos()">
-   <div>
-      <div class="comie">
-         <h3 class="jusH">Grupos creados</h3>
-         <button type="button" class="simpleColor btn botonSim pull-right aliasBtnR" ng-click="agregarProfeEstudSelect()" data-toggle="modal" data-target="#modelCrearGrupoCurso">Crear nuevo</button>
-      </div> 
-      <!--Modal Confirm-->
-      <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-         <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-            <h4 class="modal-title">Confirmar borrado curso</h4>
-         </div>
-         <div class="modal-body">
-            <p>Está seguro que desea borrar el curso?</p>
-         </div>
-         <div class="modal-footer">
-            <button type="button" class="btn btnConfirmModal" ng-click="delet()" ng-hide="ocultarBotonProceder">Proceder</button>
-            <button class="btn btnConfirmModal m-progressBorrado" ng-show="ocultarBotonProceder">Button</button>
-            <button type="button" id="closeConfirmDel" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
-         </div>
-      </div>
-      <!--End Modal Confirm-->
-
-      <!--Modal succes-->
-      <div id="modalExitoDelGrupo" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
-    <div id="modalContent" class="modal-content alert alert-success">
-      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-      <span>El grupo se agrego exitosamente!</span>
-      
-    </div>
-  </div>
-</div>
-
-      <!-- Modal -->
-      <div class="modal fade" id="modelCrearGrupoCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h1 class="modal-title" id="myModalLabel">Crear Grupo</h1>
+<div id="accordionGruposDirector" role="tablist" aria-multiselectable="true">
+   <div class="panel-heading visible-xs" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionGruposDirector" href=".collapseGruposDirector" aria-expanded="true" aria-controls="collapseGruposDirector">
+         Grupos
+      </h4>
+   </div>
+   <div class="collapseGruposDirector panel-collapse collapse in" role="tabpanel">
+      <div class="panel-body">
+         <div class ="contenedorRubricasUi col-xs-12" ng-controller='directorController as este' data-ng-init="actualizarGrupos()">
+            <div>
+               <div class="comie">
+                  <h3 class="jusH">Grupos creados</h3>
+                  <button type="button" class="simpleColor btn botonSim pull-right aliasBtnR" ng-click="agregarProfeEstudSelect()" data-toggle="modal" data-target="#modelCrearGrupoCurso">Crear nuevo</button>
                </div>
-               <form id="modalNuevoGru" name="CurForm" ng-submit="guarNuevGr()">
-                  <ng-form>
-                     <div class="modal-body cajaDelmodal">
-                        <div id="Nam" class="group">
-                           <md-select placeholder="Nombre del curso" ng-model="infoIngresada1" name="nombreCurso">
-                               <md-option ng-repeat="CursoDisp in este.datos.CursosDisponilbes" ng-value="CursoDisp.Curso">{{CursoDisp.Curso}}</md-option>
-                           </md-select>
+               <!--Modal Confirm-->
+               <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                     <h4 class="modal-title">Confirmar borrado curso</h4>
+                  </div>
+                  <div class="modal-body">
+                     <p>Está seguro que desea borrar el curso?</p>
+                  </div>
+                  <div class="modal-footer">
+                     <button type="button" class="btn btnConfirmModal" ng-click="delet()" ng-hide="ocultarBotonProceder">Proceder</button>
+                     <button class="btn btnConfirmModal m-progressBorrado" ng-show="ocultarBotonProceder">Button</button>
+                     <button type="button" id="closeConfirmDel" class="btn btnAdd" data-dismiss="modal">Cancelar</button>
+                  </div>
+               </div>
+               <!--End Modal Confirm-->
+               <!--Modal succes-->
+               <div id="modalExitoDelGrupo" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                  <div class="modal-dialog modal-sm">
+                     <div id="modalContent" class="modal-content alert alert-success">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span>El grupo se agrego exitosamente!</span>
+                     </div>
+                  </div>
+               </div>
+               <!-- Modal -->
+               <div class="modal fade" id="modelCrearGrupoCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h1 class="modal-title" id="myModalLabel">Crear Grupo</h1>
                         </div>
-                        <div id="Nam1" class="group">
-                           <md-input-container>
-                              <label>Nombre del grupo</label>
-                              <input  md-maxlength="20" name="nombreRubrica" ng-model="infoIngresada2">
-                           </md-input-container>
+                        <form id="modalNuevoGru" name="CurForm" ng-submit="guarNuevGr()">
+                           <ng-form>
+                              <div class="modal-body cajaDelmodal">
+                                 <div id="Nam" class="group">
+                                    <md-select placeholder="Nombre del curso" ng-model="infoIngresada1" name="nombreCurso">
+                                       <md-option ng-repeat="CursoDisp in este.datos.CursosDisponilbes" ng-value="CursoDisp.Curso">{{CursoDisp.Curso}}</md-option>
+                                    </md-select>
+                                 </div>
+                                 <div id="Nam1" class="group">
+                                    <md-input-container>
+                                       <label>Nombre del grupo</label>
+                                       <input  md-maxlength="20" name="nombreRubrica" ng-model="infoIngresada2">
+                                    </md-input-container>
+                                 </div>
+                                 <div id="Nam4" class="group spaceB">
+                                    <md-select placeholder="Profesores" ng-change="profAdd()" ng-model="infoIngresada5" name="prof">
+                                       <md-option ng-repeat="nombreTemp2 in este.datos.ProfesoresNormales" ng-value="nombreTemp2">{{nombreTemp2.Profesor}}</md-option>
+                                    </md-select>
+                                 </div>
+                                 <div class="group">
+                                    <table class="table">
+                                       <th>Profesores asignados</th>
+                                       <tbody  class="ProfeTempor">
+                                       </tbody>
+                                    </table>
+                                 </div>
+                                 <div id="Nam3" class="group spaceB">
+                                    <md-select placeholder="Estudiantes" ng-change="estudAdd()" ng-model="infoIngresada4" name="estu">
+                                       <md-option ng-repeat="nombreTemp in este.datos.EstudiantesNormales" ng-value="nombreTemp">{{nombreTemp.Estudiante}}</md-option>
+                                    </md-select>
+                                 </div>
+                                 <div class="group">
+                                    <table class="table">
+                                       <th>Estudiantes asignados</th>
+                                       <tbody  class="EstudTempor">
+                                       </tbody>
+                                    </table>
+                                 </div>
+                              </div>
+                              <div class="modal-footer">
+                                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="resetForm()">Cerrar</button>
+                                 <button type="submit" class="simpleColor btn" ng-hide="ocultarBotonGuardar">Guardar</button>
+                                 <button class="btn btnConfirmModal m-progressBorrado" ng-show="ocultarBotonGuardar">Button</button>
+                              </div>
+                           </ng-form>
+                        </form>
+                     </div>
+                  </div>
+               </div>
+               <!--Modal end-->
+               <div id="cajaCursos" class="contenedorDeCajas nays">
+                  <table id="tableGrupoCurso" class="table">
+                     <th>Nombre del curso</th>
+                     <th>Nombre del grupo</th>
+                     <th>Editar</th>
+                     <th>Eliminar</th>
+                     <tbody>
+                        <tr ng-repeat="grupos in este.datos.GruposDeCurso">
+                           <td>{{grupos.NombreDelCurso}}</td>
+                           <td>{{grupos.NombreDelGrupo}}</td>
+                           <td><img src="img/edit.png" data-toggle="modal" ng-click="editCrus(grupos)" data-target="#modelDetallesCurso" style="cursor: pointer"></td>
+                           <td><img src="img/del.png" data-toggle="modal" ng-click="del(grupos)" data-target="#modalConfirm" style="cursor: pointer"></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+               <!--Modal-->
+               <div class="modal fade" id="modelDetallesCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                     <div class="modal-content">
+                        <div class="modal-header">
+                           <h1 class="modal-title" id="myModalLabel">Detalles</h1>
                         </div>
-
-                        <div id="Nam4" class="group spaceB">
-                           <md-select placeholder="Profesores" ng-change="profAdd()" ng-model="infoIngresada5" name="prof">
-                               <md-option ng-repeat="nombreTemp2 in este.datos.ProfesoresNormales" ng-value="nombreTemp2">{{nombreTemp2.Profesor}}</md-option>
-                           </md-select>
-                        </div>
-
-
-                        <div class="group">
-                           <table class="table">
-                              <th>Profesores asignados</th>
-                              <tbody  class="ProfeTempor">
-                              </tbody>
+                        <div class="modal-body cajaDelmodal">
+                           <div class="group">
+                              <md-input-container>
+                                 <label>Nombre del curso</label>
+                                 <input required name="nombreEdCur" ng-model="par1" readonly>
+                              </md-input-container>
+                           </div>
+                           <div class="group">
+                              <md-input-container>
+                                 <label>Nombre del grupo</label>
+                                 <input required name="nombreEdCur" ng-model="par2" readonly>
+                              </md-input-container>
+                           </div>
+                           <table id="tablaProfes" class="tablaDetallesCurso">
+                              <th>Profesores</th>
+                              <tr ng-repeat="proT in proT" class="list-group-item">
+                                 <td>{{proT.nombre}}</td>
+                                 <td>{{proT.rol}}</td>
+                                 <!--<td><select class="form-control">
+                                    <option>Proceso</option>
+                                    <option>Practica</option>
+                                    <option>Factor Humano</option>
+                                    </select></td>-->
+                                 <td><img class="pull-right" src="img/del.png" ng-click="delTempProf(proT)" style="cursor: pointer"></td>
+                              </tr>
+                           </table>
+                           <table id="tablaEstud" class="tablaDetallesCursoEstu">
+                              <th>Estudiantes</th>
+                              <tr ng-repeat="estT in estT" class="list-group-item">
+                                 <td>{{estT.nombre}}</td>
+                                 <td><img class="pull-right" src="img/del.png" ng-click="delTempEst(estT)" style="cursor: pointer"></td>
+                              </tr>
                            </table>
                         </div>
-
-                        <div id="Nam3" class="group spaceB">
-                           <md-select placeholder="Estudiantes" ng-change="estudAdd()" ng-model="infoIngresada4" name="estu">
-                               <md-option ng-repeat="nombreTemp in este.datos.EstudiantesNormales" ng-value="nombreTemp">{{nombreTemp.Estudiante}}</md-option>
-                           </md-select>
-                        </div>
-                        <div class="group">
-                           <table class="table">
-                              <th>Estudiantes asignados</th>
-                              <tbody  class="EstudTempor">
-                              </tbody>
-                           </table>
+                        <div class="modal-footer">
+                           <button type="button" class="btn btn-default simpleColor" data-dismiss="modal">Cerrar</button>
                         </div>
                      </div>
-                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="resetForm()">Cerrar</button>
-                        <button type="submit" class="simpleColor btn" ng-hide="ocultarBotonGuardar">Guardar</button>
-                        <button class="btn btnConfirmModal m-progressBorrado" ng-show="ocultarBotonGuardar">Button</button>
-                     </div>
-                  </ng-form>
-               </form>
+                  </div>
+               </div>
+               <!--ModalEnd-->
             </div>
          </div>
       </div>
-      <!--Modal end-->
-
-      <div id="cajaCursos" class="contenedorDeCajas nays">
-         <table id="tableGrupoCurso" class="table">
-            <th>Nombre del curso</th>
-            <th>Nombre del grupo</th>
-            <th>Editar</th>
-            <th>Eliminar</th>
-            <tbody>
-               <tr ng-repeat="grupos in este.datos.GruposDeCurso">
-                  <td>{{grupos.NombreDelCurso}}</td>
-                  <td>{{grupos.NombreDelGrupo}}</td>
-                  <td><img src="img/edit.png" data-toggle="modal" ng-click="editCrus(grupos)" data-target="#modelDetallesCurso" style="cursor: pointer"></td>
-                  <td><img src="img/del.png" data-toggle="modal" ng-click="del(grupos)" data-target="#modalConfirm" style="cursor: pointer"></td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
-      <!--Modal-->
-      <div class="modal fade" id="modelDetallesCurso" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h1 class="modal-title" id="myModalLabel">Detalles</h1>
-               </div>
-               <div class="modal-body cajaDelmodal">
-                  <div class="group">
-                     <md-input-container>
-                        <label>Nombre del curso</label>
-                        <input required name="nombreEdCur" ng-model="par1" readonly>
-                     </md-input-container>
-                  </div>
-                  <div class="group">
-                     <md-input-container>
-                        <label>Nombre del grupo</label>
-                        <input required name="nombreEdCur" ng-model="par2" readonly>
-                     </md-input-container>
-                  </div>
-
-                  <table id="tablaProfes" class="tablaDetallesCurso">
-                     <th>Profesores</th>
-                     <tr ng-repeat="proT in proT" class="list-group-item">
-                        <td>{{proT.nombre}}</td><td>{{proT.rol}}</td>
-                        <!--<td><select class="form-control">
-                              <option>Proceso</option>
-                              <option>Practica</option>
-                              <option>Factor Humano</option>
-                           </select></td>-->
-                           <td><img class="pull-right" src="img/del.png" ng-click="delTempProf(proT)" style="cursor: pointer"></td>
-                     </tr>
-
-                  </table>
-                  <table id="tablaEstud" class="tablaDetallesCursoEstu">
-                     <th>Estudiantes</th>
-                     <tr ng-repeat="estT in estT" class="list-group-item">
-                        <td>{{estT.nombre}}</td><td><img class="pull-right" src="img/del.png" ng-click="delTempEst(estT)" style="cursor: pointer"></td>
-                     </tr>
-                  </table>
-
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-default simpleColor" data-dismiss="modal">Cerrar</button>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!--ModalEnd-->
    </div>
 </div>
