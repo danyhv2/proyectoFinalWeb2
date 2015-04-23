@@ -16,12 +16,12 @@
       </form>
     </div>
     <md-list class="col-xs-12 col-sm-12 min-heigth">
-      <md-item ng-repeat="usuario in usuarios | filter:filter" class="col-xs-12 col-sm-4">
+      <md-item ng-repeat="data in usuarios | filter:filter" class="col-xs-12 col-sm-4">
         <md-item-content class ="div">
           <div class="md-tile-content information-reports" >
            <img ng-src="{{usuario.img}}" class="face">
-            <h3>{{usuario.Nombre}}</h3>
-            <h4>{{usuario.Correo}}</h4>
+            <h3>{{data.Nombre}}</h3>
+            <h4>{{data.Correo}}</h4>
             <p class ="link"><a data-toggle="modal" data-target="#myModal">Ver reporte</a></p>
           </div>
         </md-item-content>
