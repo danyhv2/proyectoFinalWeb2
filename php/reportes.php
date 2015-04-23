@@ -1,7 +1,7 @@
 <?php
 include_once "config.php";
 
-$sql = "CALL usuarios_reportes()"; 
+$sql = "CALL informacion_reportes()"; 
 $result = mysqli_query($con, $sql);
 
 $lista = array();
