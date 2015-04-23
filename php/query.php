@@ -12,7 +12,7 @@ include "config.php";
 	$fchNacimiento = mysql_real_escape_string($data->FechaNacimiento);
 	$userPic = mysql_real_escape_string($data->img);
 	$email = ($data->Correo);
-	$password = ($data->Contrasena);
+	$password = md5(($data->Contrasena));
 	$role=mysql_real_escape_string($data->role);
 
 	echo $usrname, $firstLastName, $SecondLastName, $address, $userId, $fchNacimiento, $email;
