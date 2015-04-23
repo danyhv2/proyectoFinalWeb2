@@ -1,7 +1,7 @@
 <?php
     include "config.php"; 
 
-   $sql= "SELECT `NombreProfesor`, `Rol`, `GrupoAsignado` FROM `profesores_por_grupo`"; 
+   $sql= "SELECT `nombre`, `profesor`, `grupoAsignado` FROM `area_profesor`"; 
 
     $result = mysqli_query($con, $sql);   
 

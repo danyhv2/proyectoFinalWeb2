@@ -2,11 +2,11 @@
     include "config.php"; 
 
   $data = json_decode(file_get_contents("php://input"));
-  $Nombre = mysql_real_escape_string($data->nombreProf);
   $Rol = mysql_real_escape_string($data->RolProf);
+  $Nombre = mysql_real_escape_string($data->nombreProf);
   $Grupo = mysql_real_escape_string($data->GrupoAsig);
 
-  $query= "CALL agregarProfesorGrupo('$Nombre','$Rol', '$Grupo')";
+  $query= "CALL agregarProfesorGrupo('$Rol', '$Nombre', '$Grupo')";
 
   $result = mysqli_query($con, $query);
 

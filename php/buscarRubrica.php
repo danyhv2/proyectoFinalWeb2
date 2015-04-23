@@ -1,7 +1,7 @@
 <?php
     include "config.php"; 
 
-   $sql= "SELECT `NombreRubrica`, `CursoAsignado` FROM `rubros_por_cursos`";   
+   $sql= "SELECT id_rubrica, `nombre` as NombreRubrica FROM `rubros_por_cursos` WHERE 1";   
 
     $result = mysqli_query($con, $sql);   
 
