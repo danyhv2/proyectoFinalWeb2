@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.bootstrap.demo','ui.router', 'fileUpload', 'module', 'rutas', 'moduleDocs','moduleReport', 'crearGrupo','moduleHome', 'modulePerfil', 'modulePortafolio', 'modifyUser', 'agregarCarrera', 'agregarCurso', 'modifyCarrera', 'modifyCurso', 'verUsuarios', 'moduleVotacion','moduleLogin', 'moduleSocial', 'tindalos']);
+var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.bootstrap.demo','ui.router', 'fileUpload', 'module', 'rutas', 'moduleDocs','moduleReport', 'crearGrupo','moduleHome', 'modulePerfil', 'modulePortafolio', 'modifyUser', 'agregarCarrera', 'agregarCurso', 'modifyCarrera', 'modifyCurso', 'verUsuarios', 'moduleVotacion','moduleLogin', 'moduleSocial', 'tindalos', 'angular-md5']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
@@ -55,7 +55,7 @@ routerApp.controller('MenuC', function($scope, $state) {
 
 var users = [];
 
-routerApp.controller('userCtrl', function($scope, $http, $state, $upload){
+routerApp.controller('userCtrl', function($scope, $http, $state, $upload, md5){
   $scope.url = 'php/query.php';
   $scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
   $scope.validate = function() {
@@ -104,13 +104,13 @@ routerApp.controller('userCtrl', function($scope, $http, $state, $upload){
     
               if($scope.userForm.$valid && userExist != true && validEmail != true && idExist != true){
                
-                $http.post($scope.url, { 'nombre' : $scope.userName, 'PrimerApellido':$scope.firstLastName, 'SegundoApellido': $scope.secondLastName, 'Direccion':$scope.address, 'Cedula':$scope.idUser, 'Foto':$scope.idUser, 'FechaNacimiento': ($('#inpFechaNacimiento').val()), 'Correo': $scope.email, 'Contrasena': $scope.password, 'img': $scope.userPic, 'role': ($('.optionsRole').find('span').text())}).
+                $http.post($scope.url, { 'nombre' : $scope.userName, 'PrimerApellido':$scope.firstLastName, 'SegundoApellido': $scope.secondLastName, 'Direccion':$scope.address, 'Cedula':$scope.idUser, 'Foto':$scope.idUser, 'FechaNacimiento': ($('#inpFechaNacimiento').val()), 'Correo': $scope.email, 'Contrasena': $scope.password, 'img': $scope.userPic, 'role': ($('.optionsRole').find('span').first().text())}).
                   success(function(data, status) {
                     $scope.status = status;
                     $scope.data = data;
                     $scope.result = data; 
                     console.log(data);
-                    console.log($scope.roleUser);
+                    console.log($scope.roleUser1);
                   })
                   .
                   error(function(data, status) {

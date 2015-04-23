@@ -1,7 +1,7 @@
 <?php
     include "config.php"; 
 
-   $sql= "SELECT estudiantes_por_curso.grupoAsignado, estudiantes_por_curso.correo_estudiante, CONCAT( usuarios.nombre,' ', usuarios.primerApellido,' ', usuarios.segundoApellido) AS NombreEstudiante
+   $sql= "SELECT estudiantes_por_curso.grupo_asignado, estudiantes_por_curso.correo_estudiante, CONCAT( usuarios.nombre,' ', usuarios.primerApellido,' ', usuarios.segundoApellido) AS NombreEstudiante
 FROM estudiantes_por_curso
 INNER JOIN usuarios
 ON estudiantes_por_curso.correo_estudiante=usuarios.correo";

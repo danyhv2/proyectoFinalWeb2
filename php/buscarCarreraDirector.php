@@ -1,11 +1,8 @@
 <?php
     include "config.php"; 
 
-   $sql= "SELECT gruposcurso.NombreDelGrupo, cursos.nombre, cursos.id_curso
-    FROM gruposcurso
-    INNER JOIN cursos
-    ON gruposcurso.IdCurso=cursos.id_curso"; 
-   
+   $sql= "SELECT `nombre` FROM `carreras` WHERE `inactivo` = 0";   
+
     $result = mysqli_query($con, $sql);   
 
     if (!$result){

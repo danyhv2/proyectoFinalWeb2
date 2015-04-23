@@ -2,10 +2,10 @@
     include "config.php"; 
 
   $data = json_decode(file_get_contents("php://input"));
-  $NombreCurso = mysql_real_escape_string($data->nombreC);
+  $IdCurso = mysql_real_escape_string($data->IdC);
   $NombreGrupo = mysql_real_escape_string($data->nombreG);
 
-  $query= "CALL agregarGrupoDirector('$NombreCurso','$NombreGrupo')";
+  $query= "CALL agregarGrupoDirector('$IdCurso','$NombreGrupo')";
 
   $result = mysqli_query($con, $query);
 

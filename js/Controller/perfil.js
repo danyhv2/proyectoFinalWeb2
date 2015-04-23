@@ -14,6 +14,7 @@ perfilModule.controller('userPerfilCtrl', function($scope, $http) {
 	$http.post('php/obtenerPerfil.php', { 'data': 'test@gmail.com'}).
             success(function(data, status) {
             	$scope.data=data;
+            	console.log(data);
             	
             		if(self.editPerfil){
 	            	 self.editPerfil.descripcion.$setViewValue(data[0].descripcion);

@@ -1,11 +1,8 @@
 <?php
     include "config.php"; 
 
-   $sql= "SELECT gruposcurso.NombreDelGrupo, cursos.nombre, cursos.id_curso
-    FROM gruposcurso
-    INNER JOIN cursos
-    ON gruposcurso.IdCurso=cursos.id_curso"; 
-   
+   $sql= "SELECT c.nombre as nombreCurso, cc.id_curso, cc.id_carrera, car.nombre as nombreCarrera from cursos c, cursos_carreras cc, carreras car where cc.id_curso = c.id_curso and cc.id_carrera = car.id_carrera;";   
+
     $result = mysqli_query($con, $sql);   
 
     if (!$result){
