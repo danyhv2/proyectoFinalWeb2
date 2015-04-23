@@ -1,5 +1,13 @@
-<div class="contenedorRubricasUi hidden-xs clearfix col-xs-12">
-		<h1 id="miBtn">Tareas</h1>
+<div id="accordionTareas" role="tablist" aria-multiselectable="true">
+   <div class="panel-heading visible-xs" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionTareas" href=".collapseTareas" aria-expanded="true" aria-controls="collapseTareas">
+         Tareas
+      </h4>
+   </div>
+   <div class="collapseTareas panel-collapse collapse in" role="tabpanel">
+      <div class="panel-body">
+      	<div class="contenedorRubricasUi clearfix col-xs-12">
+	<h1 id="miBtn">Tareas</h1>
 		<button type="button" class="btn simpleColor pull-right" data-toggle="modal" data-target="#subirArchivos">Subir archivo</button>
 		<div class="contenedorDeCajas clearfix">
 			<table class="table">
@@ -21,9 +29,8 @@
 				  </td>
 				</tr>
 			   </tbody>
-				</table>
+			</table>
 		</div>
-
 		<!--MODAL-->
 		<div class="modal fade" id="mostrarArchivos" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 			  <div class="modal-dialog">
@@ -115,7 +122,6 @@
 		  </div>
 		</div>
 		<!--FIN DE MODAL-->
-</div>
 		<!--MODAL-->
 		<div id="modalExito" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   			<div class="modal-dialog modal-sm">
@@ -126,3 +132,7 @@
   			</div>
 		</div>
 	<!--MODALExit-->
+      </div>
+  </div>
+</div>
+

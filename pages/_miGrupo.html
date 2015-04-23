@@ -1,7 +1,20 @@
-<div class="contenedorRubricasUi hidden-xs col-xs-12">
-		<h1>Mis grupos</h1>
-		<button type="button" class="btn simpleColor pull-right" data-toggle="modal" data-target="#addInfo">Agregar información</button>
-		<div class="">
+
+
+
+
+
+<div id="accordionMiGrupo" role="tablist" aria-multiselectable="true">
+   <div class="panel-heading visible-xs" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionGrupo" href=".collapseMiGrupo" aria-expanded="true" aria-controls="collapseMiGrupo">
+         Mi grupo
+      </h4>
+   </div>
+   <div class="collapseMiGrupo panel-collapse collapse in" role="tabpanel">
+      <div class="panel-body">
+      	<div class="contenedorRubricasUi col-xs-12">
+	<h1>Mis grupos</h1>
+	<button type="button" class="btn simpleColor pull-right" data-toggle="modal" data-target="#addInfo">Agregar información</button>
+		<div>
 			<table class="table">
 			  <thead>
 			    <tr>
@@ -23,7 +36,7 @@
 				 </td>
 				</tr>
 			   </tbody>
-				</table>
+			</table>
 		</div>
 		</div>
 		<!--MODAL-->
@@ -64,7 +77,6 @@
 			      </div>
 			    </div>
 			  </div>
-			</div>
 			<!--FIN DE MODAL-->
 			<!--MODAL AGREGAR INFO-->
 		<div class="modal fade" id="addInfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
@@ -129,3 +141,9 @@
 		    </div>
 		  </div>
 		</div>
+         
+      </div>
+    
+   </div>
+</div>
+

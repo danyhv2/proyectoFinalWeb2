@@ -1,4 +1,4 @@
-<div id="accordionMiGrupo" role="tablist" aria-multiselectable="true">
+<!--<div id="accordionMiGrupo" role="tablist" aria-multiselectable="true">
    <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionGrupo" href=".collapseMiGrupo" aria-expanded="true" aria-controls="collapseMiGrupo">
          Mi grupo
@@ -6,73 +6,8 @@
    </div>
    <div class="collapseMiGrupo panel-collapse collapse in" role="tabpanel">
       <div class="panel-body">
-         <div class="contenedorRubricasUi col-xs-12">
-            <h1>Mis grupos</h1>
-            <div class="">
-               <table class="table">
-                  <thead>
-                     <tr>
-                        <th>
-                           <a href="" ng-click="ordenar('proyectoName')" class="misTitulos">Nombre</a>
-                           <span class="caret" style="cursor: pointer" ng-click="ordenar('-proyectoName')" ></span>
-                        </th>
-                        <th>
-                           <a href="" ng-click="ordenar('curso')" class="misTitulos">Curso</a>
-                           <span class="caret" style="cursor: pointer" ng-click="ordenar('-curso')" ></span>
-                        </th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <tr ng-repeat="proyecto in proyectos2 | filter:buscar | orderBy:ordenSeleccionado">
-                        <td><a href="" ng-click="mostrarIntegrantes2(proyecto)" data-toggle="modal" data-target="#mostrarMiGrupo" class="misTitulos">{{proyecto.proyectoName}}</a></td>
-                        <td>
-                           {{proyecto.curso}}	
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-         </div>
-         <!--MODAL-->
-         <div class="modal fade" id="mostrarMiGrupo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true" ng-controller="gruposController">
-            <div class="modal-dialog">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                     <h1>Integrantes</h1>
-                  </div>
-                  <div class="modal-body">
-                     <table class="table">
-                        <thead>
-                           <tr>
-                              <th>
-                                 <h4 class="misTitulos">Nombre</h4>
-                              </th>
-                              <th>
-                                 <h4 class="misTitulos">Role</h4>
-                              </th>
-                           </tr>
-                        </thead>
-                        <tbody>
-                           <tr ng-repeat="este in myGrupo">
-                              <td>
-                                 {{este.nombre}}
-                              </td>
-                              <td>
-                                 {{este.role}}
-                              </td>
-                           </tr>
-                        </tbody>
-                     </table>
-                  </div>
-                  <div class="modal-footer">
-                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                  </div>
-               </div>
-            </div>
-         </div>
+         
       </div>
-      <!--FIN DE MODAL-->
+    
    </div>
-</div>
-</div>
+</div>-->

@@ -1,92 +1,61 @@
-   <div class="contenedorRubricasUi col-sm-12" ng-controller='directorController as este'>
-      <md-input-container class="col-sm-6 col-xs-12 inpSearchStudent">
-         <p class="input-group">
-           <label>Buscar estudiante por correo</label>
-           <input class="searchStudent" name="buscarEstudiante" ng-model="searchEstudiante">
-           <a href="#" ng-click="updateUser.updateModel()">
-               <img src="img/searchIcon.png">
-           </a>
-         </p>
-         <p class="errorSearch">El estudiante que está tratando de buscar no existe.</p>
-     </md-input-container>
-   <div class="col-sm-12">
-     <md-input-container class="nombreEstudiante">
-         <label>Estudiante: <span>Daniela Hernandez Villafuerte</span></label>
-     </md-input-container>
-     <md-select class="optCuatri" required ng-model="cuatriCurso" name="cuatrimestre" placeholder="Seleccione curso">
-       <md-option value="Diseño I">Diseño I</md-option>
-       <md-option value="Progra Web Dinámica" >Progra Web Dinámica</md-option>
-       <md-option value="Proyecto Web 1" >Proyecto Web 1</md-option>
-     </md-select>
-  </div>
-  <div class="col-sm-8 col-sm-offset-2">
-   <form>
-      <h1>Rúbrica</h1>
-      <table class="table" id="tableNotas">
-         <tbody>
-              <tr ng-repeat="valor in rubricas">
-               <th>{{valor.rubro}} {{valor.valor}}%</th> 
-               <td>
-               <md-input-container class="tValor">
-                    <label>Valor</label>
-                    <input type="number" class="valorRubrica" ng-model="searchUser">
-                 </md-input-container>
-              </td>
-              </tr>
-              <tr class="lastTr">
-               <th>Total</th>
-               <td>
-               <md-input-container class="tValor">
-                    <label>Valor</label>
-                    <input type="number" class="valorRubrica" ng-model="searchUser">
-                 </md-input-container>
-              </td>
-              </tr>
-         </tbody>
-      </table>
-      <input type="submit" class="btn btn-default simpleColor" value="Asignar">
-   </form>
-  </div>
-   <!--<div class="pull-left izquierdaCaja">
-      <h3>Grupos</h3>
-      <div class="contenedorDeCajas">
-         <table class="table table-hover">
-            <tbody>
-               <th>Curso</th>
-               <th>Grupo</th>
-               <tr ng-repeat="valores in este.datos.GruposDeCurso">
-                  <td>{{valores.NombreDelCurso}}</td>
-                  <td>{{valores.NombreDelGrupo}}</td>
-                  <td><img src="img/edit.png"  ng-click="editNotas(valores)" style="cursor: pointer"></td>
-               </tr>
-            </tbody>
-         </table>
-      </div>
+<div id="accordionScore" role="tablist" aria-multiselectable="true">
+   <div class="panel-heading visible-xs" role="tab" id="headingOne">
+      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionScore" href=".collapseScore" aria-expanded="true" aria-controls="collapseScore">
+         Asignar notas
+      </h4>
    </div>
-   <div class="maxVal pull-right derechaCaja">
-      <div class="rayaCentral"></div>
-      <div class="oneinrow pull-left">
-         <h3>Rubrica</h3>
-         <p ng-repeat="data in rubricas">{{data.nombre}}</p>
-         <div id="notasVista">
+   <div class="collapseScore panel-collapse collapse in" role="tabpanel">
+      <div class="panel-body">
+         <div class="contenedorRubricasUi col-sm-12" ng-controller='directorController as este'>
+            <md-input-container class="col-sm-6 col-xs-12 inpSearchStudent">
+               <p class="input-group">
+                  <label>Buscar estudiante por correo</label>
+                  <input class="searchStudent" name="buscarEstudiante" ng-model="searchEstudiante">
+                  <a href="#" ng-click="updateUser.updateModel()">
+                  <img src="img/searchIcon.png">
+                  </a>
+               </p>
+               <p class="errorSearch">El estudiante que está tratando de buscar no existe.</p>
+            </md-input-container>
+            <div class="col-sm-12">
+               <md-input-container class="nombreEstudiante">
+                  <label>Estudiante: <span>Daniela Hernandez Villafuerte</span></label>
+               </md-input-container>
+               <md-select class="optCuatri" required ng-model="cuatriCurso" name="cuatrimestre" placeholder="Seleccione curso">
+                  <md-option value="Diseño I">Diseño I</md-option>
+                  <md-option value="Progra Web Dinámica" >Progra Web Dinámica</md-option>
+                  <md-option value="Proyecto Web 1" >Proyecto Web 1</md-option>
+               </md-select>
+            </div>
+            <div class="col-sm-8 col-sm-offset-2">
+               <form>
+                  <h1>Rúbrica</h1>
+                  <table class="table" id="tableNotas">
+                     <tbody>
+                        <tr ng-repeat="valor in rubricas">
+                           <th>{{valor.rubro}} {{valor.valor}}%</th>
+                           <td>
+                              <md-input-container class="tValor">
+                                 <label>Valor</label>
+                                 <input type="number" class="valorRubrica" ng-model="searchUser">
+                              </md-input-container>
+                           </td>
+                        </tr>
+                        <tr class="lastTr">
+                           <th>Total</th>
+                           <td>
+                              <md-input-container class="tValor">
+                                 <label>Valor</label>
+                                 <input type="number" class="valorRubrica" ng-model="searchUser">
+                              </md-input-container>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <input type="submit" class="btn btn-default simpleColor" value="Asignar">
+               </form>
+            </div>
          </div>
       </div>
-      <div class="twoinrow pull-right">
-         <h3>Asignar nota</h3>
-         <form id="formAddN" name="notasForm" ng-submit="notasForm.$valid && addNota()" class="estiloCaja" novalidate>
-         <ng-form name="notasProfesor">
-            <div id="notasCrea"></div>
-            <div class="opcionesNota">
-               <label>Estudiante</label>
-               <select class="form-control">
-                  <option ng-repeat="persona in grupoTemporalSelecte.Estudiantes">{{persona.NombreEstudiante}}</option>
-               </select>
-               <input type="submit" class="btn btn-default simpleColor" value="Asignar">
-            </div>
-         </ng-form>
-      </div>
-   </div>-->
    </div>
-
-
-
+</div>

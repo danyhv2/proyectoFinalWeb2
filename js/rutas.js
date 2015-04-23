@@ -78,7 +78,19 @@ route.config(function($stateProvider, $urlRouterProvider) {
                 controller: 'gruposController'   
                 },
                 'crear-grupo@grupo2':{
-                    templateUrl: 'pages/mobile/_mobileGrupoProfesor.html',
+                    templateUrl: 'pages/_ingresarGrupo.html',
+                    controller: 'gruposController'
+                },
+                'elegir-proyecto@grupo2':{
+                    templateUrl: 'pages/_elegirProyectos.html',
+                    controller: 'gruposController'
+                },
+                'archivos-tareas@grupo2':{
+                    templateUrl: 'pages/_archivosProfesor.html',
+                    controller: 'gruposController'
+                },
+                'asignar-notas@grupo2':{
+                    templateUrl: 'pages/_rubricaEstudiante.html',
                     controller: 'gruposController'
                 }
             }
@@ -102,15 +114,15 @@ route.config(function($stateProvider, $urlRouterProvider) {
                 controller: 'gruposController'   
                 },
                 'mi-grupo@estudiante':{
-                    templateUrl: 'pages/mobile/_mobileMiGrupo.html',
+                    templateUrl: 'pages/_miGrupo.html',
                     controller: 'gruposController'
                 },
                 'estudiante-nota@estudiante':{
-                    templateUrl: 'pages/mobile/_mobileEstudianteNota.html',
+                    templateUrl: 'pages/_notaGrupo.html',
                     controller: 'gruposController'
                 },
                 'estudiante-tarea@estudiante':{
-                    templateUrl: 'pages/mobile/_mobileTarea.html',
+                    templateUrl: 'pages/_tareasEstudiante.html',
                     controller: 'gruposController'
                 }
             }
