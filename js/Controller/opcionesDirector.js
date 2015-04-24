@@ -3,13 +3,14 @@
 
     module.controller('directorController', function($scope, $http) {
         this.datos = archivos;
-
         //Tomar estudiantes y nombres
 
         $scope.NombreProfes = [];
         $scope.NombreEstuds = [];
         $scope.NombreCarrera = [];
         $scope.cursosDB = [];
+
+        this.cursosD = $scope.cursosDB;
 
         $http.get('php/buscarProfesores.php').success(function(data){
             $scope.NombreProfes1 = data;
@@ -188,35 +189,34 @@
 
         }
 
-        //$scope.refrescarCarreras = function(){
-        //    archivos.Carreras = [];
-        //    $http.get('php/buscarCarreraDirector.php').success(function(date){
-        //        $scope.carreras = date;
-//
-        //        $http.get('php/buscarCarrerasCursos.php').success(function(data){
-        //            $scope.conten = data;
-        //            //-------------Asignar y eso-------------//
-//
-        //            for (var i = $scope.carreras.length - 1; i >= 0; i--) {
-//
-        //                var carreraTemp = {
-        //                    "carrera": $scope.carreras[i].nombre,
-        //                    "CursosAsignados": [],
-        //                }
-//
-        //                for (var j = $scope.conten.length - 1; j >= 0; j--) {
-        //                    if ($scope.conten[j].nombreCarrera == $scope.carreras[i].nombre) {
-        //                        carreraTemp.CursosAsignados.push({"curso" : $scope.conten[j].nombreCurso})
-        //                    };
-        //                };
-        //                archivos.Carreras.push(carreraTemp)
-        //            console.log($scope.conten)
-        //            };
-//
-        //        })
-//
-        //    })
-        //}
+        $scope.refrescarCarreras = function(){
+            archivos.Carreras = [];
+            $http.get('php/buscarCarreraDirector.php').success(function(date){
+                $scope.carreras = date;
+
+                $http.get('php/buscarCarrerasCursosDirector.php').success(function(data){
+                    $scope.conten = data;
+                    //-------------Asignar y eso-------------//
+
+                    for (var i = $scope.carreras.length - 1; i >= 0; i--) {
+
+                        var carreraTemp = {
+                            "carrera": $scope.carreras[i].nombre,
+                            "CursosAsignados": [],
+                        }
+
+                        for (var j = $scope.conten.length - 1; j >= 0; j--) {
+                            if ($scope.conten[j].nombreCarrera == $scope.carreras[i].nombre) {
+                                carreraTemp.CursosAsignados.push({"curso" : $scope.conten[j].nombreCurso})
+                            };
+                        };
+                        archivos.Carreras.push(carreraTemp)
+                    };
+
+                })
+
+            })
+        }
 
         //tester
 
@@ -372,7 +372,7 @@
         $scope.delCurso = function(valores) {
             var l = $scope.estCr.indexOf(valores);
             $scope.estCr.splice(l, 1);
-            $('<p id="msgSuccess" class="alert alert-success">El profesor se elimino correctamente</p>').insertBefore('#tablaProfes').delay(500).fadeOut();
+            $('<p id="msgSuccess" class="alert alert-success">El curso de elimino correctamente</p>').insertBefore('#myModalLabel').delay(500).fadeOut();
         }
 
         $scope.editCrusgru = function(valores) {
@@ -407,22 +407,61 @@
             if ($scope.mCarrera === "" || $scope.mCurso ==="" || $scope.mCarrera === undefined || $scope.mCurso === undefined) {
                 $('<div class="msgError" aria-hidden="false">Debe seleccionar un valor en ambos campos</div>').insertAfter('#curs').delay(1000).fadeOut();
             }else{
-
-            for (var i = archivos.Carreras.length - 1; i >= 0; i--) {
-
-                if (archivos.Carreras[i].carrera === $scope.mCarrera) {
-                    for (var m = valorActualC.length - 1; m >= 0; m--) {
-                        archivos.Carreras[i].CursosAsignados.push(valorActualC[m])
+                var carreraSeleccionada = $scope.mCarrera;
+                $scope.cursosAdd = [];
+                $http.get('php/buscarCursosDirector.php').success(function(data){
+                    $scope.care = data;
+                    for (var i = $scope.NombreCarrera1.length - 1; i >= 0; i--) {
+                        $scope.cursosAdd.push({CodCur : $scope.care[i].id_curso,
+                                                Nombre : $scope.care[i].nombre})
                     };
 
+                    $http.get('php/buscarCarreraDirector.php').success(function(date){
+                        $scope.temCarreras = date;
+                        var idCarrera = 0;
+
+                        for (var te = $scope.temCarreras.length - 1; te >= 0; te--) {
+
+                            if ($scope.temCarreras[te].nombre === carreraSeleccionada) {
+                                idCarrera = $scope.temCarreras[te].id_carrera
+                            };
+
+
+                        };
+
+
+                        for (var j = valorActualC.length - 1; j >= 0; j--) {
+
+                            for (var u = $scope.cursosAdd.length - 1; u >= 0; u--) {
+
+                                if (valorActualC[j].curso === $scope.cursosAdd[u].Nombre) {
+
+                        $http.post('php/agregarCursoCarreraDirector.php', { 'Carrera' : idCarrera, 'Curso' : $scope.cursosAdd[u].CodCur}).
+                          success(function(dataGrupo, status) {
+                        });
+                                };
+                                
+                            };
+                            
+                        };
+                        valorActualC = [];
+                    })
+                })
+                $scope.ocl = true;
+
+                $scope.aggrCurCr = function(){
+
+                    $scope.refrescarCarreras();
                     $('#modalExitoDeCarrera').fadeIn(1000);
                     $('#modalExitoDeCarrera').fadeOut(1000);
-                };
-            };
-            $scope.mCarrera = '';
-            $scope.mCurso = '';
-            $('#tablaCursos').empty();
-            $('#closeCarrera').click();
+                    $scope.mCarrera = '';
+                    $scope.mCurso = '';
+                    $('#tablaCursos').empty();
+                    $('#closeCarrera').click();
+                    $scope.ocl = false;
+                }
+
+                var myVar = setTimeout($scope.aggrCurCr, 2000);
             };
 
 
@@ -562,6 +601,7 @@
                 $('<div class="msgError" aria-hidden="false">Debe llenar este campo</div>').insertBefore('#Nam4').delay(1000).fadeOut();
             };
 
+
             if (count === 0) {
 
             var codCurz = 0;
@@ -579,6 +619,18 @@
                 "Estudiantes": valorActualE,
                 "Profesores": valorActualP,
             }
+
+            $http.get('php/buscarGruposCurso.php').success(function(data){
+                var grup = data;
+                var ErrorNombre = 0;
+
+                for (var nm = grup.length - 1; nm >= 0; nm--) {
+                   if (grup[nm].NombreDelGrupo == $scope.infoIngresada2) {
+                        ErrorNombre++;
+                    }
+                };
+
+                if (ErrorNombre === 0) {
 
             //Metodo para agregar grupo
 // -----------------------PHP --------------------
@@ -639,7 +691,10 @@
             var myVar = setTimeout($scope.aggrGrup, 2000);
 //----------------------PHP--------------------
             archivos.GruposDeCurso.push(grupoTemp);
-            
+            }else{
+                $('<div class="msgError" aria-hidden="false">Este nombre ya existe</div>').insertBefore('#Nam1').delay(1000).fadeOut();
+            };
+            })  
             };
         }
 
@@ -885,70 +940,94 @@
             };
 
             if (total === 100) {
-                s = s/2;
-                f = f/2;
 
-                var cosa = [],
-                    RubricaLista = [];
+                $http.get('php/buscarRubrica.php').success(function(data){
+                    var testNombre = data;
+                    var errorNomb = 0;
 
-                function pushToAry(name, val) {
-                    var vas = {};
-                    vas[name] = val
-                    cosa.push(vas);
-                }
-
-                pushToAry('NombreDeRubrica', $scope.newNombreRubrica);
-                pushToAry('NombreDeGrupo', $scope.newNombreGrupo);
-
-                for (s--; s >= 0; s--) {
-                    var rubr = rubrosPorEnviar[s],
-                        num = rubricasPorEnviar[s];
-
-                    pushToAry(rubr, num);
-                };
-
-    //--------------PHP AGREGAR RUBRICAS---------------//
-                $http.post('php/agregarRubricaDirector.php', { 'nombreRub' : $scope.newNombreRubrica}).
-                  success(function(dataGrupo, status) {
-
-                    $http.post('php/buscarCurso.php', { 'data' : $scope.newNombreGrupo}).
-                        success(function(dass, status) {
-
-                        $http.post('php/agregarRubricaCursoDirector.php', { 'nRub' : $scope.newNombreRubrica, 'CuNob' : $scope.newNombreGrupo}).
-                            success(function(da, status) {
-                        });
-                    });
-
-                    $http.get('php/buscarRubricaDirector.php').success(function(das){
-                        $scope.rubricasID = das;
-
-                        for (var g = $scope.rubricasID.length - 1; g >= 0; g--) {
-                            if ($scope.rubricasID[g].nombre === $scope.newNombreRubrica) {
-                                $scope.idCursoTem = $scope.rubricasID[g].id_rubrica
-                            };
+                    for (var zx = testNombre.length - 1; zx >= 0; zx--) {
+                        if (testNombre[zx].NombreRubrica == $scope.newNombreRubrica) {
+                            errorNomb++;
                         };
+                    };
 
-                        console.log($scope.idCursoTem)
-                        for (f--; f >= 0; f--) {
-                            var rubr = rubrosPorEnviar[f],
-                            num = rubricasPorEnviar[f];
+                    if (errorNomb === 0) {
 
-                            $http.post('php/agregarRubrosDirector.php', { 'nomb' : rubr, 'valr': num, 'rubNomb': $scope.idCursoTem}).
-                              success(function(dataGrupo, status) {
-                            })
+                        s = s/2;
+                        f = f/2;
+        
+                        var cosa = [],
+                            RubricaLista = [];
+        
+                        function pushToAry(name, val) {
+                            var vas = {};
+                            vas[name] = val
+                            cosa.push(vas);
+                        }
+        
+                        pushToAry('NombreDeRubrica', $scope.newNombreRubrica);
+                        pushToAry('NombreDeGrupo', $scope.newNombreGrupo);
+        
+                        for (s--; s >= 0; s--) {
+                            var rubr = rubrosPorEnviar[s],
+                                num = rubricasPorEnviar[s];
+        
+                            pushToAry(rubr, num);
                         };
-                    });
-                })
+        
+    //----------        ----PHP AGREGAR RUBRICAS---------------//
+                        $http.post('php/agregarRubricaDirector.php', { 'nombreRub' : $scope.newNombreRubrica}).
+                          success(function(dataGrupo, status) {
+        
+                            $http.post('php/buscarCurso.php', { 'data' : $scope.newNombreGrupo}).
+                                success(function(dass, status) {
+        
+                                $http.post('php/agregarRubricaCursoDirector.php', { 'nRub' : $scope.newNombreRubrica, 'CuNob' : $scope.newNombreGrupo}).
+                                    success(function(da, status) {
+                                });
+                            });
+        
+                            $http.get('php/buscarRubricaDirector.php').success(function(das){
+                                $scope.rubricasID = das;
+        
+                                for (var g = $scope.rubricasID.length - 1; g >= 0; g--) {
+                                    if ($scope.rubricasID[g].nombre === $scope.newNombreRubrica) {
+                                        $scope.idCursoTem = $scope.rubricasID[g].id_rubrica
+                                    };
+                                };
+        
+                                for (f--; f >= 0; f--) {
+                                    var rubr = rubrosPorEnviar[f],
+                                    num = rubricasPorEnviar[f];
+        
+                                    $http.post('php/agregarRubrosDirector.php', { 'nomb' : rubr, 'valr': num, 'rubNomb': $scope.idCursoTem}).
+                                      success(function(dataGrupo, status) {
+                                    })
+                                };
+                            });
+                        })
 
-                archivos.RubricasCreadas.push({
-                    "rubricaLista": cosa
-                });
+                    $scope.ocultarAdd = true;
 
-                $('#modalExitoDeRubrica').fadeIn(1000);
-                $('#modalExitoDeRubrica').fadeOut(1000);
-                document.getElementById("formAddR").reset();
-                $('#selectGrupo').val(' ');
-                $('#closeRubrica').click();
+                    $scope.aggrRubr = function(){
+
+                        $scope.actualizarRubricas();
+        
+                        $('#modalExitoDeRubrica').fadeIn(1000);
+                        $('#modalExitoDeRubrica').fadeOut(1000);
+                        document.getElementById("formAddR").reset();
+                        $('#selectGrupo').val(' ');
+                        $('#closeRubrica').click();
+                        $scope.ocultarAdd = false;
+                    }
+
+                    var myVar = setTimeout($scope.aggrRubr, 2000);
+
+                    }else{
+                         $('<div class="msgError" aria-hidden="false">Este nombre ya existe</div>').insertBefore('#formRub').delay(1000).fadeOut();
+                    };
+
+                });   
 
             } else {
                 $('<div class="msgError" aria-hidden="false">El total debe ser 100</div>').insertBefore('#formRub').delay(1000).fadeOut();
@@ -995,33 +1074,7 @@ var archivos = {
 
     "CursosDisponilbes": [],
 
-    "Carreras": [{
-        "carrera": "Desarrollo de web",
-        "CursosAsignados": [{
-            "curso": "Curso de nuevo",
-        }, {
-            "curso": "Curso de numeros"
-        }],
-
-    }, {
-        "carrera": "Desarrollo de Software",
-        "CursosAsignados": [{
-            "curso": "Curso de progra",
-        }, {
-            "curso": "Curso de y2k38"
-        }],
-
-    }, {
-        "carrera": "Telematica",
-        "CursosAsignados": [{
-            "curso": "Curso temporal",
-        }],
-    }, {
-        "carrera": "TIC",
-        "CursosAsignados": [{
-            "curso": "Curso de estudiantes",
-        }],
-    }],
+    "Carreras": [],
 
     "ProfesoresNormales": []
 }
@@ -1033,14 +1086,6 @@ var archivos = {
 //I say this: never gonna give you up, never gonna let you down,
 //never gonna run around and desert you. Never gonna make you cry,
 //never gonna say goodbye. Never gonna tell a lie and hurt you.
-
-// This is black magic
-
-// from
-
-// *Some stackoverlow link
-
-
 
 
 //Borre el index de no repetirse en area_profe y quite la relacion

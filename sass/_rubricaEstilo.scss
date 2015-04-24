@@ -77,9 +77,9 @@
 }
 
 .alinieminento{
-  margin: 0 auto;
-  max-width: 325px;
-  position: static; // This
+  margin: 0 auto !important;
+  max-width: 318px !important;
+  position: relative !important;
 }
 #formAddR{
   margin-top: 2em;

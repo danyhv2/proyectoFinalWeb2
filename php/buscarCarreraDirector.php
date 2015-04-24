@@ -1,7 +1,7 @@
 <?php
     include "config.php"; 
 
-   $sql= "SELECT `nombre` FROM `carreras` WHERE `inactivo` = 0";   
+   $sql= "SELECT `nombre`, id_carrera FROM `carreras` WHERE `inactivo` = 0";   
 
     $result = mysqli_query($con, $sql);   
 
