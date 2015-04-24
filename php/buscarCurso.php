@@ -16,7 +16,4 @@ $objData = json_decode($data);
     mysqli_free_result($result);
     mysqli_close($con);
     echo json_encode($rows);
-   
-
-   
 ?>

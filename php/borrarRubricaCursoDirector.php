@@ -2,11 +2,9 @@
     include "config.php"; 
 
   $data = json_decode(file_get_contents("php://input"));
-  $nombre = mysql_real_escape_string($data->nomb);
-  $valor = mysql_real_escape_string($data->valr);
-  $IdRubrica = mysql_real_escape_string($data->rubNomb);
+  $noe = mysql_real_escape_string($data->nosis);
 
-  $query= "CALL agregarRubrosDirector('$nombre','$valor', '$IdRubrica')";
+  $query= "CALL borrarRubricaCursoDirector('$noe')";
 
   $result = mysqli_query($con, $query);
 

@@ -9,6 +9,7 @@
         $scope.NombreProfes = [];
         $scope.NombreEstuds = [];
         $scope.NombreCarrera = [];
+        $scope.cursosDB = [];
 
         $http.get('php/buscarProfesores.php').success(function(data){
             $scope.NombreProfes1 = data;
@@ -29,12 +30,13 @@
             $scope.NombreCarrera1 = data;
             for (var i = $scope.NombreCarrera1.length - 1; i >= 0; i--) {
                 $scope.NombreCarrera.push($scope.NombreCarrera1[i].nombre);
+                $scope.cursosDB.push({CodCur : $scope.NombreCarrera1[i].id_curso,
+                                        Nombre : $scope.NombreCarrera1[i].nombre})
             };
         })
 
         //Tomar rubricas creadas y actualizar
         $scope.actualizarRubricas = function(){
-
             archivos.RubricasCreadas = [];
             
             $http.get('php/buscarRubrica.php').success(function(data){
@@ -43,44 +45,51 @@
                 $http.get('php/buscarRubros.php').success(function(datu){
                     $scope.rubros = datu;
 
-                    for (var i = $scope.rubricasBuscadas.length - 1; i >= 0; i--) {
-                        var rubrosDelCurso = [];
-                        var nombr  = $scope.rubricasBuscadas[i].NombreRubrica;
-                        var rubricaTemporal = {
-                            "rubricaLista": [{
-                                    "NombreDeRubrica": $scope.rubricasBuscadas[i].NombreRubrica
-                                }, {
-                                    "NombreDeGrupo": "noob"
-                                }]
-                        };
+                    $http.get('php/buscarRubricaAsignadaCurso.php').success(function(mal){
+                            var curRub = mal;
 
-                            $http.post('php/buscarRubricaAsignadaCurso.php', { 'RubNombre' : nombr}).
-                              success(function(data) {
-                                $scope.cursoAsig = data[0].nombre;
-                            });
-   
-            //-------------------Acomodar el array de rubros--------------//
-                        for (var r = $scope.rubros.length - 1; r >= 0; r--) {
+                        for (var i = $scope.rubricasBuscadas.length - 1; i >= 0; i--) {
+    
+                            var rubrosDelCurso = [];
+                            var cursoAsig = "";
+                            var nombr  = $scope.rubricasBuscadas[i].NombreRubrica;
 
-                            if ($scope.rubricasBuscadas[i].id_rubrica === $scope.rubros[r].id_rubrica) {
-
-                                function pushToMery(name, val) {
-                                      var vas = {};
-                                      vas[name] = val
-                                      rubrosDelCurso.push(vas);
-                                  }
-                                  pushToMery($scope.rubros[r].nombre, $scope.rubros[r].valor);
-                              };
-                          };
-
-                          console.log(rubrosDelCurso)
-            //-------------------Pushear los rubros a el array base------------//
-
-                            for (var m = rubrosDelCurso.length - 1; m >= 0; m--) {
-                                rubricaTemporal.rubricaLista.push(rubrosDelCurso[m])
+                            for (var oc = curRub.length - 1; oc >= 0; oc--) {
+                                if (curRub[oc].rubrica_curso == nombr) {
+                                    cursoAsig = curRub[oc].nombre;
+                                }
                             };
-                            archivos.RubricasCreadas.push(rubricaTemporal)
-                    };
+
+                            var rubricaTemporal = {
+                                "rubricaLista": [{
+                                        "NombreDeRubrica": nombr
+                                    }, {
+                                        "NombreDeGrupo": cursoAsig
+                                    }]
+                            };
+    
+            //------    -------------Acomodar el array de rubros--------------//
+                            for (var r = $scope.rubros.length - 1; r >= 0; r--) {
+    
+                                if ($scope.rubricasBuscadas[i].id_rubrica === $scope.rubros[r].id_rubrica) {
+    
+                                    function pushToMery(name, val) {
+                                          var vas = {};
+                                          vas[name] = val
+                                          rubrosDelCurso.push(vas);
+                                      }
+                                      pushToMery($scope.rubros[r].nombre, $scope.rubros[r].valor);
+                                  };
+                              };
+    
+            //------    -------------Pushear los rubros a el array base------------//
+    
+                                for (var m = rubrosDelCurso.length - 1; m >= 0; m--) {
+                                    rubricaTemporal.rubricaLista.push(rubrosDelCurso[m])
+                                };
+                                archivos.RubricasCreadas.push(rubricaTemporal)
+                        };
+                    });
 
                 });
 
@@ -115,6 +124,7 @@
                 codigoCursoTemporal = [],
                 nombreGrupoTemporal = [], 
                 estudiantesTemporales = [],
+                GrupoActualizableTemporal = {},
                 profesoresTemporales = [];
 
             archivos.GruposDeCurso = [];
@@ -145,7 +155,7 @@
                         };
                         //Hasta este punto se jalan todos los valores del grupo
                         //Los inserto al json que uso
-                        var GrupoActualizableTemporal = {};
+                         GrupoActualizableTemporal = {};
 
                         for (var i = nombreGrupoTemporal.length - 1; i >= 0; i--) {
                             var estudian = [],
@@ -556,9 +566,9 @@
 
             var codCurz = 0;
 
-            for (var l = archivos.GruposDeCurso.length - 1; l >= 0; l--) {
-                if (archivos.GruposDeCurso[l].NombreDelCurso === $scope.infoIngresada1) {
-                    codCurz = archivos.GruposDeCurso[l].codigoCurso;
+            for (var l = $scope.cursosDB.length - 1; l >= 0; l--) {
+                if ($scope.cursosDB[l].Nombre === $scope.infoIngresada1) {
+                    codCurz = $scope.cursosDB[l].CodCur;
                 };
             };
 
@@ -569,8 +579,6 @@
                 "Estudiantes": valorActualE,
                 "Profesores": valorActualP,
             }
-
-            console.log(grupoTemp)
 
             //Metodo para agregar grupo
 // -----------------------PHP --------------------
@@ -605,7 +613,6 @@
             });
 
             for (var u = valorActualP.length - 1; u >= 0; u--) {
-                console.log(valorActualP[u].NombreProfesor)
                 $http.post('php/agregarProfesoresGrupodirector.php', {'RolProf': pan[u], 'nombreProf' : valorActualP[u].NombreProfesor, 'GrupoAsig': $scope.infoIngresada2}).
                 success(function(dataGrupo, status) {
                 })
@@ -746,23 +753,42 @@
                         cosa.push(vas);
                     }
 
-                       for (var w = 0; w < s; w++) {
-                        var rubr = rubrosPorReemplazar[w],
-                            num = rubricasPorReemplazar[w];
+                       
+                        $http.get('php/buscarRubricaDirector.php').success(function(das){
+                             $scope.rubEdit = das;
+        
+                             for (var y = $scope.rubEdit.length - 1; y >= 0; y--) {
+                                 if ($scope.rubEdit[y].nombre === nombrer) {
+                                     $scope.EditCursoId = $scope.rubEdit[y].id_rubrica
+                                 };
+                             };
 
-                           pushToAry(rubr, num);
+                             for (var w = 0; w < s; w++) {
+                                var rubr = rubrosPorReemplazar[w],
+                                    num = rubricasPorReemplazar[w];
+        
+                                   pushToAry(rubr, num);
 
+                                    $http.post('php/editar_cambiarRubroRubrica.php', { 'valRub' : num, 'nomRub': rubr, 'RubrNon': $scope.EditCursoId}).
+                                    success(function(dataGrupo, status) {
+                                    })
+                             };
+                         })    
+                       
+                    $scope.estirub = function(){
+                        $scope.actualizarRubricas();
+                        $('#modelDetallesRubrica').modal('hide');
+                        $scope.btnEditRub = false;
+                        $('.errormsj2').hide();
+                        $('#rubricasModal').empty();
+                        $('<p id="msgSuccess" class="alert alert-success">Datos guardados correctamente.</p>').insertBefore('#tutuloRubri').delay(1000).fadeOut();
+ 
+                    }
 
-                            $http.post('php/editar_cambiarRubroRubrica.php', { 'valRub' : num, 'nomRub': rubr, 'RubrNon': cosa[0].NombreDeRubrica}).
-                                success(function(dataGrupo, status) {
-                            })
+                    $scope.btnEditRub = true;
 
-                       };
+                    var myVar = setTimeout($scope.estirub, 2000);
 
-
-                    $('.errormsj2').hide();
-                    $('#rubricasModal').empty();
-                    $('<p id="msgSuccess" class="alert alert-success">Datos guardados correctamente.</p>').insertBefore('#tutuloRubri').delay(1000).fadeOut();
                 }else{
                     $('.errormsj2').hide();
                     $('#rubricasModal').empty();
@@ -784,10 +810,24 @@
                 $http.post('php/borrarRubricaDirector.php', { 'rubNomb' : valores.rubricaLista[0].NombreDeRubrica}).
                 success(function(dataGrupo, status) {
                 })
- 
-                $http.post('php/borrarRubrosRubrica.php', { 'nomn' : valores.rubricaLista[0].NombreDeRubrica}).
+
+                $http.get('php/buscarRubrica.php').success(function(data){
+                    var id = data;
+                    for (var i = id.length - 1; i >= 0; i--) {
+                        if (id[i].NombreRubrica === valores.rubricaLista[0].NombreDeRubrica){
+                            var parIdRub = id[i].id_rubrica
+
+                            $http.post('php/borrarRubrosRubrica.php', { 'idRub' : parIdRub}).
+                            success(function(dataGrupo, status) {
+                            })
+                        };
+                    };
+                })
+
+                $http.post('php/borrarRubricaCursoDirector.php', { 'nosis' : valores.rubricaLista[0].NombreDeRubrica}).
                 success(function(dataGrupo, status) {
                 })
+
                 //-------------------PHP BorrarRubrica------------//
 
                 $scope.este.datos.RubricasCreadas.splice(f, 1);    
@@ -829,39 +869,24 @@
                 total = 0,
                 mobile = false;
 
-                if ($(window).width() < 760) {
+                $('.valNotPunto').each(function() {
+                    rubricasPorEnviar.push($(this).val());
+                    y++
+                    s++
+                    f++
+                });
 
-                   $('.valNot').each(function() {
-                        rubricasPorEnviar.push($(this).val());
-                        y++
-                        s++
-                        f++
-                    });
-
-                    $('.rubroP').each(function() {
-                        rubrosPorEnviar.push($(this).text());
-                    });
-
-                }
-                else {
-
-                   $('.valNotPunto').each(function() {
-                        rubricasPorEnviar.push($(this).val());
-                        y++
-                        s++
-                        f++
-                    });
-
-                        $('.rubroPuntoTemporal').each(function() {
-                        rubrosPorEnviar.push($(this).text());
-                    });
-                }
-
+                $('.rubroPuntoTemporal').each(function() {
+                    rubrosPorEnviar.push($(this).text());
+                });
+                
             for (y--; y >= 0; y--) {
                 total = total + Number(rubricasPorEnviar[y])
             };
 
             if (total === 100) {
+                s = s/2;
+                f = f/2;
 
                 var cosa = [],
                     RubricaLista = [];
@@ -880,23 +905,40 @@
                         num = rubricasPorEnviar[s];
 
                     pushToAry(rubr, num);
-
                 };
 
     //--------------PHP AGREGAR RUBRICAS---------------//
-                $http.post('php/agregarRubricaDirector.php', { 'nombreRub' : $scope.newNombreRubrica, 'nombreCur': $scope.newNombreGrupo}).
+                $http.post('php/agregarRubricaDirector.php', { 'nombreRub' : $scope.newNombreRubrica}).
                   success(function(dataGrupo, status) {
+
+                    $http.post('php/buscarCurso.php', { 'data' : $scope.newNombreGrupo}).
+                        success(function(dass, status) {
+
+                        $http.post('php/agregarRubricaCursoDirector.php', { 'nRub' : $scope.newNombreRubrica, 'CuNob' : $scope.newNombreGrupo}).
+                            success(function(da, status) {
+                        });
+                    });
+
+                    $http.get('php/buscarRubricaDirector.php').success(function(das){
+                        $scope.rubricasID = das;
+
+                        for (var g = $scope.rubricasID.length - 1; g >= 0; g--) {
+                            if ($scope.rubricasID[g].nombre === $scope.newNombreRubrica) {
+                                $scope.idCursoTem = $scope.rubricasID[g].id_rubrica
+                            };
+                        };
+
+                        console.log($scope.idCursoTem)
+                        for (f--; f >= 0; f--) {
+                            var rubr = rubrosPorEnviar[f],
+                            num = rubricasPorEnviar[f];
+
+                            $http.post('php/agregarRubrosDirector.php', { 'nomb' : rubr, 'valr': num, 'rubNomb': $scope.idCursoTem}).
+                              success(function(dataGrupo, status) {
+                            })
+                        };
+                    });
                 })
-
-                for (f--; f >= 0; f--) {
-                    var rubr = rubrosPorEnviar[f],
-                        num = rubricasPorEnviar[f];
-
-                    $http.post('php/agregarRubrosDirector.php', { 'nomb' : rubr, 'valr': num, 'rubNomb': $scope.newNombreRubrica}).
-                      success(function(dataGrupo, status) {
-                    })
-                };
-
 
                 archivos.RubricasCreadas.push({
                     "rubricaLista": cosa

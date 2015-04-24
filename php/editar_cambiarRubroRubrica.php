@@ -2,11 +2,11 @@
     include "config.php"; 
 
   $data = json_decode(file_get_contents("php://input"));
-  $nombre = mysql_real_escape_string($data->nomb);
-  $valor = mysql_real_escape_string($data->valr);
-  $IdRubrica = mysql_real_escape_string($data->rubNomb);
+  $valorRubro = mysql_real_escape_string($data->valRub);
+  $nomRubro = mysql_real_escape_string($data->nomRub);
+  $nombRubrica = mysql_real_escape_string($data->RubrNon);
 
-  $query= "CALL agregarRubrosDirector('$nombre','$valor', '$IdRubrica')";
+  $query= "CALL editarRubroValor('$valorRubro', '$nomRubro', '$nombRubrica')";
 
   $result = mysqli_query($con, $query);
 

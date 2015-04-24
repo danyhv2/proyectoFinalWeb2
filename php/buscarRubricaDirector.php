@@ -1,7 +1,7 @@
 <?php
     include "config.php"; 
 
-   $sql= "SELECT nombre, id_curso FROM `cursos` WHERE `inactivo` != 1;";   
+   $sql= "SELECT `id_rubrica`, `nombre` FROM `rubros_por_cursos` WHERE 1";   
 
     $result = mysqli_query($con, $sql);   
 
