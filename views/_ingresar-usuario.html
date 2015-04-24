@@ -9,7 +9,7 @@
         <div class="contUsuarios" ng-controller="userCtrl">
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
-            <form class="formUser" ng-mode-="userForm" name="userForm" ng-submit="validate() && userForm.$valid" enctype="multipart/form-data" novalidate>
+            <form class="formUser" ng-model-="newUserForm" name="userForm" ng-submit="validate() && userForm.$valid" enctype="multipart/form-data" novalidate>
               <fieldset class="col-md-12">
                 <legend>Datos Personales</legend>
                  <!--modal exito-->
@@ -81,7 +81,7 @@
                 <div class="upload-buttons">
                 <div id="editArea">
                   <div class="up-buttons">
-                    <button class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</button>
+                    <button id="btnPhoto" ng-click="preventclick()" class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</button>
                   </div>  
                 </div>
                 </div>
@@ -146,6 +146,7 @@
                 </div>
               </fieldset>
               <button class="btn btnAddUser" type="submit" name="submit">Ingresar</button>
+              {{userForm.$submitted}}
          </form> 
        </div>
      <!--FIN FORMULARIO-->

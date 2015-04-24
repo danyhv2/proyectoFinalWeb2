@@ -51,6 +51,13 @@ routerApp.controller('MenuC', function($scope, $state) {
     $('ul.menuConfig li.active').removeClass('active')
     $(this).parent('li').addClass('active')
   });
+  /*  $('#btnPhoto').click(function (e) {
+    // custom handling here
+   // e.preventDefault();
+      //e.stopPropagation();
+      $scope.userForm.$submitted == false;
+    console.log('test');
+});*/
 });
 
 var users = [];
@@ -58,6 +65,10 @@ var users = [];
 routerApp.controller('userCtrl', function($scope, $http, $state, $upload, md5){
   $scope.url = 'php/query.php';
   $scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
+
+  $scope.preventclick = function (){
+    $scope.userForm.$submitted == false;
+  }
   $scope.validate = function() {
       var userExist = false;
       var idExist = false;
