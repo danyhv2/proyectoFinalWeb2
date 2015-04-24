@@ -39,11 +39,11 @@
                   <table id="tableGrupoCurso" class="table">
                      <th>Nombre</th>
                      <th>Editar</th>
-                     <th>Eliminar</th>
+                     <!--<th>Eliminar</th>-->
                      <tr ng-repeat="valores in este.datos.Carreras">
                         <td>{{valores.carrera}}</td>
                         <td><img src="img/edit.png"  ng-click="editCrusgru(valores)" data-toggle="modal" data-target="#modalDetallesCur" style="cursor: pointer"></td>
-                        <td><img src="img/del.png" data-toggle="modal"  ng-click="delc(valores)"  data-target="#modalConfirm" style="cursor: pointer"></td>
+                        <!--<td><img src="img/del.png" data-toggle="modal"  ng-click="delc(valores)"  data-target="#modalConfirm" style="cursor: pointer"></td>-->
                      </tr>
                   </table>
                </div>
@@ -62,7 +62,7 @@
                               <input required name="nombreEditRubrica" ng-model="valor0" disabled>
                            </md-input-container>
                         </div>
-                        <div class="group tDetalleCurso">
+                        <div class="group tDetalleCurso" id="msjExi">
                            <label>Cursos asignados</label>
                            <ul class="list-group">
                               <li ng-repeat="aq in estCr" class="list-group-item">
@@ -73,7 +73,7 @@
                         </div>
                      </div>
                      <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="refrescarCarreras()">Cerrar</button>
                      </div>
                   </div>
                </div>

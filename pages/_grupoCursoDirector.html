@@ -94,8 +94,7 @@
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="resetForm()">Cerrar</button>
-                        <button type="submit" class="simpleColor btn" ng-hide="ocultarBotonGuardar">Guardar</button>
-                        <button class="btn btnConfirmModal m-progressBorrado" ng-show="ocultarBotonGuardar">Button</button>
+                        <button type="submit" class="simpleColor btn">Guardar</button>
                      </div>
                   </ng-form>
                </form>
@@ -149,7 +148,7 @@
                                     <option>Practica</option>
                                     <option>Factor Humano</option>
                                     </select></td>-->
-                                 <td><img class="pull-right" src="img/del.png" ng-click="delTempProf(proT)" style="cursor: pointer"></td>
+                                 <td class="imgtbGrupoDelete"><img class="pull-right" src="img/del.png" ng-click="delTempProf(proT)" style="cursor: pointer"></td>
                               </tr>
                            </table>
                            <table id="tablaEstud" class="tablaDetallesCursoEstu">
@@ -161,7 +160,7 @@
                            </table>
                         </div>
                         <div class="modal-footer">
-                           <button type="button" class="btn btn-default simpleColor" data-dismiss="modal">Cerrar</button>
+                           <button type="button" class="btn btn-default " data-dismiss="modal" ng-click="actualizarGrupos()">Cerrar</button>
                         </div>
                      </div>
                   </div>
