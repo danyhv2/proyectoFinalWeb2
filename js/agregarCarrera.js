@@ -12,7 +12,7 @@ var carrera = angular.module('agregarCarrera', [])
         'Codigo': $scope.codigoCarrera,
         'Director': $('.optionsDirector').find('span').text()
       };*/
-      $http.post('php/ingresarCarrera.php', { 'nombre' : $scope.nombreCarrera, 'codigo':$scope.codigoCarrera, 'directorCarrera': ($('.optionsDirector').find('span').text()) }).
+      $http.post('php/ingresarCarrera.php', { 'nombre' : $scope.nombreCarrera, 'codigo':$scope.codigoCarrera, 'directorCarrera': ($('.optionsDirector').find('.md-select-label').eq(0).text()) }).
       success(function(dataCarrera, status) {
       $scope.status = status;
       $scope.data = dataCarrera;

@@ -1,6 +1,13 @@
 // Code goes here
 angular.module('modifyCarrera', [])
   .controller('updateCarreraCtrl', function($scope, $http) {
+
+    $http.post('php/getDirectoresCarrera.php').
+        success(function(dataDirectores) {
+          $scope.data=dataDirectores;
+        console.log(dataDirectores);
+      });
+
    var self=this;
 
     function renderElement(elementIds) {
@@ -10,6 +17,7 @@ angular.module('modifyCarrera', [])
     }
 
     self.buscarCarrera = function(){
+        
       $http.post('php/buscarCarrera.php', { "data" : $scope.getCarrera }).
       success(function(data) {
         console.log(data);
@@ -24,6 +32,7 @@ angular.module('modifyCarrera', [])
           self.formEditCarrera.director.$setViewValue(data[0].dirCarrera);
           self.formEditCarrera.idCarrera.$setViewValue(data[0].id_carrera);
           renderElement(['#inpNombreCarrera', '#inpCodCarrera', '#inpDirCarrera', '#inpId']);
+
         }
         
       })
@@ -32,7 +41,7 @@ angular.module('modifyCarrera', [])
 
     $scope.modificar = function() {
       if($scope.updCarrera.formEditCarrera.$valid && $('#chkCurso').not('.md-checked')){
-        $http.post('php/modificarCarrera.php', { 'nombre' : $scope.nombreCarrera, 'codigo':$scope.codigo, 'director': $scope.director, 'id': $scope.id_carrera}).
+        $http.post('php/modificarCarrera.php', { 'nombre' : $scope.nombreCarrera2, 'codigo':$scope.codigo, 'director': ($('.optionsDirector').find('.md-select-label').eq(1).text()), 'id': $scope.id_carrera, 'inactivo': '0'}).
             success(function(data, status) {
               $scope.status = status;
               $scope.data = data;
@@ -56,7 +65,7 @@ angular.module('modifyCarrera', [])
         });
 
         $('.btnConfirmModal').click(function() {
-          $http.post('php/modificarCarrera.php', { 'nombre' : $scope.nombreCarrera, 'codigo':$scope.codigo, 'director': $scope.director, 'id': $scope.id_carrera, 'inactivo': '1'}).
+          $http.post('php/modificarCarrera.php', { 'nombre' : $scope.nombreCarrera, 'codigo':$scope.codigo, 'director': $scope.director, 'id': $scope.id_carrera, 'inactivo': 1}).
             success(function(data, status) {
             
           })

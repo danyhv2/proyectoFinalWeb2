@@ -13,13 +13,13 @@ include "config.php";
 	$fecha = mysql_real_escape_string($data->fechaNacimiento);
 	$role = mysql_real_escape_string($data->role);
 	$id=mysql_real_escape_string($data->id);
-	$inactivo='0';
+	$inactivo=($data->inactive);
 
 
-
+	$fNac = date("Y-m-d", strtotime($fecha));
 
 	//if($nombre != '' && $primerApellido != '' && $segundoApellido != '' && $role != '' && $email != ''){
-		$sql = "CALL modificarUsuario('$nombre', '$email', '$ced', '$primerApellido', '$segundoApellido', '$dir', '$telefono', '$contrasena', '$fecha', '$role', '$inactivo', '$id')";
+		$sql = "CALL modificarUsuario('$nombre', '$email', '$ced', '$primerApellido', '$segundoApellido', '$dir', '$telefono', '$contrasena', '$fNac', '$role', '$inactivo', '$id')";
 	//}
    	
 

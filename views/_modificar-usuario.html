@@ -24,8 +24,32 @@
 
               <img id="imgPhoto" class="imgProfile img-circle" name="profilePhoto" ng-model="updateUser.datos[1].Foto" ng-src="{{updateUser.datos[1].Foto}}">
               </div>
+              <!--MODAL EXITO-->
+                  <div id="modalExitoUser2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-dialog modal-sm">
+                      <div id="modalContent" class="modal-content alert alert-success">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span>Datos modificados exitosamente.</span>
+                      </div>
+                    </div>
+                  </div>
                 <fieldset class="col-md-12 col-xs-10">
-                  <p id="msgSuccess" class="alert alert-success">Datos modificados correctamente.</p>
+                  <!--modal confirm-->
+                <div class="modal-dialog">
+                  <div id="modalConfirmUsuario" class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                      <h1 class="modal-title">Confirmar inactivar usuario</h1>
+                    </div>
+                    <div class="modal-body">
+                      <p>Está seguro que desea proceder con la inactivacción del usuario?</p>
+                    </div> 
+                    <div class="modal-footer">
+                      <button type="button" class="btn btnConfirmUser" data-dismiss="modal">Proceder</button>
+                      <button type="button" class="btn btnAdd cancelConfirmUser">Cancelar</button>
+                    </div>
+                  </div>
+                </div>
                   <legend>Datos Personales
                     <label class="lblEdit lblEditUser">
                       <a class="editUser" href="#">Editar
@@ -72,7 +96,7 @@
                     <label>Cédula</label>
                     <input  validate-number valid-values="validValues" id="inpCedula" name="userCed" ng-model="cedula" ng-disabled="disable">
                   </md-input-container>
-                  <md-checkbox ng-model="data.cb1" id="chkCurso" aria-label="Checkbox 1" ng-disabled="disable">
+                  <md-checkbox ng-model="cb1" id="chkCurso" aria-label="Checkbox 1" ng-disabled="disable">
                       Inactivar
                   </md-checkbox>
                 </div>
@@ -85,6 +109,15 @@
                   </label>
                 </legend>
                 <div class="col-md-6 col-sm-5">
+                  <!--MODAL EXITO-->
+                  <div id="modalExitoUser" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                    <div class="modal-dialog modal-sm">
+                      <div id="modalContent" class="modal-content alert alert-success">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span>Datos modificados exitosamente.</span>
+                      </div>
+                    </div>
+                  </div>
                   <md-input-container>
                     <label>Correo</label>
                     <input id="inpCorreo" name="correo" ng-model="correo" ng-disabled="disable2">
@@ -92,6 +125,7 @@
                   <md-input-container>
                     <label>Contraseña</label>
                     <input type="password" id="inpPassword" name="contrasena" ng-model="contrasena" ng-disabled="disable2">
+                    <div class="msgError errPass2" >La contraseña actual que está ingresando es incorrecta.</div>
                   </md-input-container>
                   <md-input-container class="inpNewPass">
                     <label>Contraseña nueva</label>
@@ -100,7 +134,7 @@
                   <md-input-container class="inpNewPassConfirm">
                     <label>Confirmar contraseña</label>
                     <input class="inpConfirm" type="password" ng-disabled="disable2">
-                    <div class="msgError errPass">Contraseña nueva y Confirmar contraseña deben ser iguales.</div>
+                    <div class="msgError errPass" >Contraseña nueva y Confirmar contraseña deben ser iguales.</div>
                   </md-input-container>
                   <button class="btn btnAddUser saveUserAccess" type="submit" ng-click="validarContrasena()">Guardar</button>
                   <button class="btn btnAdd cancelUserAccess" type="submit" ng-click="cancelUsuarioAcceso()">Cancelar</button>
@@ -119,4 +153,4 @@
   </div>
     </div>
 </div>
-  </div>
+</div>

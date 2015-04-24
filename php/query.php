@@ -12,7 +12,7 @@ include "config.php";
 	$fchNacimiento = mysql_real_escape_string($data->FechaNacimiento);
 	$userPic = mysql_real_escape_string($data->img);
 	$email = ($data->Correo);
-	$password = md5(($data->Contrasena));
+	$password = ($data->Contrasena);
 	$role=mysql_real_escape_string($data->role);
 
 	echo $usrname, $firstLastName, $SecondLastName, $address, $userId, $fchNacimiento, $email;
@@ -162,9 +162,7 @@ if (isset ($name)) {
 }
 */
 $fNac = date("Y-m-d", strtotime($fchNacimiento));
-echo $fNac;
-echo $fchNacimiento;
-echo $_POST['fecha'];
+
 
 	//$query = 'INSERT INTO usuarios (nombre, primerApellido, segundoApellido, direccion, cedula, foto, fechaNacimiento, correo, contrasena, id_role) values ("' . $usrname . '","' . $firstLastName . '","' . $SecondLastName . '","'.$address.'","'.$userId.'","'.$userImg.'","'.$fNac.'","'.$email.'","'.$password.'","'.$role.'")';
 

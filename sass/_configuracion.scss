@@ -74,6 +74,12 @@ h1, legend{
   		color:#ffffff;
   	}
 }
+.displayNone{
+	display:none;
+}
+.displayBlock{
+	display:block;
+}
 .mainConfig{
 	background-color: #e3e1e1;
 	width: 100%;
@@ -109,14 +115,18 @@ h1, legend{
 				font-size:13px;
 				color:rgb(244,67,54);
 					}
-			#modalExito, #modalExitoCarrera2, #inpId, #modalExitoCurso2, #inpUserId{
+			#modalExito, #modalExitoCarrera2, #inpId, #modalExitoCurso2, #inpUserId, #modalExitoUser, #modalExitoUser2{
 				display:none;
 			}
 			#modalContent{
 				position:absolute;
 				background-color:#dff0d8;
 			}
-			#modalConfirm, #modalConfirmCarrera, #modalConfirmCurso{
+			#modalExitoUser{
+				position: relative;
+  				top: -32px;
+			}
+			#modalConfirm, #modalConfirmCarrera, #modalConfirmCurso, #modalConfirmUsuario{
 				position:absolute;
 				display:none;
 				z-index:10001;
@@ -175,7 +185,7 @@ h1, legend{
 							font-size:16px;
 						}	
 				}
-				.errPass{
+				.errPass, .errPass2{
 					display:none;
 				}
 				.saveUser, .cancelUser, .saveUserAccess, .cancelUserAccess, .inpNewPass, .inpNewPassConfirm{
