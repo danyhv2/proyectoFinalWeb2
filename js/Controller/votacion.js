@@ -8,9 +8,14 @@ moduleVotacion.controller('VotacionCtrl', function($scope, $http) {
     //obtener proyectos
 
     $http.post('php/obtenerProyectos.php').
-              success(function(dataProyectos, status) {
-              $scope.data = dataProyectos;
-              console.log(dataProyectos);
+      success(function(dataProyectos, status) {
+      $scope.data = dataProyectos;
+      console.log(dataProyectos);
+        if(dataProyectos.length == 0){
+            $('.panelVotacion').css('display','none');
+        } else{
+             $('.tVotacion').css('display','none');
+        } 
             })
 
 	$scope.project=[
@@ -163,7 +168,20 @@ moduleVotacion.controller('VotacionCtrl', function($scope, $http) {
 		if((parseInt($('#inpFechaCierre').val())-parseInt($('#inpFechaInicio').val()))<0){
 			$('.msgErrorUser').fadeIn(1000);
 			$('.msgErrorUser').fadeOut(4000);
-		}
+		}else{
+
+        }
+        if($('.chkVotacion').hasClass('md-checked') == false){
+            $('.msgError').css('display','block');
+        }
+        if($scope.voteForm.$valid && $('.chkVotacion').hasClass('md-checked') == true && (parseInt($('#inpFechaCierre').val())-parseInt($('#inpFechaInicio').val()))>0){
+            $('#modalExitoVotacion').fadeIn(1000);
+            $('#modalExitoVotacion').fadeOut(4000);
+            $('.formUser').trigger('reset');
+            $('.chkVotacion').removeClass('md-checked');
+
+
+        }
 		/* $http.post('php/configurarVotacion.php', { 'fInicio' : ($('#inpFechaInicio').val()), 'fCierre':($('#inpFechaCierre').val())}).
 		      success(function(dataVotacion, status) {
 		      $scope.data = dataVotacion;

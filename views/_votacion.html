@@ -4,11 +4,65 @@
          Votación
       </h4>
    </div>
-   <div class="collapseCarrera panel-collapse collapse in" role="tabpanel"  >
-      <div class="panel-body">
+   <div class="collapseCarrera panel-collapse collapse in" role="tabpanel">
+    <style type="text/css">
+    .tVotacion{
+      text-align: center;
+      color: rgb(131, 89, 89);
+    }
+    .errorVotacion, #modalExitoVotacion{
+      display: none;
+    }
+    </style>
+    <h1 class="tVotacion">Actualmente no hay proyectos para votación</h1>
+      <div class="panel-body panelVotacion">
+        <!--modal exito-->
+        <div id="modalExitoVotacion" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div id="modalContent" class="modal-content alert alert-success">
+              <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+              <span>Configuración guardada!</span>
+            </div>
+          </div>
+        </div>
         <div class="votacionControl" ng-controller="VotacionCtrl">
           <h1>Configurar Votación</h1>
            <form class="formUser" ng-model="voteForm" name="voteForm" ng-submit="validarVotacion() && voteForm.$valid" novalidate>
+            <div class="btnProyectos col-xs-12 pull-right">
+                <button class="btn btnAddUser" type="submit" data-toggle="modal" data-target="#modalConfActual">Configuración actual</button>
+              </div>
+              <!--modal configuracion actual-->
+                <div class="modal fade" id="modalConfActual" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                   <div class="modal-content">
+                      <div class="modal-header">
+                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                         <h1>Configuración Actual</h1>
+                      </div>
+                      <div class="modal-body">
+                       <table class="table tUsuarios">
+                          <thead>
+                            <tr>
+                              <th>Fecha Inicio</th>
+                              <th>Fecha Cierre</th>
+                              <th>Valor de estrellas</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                               <tr>
+                                <td>hola</td>
+                                <td>hola</td>
+                                <td>{hola</td>
+                               </tr>
+                          </tbody>
+                        </table> 
+                      </div>
+                      <div class="modal-footer">
+                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      </div>
+                   </div>
+                </div>
+             </div>
               <fieldset class="col-md-12">
                 <p id="msgSuccess" class="alert alert-success">Configuración guardada.</p>
                 <p class="msgErrorUser alert alert-danger">La fecha de cierre debe se mayor que la fecha de inicio.</p>
@@ -16,11 +70,14 @@
                   <md-input-container ng-controller="DatepickerDemoCtrl">
                     <p class="input-group">
                       <label>Fecha de inicio</label>
-                      <input name="inpFechaInicio" id="inpFechaInicio"  type="datetime" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="openTime" />
+                      <input name="inpFechaIni" id="inpFechaInicio" required type="datetime" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="openTime" />
                       <span class="input-group-btn">
                         <button class="btnDatePicker" type="button" ng-click="open($event)">
                         <img src="img/datepicker.png">
                         </button>
+                        <div ng-show="voteForm.$submitted || voteForm.inpFechaIni.$touched">
+                          <div class="msgError" ng-show="voteForm.inpFechaIni.$error.required">Debe ingresar una fecha.</div>
+                        </div>
                       </span>
                     </p>
                     </md-input-container>
@@ -29,11 +86,14 @@
                     <md-input-container ng-controller="DatepickerDemoCtrl">
                     <p class="input-group">
                       <label>Fecha de cierre</label>
-                      <input name="inpFechaCierre" id="inpFechaCierre"  type="datetime" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="closeTime" />
+                      <input name="inpFechaCierre" id="inpFechaCierre" required  type="datetime" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="closeTime" />
                       <span class="input-group-btn">
                         <button class="btnDatePicker" type="button" ng-click="open($event)">
                         <img src="img/datepicker.png">
                         </button>
+                        <div ng-show="voteForm.$submitted || voteForm.inpFechaCierre.$touched">
+                          <div class="msgError" ng-show="voteForm.inpFechaCierre.$error.required">Debe ingresar una fecha.</div>
+                        </div>
                       </span>
                     </p>
                     </md-input-container>
@@ -42,31 +102,32 @@
                   <md-input-container class="estrellaVot">
                   <p class="input-group contStar">
                     <label>Valor por estrella</label>
-                    <input type="number" validate-number valid-values="validValues" id="stars" required name="stars" ng-model="stars">
+                    <input type="number" validate-number valid-values="validValues" required id="stars" required name="stars" ng-model="stars">
                     <span class="input-group-btn">
                       <img src="img/starVot.png">
                     </span>
                   </p>
-                    <div ng-show="voteForm.$submitted || voteForm.direccion.$touched">
-                      <div class="msgError" ng-show="voteForm.direccion.$error.required">El valor por estrellas es requerido.</div>
+                    <div ng-show="voteForm.$submitted || voteForm.stars.$touched">
+                      <div class="msgError" ng-show="voteForm.stars.$error.required">Debe ingresar un valor.</div>
                     </div>
-
                   </md-input-container>
                 </div>
               </fieldset>      
               <h2>Seleccione la cantidad de proyectos</h2>
               <div class="col-xs-12 mainProject">
+                <p class="msgError errorVotacion">Debe seleccionar algún proyecto.</p>
                 <div class="contProject col-xs-6 col-sm-3" ng-repeat="projects in data">
                   <div class="projectInfo">
                     <h3>{{projects.nombre_equipo}}</h3>
                     <img ng-src="uploads/proyectos/{{projects.id_proyecto}}.png" err-SRC="uploads/proyectos/noImg2.jpg" class="img-circle">
-                    <md-checkbox ng-model="data.cb1" class="chkVotacion" id="chkCurso" aria-label="Checkbox 1"></md-checkbox>
+                    <md-checkbox ng-model="cb1" class="chkVotacion" id="chkCurso" aria-label="Checkbox 1"></md-checkbox>
                   </div>
                 </div>
               </div>
               <div class="btnProyectos col-xs-12">
                 <button class="btn btnAddUser" type="submit">Guardar configuración</button>
               </div>
+              {{voteForm.$valid}}
           </form>
          </div>
       </div>
