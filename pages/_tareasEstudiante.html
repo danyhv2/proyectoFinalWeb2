@@ -1,38 +1,31 @@
-<div id="accordionTareas" role="tablist" aria-multiselectable="true">
-   <div class="panel-heading visible-xs" role="tab" id="headingOne">
-      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionTareas" href=".collapseTareas" aria-expanded="true" aria-controls="collapseTareas">
-         Tareas
-      </h4>
-   </div>
-   <div class="collapseTareas panel-collapse collapse in" role="tabpanel">
-      <div class="panel-body">
-      	<div class="contenedorRubricasUi clearfix col-xs-12">
-	<h1 id="miBtn">Tareas</h1>
+<div class="contenedorRubricasUi hidden-xs clearfix col-xs-12 tablasFull">
+		<h1 id="miBtn">Tareas</h1>
 		<button type="button" class="btn simpleColor pull-right" data-toggle="modal" data-target="#subirArchivos">Subir archivo</button>
 		<div class="contenedorDeCajas clearfix">
 			<table class="table">
 			  <thead>
 			    <tr>
 			      <th>
-			        <a href="" ng-click="ordenar('gPName')" class="misTitulos">Nombre</a>
-			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-gPName')" ></span>
+			        <a href="" ng-click="ordenar('nombreGrupo')" class="misTitulos">Nombre</a>
+			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-nombreGrupo')" ></span>
 			      </th>
 			      <th><a href="" ng-click="ordenar('curso')" class="misTitulos">Curso</a>
 			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-curso')" ></span></th>
 			    </tr>
 			  </thead>
 			  <tbody>
-			    <tr ng-repeat="GruposArchivo in GruposArchivos2 | filter:buscar | orderBy:ordenSeleccionado">
-			      <td><a href="" ng-click="mostrarArchivos2(GruposArchivo)" data-toggle="modal" data-target="#mostrarArchivos" class="misTitulos">{{GruposArchivo.gPName}}</a></td>
+			    <tr ng-repeat="proyecto in proyectos2 | filter:buscar | orderBy:ordenSeleccionado">
+			      <td><a href="" ng-click="mostrarArchivos2(proyecto)" data-toggle="modal" data-target="#mostrarArchivos" class="misTitulos">{{proyecto.nombreGrupo}}</a></td>
 				  <td>
-				  	{{GruposArchivo.curso}}
+				  	{{proyecto.curso}}
 				  </td>
 				</tr>
 			   </tbody>
-			</table>
+				</table>
 		</div>
+
 		<!--MODAL-->
-		<div class="modal fade" id="mostrarArchivos" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		<div class="modal fade tablasFull" id="mostrarArchivos" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 			  <div class="modal-dialog">
 			    <div class="modal-content">
 			      <div class="modal-header">
@@ -88,7 +81,7 @@
 			</div>
 		<!--FIN DE MODAL-->
 		<!--MODAL-->
-		<div class="modal fade" id="subirArchivos" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+		<div class="modal fade tablasFull" id="subirArchivos" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
@@ -122,6 +115,7 @@
 		  </div>
 		</div>
 		<!--FIN DE MODAL-->
+</div>
 		<!--MODAL-->
 		<div id="modalExito" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
   			<div class="modal-dialog modal-sm">
@@ -132,7 +126,3 @@
   			</div>
 		</div>
 	<!--MODALExit-->
-      </div>
-  </div>
-</div>
-

@@ -6,7 +6,7 @@
    </div>
    <div class="collapseCarrerasDirector panel-collapse collapse in" role="tabpanel">
       <div class="panel-body">
-         <div class ="contenedorRubricasUi col-xs-12" ng-controller='directorController as este'>
+         <div class ="contenedorRubricasUi col-xs-12" ng-controller='directorController as este' ng-init="refrescarCarreras()">
             <!--Modal Confirm-->
             <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                <div class="modal-header">
@@ -67,7 +67,7 @@
                            <ul class="list-group">
                               <li ng-repeat="aq in estCr" class="list-group-item">
                                  {{aq.apj}}
-                                 <img class="pull-right" src="img/del.png"  ng-click="delCurso(valores)" style="cursor: pointer">
+                                 <img class="pull-right" src="img/del.png"  ng-click="delCurso(aq)" style="cursor: pointer">
                               </li>
                            </ul>
                         </div>
@@ -90,13 +90,17 @@
                            <ng-form name="carreFormDirector">
                               <div id="curs">
                                  <div class="group">
-                                    <md-select placeholder="Carrera" ng-model="mCarrera" name="nombreGrupo">
-                                       <md-option ng-repeat="car in este.datos.Carreras" ng-value="car.carrera">{{car.carrera}}</md-option>
-                                    </md-select>
+                                    <label>Carreras</label>
+                                    <select class="form-control" ng-model="mCarrera" name="nombreGrupo">
+                                       <option ng-repeat="car in este.datos.Carreras" >{{car.carrera}}</option>
+                                    </select>
                                  </div>
-                                 <md-select placeholder="Curso" ng-change="CursAdd()" ng-model="mCurso" name="nombreCurso">
-                                    <md-option ng-repeat="grupos in este.datos.GruposDeCurso" ng-value="grupos.NombreDelCurso">{{grupos.NombreDelCurso}}</md-option>
-                                 </md-select>
+
+                                 <label>Cursos</label>
+                                 <select class="form-control" ng-change="CursAdd()" ng-model="mCurso" name="nombreCurso">
+                                    <option ng-repeat="grupos in este.cursosD">{{grupos.Nombre}}</option>
+                                 </select>
+
                                  <table class="tablaCursotemporal table">
                                     <th>Cursos por asignar</th>
                                     <tbody  class="CurTempor"  id="tablaCursos">
@@ -106,7 +110,8 @@
                            </ng-form>
                            <div class="modal-footer">
                               <button id="closeCarrera" type="button" class="btn btn-default"  ng-click="resetFormCg()" data-dismiss="modal">Cerrar</button>
-                              <button type="submit" class="btn agregarBtn simpleColor" id="agregaCear">Agregar</button>
+                              <button type="submit" class="btn agregarBtn simpleColor" id="agregaCear" ng-hide="ocl">Agregar</button>
+                              <button class="btn btnConfirmModal m-progressBorrado" ng-show="ocl">Button</button>
                            </div>
                         </form>
                      </div>

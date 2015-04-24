@@ -1,8 +1,9 @@
 <?php
     include "config.php"; 
-
-   $sql= "SELECT `nombre`, id_carrera FROM `carreras` WHERE `inactivo` = 0";   
-
+	$data = file_get_contents("php://input");
+  	$nombreEquipo = json_decode($data);
+   	
+   	$sql= "CALL proyectosEnviados('$nombreEquipo->nombreE')";
     $result = mysqli_query($con, $sql);   
 
     if (!$result){

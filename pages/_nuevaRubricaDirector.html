@@ -109,7 +109,8 @@
                               </div>
                            </ng-form>
                            <div class="modal-footer">
-                              <button type="submit" class="simpleColor btn agregarBtn" id="agregarubrica">Agregar</button>
+                              <button type="submit" class="simpleColor btn agregarBtn" id="agregarubrica" ng-hide="ocultarAdd">Agregar</button>
+                              <button class="btn btnConfirmModal m-progressBorrado" ng-show="ocultarAdd">Button</button>
                               <button id="closeRubrica" class="btn btn-default" ng-click="resetFormRubric()" data-dismiss="modal">Cerrar</button>
                            </div>
                         </form>

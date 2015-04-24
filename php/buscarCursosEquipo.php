@@ -1,10 +1,11 @@
 <?php
     include "config.php"; 
-
-   $sql= "SELECT `nombre`, id_carrera FROM `carreras` WHERE `inactivo` = 0";   
-
+$data = file_get_contents("php://input");
+  	$profe = json_decode($data);
+   	
+   	$sql= "CALL listarCusros('$profe->nombreP')";
     $result = mysqli_query($con, $sql);   
-
+ 
     if (!$result){
         echo "DB error";
         echo "MySQL error:" . mysqli_error();

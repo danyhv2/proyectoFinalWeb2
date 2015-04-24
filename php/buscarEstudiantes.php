@@ -1,9 +1,10 @@
 <?php
     include "config.php"; 
-
-   $sql= "SELECT `nombre`, id_carrera FROM `carreras` WHERE `inactivo` = 0";   
-
-    $result = mysqli_query($con, $sql);   
+    $data = file_get_contents("php://input");
+  	$idCurso = json_decode($data);
+   	
+   	$sql= "CALL listarEstudiantes('$idCurso->nombreC')";
+    $result = mysqli_query($con, $sql);  
 
     if (!$result){
         echo "DB error";

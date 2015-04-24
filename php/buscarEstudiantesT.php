@@ -1,8 +1,10 @@
 <?php
     include "config.php"; 
-
-   $sql= "SELECT `nombre`, id_carrera FROM `carreras` WHERE `inactivo` = 0";   
-
+	$data = file_get_contents("php://input");
+  	$nombreEquipo1 = json_decode($data);
+  	$nombreId = json_decode($data);
+   	
+   	$sql= "CALL listarEstudiantesEquipo('$nombreEquipo1->nombreG1')";
     $result = mysqli_query($con, $sql);   
 
     if (!$result){

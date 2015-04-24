@@ -1,8 +1,9 @@
 <?php
     include "config.php"; 
-
-   $sql= "SELECT `nombre`, id_carrera FROM `carreras` WHERE `inactivo` = 0";   
-
+	$data = file_get_contents("php://input");
+  	$nombreG = json_decode($data);
+   	
+   	$sql= "CALL borrarGrupo('$nombreG->nombreC')";
     $result = mysqli_query($con, $sql);   
 
     if (!$result){
