@@ -75,7 +75,7 @@ angular.module('modifyUser', [])
             self.userFormEdit.correo.$setViewValue(data[0].correo);
             self.userFormEdit.contrasena.$setViewValue(data[0].contrasena);
             self.userFormEdit.tel.$setViewValue(data[0].telefono);
-            self.userFormEdit.profilePhoto.$setViewValue(data[0].Foto);
+            self.userFormEdit.profilePhoto.$setViewValue(data[0].cedula);
             self.userFormEdit.roleUsuario.$setViewValue(data[0].userRole);
             self.userFormEdit.usuario_id.$setViewValue(data[0].idUsuario);
 
