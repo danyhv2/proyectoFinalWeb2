@@ -6,7 +6,7 @@
    </div>
    <div class="collapseRubrica panel-collapse collapse in" role="tabpanel">
       <div class="panel-body">
-         <div class ="contenedorRubricasUi" ng-controller='directorController as este' data-ng-init="actualizarGrupos(); actualizarRubricas();">
+         <div class ="contenedorRubricasUi" ng-controller='directorController as este' ng-init="actualizarRubricas();">
             <!--Modal Confirm-->
             <div class="modal-content in alinieminento" id="modalConfirm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                <div class="modal-header">
@@ -59,7 +59,8 @@
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="borrarRubTemp()">Cerrar</button>
-                        <button type="button" class="simpleColor btn" data-dismiss="modal" ng-click="editCreat()">
+                        <button class="btn btnConfirmModal m-progressBorrado" ng-show="btnEditRub">Button</button>
+                        <button type="button" class="simpleColor btn" ng-click="editCreat()" ng-hide="btnEditRub">
                         Guardar</button>
                      </div>
                   </div>

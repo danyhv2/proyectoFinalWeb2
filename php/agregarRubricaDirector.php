@@ -3,9 +3,8 @@
 
   $data = json_decode(file_get_contents("php://input"));
   $nombreRub = mysql_real_escape_string($data->nombreRub);
-  $nombreCur = mysql_real_escape_string($data->nombreCur);
 
-  $query= "CALL agregarRubricaDirector('$nombreRub','$nombreCur')";
+  $query= "CALL agregarRubricaDirector('$nombreRub')";
 
   $result = mysqli_query($con, $query);
 

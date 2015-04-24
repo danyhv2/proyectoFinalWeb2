@@ -1,15 +1,11 @@
 <?php
     include "config.php"; 
 
-  $data = file_get_contents("php://input");
-  $RubNombre1 = json_decode($data);
+   $sql= "SELECT `id_curso`, `nombre`, `prof_encargado`, `cuatrimestre`, `horario`, `rubrica_curso`, `annoLectivo`, `cod_Curso`, `creditos`, `grupo_nombre`, `inactivo` FROM `cursos` WHERE 1";   
 
-  $sql= "CALL buscarCursoAsignadoRubrica('$RubNombre1->RubNombre')";
+    $result = mysqli_query($con, $sql);   
 
-
-  $result = mysqli_query($con, $sql);
-
- if (!$result){
+    if (!$result){
         echo "DB error";
         echo "MySQL error:" . mysqli_error();
         exit;
@@ -23,4 +19,5 @@
     mysqli_free_result($result);
     mysqli_close($con);
     echo json_encode($rows);
-?>
+    
+  ?>
