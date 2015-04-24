@@ -5,6 +5,14 @@ moduleVotacion.controller('VotacionCtrl', function($scope, $http) {
 
 	$scope.validValues = ['0','1','2','3','4','5','6','7','8','9'];
 
+    //obtener proyectos
+
+    $http.post('php/obtenerProyectos.php').
+              success(function(dataProyectos, status) {
+              $scope.data = dataProyectos;
+              console.log(dataProyectos);
+            })
+
 	$scope.project=[
 		{'id':'1',
 		 'nombre': 'DMGCoders',

@@ -56,10 +56,10 @@
               </fieldset>      
               <h2>Seleccione la cantidad de proyectos</h2>
               <div class="col-xs-12 mainProject">
-                <div class="contProject col-xs-6 col-sm-3" ng-repeat="projects in project">
+                <div class="contProject col-xs-6 col-sm-3" ng-repeat="projects in data">
                   <div class="projectInfo">
-                    <h3>{{projects.nombre}}</h3>
-                    <img ng-src="{{projects.imgProject}}" class="img-circle">
+                    <h3>{{projects.nombre_equipo}}</h3>
+                    <img ng-src="uploads/proyectos/{{projects.id_proyecto}}.png" err-SRC="uploads/proyectos/noImg2.jpg" class="img-circle">
                     <md-checkbox ng-model="data.cb1" class="chkVotacion" id="chkCurso" aria-label="Checkbox 1"></md-checkbox>
                   </div>
                 </div>

@@ -6,31 +6,39 @@
 		</div>
 		<div class="perfilDetalles" ng-controller="MyCtrl">
 			<div class="perfilImg col-sm-5">
-				<img class="userImg img-circle" ng-src="uploads/{{data[0].cedula}}.jpg" alt="{{data[0].nombre}}"/>
-					<p ng-file-select class="btnCambiarImg">Cambiar imagen</p>	
+				<img class="userImg img-circle" ng-src="uploads/{{data[0].cedula}}.jpg" err-SRC="uploads/usuarios/noImgUser.png" alt="{{data[0].nombre}}"/>
+					<!--<p ng-file-select class="btnCambiarImg">Cambiar imagen</p>-->
+					<style type="text/css">
+					.changeImg{
+						  margin-top: -60px;
+						  margin-left: 78px;
+						  position: absolute;
+						  z-index: 10001;
+					}
+					.changeImg a{
+						color: rgb(53, 53, 53);
+					}
+					</style>
+					<div class="upload-div changeImg">    
+	                <div class="upload-buttons">
+	                <div id="editArea">
+	                  <div class="up-buttons">
+	                    <a class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.pdf,*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Cambiar foto</a>
+	                  </div>  
+	                </div>
+	                </div>
+	                <ul ng-show="rejFiles.length > 0" class="response">
+	                  <li class="sel-file" ng-repeat="f in rejFiles">
+	                    El archivo que esta tratando de subir no es permitido.
+	                  </li>
+	                </ul>
+	                <ul ng-show="files.length > 0" class="response">
+	                  <li class="sel-file" ng-repeat="f in files">
+	                    <img ng-show="f.dataUrl" ng-src="{{f.dataUrl}}" ng-model="photo" class="thumb">      
+	                  </li>
+	                </ul>
+	              </div>
 			</div>
-				<!--AGREGAR FOTO-->
-                <md-input-container class="upload-div">    
-                <div class="upload-buttons">
-                <div id="editArea">
-                  <div class="up-buttons">
-                    <button class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.pdf,*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</button>
-                  </div>  
-                </div>
-                </div>
-                <ul ng-show="rejFiles.length > 0" class="response">
-                  <li class="sel-file" ng-repeat="f in rejFiles">
-                    El archivo que esta tratando de subir no es permitido.
-                  </li>
-                </ul>
-                <ul ng-show="files.length > 0" class="response">
-                  <li class="sel-file" ng-repeat="f in files">
-                    <img ng-show="f.dataUrl" ng-src="{{f.dataUrl}}" ng-model="photo" class="thumb">      
-                  </li>
-                </ul>
-              </md-input-container>
-  			<!--FIN AGREGAR FOTO-->
-
 			<div class="perfilDatos col-sm-7">
 				<table class="table">
 					<tbody>
