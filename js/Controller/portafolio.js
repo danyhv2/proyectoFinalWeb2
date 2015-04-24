@@ -2,13 +2,27 @@
 var modulePortafolio = angular.module('modulePortafolio', []);
 modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location){
 
-	
-		$scope.miNombre= 'Roy Solera Quiros';
-		$scope.miCorreo = 'sq16roy@gmail.com';
-		$scope.miTel = '86108951';
-		$scope.miDir = 'San Ramon, Alajuela, Costa Rica';
-		$scope.miFoto = 'https://lh4.googleusercontent.com/-zs7WY0lop4A/AAAAAAAAAAI/AAAAAAAAAJI/8IyIZpVLAJE/photo.jpg';
-		$scope.miDesc = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Nuevo trabajo';
+		$scope.estudianteActual = 'test@gmail.com'
+        $scope.datosP =[];
+            $http.post('php/datosPortafolio.php',{'nombreC' : $scope.estudianteActual, 'nombreC2' : $scope.estudianteActual}).success(function(data){
+			 $http.post('php/datosPortafolio.php',{'nombreC' : $scope.estudianteActual}).success(function(data){
+	            $scope.temp = data;
+            console.log($scope.temp[0].descripcion)
+				$scope.miNombre= $scope.temp[0].nombre+' '+$scope.temp[0].primerApellido+' '+$scope.temp[0].segundoApellido;
+				$scope.miCorreo = $scope.temp[0].correo;
+				$scope.miTel = $scope.temp[0].telefono;
+				$scope.miFoto = 'https://lh4.googleusercontent.com/-zs7WY0lop4A/AAAAAAAAAAI/AAAAAAAAAJI/8IyIZpVLAJE/photo.jpg';
+				$scope.miDesc = $scope.temp[0].descripcion;
+            });
+            /*$http.get('php/buscarEquipo.php').success(function(data){
+            		$scope.temp2 = data;
+            		 $scope.grupoTemp = $scope.temp; 
+           			 for(var p=0; p< $scope.grupoTemp.length;p++){
+  					 $scope.gruposTemp.push({nombreGrupo : $scope.grupoTemp[p].nombre_grupo});
+					$scope.grupos = $scope.gruposTemp;
+  					};
+        	});*/
+        	});
 
 		$scope.proyectos=[
 		{nombre:'Full Colors',por:'Roy Solera',pagina:'https://www.ucenfotec.ac.cr/',tecnologias:'php,Angular,Javascript',url:'https://carlosazaustre.es/blog/content/images/2014/12/angular_bg1-3.png'},

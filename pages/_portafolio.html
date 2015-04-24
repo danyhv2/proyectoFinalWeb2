@@ -49,12 +49,11 @@
 	<h1 class="pBlanco">Información personal</h1>
 		<div id="infoPerfil" class="clearfix">
 			<div class="pull-right col-md-2 col-xs-6" id="botonesEditar">
-				<img ng-src="img/edit2.png" ng-click="imprimirPortafolio()" ng-hide="no" style="cursor:pointer;">
-				<img id="edicionTotal" ng-src="img/edit2.png" ng-click="editarInfo(miNombre,miCorreo,miTel,miDesc)" ng-show="no" data-toggle="modal" data-target="#editarInfo" style="cursor:pointer;">
-				<img src="img/check.png" ng-click="imprimirPortafolio2()" ng-show="no" style="cursor:pointer;">
 				<img ng-src="img/print.png" ng-click="imprimirPortafolio3()" ng-hide="no" style="cursor:pointer;">
+				<img src="img/check.png" ng-click="imprimirPortafolio2()" ng-show="no" style="cursor:pointer;">
+				<img id="edicionTotal" ng-src="img/edit2.png" ng-click="editarInfo(miNombre,miCorreo,miTel,miDesc)"  data-toggle="modal" data-target="#editarInfo" style="cursor:pointer;">
 			</div>
-			<div class="col-md-10 col-xs-12">
+			<div class="col-md-10 col-xs-10">
 				<div class="pull-left col-md-4" style="cursor:pointer;" id="wrapper">
 					<img id="miImg"class="img-responsive img-circle" ng-src="{{miFoto}}" alt="">
 					<i class="text" ><p hide-sm>Cambiar imagen</p></i>	
@@ -74,8 +73,10 @@
 		</div>
 		<div id="trabajos">
 			<h1 class="pBlanco">Mis proyectos</h1>
-	<div>
+	<div id="editarNoVer">
 		<img ng-src="img/work.png"  style="cursor:pointer;" ng-show="no" ng-click="ver()" data-toggle="modal" data-target="#mostrarPortafolio">
+		<img ng-src="img/edit2.png" ng-click="imprimirPortafolio()" ng-hide="no" style="cursor:pointer;">
+		<img src="img/check.png" ng-click="imprimirPortafolio2()" ng-show="no" style="cursor:pointer;">
 	</div>
 	<div class="col-md-4 col-xs-6" ng-repeat="proyecto in proyectos" style="margin-top: 2%;">
 				<div id="miInfo" style="width: 79%;   box-shadow: 2px 2px 14px 2px;">
@@ -129,7 +130,7 @@
 						</md-input-container>
 						<md-input-container>
 		      				<label class=".label" for="tecnologias">Tecnologias implementadas:</label>
-		      				<input md-maxlength="14" maxlength="14" type="text" type="text" id="tecnologias" ng-model="tecnologias">
+		      				<input md-maxlength="40" maxlength="40" type="text" type="text" id="tecnologias" ng-model="tecnologias">
 						</md-input-container>
 						<md-input-container>
 		      				<label class=".label" for="urlPagina">Url de la pagina:</label>
@@ -159,10 +160,6 @@
 			       		<md-input-container>
 		      				<label class=".label" for="nombre">Nombre:</label>
 		      				<input type="text" type="text" id="nombre" ng-model="miNombre2">
-						</md-input-container>
-						<md-input-container>
-		      				<label class=".label" for="correo">Correo:</label>
-		      				<input type="text" type="text" id="correo" ng-model="miCorreo2">
 						</md-input-container>
 						<md-input-container>
 		      				<label class=".label" for="tel">Teléfono:</label>

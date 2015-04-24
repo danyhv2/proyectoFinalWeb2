@@ -1,4 +1,17 @@
-
+.tablasFull
+{
+	table
+	{
+		th
+		{
+	  		border-bottom: 2px solid #97226b !important;
+		}
+		td
+		{
+			border-bottom: 2px solid #97226b !important;
+		}
+	}
+}
 #crearGrupo
 {
   padding-bottom: 1%;
@@ -265,7 +278,9 @@
 }
 .ventanasGru
 {
-	margin-left: 15% !important;
+  margin: 0 auto !important;
+  max-width: 318px !important;
+  position: relative !important;
 }
 @keyframes example {
     from {background-color: white;}
@@ -378,6 +393,13 @@ opacity:0.5;
 {
 	display: none !important;
 }
+#botonesEditar
+	{
+		img
+		{
+			float: right;
+		}
+	}
 
  @media print 
 {
@@ -385,13 +407,22 @@ opacity:0.5;
 	{
 		display: none;
 	}
+	#editarNoVer
+	{
+		display : none;
+	}
 	#wrapper
 	{
 		width :50%;
 		#miImg
 		{
 			border: 1px !important;
+			border-radius : 0% !important;
 		}
+	}
+	.contInfoFooter
+	{
+		margin-left: 22% !important;
 	}
 	#menuContainer
 	{

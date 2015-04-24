@@ -1,26 +1,13 @@
-
-
-
-
-
-<div id="accordionMiGrupo" role="tablist" aria-multiselectable="true">
-   <div class="panel-heading visible-xs" role="tab" id="headingOne">
-      <h4 class="panel-title" data-toggle="collapse" data-parent="#accordionGrupo" href=".collapseMiGrupo" aria-expanded="true" aria-controls="collapseMiGrupo">
-         Mi grupo
-      </h4>
-   </div>
-   <div class="collapseMiGrupo panel-collapse collapse in" role="tabpanel">
-      <div class="panel-body">
-      	<div class="contenedorRubricasUi col-xs-12">
-	<h1>Mis grupos</h1>
-	<button type="button" class="btn simpleColor pull-right" data-toggle="modal" data-target="#addInfo">Agregar información</button>
-		<div>
+<div class="contenedorRubricasUi hidden-xs col-xs-12 tablasFull">
+		<h1>Mis grupos</h1>
+		<button type="button" class="btn simpleColor pull-right" data-toggle="modal" data-target="#addInfo">Agregar información</button>
+		<div class="">
 			<table class="table">
 			  <thead>
 			    <tr>
 			      <th>
-			        <a href="" ng-click="ordenar('proyectoName')" class="misTitulos">Nombre</a>
-			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-proyectoName')" ></span>
+			        <a href="" ng-click="ordenar('nombreGrupo')" class="misTitulos">Nombre</a>
+			        <span class="caret" style="cursor: pointer" ng-click="ordenar('-nombreGrupo')" ></span>
 			      </th>
 			      <th>
 			      	<a href="" ng-click="ordenar('curso')" class="misTitulos">Curso</a>
@@ -30,17 +17,17 @@
 			  </thead>
 			  <tbody>
 			    <tr ng-repeat="proyecto in proyectos2 | filter:buscar | orderBy:ordenSeleccionado">
-			      <td><a href="" ng-click="mostrarIntegrantes2(proyecto)" data-toggle="modal" data-target="#mostrarMiGrupo" class="misTitulos">{{proyecto.proyectoName}}</a></td>
+			      <td><a href="" ng-click="mostrarIntegrantes2(proyecto)" data-toggle="modal" data-target="#mostrarMiGrupo" class="misTitulos">{{proyecto.nombreGrupo}}</a></td>
 			      <td>
 					{{proyecto.curso}}	
 				 </td>
 				</tr>
 			   </tbody>
-			</table>
+				</table>
 		</div>
 		</div>
 		<!--MODAL-->
-			<div class="modal fade" id="mostrarMiGrupo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+			<div class="modal fade tablasFull" id="mostrarMiGrupo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 			  <div class="modal-dialog">
 			    <div class="modal-content">
 			      <div class="modal-header">
@@ -60,12 +47,12 @@
 				            </tr>
 				          </thead>
 				          <tbody>
-					            <tr ng-repeat="este in myGrupo">
+					            <tr ng-repeat="todo in todos">
 					              <td>
-					              	{{este.nombre}}
+					              	{{todo.nombre}}
 					              </td>
 					              <td>
-					              	{{este.role}}
+					              	{{todo.role}}
 					              </td>
 					            </tr>
 				          </tbody>
@@ -77,73 +64,45 @@
 			      </div>
 			    </div>
 			  </div>
+			</div>
 			<!--FIN DE MODAL-->
-			<!--MODAL AGREGAR INFO-->
-		<div class="modal fade" id="addInfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+			<div class="modal fade" id="addInfo" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
 		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cerrarArchivos()">&times;</button>
+		        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cerrarArchivos()" tabindex="0">×</button>
 		        <h1>Agregar información del grupo</h1>
 		      </div>
 		      <div class="modal-body">
-		        <form class="form-horizontal">
-				  <md-input-container id="crearGrupo">
+		        <form class="form-horizontal ng-pristine ng-valid">
+				  <md-input-container id="crearGrupo" class="md-default-theme">
                     <label class=".label" for="nombre">Descripción:</label> 
-                    <textarea columns="3" name="archivo" id="nameArchivo" ng-model="nuevoNameArhivo" class=""></textarea>
+                    <textarea columns="3" name="archivo" id="nameArchivo" ng-model="nuevoNameArhivo" class="ng-pristine ng-untouched ng-valid md-input" aria-multiline="true" tabindex="0" aria-invalid="false" style="height: auto;"></textarea>
                   </md-input-container>
                   <!--AGREGAR FOTO-->
-                <md-input-container class="upload-div" ng-controller="MyCtrl">    
+                <md-input-container class="upload-div ng-scope md-default-theme" ng-controller="MyCtrl">    
                 <div class="upload-buttons">
-                <div id="editArea">
+                <div id="editArea" class="ng-scope">
                   <div class="up-buttons">
-                    <button class="btn simpleColor upload-button" ng-file-select ng-model="files" ng-multiple="false" ng-accept="'*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Subir foto del proyecto</button>
+                    <input type="file" accept="*.pdf,*.jpg,*.png" tabindex="-1" __afu_gen__="true" style="width: 0px; height: 0px; position: absolute; padding: 0px; margin: 0px; overflow: hidden; opacity: 0;"><button class="btn btnAddUser ng-pristine ng-untouched ng-valid" ng-file-select="" ng-model="files" ng-multiple="false" ng-accept="'*.pdf,*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0" accept="*.pdf,*.jpg,*.png" __refelem__="true" aria-invalid="false" style="overflow: hidden;">Seleccionar foto</button>
                   </div>  
                 </div>
                 </div>
-                <ul ng-show="rejFiles.length > 0" class="response">
-                  <li class="sel-file" ng-repeat="f in rejFiles">
-                    El archivo que esta tratando de subir no es permitido, debe ser .png o .jpg
-                  </li>
+                <ul ng-show="rejFiles.length > 0" class="response ng-hide" aria-hidden="true">
+                  <!-- ngRepeat: f in rejFiles -->
                 </ul>
-                <ul id="listImg" ng-show="files.length > 0" class="response">
-                  {{f.dataUrl}}
-                  <li class="sel-file" ng-repeat="f in files">
-                    <img ng-show="f.dataUrl" ng-src="{{f.dataUrl}}" ng-model="photo" class="thumb">
-                    <span class="progress" ng-show="f.progress >= 0">           
-                      <div style="width:{{f.progress}}%">{{f.progress}}%</div>
-                    </span>       
-                    <button class="button" ng-click="f.upload.abort();f.upload.aborted=true" ng-show="f.upload != null && f.progress < 100 && !f.upload.aborted">Abort</button>
-                    {{f.name}}
-                    <a ng-show="f.result" href="javascript:void(0)" ng-click="f.showDetail = !f.showDetail">details</a>
-                    <div ng-show="f.showDetail">
-                      <div data-ng-show="f.result.result == null">{{f.result}}</div>
-                      <ul>
-                        <li ng-repeat="item in f.result.result">
-                          <div data-ng-show="item.name">file name: {{item.name}}</div>
-                          <div data-ng-show="item.fieldName">name: {{item.fieldName}}</div>
-                          <div data-ng-show="item.size">size on the serve: {{item.size}}</div>
-                          <div data-ng-show="item.value">value: {{item.value}}</div>
-                        </li>
-                      </ul>
-                      <div data-ng-show="f.result.requestHeaders" class="reqh">request headers: {{f.result.requestHeaders}}</div>
-                    </div>
-                  </li>
+                <ul id="listImg" ng-show="files.length > 0" class="response ng-binding ng-hide" aria-hidden="true">
+                  
+                  <!-- ngRepeat: f in files -->
                 </ul>
-                <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
+                <div class="err ng-binding ng-hide" ng-show="errorMsg != null" aria-hidden="true"></div>
               </md-input-container>
 		        </form>
 		      </div>
 		      <div class="modal-footer">
-		         <button  class="btn simpleColor">Guardar</button>
-                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cerrarArchivos()">Cerrar</button>
+		         <button class="btn simpleColor">Guardar</button>
+                 <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="cerrarArchivos()" tabindex="0">Cerrar</button>
               </div>
 		    </div>
 		  </div>
 		</div>
-         
-      </div>
-    
-   </div>
-</div>
-

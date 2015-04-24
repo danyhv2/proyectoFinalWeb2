@@ -7,45 +7,46 @@
 		modulo.controller('gruposController', function($scope, $http){
 			
 						<!--//arreglo estudiantes-->
-			$scope.estudiantes = [
-			{
-				miName : 'ROY SOLERA QUIROS',
-				compañeros : 'Jose'
-			},
-			{
-				miName : 'GUILLERMO SANCHEZ GARAY'
-			},
-			{
-				miName : 'DANIEL CAMPOS ARCE'
-			},
-			{
-				miName : 'DANIELA HERNANDEZ VILLAFUERTE'
-			},
-			{
-				miName : 'MELISSA MORA ROSALES'
-			},
-			{
-				miName : 'JOAQUIN HOLGUIN MONTAÑA'
-			},
-			{
-				miName : 'JUAN ANTONIO BERMEJO ALCARAZ'
-			},
-			{
-				miName : 'SARA LAINEZ ORTIN'
-			},
-			{
-				miName : 'ENCARNACION ARAGONES VILALTA'
-			},
-			{
-				miName : 'MARIA JOSE PATIÑO MAESTRE'
-			},
-			{
-				miName : 'JOSE MARIA CAMPUZANO PUGA'
-			},
-			{
-				miName : 'JOSE GUIJARRO ADELL'
-			}
-			];
+		$scope.estudianteActual = 'mrosales@ucenfotec.ac.cr';
+		$scope.profe = 'pablo castro';
+		$scope.gruposTemp = [];
+		$http.get('php/buscarEquipo.php').success(function(data){
+            		$scope.temp = data;
+            		 $scope.grupoTemp = $scope.temp; 
+            		 //console.log($scope.temp)
+           			 for(var p=0; p< $scope.grupoTemp.length;p++){
+  					 $scope.gruposTemp.push({nombreGrupo : $scope.grupoTemp[p].nombre_grupo});
+		$scope.grupos = $scope.gruposTemp;
+  					};
+        			});
+        $scope.cursos =[];
+        $scope.cursos1 =[];
+        $http.post('php/buscarCursosEquipo.php',{'nombreP' : $scope.profe}).success(function(data){
+            $scope.cursosTemp = data;
+            $scope.cursos1 = $scope.cursosTemp;
+        	$scope.cursos =[];
+            for (var i = $scope.cursos1.length - 1; i >= 0; i--) {
+                $scope.cursos.push({nombre : $scope.cursos1[i].nombre, idCurso : $scope.cursos1[i].id_curso})
+            };
+        	});
+        $scope.mostrarSelecPorCurso = function(cursoEstudiante){
+           $scope.estudiantes =[];
+        $scope.estudiantes1 =[];
+           $http.post('php/buscarEstudiantes.php', {'nombreC' : cursoEstudiante.idCurso}).
+             		success(function(data) {
+        		console.log(data)
+             			$scope.estudiantesTemp = data;
+            		$scope.estudiantes1 = $scope.estudiantesTemp;
+            	for(var p=0; p< $scope.estudiantes1.length;p++){
+                	$scope.estudiantes.push({idCurso : cursoEstudiante.idCurso,nombre : $scope.estudiantes1[p].nombre+' '+$scope.estudiantes1[p].primerApellido+' '+$scope.estudiantes1[p].segundoApellido, correo : $scope.estudiantes1[p].correo});
+           console.log($scope.estudiantes)
+            	};
+            	});
+        };
+        $scope.nuevoEStudianteEquipo = function(){
+            $('div.modal-backdrop').removeClass('nada');
+            $('#modalNuevoGrupo').fadeIn(200);            
+        };
 			$scope.proyectos = [
 			{
 				proyectoName : 'Proyecto #1',
@@ -77,19 +78,17 @@
 				]
 			}
 			];
-			$scope.proyectos2 = [
-			{
-				proyectoName : 'DMGCoders',
-				curso : 'Proyecto Web 1',
-				integrantes :[
-				{nombre:'Roy Solera Quiros', role: 'Calidad'}, 
-				{nombre:'Guillermo Sánchez', role:'Soporte'},
-				{nombre:'Daniela Hernández Villafuerte', role:'Calidad'}, 
-				{nombre:'Melissa Rosales Mora', role:'Coordinador'},
-				{nombre:'Daniel Campos Arce', role:'Desarrollo'}
-				]
-			}
-			];
+			$scope.proyectos2 = [];
+           $http.post('php/miEquipoProyecto.php', {'nombreC' : $scope.estudianteActual}).
+             		success(function(data) {
+             			$scope.temp = data;
+        		console.log($scope.temp)
+            	
+            	for(var p=0; p< $scope.temp.length;p++){
+                	$scope.proyectos2.push({nombreGrupo : $scope.temp[p].nombre_grupo,curso : $scope.temp[p].nombre});
+            	};
+            	});
+           console.log($scope.proyectos2)
 			$scope.opciones = [
 			{
 				opcion : 'Seleccionar'
@@ -159,7 +158,6 @@
 			$scope.aja= function(){
 				console.log($scope.notasG);
 			};
-			console.log($scope.proyectos);
 
 						<!--//fin arreglo estudiantes-->
 
@@ -173,6 +171,7 @@
 
 						<!-- //funcion ordenar tabla de grupos-->
 			$scope.ordenar= function(orden){
+				$scope.ordenSeleccionado ='';
 				console.log($scope.ordenSeleccionado);
 				$scope.ordenSeleccionado = orden;
 			};
@@ -203,13 +202,13 @@
 				}else if ($scope.nuevoRole == ''){
 					$('div#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
 				}else{
-					for(var p=0; p< $scope.grupos.length;p++){
-							console.log($scope.grupos[0]);
-							for(var v=0; v< $scope.grupos[p].misEstudiantes.length;v++){
-								console.log($scope.grupos[p].misEstudiantes.length);
-								if ($scope.nuevoEstudiante.miName == $scope.grupos[p].misEstudiantes[v].nombre) {
+					$http.get('php/todosLosNombresEstudiante.php').success(function(data){
+            		$scope.temp = data;
+            		 $scope.grupoTemp = $scope.temp; 
+					console.log($scope.nuevoEstudiante)
+           			for(var v=0; v< $scope.grupoTemp.length;v++){
+								if ($scope.nuevoEstudiante.nombre == ($scope.grupoTemp[v].nombre+' '+$scope.grupoTemp[v].primerApellido+' '+$scope.grupoTemp[v].segundoApellido) && $scope.nuevoEstudiante.idCurso == $scope.grupoTemp[v].id_curso) {
 										cuentaEstudiantes++;
-										console.log($scope.grupos[p].misEstudiantes[v]);
 										$('#errorNombreGrupo').detach();
 										$('#errorEstudiante').detach();
 										$('#errorRoles').detach();
@@ -218,14 +217,14 @@
 								}else{
 									$('#errorRoles').detach();
 								}
-							}	
 							}
 							if (cuentaEstudiantes == 0) {
 								for(var t=0; t< $scope.muchos.length;t++){
-								if ($scope.muchos[t].nombre == $scope.nuevoEstudiante.miName) {
+								if ($scope.muchos[t].nombre == $scope.nuevoEstudiante.nombre) {
 									cuentaEstudiantes2++;
 									$('#errorModiEs').detach();
 									$('#errorEstudiante').detach();
+									$scope.nuevoEstudiante ='';
 									$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiante ya esta en la lista para agregar</span>');
 								}
 							}
@@ -235,7 +234,16 @@
 									$('#errorNombreGrupo').detach();
 									$('#errorEstudiante').detach();
 									$('#errorRoles').detach();
-									$scope.muchos.push({nombre:$scope.nuevoEstudiante.miName, role:$scope.nuevoRole});
+									$scope.tempCorreo = '';
+									$scope.tempId = '';
+									for(var t=0; t< $scope.estudiantes.length;t++){
+										if ($scope.estudiantes[t].nombre==$scope.nuevoEstudiante.nombre) {
+											$scope.tempCorreo = $scope.estudiantes[t].correo;
+											$scope.tempId = $scope.estudiantes[t].idCurso;
+											break;
+										};
+									};
+									$scope.muchos.push({nombre:$scope.nuevoEstudiante.nombre, role:$scope.nuevoRole, correo : $scope.tempCorreo, idCurso : $scope.tempId});;
 									console.log($scope.nuevoEstudiante);
 									console.log($scope.muchos);
 									console.log($scope.muchos.length);
@@ -243,162 +251,92 @@
 									$scope.nuevoRole ='';
 							}
 							}
+            		 //console.log($scope.grupoTemp[0].nombre+' '+$scope.grupoTemp[0].primerApellido+' '+$scope.grupoTemp[0].segundoApellido)
+        			});
 					}
 				};
 						<!-- //fin funcion agregar estudiantes a arreglo vacio-->
 
 						<!-- //funcion agregar nombre de y role de estudiantes a arreglo vacio-->
 			$scope.addGrupo=function(){			
-      	var cuentaEquipos = 0;
-      	if ($scope.nuevoEstudiante == undefined) {
-      		if ($scope.nuevoName == undefined) {
-					$('#errorNombreGrupo').detach();
-					$('#errorEstudiante').detach();
-					$('#errorRoles').detach();
-					$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Debe ingresar un nombre para el equipo</span>');
-				}else if ($scope.nuevoName == ''){
-					$('#errorNombreGrupo').detach();
-					$('#errorEstudiante').detach();
-					$('#errorRoles').detach();
-					$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Debe ingresar un nombre para el equipo</span>');
-				}else{
-					$('#errorNombreGrupo').detach();
-	      	for(var z=0; z< $scope.grupos.length;z++)
-					{
-						if ( $scope.grupos[z].nombreGrupo == $scope.nuevoName) {
-								cuentaEquipos++;
-								$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Estae nombre de grupo ya esta en uso</span>');
-						}
-					}
-					if (cuentaEquipos == 0) {
-					$scope.grupos.push({nombreGrupo :$scope.nuevoName, misEstudiantes:$scope.muchos});
-						console.log($scope.grupos);
-					$('#errorEstudiante').detach();
-					$('#modalExito').fadeIn(2000);
-         			$('#modalExito').fadeOut(3000);
-					//$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut();
-					$('#modalNuevoGrupo').modal('hide');
-					$scope.nuevoName = '';
-					$scope.nuevoEstudiante ='';
-					$scope.muchos = [];
-					$scope.muchos2 = [];
-					}
-				}//
-      	}else if ($scope.nuevoEstudiante =='') {
-      		if ($scope.nuevoName == undefined) {
-					$('#errorNombreGrupo').detach();
-					$('#errorEstudiante').detach();
-					$('#errorRoles').detach();
-					$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Debe ingresar un nombre para el equipo</span>');
-				}else if ($scope.nuevoName == ''){
-					$('#errorNombreGrupo').detach();
-					$('#errorEstudiante').detach();
-					$('#errorRoles').detach();
-					$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Debe ingresar un nombre para el equipo</span>');
-				}else{
-					$('#errorNombreGrupo').detach();
-	      	for(var z=0; z< $scope.grupos.length;z++)
-					{
-						if ( $scope.grupos[z].nombreGrupo == $scope.nuevoName) {
-								cuentaEquipos++;
-								$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Estae nombre de grupo ya esta en uso</span>');
-						}
-					}
-					if (cuentaEquipos == 0) {
-					$scope.grupos.push({nombreGrupo :$scope.nuevoName, misEstudiantes:$scope.muchos});
-						console.log($scope.grupos);
-					$('#errorEstudiante').detach();
-					$('#modalExito').fadeIn(2000);
-         			$('#modalExito').fadeOut(3000);
-					//$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut()
-					$('#modalNuevoGrupo').modal('hide');
-					$scope.nuevoName = '';
-					$scope.nuevoEstudiante ='';
-					$scope.muchos = [];
-					$scope.muchos2 = [];
-					}
-				}//
-      	}else{
-      		var cuentaEstudiantes = 0;
-				var cuentaEstudiantes2 = 0;
-					$('#errorNombreGrupo').detach();
-					$('#errorEstudiante').detach();
-					$('#errorRoles').detach();
-				if ($scope.nuevoEstudiante == undefined) {
-					$('#errorNombreGrupo').detach();
-					$('#errorEstudiante').detach();
-					$('#errorRoles').detach();
-					$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
-				}else if ($scope.nuevoEstudiante == ''){
-					$('#errorNombreGrupo').detach();
-					$('#errorEstudiante').detach();
-					$('#errorRoles').detach();
-					$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
-				}else if($scope.nuevoRole == undefined){
-					$('#errorNombreGrupo').detach();
-					$('#errorEstudiante').detach();
-					$('#errorRoles').detach();
-					$('div#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
-				}else if ($scope.nuevoRole == ''){
-					$('div#roles').before('<span id="errorRoles" class="bg-danger" style="color:#f44336;">Debe seleccionar un role</span>');
-				}else{
-					for(var p=0; p< $scope.grupos.length;p++){
-							console.log($scope.grupos[0]);
-							for(var v=0; v< $scope.grupos[p].misEstudiantes.length;v++){
-								console.log($scope.grupos[p].misEstudiantes.length);
-								if ($scope.nuevoEstudiante.miName == $scope.grupos[p].misEstudiantes[v].nombre) {
-										cuentaEstudiantes++;
-										console.log($scope.grupos[p].misEstudiantes[v]);
-										$('#errorNombreGrupo').detach();
-										$('#errorEstudiante').detach();
-										$('#errorRoles').detach();
-										$scope.nuevoRole ='';
-										$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiantes ya esta en un grupo</span>');
-								}else{
-									$('#errorRoles').detach();
-								}
-							}	
-							}
-							if (cuentaEstudiantes == 0) {
-								for(var t=0; t< $scope.muchos.length;t++){
-								if ($scope.muchos[t].nombre == $scope.nuevoEstudiante.miName) {
-									cuentaEstudiantes2++;
-									$('#errorModiEs').detach();
-									$('#errorEstudiante').detach();
-									$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiante ya esta en la lista para agregar</span>');
-								}
-							}
-							if (cuentaEstudiantes2 == 0) {
-									$('#errorModiEs').detach();
-									$('#errorEstudiante').detach();
-									$('#errorNombreGrupo').detach();
-									$('#errorEstudiante').detach();
-									$('#errorRoles').detach();
-									$('#modalExito').fadeIn(2000);
-         							$('#modalExito').fadeOut(3000);
-									$scope.muchos.push({nombre:$scope.nuevoEstudiante.miName, role:$scope.nuevoRole});
-									//$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut()
-									$('#modalNuevoGrupo').modal('hide');
-									console.log($scope.nuevoEstudiante);
-									console.log($scope.muchos);
-									console.log($scope.muchos.length);
-									$scope.nuevoEstudiante ='';
-									$scope.nuevoRole ='';
+      		console.log($scope.grupos)
+      		var cuentaEquipos = 0;
+      			$scope.grupoTemp =[];
+      			$scope.grupos2 =[];
 
+					if ($scope.nuevoName == undefined || $scope.nuevoName=='') {
+					$('#errorNombreGrupo').detach();
+					$('#errorEstudiante').detach();
+					$('#errorRoles').detach();
+					$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Debe ingresar un nombre para el equipo</span>');
+					}else{
+					$('#errorNombreGrupo').detach();
+           			 for(var w=0; w< $scope.grupos.length;w++){
+           			 	if ($scope.nuevoName == $scope.grupos[w].nombreGrupo) {
+           			 		cuentaEquipos ++;
+           			 		$('div#name2').before('<span id="errorNombreGrupo" class="bg-danger" style="color:#f44336;">Este nombre de grupo ya esta en uso</span>');
+							break;
+           			 	};
+					 };
+						if (cuentaEquipos == 0) {
+							if ($scope.muchos.length != 0) {
+								$http.post('php/enviarProyectos.php', {'nombreE' : $scope.nuevoName}).
+             						success(function(data) {
+									console.log($scope.nuevoName)
+            					});
+								for(var t=0; t< $scope.muchos.length;t++){
+									$http.post('php/insertarEstudiantesEquipos.php', {'nombreId': $scope.muchos[t].idCurso,'nombreG' : $scope.nuevoName, 'nombreE' : $scope.muchos[t].correo, 'nombreR' : $scope.muchos[t].role}).
+			             				success(function(dataGrupo, status) {
+			            			});
+			             		};
+			        			$http.get('php/buscarEquipo.php').success(function(data){
+			            		$scope.temp = data;
+			            		 $scope.grupoTemp = $scope.temp; 
+			           			 for(var p=0; p< $scope.grupoTemp.length;p++){
+			  					 $scope.grupos2.push({nombreGrupo : $scope.grupoTemp[p].nombre_grupo});
+			  					};
+			        			$scope.grupos =[];
+			        			$scope.grupos = $scope.grupos2;
+			        			})
+							
+								console.log($scope.grupos);
+								$('#errorEstudiante').detach();
+								$('#modalExito').fadeIn(2000);
+								$('#modalExito').fadeOut(3000);
+			         			$('#modalNuevoGrupo').fadeOut(200);
+			         			$('div.modal-backdrop').addClass('nada');
+			         			$scope.nuevoName = '';
+								$scope.nuevoEstudiante ='';
+								$scope.cursoEstudiante ='';
+								$scopenuevoRole ='';
+								//$scope.muchos = [];
+								$('#errorNombreGrupo').detach();
+							}else{
+								$('#errorEstudiante').detach();
+								$('#errorRoles').detach();
+								$('div#estudiantes').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
 							}
-							}
-					}//2
-      	}
-      	
+							
+						}
+					}
+					
+      		
+					
+					//$('<p id="msgSuccess" class="alert alert-success mipos">Grupo creado correctamente.</p>').insertBefore('h1#equip').delay(3000).fadeOut();
+		
         };
 						<!-- //fin funcion agregar nombre de y role de estudiantes a arreglo vacio-->
 			
 						<!-- //funciones de remover-->
 			
 			$scope.removeGrupo=function(grupo){
+				console.log(grupo)
 				var i = $scope.grupos.indexOf(grupo);
 				$scope.removeGrupo1=function(){
 				$scope.grupos.splice(i,1);
+				$http.post('php/borrarEquipo.php', {'nombreC' : grupo.nombreGrupo}).
+             		success(function() {
+            	});
 				$('#modalBorrar').fadeIn(2000);
          		$('#modalBorrar').fadeOut(3000);
 				};
@@ -410,7 +348,11 @@
 			};
 			$scope.removeGrupo3=function(grupo){
 				var i = $scope.todos.indexOf(grupo);
+				console.log(grupo.idCurso)
 				$scope.todos.splice(i,1);
+				$http.post('php/borrarEstudiantesEquipo.php', {'nombreC' : grupo.correo, 'nombreCC' : grupo.idCurso}).
+             		success(function() {
+            	});
 
 			};
 			$scope.removeGrupo4=function(grupo){
@@ -600,20 +542,50 @@
 				
 			};
 			$scope.mostrarGrupo=function(grupo){
+        		$scope.todos =[];
+				$scope.todosName2 =[];
 				$scope.todosName =[];
+             	$scope.estudiantes =[];
+        		$scope.estudiantes1 =[];
+				var mio = grupo.nombreGrupo;
 				var i = $scope.grupos.indexOf(grupo);
 				$scope.todosName.push($scope.grupos[i].nombreGrupo);
-				$scope.todos = $scope.grupos[i].misEstudiantes;
-				console.log($scope.todos);
-				
+				$http.post('php/buscarEstudiantesT.php', {'nombreG1' : mio}).
+             		success(function(data) {
+             		$scope.estudiantesTemp = data;
+             		$scope.todosName2 = $scope.estudiantesTemp;
+        			console.log(data)
+            		for(var p=0; p< $scope.todosName2.length;p++){
+                		$scope.todos.push({nombre : $scope.todosName2[p].nombre+' '+$scope.todosName2[p].primerApellido+' '+$scope.todosName2[p].segundoApellido, role : $scope.todosName2[p].roleEstudiante, correo :  $scope.todosName2[p].correoEstudiante, idCurso : $scope.todosName2[p].id_grupo_curso});
+            		};
+           		$http.post('php/buscarEstudiantes.php', {'nombreC' : $scope.todos[0].idCurso}).
+             		success(function(data) {
+        			console.log(data)
+             		$scope.estudiantesTemp = data;
+            		$scope.estudiantes1 = $scope.estudiantesTemp;
+            	for(var p=0; p< $scope.estudiantes1.length;p++){
+                	$scope.estudiantes.push({nombre : $scope.estudiantes1[p].nombre+' '+$scope.estudiantes1[p].primerApellido+' '+$scope.estudiantes1[p].segundoApellido, correo : $scope.estudiantes1[p].correo});
+           		//console.log($scope.estudiantes)
+            	};
+            	});
+            	});
+             	console.log($scope.todos)
 			};
+			
+			
 			$scope.mostrarIntegrantes2=function(proyecto){
-				var i = $scope.proyectos2.indexOf(proyecto);
-				$scope.myGrupo = $scope.proyectos2[i].integrantes;
-				console.log($scope.myGrupo);
-				//console.log($scope.proyectos[i]);
-				$scope.todosIntegrantes = $scope.proyectos2[i];
-				//console.log($scope.todosIntegrantes);
+				$scope.todos =[];
+				$scope.todosName2 =[];
+				var mio = proyecto.nombreGrupo;
+				$http.post('php/buscarEstudiantesT.php', {'nombreG1' : mio}).
+             		success(function(data) {
+             		$scope.estudiantesTemp = data;
+             		$scope.todosName2 = $scope.estudiantesTemp;
+        			console.log(data)
+            		for(var p=0; p< $scope.todosName2.length;p++){
+                		$scope.todos.push({nombre : $scope.todosName2[p].nombre+' '+$scope.todosName2[p].primerApellido+' '+$scope.todosName2[p].segundoApellido, role : $scope.todosName2[p].roleEstudiante, correo :  $scope.todosName2[p].correoEstudiante, idCurso : $scope.todosName2[p].id_grupo_curso});
+            		};
+            	});
 				
 			};
 			$scope.mostrarIntegrantes=function(proyecto){
@@ -628,26 +600,40 @@
 			$scope.enviarProyectos =[];
 			$scope.mostrarProyectosVotacion=function(proyecto){
 				var contar = 0;
+				console.log(proyecto)
 				//console.log(proyecto.nuevoEnviado.opcion);
 				//console.log($scope.enviarProyectos);
 				var i = $scope.proyectos.indexOf(proyecto);
 				if (proyecto.nuevoEnviado == true) {
 					$scope.temProyectos =[];
-					$scope.enviarProyectos.push($scope.proyectos[i].proyectoName);
+					$scope.enviarProyectos.push(proyecto.nombreGrupo);
 					console.log($scope.enviarProyectos);
 					
 				}else if (proyecto.nuevoEnviado == false) {
-					var i = $scope.enviarProyectos.indexOf(proyecto.proyectoName);
+					var i = $scope.enviarProyectos.indexOf(proyecto.nombreGrupo);
 					$scope.enviarProyectos.splice(i,1);
 					console.log($scope.enviarProyectos);
 
 				}
+				$scope.eviarProyectos=function(){
+				for(var p=0; p< $scope.enviarProyectos.length;p++){
+					$http.post('php/proyectosEnviados.php', {'nombreE' : $scope.enviarProyectos[p]}).
+             		success(function(data) {
+            		});
+					console.log($scope.enviarProyectos[p])
+            		};
+				};
 			};
 
 			$scope.addEstudiante2=function(grupo){
 				var cuentaEstudiantes = 0;
 				var cuentaEstudiantes2 = 0;
-				console.log($scope.grupos);
+				
+				$http.post('php/buscarIds.php', {'nombreId' : $scope.todosName[0]}).
+             		success(function(data) {
+				console.log($scope.todosName);
+        			console.log(data)
+             		$scope.estudiantesTemp = data;
 				if ($scope.nuevoEstudiante2 == undefined) {
 					$('#errorModiEs').detach();
 					$('div#estudiantes2').before('<span id="errorModiEs" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
@@ -655,23 +641,19 @@
 					$('#errorModiEs').detach();
 					$('div#estudiantes2').before('<span id="errorModiEs" class="bg-danger" style="color:#f44336;">Debe seleccionar un estudiante</span>');
 				}else{
-					for(var p=0; p< $scope.grupos.length;p++){
-							console.log($scope.grupos[0]);
-							for(var v=0; v< $scope.grupos[p].misEstudiantes.length;v++){
-								console.log($scope.grupos[p].misEstudiantes.length);
-								if ($scope.nuevoEstudiante2.miName == $scope.grupos[p].misEstudiantes[v].nombre) {
+					for(var p=0; p< $scope.todos.length;p++){
+								if ($scope.nuevoEstudiante2.nombre == $scope.todos[p].nombre) {
 										cuentaEstudiantes++;
-										console.log($scope.grupos[p].misEstudiantes[v]);
 										$('#errorModiEs').detach();
 										$('#errorEstudiante').detach();
 										$('#errorRoles').detach();
 										$('div#estudiantes2').before('<span id="errorEstudiante" class="bg-danger" style="color:#f44336;">Este estudiantes ya esta en un grupo</span>');
 								}
-							}	
-							}	
+								
+							}
 						if (cuentaEstudiantes == 0) {
 							for(var t=0; t< $scope.temps.length;t++){
-								if ($scope.temps[t].nombre == $scope.nuevoEstudiante2.miName) {
+								if ($scope.temps[t].nombre == $scope.nuevoEstudiante2.nombre) {
 									cuentaEstudiantes2++;
 									$('#errorModiEs').detach();
 									$('#errorEstudiante').detach();
@@ -681,29 +663,49 @@
 							if (cuentaEstudiantes2 == 0) {
 									$('#errorModiEs').detach();
 									$('#errorEstudiante').detach();
-									$scope.temps.push({nombre:$scope.nuevoEstudiante2.miName, role:$scope.role});
+									$scope.temps.push({nombre:$scope.nuevoEstudiante2.nombre, role:$scope.role,idCurso : $scope.estudiantesTemp[0].id_curso});
 									console.log($scope.temps);
 									$scope.nuevoEstudiante2 ='';
 							}
 						}				
 				}
+            	});
 			};
 			$scope.guardar=function(grupo){
-				console.log($scope.temps);
 				$scope.temps2 = [];
 				$scope.temps2= $scope.temps;
-				console.log($scope.temps2);
-				console.log($scope.temps2.length);
-				for(var r=0; r< $scope.temps2.length;r++)
+				$scope.correosTemp = [];
+				$scope.correoTemp= [];
+				$scope.todos =[];
+				$scope.todosName2 =[];
+				var i = $scope.grupos.indexOf(grupo);
+				$http.post('php/buscarEstudiantesT.php', {'nombreG1' : $scope.todosName[0]}).
+             		success(function(data) {
+             		$scope.estudiantesTemp = data;
+             		$scope.todosName2 = $scope.estudiantesTemp;
+            		for(var p=0; p< $scope.todosName2.length;p++){
+                		$scope.todos.push({nombre : $scope.todosName2[p].nombre+' '+$scope.todosName2[p].primerApellido+' '+$scope.todosName2[p].segundoApellido, role : $scope.todosName2[p].roleEstudiante, correo :  $scope.todosName2[p].correoEstudiante, idCurso : $scope.todosName2[p].id_grupo_curso});
+            		};
+        			for(var r=0; r< $scope.estudiantes.length;r++)
 					{
-						$scope.todos.push({nombre:$scope.temps2[r].nombre,role:$scope.temps2[r].role});
-					}
+						for(var i=0; i< $scope.temps2.length;i++)
+						{
+            		console.log($scope.temps2[i].nombre+$scope.estudiantes[r].nombre)
+							if ($scope.temps2[i].nombre == $scope.estudiantes[r].nombre) {
+									$http.post('php/insertarEstudiantesEquipos.php', {'nombreId': $scope.temps2[i].idCurso,'nombreG' : $scope.todosName[0], 'nombreE' : $scope.estudiantes[r].correo, 'nombreR' : $scope.temps2[i].role}).
+             						success(function(dataGrupo, status) {
+            					});//post
+						}//if
+					}//for2
+					};//for1
+            	});
+        			console.log($scope.todos)
+					console.log($scope.correosTemp)		
+				
 					$('#modalEditar').fadeIn(2000);
          			$('#modalEditar').fadeOut(3000);
-					//$('<p id="msgSuccess" class="alert alert-success mipos">Edición completada.</p>').insertBefore('h1#equip').delay(3000).fadeOut();
-				$scope.nuevoEstudiante2 ='';
+					$scope.nuevoEstudiante2 ='';
 				$scope.temps =[];
-				$scope.temps2 =[];
 				$('#errorModiEs').detach();
 				$('#errorEstudiante').detach();
 				console.log($scope.todos);
