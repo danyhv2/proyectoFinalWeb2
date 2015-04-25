@@ -1,16 +1,17 @@
 (function(){
 						<!--//crear app-->
-	var modulo = angular.module('crearGrupo', []);
+	var modulo = angular.module('crearGrupo', ['ngFileUpload']);
 						<!--//fin crear app-->
 
 						<!--//inicio controller-->
-		modulo.controller('gruposController', function($scope, $http){
+		modulo.controller('gruposController', function($scope, $http,$timeout, $compile,$upload){
+		
 			
 						<!--//arreglo estudiantes-->
 		$scope.estudianteActual = 'mrosales@ucenfotec.ac.cr';
-		$scope.profe = 'pablo castro';
+		$scope.profe = 'Pablo Castro';
 		$scope.gruposTemp = [];
-		$http.get('php/buscarEquipo.php').success(function(data){
+		$http.post('php/buscarEquipo.php',{'nombreP' : $scope.profe}).success(function(data){
             		$scope.temp = data;
             		 $scope.grupoTemp = $scope.temp; 
             		 //console.log($scope.temp)
@@ -523,14 +524,43 @@
 						}
 				}
 			};
+			
+			$scope.verificarFecha=function(){
+				var miDate = $('input#inpFechaInicio').val();
+				var miDate2 = $('input#inpFechaFinal').val();
+				//var d = new Date();
+				//var n = miDate2.getSeconds();
+				console.log(miDate)
+				console.log(miDate2)
+				if (miDate == '') {
+					$('#errorArchivoName5').detach();
+					$('div#fechasE1').before('<span id="errorArchivoName5" class="bg-danger" style="color:#f44336;   background: none !important;">La fecha no puede estar vacia</span>');
+				}else if (miDate2 == '') {
+					$('#errorArchivoName5').detach();
+					$('div#fechasE').before('<span id="errorArchivoName5" class="bg-danger" style="color:#f44336;   background: none !important;">La fecha no puede estar vacia</span>');
+				}else if ($scope.enviarArchivoFecha == '' || $scope.enviarArchivoFecha == undefined) {
+					$('#errorArchivoName5').detach();
+					$('div#fechasE3').before('<span id="errorArchivoName5" class="bg-danger" style="color:#f44336;   background: none !important;">Debe elegir un grupo</span>');
+				}else if (miDate<=miDate2) {
+             		console.log($scope.enviarArchivoFecha)
+					$http.post('php/fijarFechas.php', {'nombreE' : $scope.enviarArchivoFecha.nombreGrupo,'nombreF1' : miDate,'nombreF2' : miDate2}).
+             		success(function(data) {
+					$scope.enviarArchivoFecha = ''
+            		});
+					$scope.mifecha = miDate;
+					$scope.mifecha2 = miDate2;
+					$('#modalExito2').fadeIn(2000);
+         			$('#modalExito2').fadeOut(3000);
+				}else{
+					$('#errorArchivoName5').detach();
+					$('div#fechasE').before('<span id="errorArchivoName5" class="bg-danger" style="color:#f44336;   background: none !important;">La fecha final es menor que la inicial</span>');
 
+				}
+			};
 			$scope.mostrarArchivos=function(GruposArchivo){
 				var i = $scope.GruposArchivos.indexOf(GruposArchivo);
-				$scope.todosArchivos = $scope.GruposArchivos[i].archivos;
-				var miDate = $('input#inpFechaInicio').val();
-				$scope.mifecha = miDate;
-				var miDate2 = $('input#inpFechaFinal').val();
-				$scope.mifecha2 = miDate2;
+				//$scope.todosArchivos = $scope.GruposArchivos[i].archivos;
+				
 			};
 			$scope.mostrarArchivos2=function(GruposArchivo){
 				var i = $scope.GruposArchivos2.indexOf(GruposArchivo);
@@ -622,8 +652,35 @@
             		});
 					console.log($scope.enviarProyectos[p])
             		};
+            		$('#modalExito2').fadeIn(2000);
+         			$('#modalExito2').fadeOut(3000);
+            		
 				};
 			};
+			
+
+			$scope.upload = function (files) {
+           if (files && files.length) {
+               for (var i = 0; i < files.length; i++) {
+                   var file = files[i];
+                   $upload.upload({
+                       url: 'php/subirFotoPortafolio.php',
+                       method:'POST',
+                       file: file,
+                       fileName:$scope.nuevoNameArhivoGrupo.nombreGrupo+'.jpg'
+                   }).progress(function (evt) {
+                       var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                       console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+                   }).success(function (data, status, headers, config) {
+                       console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                   });
+               }
+           }
+           $('#modalTrabajo').fadeIn(2000);
+         	$('#modalTrabajo').fadeOut(3000);
+
+       };
+		
 
 			$scope.addEstudiante2=function(grupo){
 				var cuentaEstudiantes = 0;

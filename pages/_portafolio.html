@@ -55,7 +55,7 @@
 			</div>
 			<div class="col-md-10 col-xs-10">
 				<div class="pull-left col-md-4" style="cursor:pointer;" id="wrapper">
-					<img id="miImg"class="img-responsive img-circle" ng-src="{{miFoto}}" alt="">
+					<img id="miImg"class="img-responsive img-circle" ng-src="uploads/{{miFoto}}" alt="" err-SRC="uploads/usuarios/noImgUser.png" alt="{{data[0].nombre}}">
 					<i class="text" ><p hide-sm>Cambiar imagen</p></i>	
 				</div>
 				<div class="pull-left col-md-6" id="divUl">
@@ -85,7 +85,7 @@
 						</div>
 					<div>
 						<a href="{{proyecto.pagina}}">
-							<img class="img-responsive" id="stylish" ng-src="{{proyecto.url}}">
+							<img class="img-responsive" id="stylish" ng-src="{{proyecto.url}}" err-SRC="uploads/proyectos/noImg2.jpg" alt="{{data[0].nombre}}">
 						</a>
 					</div>
 					<div layout="column" id="infoT">
@@ -94,9 +94,6 @@
 						</div>
 						<div hide-sm>
 							<h4>Por: {{proyecto.por}}</h4>
-						</div>
-						<div hide-sm>
-							<h4>{{proyecto.tecnologias}}</h4>
 						</div>
 					</div>	
 				</div>

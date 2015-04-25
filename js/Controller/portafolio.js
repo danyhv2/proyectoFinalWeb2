@@ -1,40 +1,52 @@
 (function(){
-var modulePortafolio = angular.module('modulePortafolio', []);
-modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location){
+var modulePortafolio = angular.module('modulePortafolio', [ 'ngFileUpload', ]);
+modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location,$upload,$timeout, $compile){
 
-		$scope.estudianteActual = 'test@gmail.com'
+		$scope.estudianteActual = 'mrosales@ucenfotec.ac.cr';
         $scope.datosP =[];
-            $http.post('php/datosPortafolio.php',{'nombreC' : $scope.estudianteActual, 'nombreC2' : $scope.estudianteActual}).success(function(data){
+            $http.post('php/insertarPortafolio.php',{'nombreC' : $scope.estudianteActual, 'nombreC2' : $scope.estudianteActual, 'nombreC3' : 'Pequeña descripción de sus habilidades.'}).success(function(data){
 			 $http.post('php/datosPortafolio.php',{'nombreC' : $scope.estudianteActual}).success(function(data){
 	            $scope.temp = data;
-            console.log($scope.temp[0].descripcion)
+            console.log($scope.temp[0].cedula)
 				$scope.miNombre= $scope.temp[0].nombre+' '+$scope.temp[0].primerApellido+' '+$scope.temp[0].segundoApellido;
 				$scope.miCorreo = $scope.temp[0].correo;
 				$scope.miTel = $scope.temp[0].telefono;
-				$scope.miFoto = 'https://lh4.googleusercontent.com/-zs7WY0lop4A/AAAAAAAAAAI/AAAAAAAAAJI/8IyIZpVLAJE/photo.jpg';
+				$scope.miFoto = $scope.temp[0].cedula+'.jpg';
+				console.log($scope.miFoto)
 				$scope.miDesc = $scope.temp[0].descripcion;
             });
-            /*$http.get('php/buscarEquipo.php').success(function(data){
+            
+        	});
+		$scope.proyectos=[];
+        	$scope.gruposTemp=[];
+        	$http.post('php/buscarUsuarioProyecto.php',{'nombreCCC' : $scope.estudianteActual}).success(function(data){
             		$scope.temp2 = data;
-            		 $scope.grupoTemp = $scope.temp; 
+            		 $scope.grupoTemp = $scope.temp2; 
            			 for(var p=0; p< $scope.grupoTemp.length;p++){
-  					 $scope.gruposTemp.push({nombreGrupo : $scope.grupoTemp[p].nombre_grupo});
-					$scope.grupos = $scope.gruposTemp;
+  					 $scope.gruposTemp.push({nombre : $scope.grupoTemp[p].nombre_grupo,por: $scope.grupoTemp[p].nombre+' '+$scope.grupoTemp[p].primerApellido+' '+$scope.grupoTemp[p].segundoApellido,pagina:'https://www.ucenfotec.ac.cr/',url:'uploads/proyectos/'+$scope.grupoTemp[p].nombre_grupo+'.jpg'});
+					$scope.proyectos = $scope.gruposTemp;
   					};
-        	});*/
         	});
 
-		$scope.proyectos=[
-		{nombre:'Full Colors',por:'Roy Solera',pagina:'https://www.ucenfotec.ac.cr/',tecnologias:'php,Angular,Javascript',url:'https://carlosazaustre.es/blog/content/images/2014/12/angular_bg1-3.png'},
-		{nombre:'Full Colors',por:'Roy Solera',pagina:'https://www.ucenfotec.ac.cr/',tecnologias:'php,Angular,Javascript',url:'http://www.md-imagen.com/wp-content/uploads/2013/07/Screen%20shot%202013-07-09%20at%204.54.43%20PM-1024x647.png'},
-		{nombre:'Full Colors',por:'Roy Solera',pagina:'https://www.ucenfotec.ac.cr/',tecnologias:'php,Angular,Javascript',url:'http://www.md-imagen.com/wp-content/uploads/2013/07/Screen%20shot%202013-07-09%20at%204.54.43%20PM-1024x647.png'},
-		{nombre:'Cool Stuff',por:'Roy Solera',pagina:'https://www.ucenfotec.ac.cr/',tecnologias:'php,Angular,Javascript',url:'http://www.seuba.com/web/wp-content/uploads/2012/12/img-contenido-web-diseno1.jpg'},
-		{nombre:'Full Colors',por:'Roy Solera',pagina:'https://www.ucenfotec.ac.cr/',tecnologias:'php,Angular,Javascript',url:'http://www.md-imagen.com/wp-content/uploads/2013/07/Screen%20shot%202013-07-09%20at%204.54.43%20PM-1024x647.png'},	
-		{nombre:'Compu mundo',por:'Roy Solera',pagina:'https://www.ucenfotec.ac.cr/',tecnologias:'php,Angular,Javascript',url:'http://d1qv53vvfy0ptp.cloudfront.net/wp-content/uploads/di/2013/02/12-fascinating-portfolio-websites-1.jpg'}
-		
-		
-		];
 		$scope.no= false;
+		$scope.upload = function (files) {
+           if (files && files.length) {
+               for (var i = 0; i < files.length; i++) {
+                   var file = files[i];
+                   Upload.upload({
+                       url: 'php/subirFotoPortafolio.php',
+                       method:'POST',
+                       file: file,
+                       fileName:'test3.jpg'
+                   }).progress(function (evt) {
+                       var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                       console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+                   }).success(function (data, status, headers, config) {
+                       console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                   });
+               }
+           }
+       };
 		$scope.imprimirPortafolio = function () {
 			$scope.no= true;
 			$scope.imprimirPortafolio2 = function () {
@@ -138,13 +150,6 @@ modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location)
     				$('#errorEstudiante').detach();
     				$('input#nombre').before('<span id="errorEstudiante" class="" style="color:#f44336;">El nombre solo puede contener letras</span>');
     				$scope.miNombre2 = '';
-    			}else if ($scope.miCorreo2 == '') {
-    				$('#errorEstudiante').detach();
-    				$('input#correo').before('<span id="errorEstudiante" class="" style="color:#f44336;">El correo no puede estar vacío</span>');
-    			}else if (misCorreos.test($scope.miCorreo2)!= true) {
-    				$('#errorEstudiante').detach();
-    				$('input#correo').before('<span id="errorEstudiante" class="" style="color:#f44336;">Debe ingresar un correo válido</span>');
-    				$scope.miCorreo2 = '';
     			}else if ($scope.miTel2 == '') {
     				$('#errorEstudiante').detach();
     				$('input#tel').before('<span id="errorEstudiante" class="" style="color:#f44336;">El teléfono no puede estar vacío</span>');

@@ -1,8 +1,10 @@
+
 <?php
     include "config.php"; 
 	$data = file_get_contents("php://input");
-	$Profe = json_decode($data);
-   $sql= "CALL listarEquipos('$Profe->nombreP')";
+  	$correo1 = json_decode($data);
+   	
+   	$sql= "CALL buscarUsuarioProyecto('$correo1->nombreCCC')";
     $result = mysqli_query($con, $sql);   
 
     if (!$result){

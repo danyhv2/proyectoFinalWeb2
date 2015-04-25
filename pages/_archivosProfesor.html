@@ -14,6 +14,7 @@
       </div>
    </div>
    <!--End Modal Confirm-->
+
 <div class="contenedorRubricasUi clearfix col-xs-12 tablasFull">
 		<h1 id="miArch">Archivos</h1>
 		<div>
@@ -30,7 +31,9 @@
 			</div>
 		</div>
 		<div class="col-xs-12">			
-			<md-input-container ng-controller="DatepickerDemoCtrl" class="col-sm-6">
+			<div class="clearfix">
+					<div id="fechasE1"></div>
+			<md-input-container ng-controller="DatepickerDemoCtrl" class="col-md-12 col-sm-6">
 	          	<p class="input-group clearfix">
 	              <label>Fecha de inicio</label>
 	              <input id="inpFechaInicio"  type="text" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="fechaInicio" />
@@ -41,10 +44,11 @@
 	              </span>
 	          	 </p>
 	         </md-input-container>
-	         <md-input-container ng-controller="DatepickerDemoCtrl" class="col-sm-6">
+	         <div id="fechasE"></div>
+	         <md-input-container ng-controller="DatepickerDemoCtrl" class="col-md-12 col-sm-6">
 	          	<p class="input-group clearfix">
 	              <label>Fecha de final</label>
-	              <input id="inpFechaFinal"  type="text" class="form-control" datepicker-popup="{{format}}"  is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="dateOptions"  ng-required="true" close-text="Close" ng-model="fechaFinal" />
+	              <input  id="inpFechaFinal"  type="text" class="form-control" datepicker-popup="{{format}}" data-date-format="yyyy/mm/dd" is-open="opened" min-date="'1900-01-01'" max-date="'2015-06-22'" datepicker-options="yyyy/mm/dd"  ng-required="true" close-text="Close" ng-model="fechaFinal" />
 	              <span class="input-group-btn">
 	               <button class="btnDatePicker" type="button" ng-click="open($event)" id="fechas">
 	               <img src="img/datepicker.png">
@@ -52,6 +56,13 @@
 	              </span>
 	          	 </p>
 	         </md-input-container>
+	         <div id="fechasE3"></div>
+	         <label for="estudiantes2" id="lvl">Grupos:</label>
+			            <select name="grupos" id="gruposArchivos" ng-model="enviarArchivoFecha"  class=" form-control col-xs-4 col-md-4" ng-options="grupo as grupo.nombreGrupo for grupo in grupos">
+			            </select>
+			</div>
+
+	         <button type="button" class="btn simpleColor" ng-click="verificarFecha()" style="margin-top: 1%;">Guardar Fecha</button>
 			<div class="contenedorDeCajas col-xs-12 clearfix">
 				<table class="table tBold">
 				  <thead>
@@ -181,3 +192,18 @@
   			</div>
 		</div>
 	<!--MODALExit-->
+	<!--MODAL-->
+	<div id="modalExito2" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" style="display: none;
+  position: fixed;
+  z-index: 1000;
+  min-width: 325px;
+  margin-left: auto;
+  margin-right: auto;">
+  <div class="modal-dialog modal-sm">
+    <div id="modalContent" class="modal-content alert alert-success">
+      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <span>Fecha establecida correctamente.!</span>
+    </div>
+  </div>
+</div>
+			<!--MODALExit-->

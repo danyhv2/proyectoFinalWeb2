@@ -1,8 +1,10 @@
 <?php
     include "config.php"; 
 	$data = file_get_contents("php://input");
-	$Profe = json_decode($data);
-   $sql= "CALL listarEquipos('$Profe->nombreP')";
+  	$correo1 = json_decode($data);
+  	$correo2 = json_decode($data);
+  	$desc1 = json_decode($data);
+   	$sql= "CALL insertarPortafolio('$correo1->nombreC','$correo2->nombreC2','$desc1->nombreC3')";
     $result = mysqli_query($con, $sql);   
 
     if (!$result){

@@ -26,6 +26,6 @@ angular.module('ui.bootstrap.demo').controller('DatepickerDemoCtrl', function ($
     startingDay: 1
   };
 
-  $scope.formats = ['dd-MM-yyyy'];
+  $scope.formats = ['yyyy-MM-dd'];
   $scope.format = $scope.formats[0];
 });

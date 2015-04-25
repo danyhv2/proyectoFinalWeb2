@@ -1,8 +1,11 @@
 <?php
     include "config.php"; 
 	$data = file_get_contents("php://input");
-	$Profe = json_decode($data);
-   $sql= "CALL listarEquipos('$Profe->nombreP')";
+  	$nombreGRu = json_decode($data);
+  	$fecha1 = json_decode($data);
+  	$fecha2 = json_decode($data);
+   	
+   	$sql= "CALL fijarFechasArchivos('$nombreGRu->nombreE','$fecha1->nombreF1','$fecha2->nombreF2')";
     $result = mysqli_query($con, $sql);   
 
     if (!$result){
