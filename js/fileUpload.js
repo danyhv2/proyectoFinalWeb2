@@ -44,12 +44,11 @@ app.controller('MyCtrl', [ '$scope', '$http', '$timeout', '$compile', '$upload',
     /*SUBIR FOTO*/
 
     $scope.onFileSelect = function($files) {
-        console.log('test');
     $scope.message = "";
     for (var i = 0; i < $files.length; i++) {
         var file = $files[i];
         console.log(file);
-        $scope.upload = $upload.upload({
+        /*$scope.upload = $upload.upload({
             url: 'php/subirFoto.php',
             method: 'POST',               
             file: file
@@ -58,7 +57,7 @@ app.controller('MyCtrl', [ '$scope', '$http', '$timeout', '$compile', '$upload',
             console.log(data);              
         }).error(function(data, status) {
             $scope.message = data;
-        });
+        });*/
     }
 };
 
@@ -80,7 +79,7 @@ app.controller('MyCtrl', [ '$scope', '$http', '$timeout', '$compile', '$upload',
     
     $scope.generateThumb = function(file) {
         if (file != null) {
-            if ($scope.fileReaderSupported && file.type.indexOf('image') > -1) {
+            /*if ($scope.fileReaderSupported && file.type.indexOf('image') > -1) {
                 $timeout(function() {
                     var fileReader = new FileReader();
                     fileReader.readAsDataURL(file);
@@ -90,7 +89,8 @@ app.controller('MyCtrl', [ '$scope', '$http', '$timeout', '$compile', '$upload',
                             $scope.upload = $upload.upload({
                                 url: 'php/subirFoto.php',
                                 method: 'POST',               
-                                file: file
+                                file: file,
+                                fileName: ($('#cedUser').val()+'.jpg')
                             }).success(function(data, status, headers, config) {
                                 $scope.message = data;  
                                 console.log(data);              
@@ -102,7 +102,7 @@ app.controller('MyCtrl', [ '$scope', '$http', '$timeout', '$compile', '$upload',
                         });
                     }
                 });
-            }
+            }*/
         }
     }
     
@@ -280,3 +280,5 @@ app.controller('MyCtrl', [ '$scope', '$http', '$timeout', '$compile', '$upload',
     });
     
 } ]);
+
+

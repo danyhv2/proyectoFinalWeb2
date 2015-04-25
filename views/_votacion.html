@@ -5,15 +5,6 @@
       </h4>
    </div>
    <div class="collapseCarrera panel-collapse collapse in" role="tabpanel">
-    <style type="text/css">
-    .tVotacion{
-      text-align: center;
-      color: rgb(131, 89, 89);
-    }
-    .errorVotacion, #modalExitoVotacion{
-      display: none;
-    }
-    </style>
     <h1 class="tVotacion">Actualmente no hay proyectos para votación</h1>
       <div class="panel-body panelVotacion">
         <!--modal exito-->
@@ -28,7 +19,7 @@
         <div class="votacionControl" ng-controller="VotacionCtrl">
           <h1>Configurar Votación</h1>
            <form class="formUser" ng-model="voteForm" name="voteForm" ng-submit="validarVotacion() && voteForm.$valid" novalidate>
-            <div class="btnProyectos col-xs-12 pull-right">
+            <div class="btnProyectos col-xs-2 pull-right">
                 <button class="btn btnAddUser" type="submit" data-toggle="modal" data-target="#modalConfActual">Configuración actual</button>
               </div>
               <!--modal configuracion actual-->
@@ -40,12 +31,12 @@
                          <h1>Configuración Actual</h1>
                       </div>
                       <div class="modal-body">
-                       <table class="table tUsuarios">
+                       <table class="table tVotacion">
                           <thead>
                             <tr>
-                              <th>Fecha Inicio</th>
-                              <th>Fecha Cierre</th>
-                              <th>Valor de estrellas</th>
+                              <th class="misTitulos">Fecha Inicio</th>
+                              <th class="misTitulos">Fecha Cierre</th>
+                              <th class="misTitulos">Valor de estrellas</th>
                             </tr>
                           </thead>
                           <tbody>

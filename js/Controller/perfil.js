@@ -1,7 +1,7 @@
-var perfilModule = angular.module('modulePerfil', []);
+var perfilModule = angular.module('modulePerfil', ['ngFileUpload']);
 
 
-perfilModule.controller('userPerfilCtrl', function($scope, $http) {
+perfilModule.controller('userPerfilCtrl', function($scope, $http, $upload) {
 	var self=this;
 
     function renderElement(elementIds) {
@@ -22,8 +22,43 @@ perfilModule.controller('userPerfilCtrl', function($scope, $http) {
 			         self.editPerfil.direccionExacta.$setViewValue(data[0].direccion);
 			         renderElement(['#inpDescripcion', '#inpTelefono', '#inpDireccion']);
 			         console.log($scope.tel);
+			 
 			     }
-            	
+
+			     $scope.upload = function (files) {
+			        if (files && files.length) {
+			            for (var i = 0; i < files.length; i++) {
+			                var file = files[i];
+			                $upload.upload({
+			                    url: 'php/subirFoto.php',
+			                    method:'POST',
+			                    //fields: {'username': $scope.username},
+			                    file: file,
+			                    fileName: (data[0].cedula)+'.jpg'
+			                }).progress(function (evt) {
+			                    var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+			                    console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+			                }).success(function (data, status, headers, config) {
+			                    console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+			                });
+			            }
+			        }	
+			    };
+
+
+
+
+			    /* $scope.upload = $upload.upload({
+            url: 'php/subirFoto.php',
+            method: 'POST',               
+            file: file
+        }).success(function(data, status, headers, config) {
+            $scope.message = data;  
+            console.log(data);              
+        }).error(function(data, status) {
+            $scope.message = data;
+        });*/
+		
          
             	$scope.actualizarPerfil = function(){
 	            	if($scope.perfil.editPerfil.$valid){

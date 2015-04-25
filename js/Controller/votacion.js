@@ -175,18 +175,18 @@ moduleVotacion.controller('VotacionCtrl', function($scope, $http) {
             $('.msgError').css('display','block');
         }
         if($scope.voteForm.$valid && $('.chkVotacion').hasClass('md-checked') == true && (parseInt($('#inpFechaCierre').val())-parseInt($('#inpFechaInicio').val()))>0){
+            $http.post('php/configurarVotacion.php', { 'fInicio' : ($('#inpFechaInicio').val()), 'fCierre':($('#inpFechaCierre').val())}).
+              success(function(dataVotacion, status) {
+              $scope.data = dataVotacion;
+              console.log(dataVotacion);
+            })
             $('#modalExitoVotacion').fadeIn(1000);
             $('#modalExitoVotacion').fadeOut(4000);
             $('.formUser').trigger('reset');
             $('.chkVotacion').removeClass('md-checked');
 
-
         }
-		/* $http.post('php/configurarVotacion.php', { 'fInicio' : ($('#inpFechaInicio').val()), 'fCierre':($('#inpFechaCierre').val())}).
-		      success(function(dataVotacion, status) {
-		      $scope.data = dataVotacion;
-		      console.log(dataVotacion);
-		    })*/
+		 
 	}
 
 });

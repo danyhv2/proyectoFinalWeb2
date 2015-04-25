@@ -9,8 +9,8 @@
         <div class="contUsuarios" ng-controller="userCtrl">
         <!--FORMULARIO PARA INGRESAR USUARIOS-->
           <div class="row">
-            <form class="formUser" ng-model-="newUserForm" name="userForm" ng-submit="validate() && userForm.$valid" enctype="multipart/form-data" novalidate>
-              <fieldset class="col-md-12">
+            <form class="formUser" ng-model-="newUserForm" name="userForm" ng-submit="validate() && userForm.$valid" enctype="multipart/form-data" novalidate method="POST">
+              <fieldset class="col-md-12" >
                 <legend>Datos Personales</legend>
                  <!--modal exito-->
                 <div id="modalExitoUsuarios" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
@@ -71,34 +71,34 @@
                 </md-input-container>
                 <md-input-container>
                   <label>* Cédula</label>
-                  <input validate-number required name="cedula" md-maxlength="9" ng-model="idUser" valid-values="validValues">
+                  <input id="cedUser" validate-number required name="cedula" md-maxlength="9" ng-model="idUser" valid-values="validValues">
                   <div ng-show="userForm.$submitted || userForm.cedula.$touched">
                     <div class="msgError" ng-show="userForm.cedula.$error.required">Cédula es un campo requerido.</div>
                   </div>
                 </md-input-container>
+
                  <!--AGREGAR FOTO-->
-                <md-input-container class="upload-div" ng-controller="MyCtrl">    
-                <div class="upload-buttons">
+                <md-input-container class="upload-div" ng-controller="MyCtrl">
+               <div class="upload-buttons">
                 <div id="editArea">
                   <div class="up-buttons">
-                    <button id="btnPhoto" ng-click="preventclick()" class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.jpg,*.png'" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</button>
+                    <button class="btn btnAddUser" ng-file-select ng-model="files" class="upload-button" ng-multiple="false" ng-accept="'*.pdf,*.jpg,*.png'" ng-change="upload(files)" ng-model-rejected="rejFiles" tabindex="0">Seleccionar foto</button>
                   </div>  
                 </div>
                 </div>
                 <ul ng-show="rejFiles.length > 0" class="response">
                   <li class="sel-file" ng-repeat="f in rejFiles">
-                    El archivo que esta tratando de subir no es permitido, debe ser .png o .jpg
+                    El archivo que esta tratando de subir no es permitido.
                   </li>
                 </ul>
-                <ul id="listImg" ng-show="files.length > 0" class="response">
-                  {{f.dataUrl}}
+                <ul ng-show="files.length > 0" class="response">
                   <li class="sel-file" ng-repeat="f in files">
                     <img ng-show="f.dataUrl" ng-src="{{f.dataUrl}}" ng-model="photo" class="thumb">
                     <span class="progress" ng-show="f.progress >= 0">           
                       <div style="width:{{f.progress}}%">{{f.progress}}%</div>
                     </span>       
                     <button class="button" ng-click="f.upload.abort();f.upload.aborted=true" ng-show="f.upload != null && f.progress < 100 && !f.upload.aborted">Abort</button>
-                    {{f.name}} - size: {{f.size}}B 
+                    {{f.name}} - size: {{f.size}}B - type: {{f.type}}
                     <a ng-show="f.result" href="javascript:void(0)" ng-click="f.showDetail = !f.showDetail">details</a>
                     <div ng-show="f.showDetail">
                       <div data-ng-show="f.result.result == null">{{f.result}}</div>
@@ -116,7 +116,7 @@
                 </ul>
                 <div class="err" ng-show="errorMsg != null">{{errorMsg}}</div>
               </md-input-container>
-             
+
   <!--FIN AGREGAR FOTO-->
               </div>
               </fieldset>

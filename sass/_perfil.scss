@@ -28,6 +28,15 @@
 				display: block;
 			}
 	}
+	.changeImg{
+	  margin-top: -60px;
+	  margin-left: 78px;
+	  position: absolute;
+	  z-index: 10001;
+	  a{
+	  color: rgb(53, 53, 53);
+	  }
+	 }
 	.perfilDatos{
 		padding-top:90px;
 		padding-bottom:20px;
@@ -53,6 +62,9 @@
 			}
 		}
 	}
+}
+#modalExitoPerfil{
+	display:none;
 }
 .cabecera-container{
 	width: 62.5%;

@@ -1,12 +1,7 @@
 <?php
 include "config.php"; 
 
-	/*$data = json_decode(file_get_contents("php://input"));
-
-	  $filename = $_FILES['file']['name'];
-  	  $destination = '/uploads' . $filename;
-  	  move_uploaded_file( $_FILES['file']['tmp_name'] , $destination );
-  	  echo $filename;*/
+    $data = file_get_contents("php://input");
 
 
 
@@ -17,7 +12,6 @@ include "config.php";
     $file_size =$_FILES['file']['size'];
     $file_tmp =$_FILES['file']['tmp_name'];
     $file_type=$_FILES['file']['type'];
-    $nombre_foto = '231231232';
     $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
     $extensions = array("jpeg","jpg","png");        
     if(in_array($file_ext,$extensions )=== false){
@@ -27,8 +21,9 @@ include "config.php";
         $errors[]='File size cannot exceed 2 MB';
     }               
     if(empty($errors)==true){
-        move_uploaded_file($file_tmp,"../uploads/".$nombre_foto.".jpg");
+        move_uploaded_file($file_tmp,"../uploads/".$file_name);
         echo " uploaded file: " . "images/" . $file_name;
+       
     }else{
         print_r($errors);
     }

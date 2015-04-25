@@ -115,7 +115,7 @@ h1, legend{
 				font-size:13px;
 				color:rgb(244,67,54);
 					}
-			#modalExito, #modalExitoCarrera2, #inpId, #modalExitoCurso2, #inpUserId, #modalExitoUser, #modalExitoUser2{
+			#modalExito, #modalExitoCarrera2, #inpId, #modalExitoCurso2, #inpUserId, #modalExitoUser, #modalExitoUser2, .errorVotacion, #modalExitoVotacion{
 				display:none;
 			}
 			#modalContent{
@@ -192,9 +192,10 @@ h1, legend{
 					display:none;
 					}
 				.imgProfile{
-					width:70px;
-					height:70px;
-					margin-top:62px;
+					width: 120px;
+					height: 120px;
+					margin-top: 5px;
+					position: absolute;
 				}
 			}
 			.contVerUsuarios{
@@ -246,6 +247,10 @@ h1, legend{
 			color: #757475;
   			font-size: 26px;
 		}
+		.tVotacion{
+      		text-align: center;
+      		color: rgb(131, 89, 89);
+    	}
 		fieldset{
 			padding-bottom: 40px;
 		}
@@ -267,7 +272,7 @@ h1, legend{
 				span{
 					margin-right: -4px;
 				  	float: right;
-				  	margin-top: -32px;
+				  	margin-top: -44px;
 				}
 				img{
 					width:45px;

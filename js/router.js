@@ -1,4 +1,4 @@
-var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.bootstrap.demo','ui.router', 'fileUpload', 'module', 'rutas', 'moduleDocs','moduleReport', 'crearGrupo','moduleHome', 'modulePerfil', 'modulePortafolio', 'modifyUser', 'agregarCarrera', 'agregarCurso', 'modifyCarrera', 'modifyCurso', 'verUsuarios', 'moduleVotacion','moduleLogin', 'moduleSocial', 'tindalos', 'angular-md5']);
+var routerApp = angular.module('routerApp', ['ngMaterial', 'ngMessages', 'ui.bootstrap.demo','ui.router', 'fileUpload', 'module', 'rutas', 'moduleDocs','moduleReport', 'crearGrupo','moduleHome', 'modulePerfil', 'modulePortafolio', 'modifyUser', 'agregarCarrera', 'agregarCurso', 'modifyCarrera', 'modifyCurso', 'verUsuarios', 'moduleVotacion','moduleLogin', 'moduleSocial', 'tindalos', 'angular-md5', 'ngFileUpload']);
 
 routerApp.config(function($stateProvider, $urlRouterProvider) {
     
@@ -45,7 +45,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
 });
 
-routerApp.controller('MenuC', function($scope, $state) {
+routerApp.controller('MenuC', function($scope, $state , $upload) {
   $state.go('configuracion.ingresarUsuario');
     $('ul.menuConfig li a').click(function () {
     $('ul.menuConfig li.active').removeClass('active')
@@ -78,7 +78,6 @@ routerApp.controller('userCtrl', function($scope, $http, $state, $upload, md5){
         $http.post('php/obtenerUsuarios.php').
         success(function(data2) {
           $scope.data = data2;
-          console.log(data2[1].nombre);
           
             if(data2 !== null){
               //verificar si el correo existe
@@ -120,7 +119,7 @@ routerApp.controller('userCtrl', function($scope, $http, $state, $upload, md5){
                     $scope.status = status;
                     $scope.data = data;
                     $scope.result = data; 
-                    console.log(data);
+                    console.log($scope.username);
                     console.log($scope.roleUser1);
                   })
                   .
@@ -144,8 +143,39 @@ routerApp.controller('userCtrl', function($scope, $http, $state, $upload, md5){
                 
             }
 
+            $scope.upload = function (files) {
+              console.log(files.length);
+              if (files && files.length) {
+                  for (var i = 0; i < files.length; i++) {
+                      var file = files[i];
+                      $upload.upload({
+                          url: 'php/subirFoto.php',
+                          method:'POST',
+                          //fields: {'username': $scope.username},
+                          file: file,
+                          fileName:($('#cedUser').val()+'.jpg')
+                      }).progress(function (evt) {
+                          var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+                          console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+                      }).success(function (data, status, headers, config) {
+                          console.log('file ' + config.file.name + 'uploaded. Response: ' + data);
+                      });
+                  }
+              }
+              console.log('test');
+                
+          };
 
 });
+
+
+
+/*$scope.upload = $upload.upload({
+                                url: 'php/subirFoto.php',
+                                method: 'POST',               
+                                file: file,
+                                fileName:'daniela.jpg'
+                            })*/
 
 routerApp.controller('getRoles', function($scope, $http){
   $http.post('php/getRoles.php').
