@@ -7,7 +7,7 @@ $result = mysqli_query($con, $sql);
 $lista = array();
 
 while ($item = mysqli_fetch_array($result)) {
-	$lista[] = $item;
+  $lista[] = $item;
    array_push($lista, $item);
     
 }

@@ -33,9 +33,9 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         "rol":data[posicion].userRole
                 }
                     var usuario = JSON.stringify($rootScope.usuarioLogueado);
-                    console.log(usuario);
 
-                    if($rootScope.usuarioLogueado.rol = "Estudiante"){
+                    if($rootScope.usuarioLogueado.rol === "Estudiante" || $rootScope.usuarioLogueado.rol === "estudiante"){
+                        console.log("Estudiante")
                         $('#link-abrir').addClass('hidden'); 
                         $('#link-cerrar').removeClass('hidden');
                         $('#link-cerrar').addClass('show');
@@ -43,7 +43,8 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         $("#estudiante").removeClass("hidden");
                     }
                     
-                    if($rootScope.usuarioLogueado.rol = "Profesor"){
+                    if($rootScope.usuarioLogueado.rol === "Profesor" || $rootScope.usuarioLogueado.rol === "profesor"){
+                        console.log("profe")
                         $('#link-abrir').addClass('hidden'); 
                         $('#link-cerrar').removeClass('hidden');
                         $('#link-cerrar').addClass('show');
@@ -53,7 +54,8 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         $("#estudiante").addClass("hidden");
 
                     }
-                    if($rootScope.usuarioLogueado.rol = "DirectorCarrera"){
+                    if($rootScope.usuarioLogueado.rol === "DirectorCarrera"){
+                        console.log("Director")
                         $('#link-abrir').addClass('hidden'); 
                         $('#link-cerrar').removeClass('hidden');
                         $('#link-cerrar').addClass('show');
@@ -63,7 +65,8 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         $("#grupo").removeClass("hidden");
 
                     }
-                    if($rootScope.usuarioLogueado.rol = "Administrador"){
+                    if($rootScope.usuarioLogueado.rol === "Administrador"){
+                        console.log("Admin")
                         $('#link-abrir').addClass('hidden'); 
                         $('#link-cerrar').removeClass('hidden');
                         $('#link-cerrar').addClass('show');
