@@ -44,7 +44,7 @@
                <div class="modal-header">
                   <h1 class="modal-title" id="myModalLabel">Crear Grupo</h1>
                </div>
-               <form id="modalNuevoGru" name="CurForm" ng-submit="guarNuevGr()">
+               <form id="modalNuevoGru" name="CurForm" ng-submit="guarNuevGr()"> 
                   <ng-form>
                      <div class="modal-body cajaDelmodal">
                         <div id="Nam" class="group">
@@ -94,7 +94,8 @@
                      </div>
                      <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="resetForm()">Cerrar</button>
-                        <button type="submit" class="simpleColor btn">Guardar</button>
+                        <button class="btn btnConfirmModal m-progressBorrado" ng-show="ocultarBotonGuardar">Button</button>
+                        <button type="submit" class="simpleColor btn" ng-hide="ocultarBotonGuardar">Guardar</button>
                      </div>
                   </ng-form>
                </form>
