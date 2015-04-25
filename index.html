@@ -24,7 +24,7 @@
                <nav id="menuContainer" class="tab-bar">
                   <section class="left-small">
                      <a class="left-off-canvas-toggle menu-icon visible-xs" ><span></span></a>
-                     <h1><a class="left-off-canvas-toggle menu-icon hidden-xs">Menú</a></h1>
+                     <h1><a class="left-off-canvas-toggle menu-icon hidden hidden-xs" id="menu">Menú</a></h1>
                   </section>
                   <section class="middle tab-bar-section">
                      <div class="signIn">
@@ -45,15 +45,20 @@
                         <div></div>
                      </li>
                      <li>
-                        <a id="documentos" ui-sref="documentos">Documentos</a>
+                        <a id="documentos" ui-sref="documentos" >Documentos</a>
                         <div></div>
                      </li>
                      <li><a id="perfil" ui-sref="perfil">Perfil</a></li>
-                     <li><a class="linkHover " id="grupo" ui-sref="grupo">Grupo</a></li>
-                     <li><a class="linkHover " id="reportes-menu" ui-sref="reportes">Reportes</a></li>
-                     <li><a class="linkHover " id ="estudiante" ui-sref="estudiante">Equipo</a></li>
-                     <li><a class="linkHover " id="grupo2" ui-sref="grupo2">Clase</a></li>
-                     <li id="img-configuracion"><a class="menu-link config" ui-sref="configuracion"><img src="img/config.png" alt="Configuracion"><span>Configuración</span></a></li>
+                    
+                     <li><a class="linkHover hidden" id="grupo" ui-sref="grupo" >Grupo</a></li>
+                     
+                     <li><a class="linkHover hidden" id="reportes-menu" ui-sref="reportes">Reportes</a></li>
+                     
+                     <li><a class="linkHover hidden" id ="estudiante"  ui-sref="estudiante">Equipo</a></li>
+                     
+                     <li><a class="linkHover hidden" id="grupo2" ui-sref="grupo2" >Clase</a></li>
+                     
+                     <li id="img-configuracion"><a class="menu-link config hidden" ui-sref="configuracion"><img src="img/config.png" alt="Configuracion"><span>Configuración</span></a></li>
                   </ul>
                </aside>
             </header>
@@ -73,7 +78,7 @@
                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                  <strong>Debe ingresar el correo de la universidad</strong>
                               </div>
-                              <form class="formUser"  id ="formLogin" ng-model="userForm" name="userForm" ng-controller = "signupController"  novalidate>
+                              <form class="formUser"  id ="formLogin" ng-model="userForm" name="userForm" ng-controller = "signupController"   novalidate>
                                  <fieldset class="col-sm-6">
                                     <div class="col-md-12">
                                        <md-input-container>
@@ -97,7 +102,7 @@
                                  </fieldset>
                                  <div class="col-xs-12 ingresar-login"> 
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>  
-                                    <button class="btn btn btnLogin" ng-click= "signupForm()">Ingresar</button>
+                                    <button class="btn btn btnLogin" name ="enviar" ng-click= "signupForm()">Ingresar</button>
                                  </div>
                               </form>
                            </div>
@@ -156,8 +161,7 @@
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-animate.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular-aria.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.8.0/angular-material.js"></script>
-      <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.8.3/angular-material.js"></script>-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.8.3/angular-material.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular-messages.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.1/ui-bootstrap-tpls.min.js"></script>
@@ -192,7 +196,6 @@
       <script type="text/javascript" src="js/controller/modificarCurso.js"></script>
       <script type="text/javascript" src="js/controller/verUsuarios.js"></script>
       <script type="text/javascript" src="js/controller/tindalos.js"></script>
-      <script type="text/javascript" src="js/libs/angular-md5.js"></script>
       <script src="js/social/00-directive.js"></script>
       <script src="js/social/02-facebook.js"></script>
       <script src="js/social/03-twitter.js"></script>
