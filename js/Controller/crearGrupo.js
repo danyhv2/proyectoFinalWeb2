@@ -9,6 +9,7 @@
 			
 						<!--//arreglo estudiantes-->
 		$scope.estudianteActual = 'mrosales@ucenfotec.ac.cr';
+		 ////////$scope.profeT =localStorage.getItem(user);
 		$scope.profe = 'Pablo Castro';
 		$scope.gruposTemp = [];
 		$http.post('php/buscarEquipo.php',{'nombreP' : $scope.profe}).success(function(data){
@@ -260,7 +261,7 @@
 
 						<!-- //funcion agregar nombre de y role de estudiantes a arreglo vacio-->
 			$scope.addGrupo=function(){			
-      		console.log($scope.grupos)
+      		console.log($scope.nuevoName)
       		var cuentaEquipos = 0;
       			$scope.grupoTemp =[];
       			$scope.grupos2 =[];
@@ -290,7 +291,7 @@
 			             				success(function(dataGrupo, status) {
 			            			});
 			             		};
-			        			$http.get('php/buscarEquipo.php').success(function(data){
+			        			$http.post('php/buscarEquipo.php',{'nombreP' : $scope.profe}).success(function(data){
 			            		$scope.temp = data;
 			            		 $scope.grupoTemp = $scope.temp; 
 			           			 for(var p=0; p< $scope.grupoTemp.length;p++){
@@ -298,7 +299,7 @@
 			  					};
 			        			$scope.grupos =[];
 			        			$scope.grupos = $scope.grupos2;
-			        			})
+			        			});
 							
 								console.log($scope.grupos);
 								$('#errorEstudiante').detach();
@@ -310,7 +311,7 @@
 								$scope.nuevoEstudiante ='';
 								$scope.cursoEstudiante ='';
 								$scopenuevoRole ='';
-								//$scope.muchos = [];
+								$scope.muchos = [];
 								$('#errorNombreGrupo').detach();
 							}else{
 								$('#errorEstudiante').detach();
@@ -547,6 +548,7 @@
              		success(function(data) {
 					$scope.enviarArchivoFecha = ''
             		});
+            		$('#errorArchivoName5').detach();
 					$scope.mifecha = miDate;
 					$scope.mifecha2 = miDate2;
 					$('#modalExito2').fadeIn(2000);
