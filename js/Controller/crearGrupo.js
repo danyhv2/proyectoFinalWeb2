@@ -9,7 +9,7 @@
 			
 						<!--//arreglo estudiantes-->
 		$scope.estudianteActual = 'mrosales@ucenfotec.ac.cr';
-		 $scope.profeT =localStorage.getItem(user);
+		 ////////$scope.profeT =localStorage.getItem(user);
 		$scope.profe = 'Pablo Castro';
 		$scope.gruposTemp = [];
 		$http.post('php/buscarEquipo.php',{'nombreP' : $scope.profe}).success(function(data){
@@ -548,6 +548,7 @@
              		success(function(data) {
 					$scope.enviarArchivoFecha = ''
             		});
+            		$('#errorArchivoName5').detach();
 					$scope.mifecha = miDate;
 					$scope.mifecha2 = miDate2;
 					$('#modalExito2').fadeIn(2000);
