@@ -9,168 +9,88 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
         
         if ($scope.userForm.$valid) {
             var posicion = -1;
-            var email = $scope.usuario.email;
-            var password = $scope.usuario.password;
 
-            $http.get('data/usuario.json').success(function(data) {
+            $http.post('php/login.php').success(function(data){
+                
+                for (var i = 0; i < data.length; i++) {
                     
-            for (var i = 0; i < data.length; i++) {
-                        
-                if (data[i].email == email) {
-                            
-                    if ( data[i].password == password) {
+                    if(data[i].correo == $scope.usuario.email && data[i].contrasena == $scope.usuario.password){
                         posicion = i;
                         $('#login').modal('hide');
                         $('#formLogin').trigger("reset");
-                        break
                     }
                 }
-                if (data[i].email != email) {
-                    $("#nuevo-user").removeClass('hide');
-                    $("#nuevo-user").addClass('show');
-        
-                    timeoutHandle = window.setTimeout(function(){
-                        $("#nuevo-user").removeClass('show');
-                        $("#nuevo-user").addClass('hide');
-                    }, 2000);
-
-                }
-            }
-
+                
                 if (posicion > -1) {
                     $rootScope.usuarioLogueado = {
+                        "correo": data[posicion].correo,
+                        "cedula": data[posicion].cedula,
                         "nombre": data[posicion].nombre,
-                        "password": data[posicion].password,
-                        "email": data[posicion].email,
-                        "foto": data[posicion].foto,
-                        "Rol": data[posicion].rol
-                    };
-                        
-                    var Userlogin = JSON.stringify($rootScope.usuarioLogueado);
-                                    console.log(Userlogin)
-                                
-                    if ($rootScope.usuarioLogueado.Rol == "administrador") {
-                        $('#link-abrir').addClass('hide'); 
-                        $('#link-cerrar').removeClass('hide'); 
-                        $('#img-configuracion').removeClass('hide');
-                        $('#img-configuracion').addClass('show');
-                        $('#home').removeClass('hide');
-                        $('#home').addClass('show');
-                        $('#documentos').removeClass('hide');
-                        $('#documentos').addClass('show');
-                        $('#perfil').removeClass('hide');
-                        $('#perfil').addClass('show');
-                        $('#grupo').removeClass('hide');
-                        $('#grupo').addClass('show');
-                        $('#reportes-menu').removeClass('hide');
-                        $('#reportes-menu').addClass('show');
-                        $('#grupo2').removeClass('hide');
-                        $('#grupo2').addClass('show');
-                        $('#estudiante').removeClass('hide');
-                        $('#estudiante').addClass('show');
-                        $('#uno').removeClass('show');
-                        $('#uno').addClass('hidden');
-                        $('#dos').removeClass('show');
-                        $('#dos').addClass('hidden');
-                        $('#tres').removeClass('show');
-                        $('#tres').addClass('hidden');
-                        $('#diez').removeClass('hidden');
-                        $('#diez').addClass('show');
-                        $('#once').removeClass('hidden');
-                        $('#once').addClass('show');
-                        $('#doce').removeClass('hidden');
-                        $('#doce').addClass('show');
+                        "primerA": data[posicion].primerApellido,
+                        "segundoA" : data[posicion].segundoApellido,
+                        "contrasena": data[posicion].contrasena,
+                        "direccion": data[posicion].direccion,
+                        "rol":data[posicion].userRole
+                }
+                    var usuario = JSON.stringify($rootScope.usuarioLogueado);
 
-                        /*$location.url('/configuracion');*/
-                    } 
-                    if ($rootScope.usuarioLogueado.Rol == "estudiante") {
-
-                        $('#link-abrir').addClass('hide'); 
-                        $('#link-cerrar').removeClass('hide'); 
-                        $('#documentos').removeClass('hide');
-                        $('#documentos').addClass('show');
-                        $('#perfil').removeClass('hide');
-                        $('#perfil').addClass('show');
-                         $('#estudiante').removeClass('hide');
-                        $('#estudiante').addClass('show');
-                        $('#uno').removeClass('show');
-                        $('#uno').addClass('hidden');
-                        $('#dos').removeClass('show');
-                        $('#dos').addClass('hidden');
-                        $('#tres').removeClass('show');
-                        $('#tres').addClass('hidden');
-                        $('#diez').removeClass('hidden');
-                        $('#diez').addClass('show');
-                        $('#once').removeClass('hidden');
-                        $('#once').addClass('show');
-                        $('#doce').removeClass('hidden');
-                        $('#doce').addClass('show');
-
-                        /*$location.url('/perfil');*/
+                    if($rootScope.usuarioLogueado.rol === "Estudiante" || $rootScope.usuarioLogueado.rol === "estudiante"){
+                        console.log("Estudiante")
+                        $('#link-abrir').addClass('hidden'); 
+                        $('#link-cerrar').removeClass('hidden');
+                        $('#link-cerrar').addClass('show');
+                        $("#menu").removeClass("hidden");
+                        $("#estudiante").removeClass("hidden");
                     }
-                    if ($rootScope.usuarioLogueado.Rol == "profesor") {
+                    
+                    if($rootScope.usuarioLogueado.rol === "Profesor" || $rootScope.usuarioLogueado.rol === "profesor"){
+                        console.log("profe")
+                        $('#link-abrir').addClass('hidden'); 
+                        $('#link-cerrar').removeClass('hidden');
+                        $('#link-cerrar').addClass('show');
+                        $("#menu").removeClass("hidden");
+                        $("#reportes-menu").removeClass("hidden");
+                        $("#grupo2").removeClass("hidden");
+                        $("#estudiante").addClass("hidden");
 
-                        $('#link-abrir').addClass('hide'); 
-                        $('#link-cerrar').removeClass('hide'); 
-                        $('#documentos').removeClass('hide');
-                        $('#documentos').addClass('show');
-                        $('#perfil').removeClass('hide');
-                        $('#perfil').addClass('show');
-                        $('#reportes-menu').removeClass('hide');
-                        $('#reportes-menu').addClass('show');
-                        $('#grupo2').removeClass('hide');
-                        $('#grupo2').addClass('show');
-                        $('#uno').removeClass('show');
-                        $('#uno').addClass('hidden');
-                        $('#dos').removeClass('show');
-                        $('#dos').addClass('hidden');
-                        $('#tres').removeClass('show');
-                        $('#tres').addClass('hidden');
-                        $('#diez').removeClass('hidden');
-                        $('#diez').addClass('show');
-                        $('#once').removeClass('hidden');
-                        $('#once').addClass('show');
-                        $('#doce').removeClass('hidden');
-                        $('#doce').addClass('show');
-                                    
-                       /* $location.url('/reportes');*/
                     }
-                    if ($rootScope.usuarioLogueado.Rol == "director") {
-                        $('#link-abrir').addClass('hide'); 
-                        $('#link-cerrar').removeClass('hide'); 
-                        $('#documentos').removeClass('hide');
-                        $('#documentos').addClass('show');
-                        $('#perfil').removeClass('hide');
-                        $('#perfil').addClass('show');
-                        $('#grupo').removeClass('hide');
-                        $('#grupo').addClass('show');
-                        $('#uno').removeClass('show');
-                        $('#uno').addClass('hidden');
-                        $('#dos').removeClass('show');
-                        $('#dos').addClass('hidden');
-                        $('#tres').removeClass('show');
-                        $('#tres').addClass('hidden');
-                        $('#diez').removeClass('hidden');
-                        $('#diez').addClass('show');
-                        $('#once').removeClass('hidden');
-                        $('#once').addClass('show');
-                        $('#doce').removeClass('hidden');
-                        $('#doce').addClass('show');
-                                    
-                       /* $location.url('/grupo');*/
+                    if($rootScope.usuarioLogueado.rol === "DirectorCarrera"){
+                        console.log("Director")
+                        $('#link-abrir').addClass('hidden'); 
+                        $('#link-cerrar').removeClass('hidden');
+                        $('#link-cerrar').addClass('show');
+                        $("#menu").removeClass("hidden");
+                        $("#reportes-menu").addClass("hidden");
+                        $("#grupo2").addClass("hidden");
+                        $("#grupo").removeClass("hidden");
+
                     }
-                } 
+                    if($rootScope.usuarioLogueado.rol === "Administrador"){
+                        console.log("Admin")
+                        $('#link-abrir').addClass('hidden'); 
+                        $('#link-cerrar').removeClass('hidden');
+                        $('#link-cerrar').addClass('show');
+                        $("#menu").removeClass("hidden");
+                        $("#reportes-menu").removeClass("hidden");
+                        $("#grupo2").removeClass("hidden");
+                        $("#estudiante").removeClass("hidden");
+                        $("#img-configuracion").removeClass("hidden");
+
+                    }
+                };
             });
         }
-    }
+    }   
 });
 
 function salir(){
-    $("#menu-principal").removeClass('show');
-    $("#menu-principal").addClass('hide');
-    $('#img-configuracion').removeClass('show');
-    $('#img-configuracion').addClass('hide');
-    $('#link-abrir').removeClass('hide'); 
+    $("#menu").removeClass('show');
+    $("#menu").addClass('hidden');
+    $('#link-abrir').removeClass('hidden'); 
     $('#link-cerrar').removeClass('show');
-    $('#link-cerrar').addClass('hide'); 
+    $('#link-cerrar').addClass('hidden');
+    $("#estudiante").addClass("hidden");
+    $("#grupo").addClass("hidden");
+    $("#reportes").addClass("hidden");
+    $("#grupo2").addClass("hidden"); 
 };

@@ -60,6 +60,14 @@ routerApp.controller('MenuC', function($scope, $state , $upload) {
 });*/
 });
 
+routerApp.controller('MenuDirector', function($scope, $state) {
+  $state.go('grupo.grupoCursos');
+    $('ul.DirectorMenu li a').click(function () {
+    $('ul.DirectorMenu li.active').removeClass('active')
+    $(this).parent('li').addClass('active')
+  });
+});
+
 var users = [];
 
 routerApp.controller('userCtrl', function($scope, $http, $state, $upload, md5){

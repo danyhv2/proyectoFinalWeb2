@@ -77,9 +77,12 @@
 }
 
 .alinieminento{
-  margin: 0 auto !important;
-  max-width: 318px !important;
-  position: relative !important;
+
+   position: absolute;
+   left: 50%;
+   top: 50%; 
+   margin-left: -150px;
+   margin-top: -150px;
 }
 #formAddR{
   margin-top: 2em;

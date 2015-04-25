@@ -24,7 +24,7 @@
                <nav id="menuContainer" class="tab-bar">
                   <section class="left-small">
                      <a class="left-off-canvas-toggle menu-icon visible-xs" ><span></span></a>
-                     <h1><a class="left-off-canvas-toggle menu-icon hidden-xs">Menú</a></h1>
+                     <h1><a id="menu" class="left-off-canvas-toggle menu-icon hidden-xs hidden">Menú</a></h1>
                   </section>
                   <section class="middle tab-bar-section">
                      <div class="signIn">
@@ -49,11 +49,11 @@
                         <div></div>
                      </li>
                      <li><a id="perfil" ui-sref="perfil">Perfil</a></li>
-                     <li><a class="linkHover " id="grupo" ui-sref="grupo">Grupo</a></li>
-                     <li><a class="linkHover " id="reportes-menu" ui-sref="reportes">Reportes</a></li>
-                     <li><a class="linkHover " id ="estudiante" ui-sref="estudiante">Equipo</a></li>
-                     <li><a class="linkHover " id="grupo2" ui-sref="grupo2">Clase</a></li>
-                     <li id="img-configuracion"><a class="menu-link config" ui-sref="configuracion"><img src="img/config.png" alt="Configuracion"><span>Configuración</span></a></li>
+                     <li><a class="linkHover hidden" id="grupo" ui-sref="grupo">Grupo</a></li>
+                     <li><a class="linkHover hidden" id="reportes-menu" ui-sref="reportes">Reportes</a></li>
+                     <li><a class="linkHover hidden" id ="estudiante" ui-sref="estudiante">Equipo</a></li>
+                     <li><a class="linkHover hidden" id="grupo2" ui-sref="grupo2">Clase</a></li>
+                     <li id="img-configuracion"><a class="menu-link config hidden" ui-sref="configuracion"><img src="img/config.png" alt="Configuracion"><span>Configuración</span></a></li>
                   </ul>
                </aside>
             </header>
