@@ -504,13 +504,13 @@
                 $scope.aggrCurCr = function() {
 
                     $scope.refrescarCarreras();
+                    $scope.ocl = false;
                     $('#modalExitoDeCarrera').fadeIn(1000);
                     $('#modalExitoDeCarrera').fadeOut(1000);
                     $scope.mCarrera = '';
                     $scope.mCurso = '';
                     $('#tablaCursos').empty();
                     $('#closeCarrera').click();
-                    $scope.ocl = false;
                 }
 
                 var myVar = setTimeout($scope.aggrCurCr, 2000);
@@ -1144,11 +1144,7 @@
 var archivos = {
     "RubricasCreadas": [],
 
-    "ParamatrosRubrica": [{
-        "parametro": "Valor prueba"
-    }, {
-        "parametro": "Valor prueba 1"
-    }],
+    "ParamatrosRubrica": [],
 
     "GruposDeCurso": [],
 
