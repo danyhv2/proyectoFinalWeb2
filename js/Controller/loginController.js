@@ -32,6 +32,7 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         "direccion": data[posicion].direccion,
                         "rol":data[posicion].userRole
                 }
+                localStorage.setItem('user', data[posicion].correo);
                     var usuario = JSON.stringify($rootScope.usuarioLogueado);
 
                     if($rootScope.usuarioLogueado.rol === "Estudiante" || $rootScope.usuarioLogueado.rol === "estudiante"){

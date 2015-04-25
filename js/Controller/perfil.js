@@ -9,12 +9,13 @@ perfilModule.controller('userPerfilCtrl', function($scope, $http, $upload) {
         angular.element(id).controller('ngModel').$render();
       });
     } 
-
+//var userlogin = localStorage.getItem('user');
 
 	$http.post('php/obtenerPerfil.php', { 'data': 'test@gmail.com'}).
             success(function(data, status) {
             	$scope.data=data;
             	console.log(data);
+            	console.log(data[0].descripcion);
             	
             		if(self.editPerfil){
 	            	 self.editPerfil.descripcion.$setViewValue(data[0].descripcion);
@@ -25,7 +26,7 @@ perfilModule.controller('userPerfilCtrl', function($scope, $http, $upload) {
 			 
 			     }
 
-			     $scope.upload = function (files) {
+			     /*$scope.upload = function (files) {
 			        if (files && files.length) {
 			            for (var i = 0; i < files.length; i++) {
 			                var file = files[i];
@@ -43,7 +44,7 @@ perfilModule.controller('userPerfilCtrl', function($scope, $http, $upload) {
 			                });
 			            }
 			        }	
-			    };
+			    };*/
 
 
 
@@ -71,6 +72,8 @@ perfilModule.controller('userPerfilCtrl', function($scope, $http, $upload) {
 			            	$('#dirPerfil').text($scope.perfilDireccion);
 			            	})
 			            $('#modificarPerfil').modal('hide');
+			            $('#modalExitoPerfil').fadeIn(1000);
+			            $('#modalExitoPerfil').fadeOut(4000);
 
 	            	}
 	            	

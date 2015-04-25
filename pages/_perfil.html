@@ -4,11 +4,20 @@
 			<h1>Sobre mi</h1>
 			<p id="desc">{{data[0].descripcion}}</p>
 		</div>
-		<div class="perfilDetalles" ng-controller="MyCtrl">
+		<div class="perfilDetalles">
+			<!--MODAL EXITO-->
+			<div id="modalExitoPerfil" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+			  <div class="modal-dialog modal-sm">
+			    <div id="modalContent" class="modal-content alert alert-success">
+			      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+			      <span>Perfil modificado exitosamente.</span>
+			    </div>
+			  </div>
+			</div>
 			<div class="perfilImg col-sm-5">
 				<img class="userImg img-circle" ng-src="uploads/{{data[0].cedula}}.jpg" err-SRC="uploads/usuarios/noImgUser.png" alt="{{data[0].nombre}}"/>
 					<!--<p ng-file-select class="btnCambiarImg">Cambiar imagen</p>-->
-				<div class="upload-div changeImg">    
+				<!--<div class="upload-div changeImg">    
 	                <div class="upload-buttons">
 	                <div id="editArea">
 	                  <div class="up-buttons">
@@ -26,7 +35,7 @@
 	                    <img ng-show="f.dataUrl" ng-src="{{f.dataUrl}}" ng-name="daniela" ng-model="photo" class="thumb">      
 	                  </li>
 	                </ul>
-	             </div>
+	             </div>-->
 			</div>
 			<div class="perfilDatos col-sm-7">
 				<table class="table">
@@ -121,13 +130,5 @@
 		</div>
 	</div>
 </div>
-<!--MODAL EXITO-->
-<div id="modalExitoPerfil" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
-    <div id="modalContent" class="modal-content alert alert-success">
-      <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-      <span>Perfil modificado exitosamente.</span>
-    </div>
-  </div>
-</div>
+
 
