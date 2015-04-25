@@ -4,7 +4,12 @@ app.controller("ReportesController", function ($scope, $http, dataResource,$root
   
   $http.get('php/reportes.php').success(function (data) {
     $scope.usuarios = data;
-    console.log(data);
+      console.log(data);
+  });
+
+  $http.get('php/mostrar_reporte.php').success(function (data) {
+    $scope.estudiante = data;
+    console.log($scope.estudiante);
   });
 
 });

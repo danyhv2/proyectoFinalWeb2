@@ -1,13 +1,13 @@
 <?php
 include_once "config.php";
 
-$sql = "CALL usuario_reportes()"; 
+$sql = "CALL mostrar_reportes()"; 
 $result = mysqli_query($con, $sql);
 
 $lista = array();
 
 while ($item = mysqli_fetch_array($result)) {
-  $lista[] = $item;
+	$lista[] = $item;
    array_push($lista, $item);
     
 }

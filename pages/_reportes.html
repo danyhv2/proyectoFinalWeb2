@@ -36,12 +36,11 @@
         <button type="button" class="close" data-dismiss="modal" onclick ="show()" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
       <div class="modal-body">
-        <div class="large-4 columns result" ng-repeat="usuario in usuarios | filter:filter" id="resultado">
-          <div><img ng-src="{{usuario.img}}" class="face"></div>
+        <div class="large-4 columns result" ng-repeat="data in estudiante | filter:filter" id="resultado">
           <div class="header-info">
-            <h3><strong>Nombre:</strong> {{usuario.Nombre}}</h3>
-            <h4><strong>Correo:</strong> {{usuario.Correo}}</h4>
-            <strong>Carreras:</strong> {{usuario.Carreras}}
+            <h3><strong>Nombre:</strong> {{data.nombre}}{{data.primerApellido}}{{data.segundoApellido}}</h3>
+            <h4><strong>Correo:</strong> {{data.usuario_correo}}</h4>
+            <strong>Carreras:</strong> {{data.carrera}}
             <h3>Cursos</h3>
             <div class="info">
               <div class ="primary">
@@ -51,16 +50,16 @@
                 <div>Cuatrimestre</div>
               </div>
               <div class="secundary">
-                <div>{{usuario.Codigo1}}</div>
-                <div class="curso">{{usuario.Curso1}}</div>
-                <div class="credito">{{usuario.Credito1}}</div>
-                <div class ="cuatrimestre" >{{usuario.Cuatrimestre1}}</div>
+                <div>CT-05</div>
+                <div class="curso">Proyecto Web 1</div>
+                <div class="credito">6</div>
+                <div class ="cuatrimestre" >II cuatrimestre 2014</div>
               </div>
               <div class="secundary">
-                <div>{{usuario.Codigo2}}</div>
-                <div class="curso">{{usuario.Curso2}}</div>
-                <div class="credito">{{usuario.Credito2}}</div>
-                <div class ="cuatrimestre">{{usuario.Cuatrimestre2}}</div>
+                <div>CT-05</div>
+                <div class="curso">Proyecto Web 1</div>
+                <div class="credito">6</div>
+                <div class ="cuatrimestre">I cuatrimestre 2015</div>
               </div>
             </div>
             <h3>Grupos</h3>
@@ -72,37 +71,35 @@
                 <div>Calificación</div>
               </div>
               <div class="secundary">
-                <div>{{usuario.Equipo1}}</div>
-                <div class="curso">{{usuario.Rol1}}</div>
-                <div class="credito">{{usuario.Proyecto1}}</div>
-                <div class ="cuatrimestre" >{{usuario.Calificacion1}}</div>
+                <div>QuatroMedia</div>
+                <div class="curso">Calidad</div>
+                <div class="credito">LoginNet</div>
+                <div class ="cuatrimestre" >45</div>
               </div>
               <div class="secundary">
-                <div>{{usuario.Equipo2}}</div>
-                <div class="curso">{{usuario.Rol2}}</div>
-                <div class="credito">{{usuario.Proyecto2}}</div>
-                <div class ="cuatrimestre" >{{usuario.Calificacion2}}</div>
+                <div>DMGCoders</div>
+                <div class="curso">Coordinadora</div>
+                <div class="credito">VirtualRecord</div>
+                <div class ="cuatrimestre" >70</div>
               </div>
             </div>
             <div class="float">
-              <h4>Compañeros{{usuario.Equipo1}}</h4>
-              <div>{{usuario.Integrantes1}}</div>
+              <h4>Compañeros LoginNet</h4>
+              <div>Erick Sánchez/Coordinador</div>
               <br>
-              <div>{{usuario.Integrantes2}}</div>
+              <div>Carlos Obregon/Soporte</div>
               <br>
-              <div>{{usuario.Integrantes3}}</div>
+              <div>Cinthya Gutiérrez/Calidad</div>
               <br>
-              <div>{{usuario.Integrantes4}}</div>
+              <div>Manuel Zúñiga/calidad</div>
             </div>
             <div>
-              <h4>Compañeros{{usuario.Equipo2}}</h4>
-              <div>{{usuario.Integrantes5}}</div>
+              <h4>CompañerosDMGCoders</h4>
+              <div>Daniela Hérnandez/Desarrollo</div>
               <br>
-              <div>{{usuario.Integrantes6}}</div>
+              <div>Guillermo Sánchez/Soporte</div>
               <br>
-              <div>{{usuario.Integrantes7}}</div>
-              <br>
-              <div>{{usuario.Integrantes8}}</div>
+              <div>Roy Solera/Calidad</div>
             </div>
           </div>
         </div>
