@@ -76,7 +76,8 @@ var famax_global_options = {};
 			cache: true,
 			dataType: 'jsonp',
 			success: function(response) { showFamax(response);},
-			error: function(html) { alert(html); },
+			//
+			//error: function(html) { alert(html); },
 			beforeSend: setHeader
 		});		
 	},
@@ -91,7 +92,7 @@ var famax_global_options = {};
 			cache: true,
 			dataType: 'jsonp',
 			success: function(response) { showInfo(response);},
-			error: function(html) { alert(html); },
+			//error: function(html) { alert(html); },
 			beforeSend: setHeader
 		});		
 	},
@@ -472,12 +473,12 @@ var famax_global_options = {};
 		}			
 		
 		if(null==famax_global_options.fbAccessToken) {
-			alert("No Access Token Received");
+			//alert("No Access Token Received");
 			return;
 		}
 		
 		if(null==famax_global_options.facebookPageUrl) {
-			alert("No FanPage found");
+			//alert("No FanPage found");
 			return;
 		}
 		

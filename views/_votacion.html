@@ -19,9 +19,9 @@
         <div class="votacionControl" ng-controller="VotacionCtrl">
           <h1>Configurar Votación</h1>
            <form class="formUser" ng-model="voteForm" name="voteForm" ng-submit="validarVotacion() && voteForm.$valid" novalidate>
-            <div class="btnProyectos col-xs-2 pull-right">
+           <!-- <div class="btnProyectos col-xs-2 pull-right">
                 <button class="btn btnAddUser" type="submit" data-toggle="modal" data-target="#modalConfActual">Configuración actual</button>
-              </div>
+              </div>-->
               <!--modal configuracion actual-->
                 <div class="modal fade" id="modalConfActual" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -118,7 +118,6 @@
               <div class="btnProyectos col-xs-12">
                 <button class="btn btnAddUser" type="submit">Guardar configuración</button>
               </div>
-              {{voteForm.$valid}}
           </form>
          </div>
       </div>

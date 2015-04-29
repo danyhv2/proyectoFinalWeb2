@@ -222,8 +222,7 @@
 						};
   						
         				for(var i=0; i< $scope.correosTemp.length;i++){
-					alert($scope.correosTemp[i])
-					alert($scope.tempCorreo+1)
+		
   					 		if ($scope.correosTemp[i]==$scope.tempCorreo) {
 					console.log($scope.tempCorreo)
   					 			cuentaEstudiantes++;
@@ -235,7 +234,7 @@
   					 			break;
   					 		}
   						};
-  					 			alert(cuentaEstudiantes)
+  					 			
 						if (cuentaEstudiantes == 1) {
 								for(var t=0; t< $scope.muchos.length;t++){
 								if ($scope.muchos[t].nombre == $scope.nuevoEstudiante.nombre) {

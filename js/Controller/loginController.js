@@ -74,6 +74,7 @@ app.controller('signupController',function($scope, $location, $http, $rootScope)
                         $("#menu").removeClass("hidden");
                         $("#reportes-menu").removeClass("hidden");
                         $("#grupo2").removeClass("hidden");
+                        $("#grupo").removeClass("hidden");
                         $("#estudiante").removeClass("hidden");
                         $("#img-configuracion").removeClass("hidden");
 

@@ -8,7 +8,7 @@
 		
 			
 						<!--//arreglo estudiantes-->
-		$scope.estudianteActual = 'mrosales@ucenfotec.ac.cr';
+		$scope.estudianteActual = 'estudiante@ucenfotec.ac.cr';
 		 ////////$scope.profeT =localStorage.getItem(user);
 		$scope.profe = 'Pablo Castro';
 		$scope.gruposTemp = [];

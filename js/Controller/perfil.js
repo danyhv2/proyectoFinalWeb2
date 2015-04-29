@@ -11,7 +11,7 @@ perfilModule.controller('userPerfilCtrl', function($scope, $http, $upload) {
     } 
 //var userlogin = localStorage.getItem('user');
 
-	$http.post('php/obtenerPerfil.php', { 'data': 'test@gmail.com'}).
+	$http.post('php/obtenerPerfil.php', { 'data': 'estudiante@ucenfotec.ac.cr'}).
             success(function(data, status) {
             	$scope.data=data;
             	console.log(data);

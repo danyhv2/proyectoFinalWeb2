@@ -2,7 +2,7 @@
 var modulePortafolio = angular.module('modulePortafolio', [ 'ngFileUpload', ]);
 modulePortafolio.controller('PortafolioCtrl', function($scope, $http, $location,$upload,$timeout, $compile){
 
-		$scope.estudianteActual = 'mrosales@ucenfotec.ac.cr';
+		$scope.estudianteActual = 'estudiante@ucenfotec.ac.cr';
         $scope.datosP =[];
             $http.post('php/insertarPortafolio.php',{'nombreC' : $scope.estudianteActual, 'nombreC2' : $scope.estudianteActual, 'nombreC3' : 'Pequeña descripción de sus habilidades.'}).success(function(data){
 			 $http.post('php/datosPortafolio.php',{'nombreC' : $scope.estudianteActual}).success(function(data){
